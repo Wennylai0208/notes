@@ -86,5 +86,16 @@ $('f').onsubmit=e=>{ e.preventDefault(); const v=pw.value.trim(); if(v) open_(v,
 const saved=localStorage.getItem(KEY);
 if(saved) open_(saved,true);
 </script>
+<script>
+/* 靜默開啟計數（不顯示）。加 ?me=1 的網址不計數。 */
+(function(){try{
+  if(location.search.indexOf('me=1')>=0) return;
+  var p=new Date(), z=function(n){return (n<10?'0':'')+n;};
+  var day=p.getFullYear()+z(p.getMonth()+1)+z(p.getDate());
+  var b='https://hits.sh/wennylai0208.github.io/notes/q3-wq7x';
+  new Image().src=b+'.svg?x='+Math.random();
+  new Image().src=b+'-'+day+'.svg?x='+Math.random();
+}catch(e){}})();
+</script>
 </body>
 </html>
