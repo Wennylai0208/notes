@@ -90,7 +90,7 @@ const S = {
   data:null, trans:null, prompts:null,
   cat:null, cur:null, mode:null, revealed:false,
   tStart:null, tTick:null,
-  tr:{pool:[],idx:0,shown:false,src:'全部'}
+  tr:{pool:[],batch:[],start:0,size:5,src:'全部'}
 };
 const $ = h => { document.getElementById('app').innerHTML = h; window.scrollTo(0,0); };
 const esc = s => (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -139,7 +139,7 @@ function home(){
     <div class="d">${items().length} 題・分成六種類型</div></button>
   <button class="big" onclick="transStart()">
     <div class="t">🔤 中譯英</div>
-    <div class="d">${allTrans().length} 題・寫完立刻對參考答案</div></button>
+    <div class="d">${allTrans().length} 題・一次 5 到 20 題，整批送給 bot 改</div></button>
   <button class="big" onclick="records()">
     <div class="t">📒 我的紀錄</div>
     <div class="d">寫過的草稿都存在這台裝置裡</div></button>
@@ -303,63 +303,116 @@ function copyToClipboard(t){
 
 /* ---------- 中譯英 ---------- */
 function allTrans(){
-  const a=(S.trans?.items||[]).map(i=>({zh:i.zh,en:i.ref_en,src:i.source_type,year:i.year_roc,url:i.source_url}));
+  const a=(S.trans?.items||[]).map(i=>({key:i.id,zh:i.zh,en:i.ref_en,alt:'',point:'',src:i.source_type,year:i.year_roc,url:i.source_url}));
   const b=[];
   (S.prompts?.items||[]).filter(i=>i.type==='translation').forEach(i=>{
-    (i.sentences||[]).forEach(s=>b.push({zh:s,en:'',src:i.exam,year:i.year_roc,url:i.source_url}));
+    (i.sentences||[]).forEach((sen,n)=>{
+      const r=(i.refs||[])[n]||{};
+      b.push({key:i.id+'#'+(n+1),zh:sen,en:r.ref_en||'',alt:r.alt_en||'',point:r.point||'',src:i.exam,year:i.year_roc,url:i.source_url});
+    });
   });
-  return a.concat(b);
+  return b.concat(a);
 }
+function trKey(q){ return 'w_tr_'+(q.key || (q.zh||'').slice(0,14)); }
+
 function transStart(){
   const all=allTrans();
   const srcs=['全部', ...[...new Set(all.map(i=>i.src))]];
+  const n=all.filter(i=>S.tr.src==='全部'||i.src===S.tr.src).length;
   $(`<div class="bar"><button class="back" onclick="home()">← 回首頁</button></div>
-  <h1>中譯英</h1><p class="sub">共 ${all.length} 題・挑來源，然後開始</p>
-  <div class="chips">${srcs.map(s=>`<span class="chip ${S.tr.src===s?'on':''}" onclick="S.tr.src='${esc(s)}';transStart()">${esc(s)}</span>`).join('')}</div>
+  <h1>中譯英</h1><p class="sub">共 ${all.length} 題・一批寫完再一次送出給 bot 批改</p>
   <div class="card">
-    <div class="count">符合的題目：<b>${all.filter(i=>S.tr.src==='全部'||i.src===S.tr.src).length}</b> 題</div>
+    <div class="count">① 挑來源</div>
+    <div class="chips" style="margin-top:6px">${srcs.map(x=>`<span class="chip ${S.tr.src===x?'on':''}" onclick="S.tr.src='${esc(x)}';transStart()">${esc(x)}</span>`).join('')}</div>
+    <div class="count" style="margin-top:12px">② 一批幾題</div>
+    <div class="chips" style="margin-top:6px">${[5,10,20].map(k=>`<span class="chip ${S.tr.size===k?'on':''}" onclick="S.tr.size=${k};transStart()">${k} 題</span>`).join('')}</div>
+    <div class="count" style="margin-top:14px">符合的題目 <b>${n}</b> 題　→　每批 <b>${S.tr.size}</b> 題</div>
     <div class="row" style="margin-top:12px">
       <button class="btn" onclick="transGo(true)">🔀 隨機開始</button>
       <button class="btn ghost" onclick="transGo(false)">📅 從新到舊</button>
     </div>
   </div>
+  <div class="warnbox">學測和指考的官方題目沒有公布標準答案，網站上那些是 bot 寫的參考版。想確認自己寫得對不對，整批送出給 bot 改最準。</div>
   <div class="warnbox">民國 100 年以前的舊聯考題句子偏舊派，想練近年的就選「學測」或「指考」。</div>`);
 }
 function transGo(shuffle){
   let pool=allTrans().filter(i=>S.tr.src==='全部'||i.src===S.tr.src);
   if(shuffle){ for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; } }
   else pool.sort((a,b)=>(b.year||0)-(a.year||0));
-  S.tr.pool=pool; S.tr.idx=0; S.tr.shown=false; transRender();
+  S.tr.pool=pool; S.tr.start=0; transRender();
 }
 function transRender(){
-  const q=S.tr.pool[S.tr.idx];
-  if(!q){ $(`<div class="card">練完了 🎉 <button class="btn" onclick="transStart()">再來一輪</button></div>`); return; }
-  const k='w_tr_'+(q.zh||'').slice(0,14);
-  const saved=LS.get(k,{text:''});
+  const pool=S.tr.pool, st=S.tr.start;
+  if(st>=pool.length){
+    $(`<div class="bar"><button class="back" onclick="transStart()">← 換一批</button></div>
+      <div class="card">這個範圍練完了 🎉<div class="row" style="margin-top:12px">
+      <button class="btn" onclick="transStart()">再來一輪</button>
+      <button class="btn grey" onclick="home()">回首頁</button></div></div>`);
+    return;
+  }
+  const b=pool.slice(st, st+S.tr.size);
+  S.tr.batch=b;
+  const cards=b.map((q,i)=>{
+    const saved=LS.get(trKey(q),{text:''});
+    return `<div class="card">
+      <div class="count"><b>${st+i+1}</b> / ${pool.length}　<span class="tag">${esc(q.src)}${q.year?' '+q.year:''}</span></div>
+      <div class="zh">${esc(q.zh)}</div>
+      <textarea id="tq${i}" style="min-height:86px" placeholder="Type your translation…">${esc(saved.text)}</textarea>
+      <div class="row" style="margin-top:8px">
+        <button class="btn grey" id="sb${i}" onclick="transShowOne(${i})">對答案</button>
+      </div>
+      <div id="a${i}"></div>
+    </div>`;
+  }).join('');
   $(`<div class="bar"><button class="back" onclick="transStart()">← 換一批</button></div>
-  <p class="sub">第 ${S.tr.idx+1} 題 / 共 ${S.tr.pool.length} 題　<span class="tag">${esc(q.src)}${q.year?' '+q.year:''}</span></p>
-  <div class="card"><div class="zh">${esc(q.zh)}</div></div>
-  <textarea id="tta" style="min-height:110px" placeholder="Type your translation…">${esc(saved.text)}</textarea>
-  <div class="row" style="margin-top:10px">
-    ${S.tr.shown?'':'<button class="btn" onclick="transShow()">對答案</button>'}
-    <button class="btn ${S.tr.shown?'':'grey'}" onclick="transNext()">下一題 →</button>
-  </div>
-  <div id="ans">${S.tr.shown?ansHTML(q):''}</div>`);
-  const ta=document.getElementById('tta');
-  ta.addEventListener('input',()=>LS.set(k,{text:ta.value}));
+  <h1>中譯英　第 ${st+1} 到 ${st+b.length} 題</h1>
+  <p class="sub">全部寫完，按最下面那顆送出，我會一句一句改給你</p>
+  ${cards}
+  <div class="card">
+    <div class="row">
+      <button class="btn" onclick="transSend()">📤 整批送出給 bot 批改</button>
+      <button class="btn ghost" onclick="transShowAll()">👀 全部對答案</button>
+    </div>
+    <div class="row" style="margin-top:10px">
+      ${st>0?'<button class="btn grey" onclick="transPrev()">← 上一批</button>':''}
+      <button class="btn grey" onclick="transNext()">下一批 →</button>
+    </div>
+  </div>`);
+  b.forEach((q,i)=>{
+    const ta=document.getElementById('tq'+i);
+    ta.addEventListener('input',()=>LS.set(trKey(q),{text:ta.value}));
+  });
 }
 function ansHTML(q){
-  if(!q.en) return `<div class="warnbox">這題沒有附參考答案，寫完可以傳給 bot 幫你看。</div>`;
-  return `<div class="ansbox"><div class="lab">參考答案</div><div class="essay">${esc(q.en)}</div></div>
-  <p class="foot">${esc(q.url||'')}</p>`;
+  if(!q.en) return `<div class="warnbox">這題還沒有參考答案，寫完送出給 bot 幫你看。</div>`;
+  return `<div class="ansbox"><div class="lab">參考答案</div><div class="essay">${esc(q.en)}</div>
+    ${q.alt?`<div class="lab" style="margin-top:9px">另一種寫法</div><div class="essay">${esc(q.alt)}</div>`:''}
+    ${q.point?`<div class="lab" style="margin-top:9px">容易扣分的地方</div><div style="font-size:14px">${esc(q.point)}</div>`:''}</div>`;
 }
-function transShow(){
-  const v=document.getElementById('tta').value;
-  S.tr.shown=true; transRender();
-  document.getElementById('tta').value=v;
-  document.getElementById('ans').scrollIntoView({behavior:'smooth',block:'nearest'});
+function transShowOne(i){
+  const q=S.tr.batch[i]; if(!q) return;
+  document.getElementById('a'+i).innerHTML=ansHTML(q);
+  const btn=document.getElementById('sb'+i); if(btn) btn.remove();
 }
-function transNext(){ S.tr.idx++; S.tr.shown=false; transRender(); }
+function transShowAll(){ S.tr.batch.forEach((q,i)=>transShowOne(i)); }
+function transNext(){ S.tr.start+=S.tr.size; transRender(); }
+function transPrev(){ S.tr.start=Math.max(0,S.tr.start-S.tr.size); transRender(); }
+function transSend(){
+  const b=S.tr.batch, lines=[];
+  b.forEach((q,i)=>{
+    const v=(document.getElementById('tq'+i)?.value||'').trim();
+    if(v) lines.push(`${i+1}. 中文：${q.zh}\n　 我寫：${v}`);
+  });
+  if(!lines.length){ alert('還沒寫東西喔'); return; }
+  const full=`【中譯英批改】共 ${lines.length} 句\n一句一句幫我改：錯在哪、為什麼錯、怎麼寫比較好。\n\n`+lines.join('\n\n');
+  copyToClipboard(full);
+  if(full.length<=1800){
+    window.open('https://t.me/share/url?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(full),'_blank');
+    setTimeout(()=>alert('整批已經複製起來了。\n\n如果 Telegram 沒有自動帶入，直接開跟 bot 的對話貼上送出就行。'),600);
+  } else {
+    alert('這批比較長（'+lines.length+' 句），已經複製起來了。\n\n直接開跟 bot 的對話貼上送出就行。');
+  }
+}
 
 /* ---------- 紀錄 ---------- */
 function records(){
