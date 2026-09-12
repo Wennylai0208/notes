@@ -1,0 +1,4302 @@
+{
+  "updated": "2026-09-12",
+  "count": 26,
+  "items": [
+    {
+      "prompt_id": "99-gsat-essay",
+      "exam": "學測",
+      "year_roc": 99,
+      "category": "看圖說故事",
+      "structure_p1": "第一段用過去式交代前三格漫畫的內容：男子在麵店吃麵、小孩在一旁寫功課；男子吃完離開後，老闆和小孩發現他留下一袋錢。把場景、人物、動作講清楚就好，不用先寫結局。",
+      "structure_p2": "第二段接著想像第四格：男子在車站才發現錢不見了，接下來他怎麼做、老闆和小孩怎麼處理這袋錢，寫出一個有結局、有轉折的故事收尾，最後一句點出誠實或將心比心的意義。",
+      "ideas": [
+        "男子在車站翻遍口袋才驚覺錢不見，立刻搭車趕回麵店",
+        "老闆和小孩發現錢包後，決定在店門口等失主回來，而不是自己留下",
+        "小孩提議如果沒人來認領就送去警察局招領",
+        "男子趕回麵店，看到老闆手上還拿著那袋錢，鬆了一口氣並道謝",
+        "男子事後多留一筆小費給誠實的小孩，故事收在「誠實有好報」"
+      ],
+      "phrases": [
+        {
+          "en": "leave sth behind",
+          "zh": "把某物遺留下來"
+        },
+        {
+          "en": "rush back to N",
+          "zh": "匆忙趕回某地"
+        },
+        {
+          "en": "realize that S V",
+          "zh": "意識到…"
+        },
+        {
+          "en": "a bag of cash",
+          "zh": "一袋現金"
+        },
+        {
+          "en": "hand N over to sb",
+          "zh": "把某物交還給某人"
+        },
+        {
+          "en": "to one's relief",
+          "zh": "讓人鬆一口氣的是"
+        },
+        {
+          "en": "express one's gratitude",
+          "zh": "表達感謝"
+        },
+        {
+          "en": "keep an eye on N",
+          "zh": "留意、看顧某物"
+        },
+        {
+          "en": "without hesitation",
+          "zh": "毫不猶豫地"
+        },
+        {
+          "en": "reach into one's pocket",
+          "zh": "把手伸進口袋"
+        },
+        {
+          "en": "break into a smile",
+          "zh": "露出笑容"
+        },
+        {
+          "en": "reward sb for Ving",
+          "zh": "因為做了…而獎賞某人"
+        }
+      ],
+      "words": [
+        {
+          "en": "noodle shop",
+          "pos": "n.",
+          "zh": "麵店"
+        },
+        {
+          "en": "customer",
+          "pos": "n.",
+          "zh": "顧客"
+        },
+        {
+          "en": "owner",
+          "pos": "n.",
+          "zh": "店主"
+        },
+        {
+          "en": "wallet",
+          "pos": "n.",
+          "zh": "錢包"
+        },
+        {
+          "en": "astonished",
+          "pos": "adj.",
+          "zh": "驚訝的"
+        },
+        {
+          "en": "grateful",
+          "pos": "adj.",
+          "zh": "感激的"
+        },
+        {
+          "en": "honest",
+          "pos": "adj.",
+          "zh": "誠實的"
+        },
+        {
+          "en": "reward",
+          "pos": "n./v.",
+          "zh": "獎賞"
+        },
+        {
+          "en": "belongings",
+          "pos": "n.",
+          "zh": "隨身物品"
+        },
+        {
+          "en": "relieved",
+          "pos": "adj.",
+          "zh": "鬆一口氣的"
+        },
+        {
+          "en": "insist",
+          "pos": "v.",
+          "zh": "堅持"
+        },
+        {
+          "en": "train station",
+          "pos": "n.",
+          "zh": "火車站"
+        },
+        {
+          "en": "tip",
+          "pos": "n.",
+          "zh": "小費"
+        }
+      ],
+      "grammar": [
+        "四格漫畫是連續事件，全篇用過去簡單式敘述，動詞時態要前後一致。",
+        "可以用「Upon Ving, S V」寫『一…就…』的瞬間，例如發現錢不見的那一刻。",
+        "分詞構句能把兩個動作壓成一句，例如 Grateful for the boy's honesty, the man thanked him again and again。",
+        "小心 it 沒有指涉對象：要說『他的錢』就寫 his money／the bag，不要只寫 it 卻沒有先講過。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The moment I saw the chart, I realized my own habits were very different.",
+          "why": "「The moment S 過去式, S 過去式」正好可以用來寫男子在車站『那一刻』發現錢不見的關鍵轉折，把 chart 換成 he reached into his pocket 就能套用。"
+        },
+        {
+          "sentence": "Upon entering the workplace, I would start setting aside a fixed portion of my salary.",
+          "why": "Upon Ving, S V 是『一…就…』的句型，可以改寫成 Upon opening the bag, the owner and the boy were astonished to see so much cash，讓第一段的動作更緊湊。"
+        },
+        {
+          "sentence": "No sooner had I received my first salary than I started planning how to divide it.",
+          "why": "No sooner had S Vpp than S Ved 語氣最強，很適合放大男子發現錢不見那一刻的驚慌感。"
+        },
+        {
+          "sentence": "Comparing my plan with the average, I found a clear gap.",
+          "why": "Ving 開頭的分詞構句可以改成 Searching through his pockets, he found nothing but a train ticket，畫面感比一般句子強。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "倒裝／助動詞後面：did he won → did he win（動詞回原形）",
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）",
+        "living（活著）／leaving（離開）搞混"
+      ],
+      "model_essay": "While a man was enjoying a bowl of noodles, a young boy sat nearby, quietly doing his homework. After the man finished eating and walked away, the boy noticed a heavy bag left behind on the bench and quickly called the owner over. Upon opening it, they were both astonished to find it stuffed with cash, so they decided to wait by the door for the owner to return. Meanwhile, the man had already reached the train station. The moment he reached into his pocket, he realized his money was gone, and his heart sank. Without hesitation, he rushed all the way back to the noodle shop. To his relief, the owner was still waiting there, the bag safely in hand. Grateful beyond words, the man thanked the honest boy again and again, insisting that he keep some cash as a reward for doing the right thing.",
+      "model_essay_used": [
+        "Upon Ving, S V（改寫自 Upon opening it, they were astonished...）",
+        "The moment S 過去式, S 過去式（The moment he reached into his pocket...）",
+        "分詞構句 Vpp 開頭（Grateful beyond words, the man thanked...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 147
+    },
+    {
+      "prompt_id": "101-gsat-essay",
+      "exam": "學測",
+      "year_roc": 101,
+      "category": "書信",
+      "structure_p1": "第一段是信的開頭與關心：稱呼朋友、說明你注意到他最近沉迷電玩、常熬夜，因此荒廢課業還被父母罵，表達你的擔心，語氣要像朋友不是說教。",
+      "structure_p2": "第二段給具體建議：例如設定玩遊戲的時間表、把手機/主機交給家人保管、找讀書夥伴一起念書，最後用鼓勵的話收尾，並表達你隨時願意陪他一起調整。",
+      "ideas": [
+        "設定每天固定的遊戲時間，例如寫完作業後才能玩一小時",
+        "把主機或手機晚上交給爸媽保管，避免熬夜打電動",
+        "找你這個朋友當讀書夥伴，一起訂讀書計畫、互相監督",
+        "用運動或社團活動取代一部分打電動的時間，重新找到生活重心",
+        "提醒他被父母責罵、成績退步只是一時的，及早調整都還來得及"
+      ],
+      "phrases": [
+        {
+          "en": "be addicted to N",
+          "zh": "沉迷於…"
+        },
+        {
+          "en": "stay up late",
+          "zh": "熬夜"
+        },
+        {
+          "en": "neglect one's schoolwork",
+          "zh": "荒廢課業"
+        },
+        {
+          "en": "get scolded by sb",
+          "zh": "被某人責罵"
+        },
+        {
+          "en": "set a time limit on N",
+          "zh": "為…設定時間限制"
+        },
+        {
+          "en": "strike a balance between A and B",
+          "zh": "在A和B之間取得平衡"
+        },
+        {
+          "en": "get back on track",
+          "zh": "回到正軌"
+        },
+        {
+          "en": "keep sb company",
+          "zh": "陪伴某人"
+        },
+        {
+          "en": "make a change",
+          "zh": "做出改變"
+        },
+        {
+          "en": "be there for sb",
+          "zh": "在某人身邊支持他"
+        },
+        {
+          "en": "turn things around",
+          "zh": "扭轉局面"
+        },
+        {
+          "en": "look out for sb",
+          "zh": "關心、照顧某人"
+        }
+      ],
+      "words": [
+        {
+          "en": "addicted",
+          "pos": "adj.",
+          "zh": "上癮的"
+        },
+        {
+          "en": "video game",
+          "pos": "n.",
+          "zh": "電玩遊戲"
+        },
+        {
+          "en": "schoolwork",
+          "pos": "n.",
+          "zh": "課業"
+        },
+        {
+          "en": "concerned",
+          "pos": "adj.",
+          "zh": "擔心的"
+        },
+        {
+          "en": "routine",
+          "pos": "n.",
+          "zh": "作息、常規"
+        },
+        {
+          "en": "schedule",
+          "pos": "n./v.",
+          "zh": "時間表；安排"
+        },
+        {
+          "en": "priority",
+          "pos": "n.",
+          "zh": "優先事項"
+        },
+        {
+          "en": "encourage",
+          "pos": "v.",
+          "zh": "鼓勵"
+        },
+        {
+          "en": "sincerely",
+          "pos": "adv.",
+          "zh": "真誠地"
+        },
+        {
+          "en": "support",
+          "pos": "n./v.",
+          "zh": "支持"
+        },
+        {
+          "en": "balance",
+          "pos": "n.",
+          "zh": "平衡"
+        },
+        {
+          "en": "improve",
+          "pos": "v.",
+          "zh": "改善"
+        }
+      ],
+      "grammar": [
+        "書信要有明確的稱呼（Dear ...,）和署名（結尾 Yours, / Your friend,），語氣是朋友式的勸告，不要太說教。",
+        "建議用祈使句或 could/should 提出具體做法，例如 You could set a fixed time for gaming.",
+        "可用讓步句型先同理再建議：Although playing video games can be relaxing, staying up too late will only hurt your grades.",
+        "coerce sb into Ving 這類『介係詞+動名詞』的固定搭配要注意，不要接 to V。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The temptation of online shopping coerces me into turning away from saving.",
+          "why": "coerce sb into Ving 這個句型可以改寫成 The temptation of video games coerces you into staying up all night，很貼切地寫出電玩對朋友的拉力。"
+        },
+        {
+          "sentence": "I would stand apart from the crowd as having a short period of break is more aligned with my needs.",
+          "why": "as 後面直接接理由的寫法可以用在建議句：You could take a short break after each match, as pacing yourself is more aligned with your goals for the exam。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "adj. though S V 的讓步倒裝句型可以改成 Reluctant as you may be to give up gaming at night, a small change now will make a big difference，語氣比 Although 更有變化。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "這句收尾的邏輯『重點是找到適合自己的安排』可以直接借來鼓勵朋友：找到一個能兼顧電玩和課業的安排，比完全戒掉更實際。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "固定搭配：associate to → associate A with B；participate the game → participate in the game；coerce me to turn away → coerce me into turning away",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）"
+      ],
+      "model_essay": "Dear Alex, I have noticed that you have been staying up late playing video games almost every night, and your grades have started to slip. I know your parents have scolded you about it, and honestly, I am a little worried too. Although gaming can be a great way to relax, letting it take over your whole schedule will only hurt you in the long run. Why not set a fixed time limit, like one hour after finishing your homework? You could also ask your parents to keep your console overnight so you are not tempted to play until dawn. If you want, we could study together after school and keep each other on track. It will not be easy at first, but a small change now can turn things around before it is too late. Your friend, Ming",
+      "model_essay_used": [
+        "讓步句 Although S V, S V（Although gaming can be a great way to relax...）",
+        "coerce sb into Ving 概念改寫（temptation...take over 的拉力寫法）",
+        "收尾 what matters/turn things around 精神（a small change now can turn things around...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 139
+    },
+    {
+      "prompt_id": "102-gsat-essay",
+      "exam": "學測",
+      "year_roc": 102,
+      "category": "看圖說故事",
+      "structure_p1": "第一段依序描述前三格：公車或捷運上有一位需要座位的乘客（例如老人）上車、車廂裡的乘客反應（滑手機沒注意到、猶豫要不要讓座），把場景和人物動作用過去式交代清楚。",
+      "structure_p2": "第二段想像第四格的結局：可能是有人終於起身讓座、雙方道謝，收尾點出『將心比心、主動關懷』的訊息。",
+      "ideas": [
+        "一位老太太上車後車廂裡沒人注意到，大家都低頭滑手機",
+        "坐在博愛座的學生猶豫了一下，內心掙扎要不要讓座",
+        "結局：學生站起來讓座，老太太道謝，車廂裡的人也跟著露出微笑",
+        "或結局：老太太差點站不穩，這一幕讓猶豫的乘客終於起身扶她坐下",
+        "收尾點出小小的舉動也能溫暖整個車廂的氛圍"
+      ],
+      "phrases": [
+        {
+          "en": "give up one's seat to sb",
+          "zh": "讓座給某人"
+        },
+        {
+          "en": "be buried in one's phone",
+          "zh": "埋首滑手機"
+        },
+        {
+          "en": "hesitate to V",
+          "zh": "猶豫是否要做…"
+        },
+        {
+          "en": "stand up for sb",
+          "zh": "為某人挺身而出"
+        },
+        {
+          "en": "lose one's balance",
+          "zh": "失去平衡"
+        },
+        {
+          "en": "catch sb's eye",
+          "zh": "引起某人注意"
+        },
+        {
+          "en": "out of consideration for sb",
+          "zh": "出於對某人的體貼"
+        },
+        {
+          "en": "a random act of kindness",
+          "zh": "隨機的善舉"
+        },
+        {
+          "en": "nod in appreciation",
+          "zh": "點頭表示感謝"
+        },
+        {
+          "en": "make room for sb",
+          "zh": "為某人騰出空間"
+        },
+        {
+          "en": "priority seat",
+          "zh": "博愛座"
+        },
+        {
+          "en": "warm sb's heart",
+          "zh": "溫暖某人的心"
+        }
+      ],
+      "words": [
+        {
+          "en": "elderly",
+          "pos": "adj.",
+          "zh": "年長的"
+        },
+        {
+          "en": "passenger",
+          "pos": "n.",
+          "zh": "乘客"
+        },
+        {
+          "en": "crowded",
+          "pos": "adj.",
+          "zh": "擁擠的"
+        },
+        {
+          "en": "hesitant",
+          "pos": "adj.",
+          "zh": "猶豫的"
+        },
+        {
+          "en": "considerate",
+          "pos": "adj.",
+          "zh": "體貼的"
+        },
+        {
+          "en": "gesture",
+          "pos": "n.",
+          "zh": "舉動、姿態"
+        },
+        {
+          "en": "appreciate",
+          "pos": "v.",
+          "zh": "感激"
+        },
+        {
+          "en": "guilty",
+          "pos": "adj.",
+          "zh": "愧疚的"
+        },
+        {
+          "en": "unnoticed",
+          "pos": "adj.",
+          "zh": "未被注意到的"
+        },
+        {
+          "en": "kindness",
+          "pos": "n.",
+          "zh": "善意"
+        },
+        {
+          "en": "smile",
+          "pos": "n./v.",
+          "zh": "微笑"
+        },
+        {
+          "en": "cabin",
+          "pos": "n.",
+          "zh": "車廂"
+        }
+      ],
+      "grammar": [
+        "同四格故事一樣，用過去式串連事件，動詞時態要一致。",
+        "可用分詞構句描寫背景動作：Buried in their phones, most passengers did not even notice the old woman standing.",
+        "轉折可用 However／At that moment 帶出第四格的轉變。",
+        "小心不及物動詞誤用成及物：stand out 不能直接接受詞，讓座的『起身』要用 stand up。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "Comparing my plan with the average, I found a clear gap.",
+          "why": "Ving 分詞構句可改成 Glancing around the crowded cabin, the student noticed the old woman struggling to stand，很適合寫車廂裡的觀察畫面。"
+        },
+        {
+          "sentence": "Surprised by the figure, I went back and checked the chart again.",
+          "why": "Vpp 開頭的分詞構句可以改成 Moved by her tired expression, the student finally stood up and offered his seat，用來寫學生的心理轉折。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "adj. though S V 的讓步倒裝可以改成 Hesitant though he was at first, he stood up and gave up his seat without another thought，寫出猶豫後仍然行動的張力。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾的『what matters is...』句型可以改成 What matters is that a small act of kindness can warm an entire bus，用來收掉故事的寓意。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）",
+        "which accounts slightly under one-third → which accounts for slightly under one-third（介係詞別漏掉）",
+        "living（活著）／leaving（離開）搞混"
+      ],
+      "model_essay": "On a crowded bus, an elderly woman stepped on and looked around for a seat, but every seat was taken. Most passengers were buried in their phones and did not even notice her standing there, gripping the handrail tightly. A high school student sitting in the priority seat glanced up, hesitant, unsure whether he should give up his comfortable seat. Just as the bus turned a sharp corner and the woman lost her balance for a second, the student finally stood up without another thought and gestured for her to sit down. Grateful, the woman nodded and thanked him warmly, and the tension in the cabin melted into quiet smiles. What had begun as an awkward, silent ride ended with a small act of kindness that warmed the entire bus. Sometimes all it takes to change the mood of a crowded space is one person willing to stand up first.",
+      "model_essay_used": [
+        "分詞構句 Ving 開頭（改寫自 Comparing my plan with the average...）",
+        "分詞構句 Vpp 開頭表情緒（改寫自 Surprised by the figure...）",
+        "收尾句型 what matters is...（改寫自 After all, there is no single correct answer...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 150
+    },
+    {
+      "prompt_id": "103-gsat-essay",
+      "exam": "學測",
+      "year_roc": 103,
+      "category": "看圖說故事",
+      "structure_p1": "第一段描述前三格：一群人（朋友或家人）聚在一起，卻各自低頭滑手機，彼此沒有交流，氣氛顯得冷淡疏離，用過去式把畫面交代清楚。",
+      "structure_p2": "第二段想像第四格：某個人放下手機、主動開口說話或提議做點別的事，帶動大家跟著抬頭互動，故事收在『重新連結』的轉變。",
+      "ideas": [
+        "一群朋友聚餐，卻各自滑手機，桌上一片安靜",
+        "其中一人注意到氣氛尷尬，決定把手機收起來",
+        "他提議大家一起聊聊近況，打破沉默",
+        "結局：大家陸續放下手機，聚會重新熱絡起來",
+        "收尾點出科技雖然方便，但面對面的交流才是真正的連結"
+      ],
+      "phrases": [
+        {
+          "en": "be glued to one's phone",
+          "zh": "黏在手機上"
+        },
+        {
+          "en": "scroll through N",
+          "zh": "滑（社群媒體、頁面）"
+        },
+        {
+          "en": "put N aside",
+          "zh": "把某物放到一邊"
+        },
+        {
+          "en": "break the silence",
+          "zh": "打破沉默"
+        },
+        {
+          "en": "catch up with sb",
+          "zh": "跟某人敘舊、聊近況"
+        },
+        {
+          "en": "reconnect with sb",
+          "zh": "重新和某人建立連結"
+        },
+        {
+          "en": "an awkward silence",
+          "zh": "尷尬的沉默"
+        },
+        {
+          "en": "look up from N",
+          "zh": "從…抬起頭"
+        },
+        {
+          "en": "engage in conversation",
+          "zh": "投入對話"
+        },
+        {
+          "en": "lighten the mood",
+          "zh": "讓氣氛輕鬆一點"
+        },
+        {
+          "en": "face-to-face interaction",
+          "zh": "面對面的互動"
+        },
+        {
+          "en": "lost in one's own world",
+          "zh": "沉浸在自己的世界裡"
+        }
+      ],
+      "words": [
+        {
+          "en": "gathering",
+          "pos": "n.",
+          "zh": "聚會"
+        },
+        {
+          "en": "awkward",
+          "pos": "adj.",
+          "zh": "尷尬的"
+        },
+        {
+          "en": "distracted",
+          "pos": "adj.",
+          "zh": "分心的"
+        },
+        {
+          "en": "screen",
+          "pos": "n.",
+          "zh": "螢幕"
+        },
+        {
+          "en": "notification",
+          "pos": "n.",
+          "zh": "通知"
+        },
+        {
+          "en": "conversation",
+          "pos": "n.",
+          "zh": "對話"
+        },
+        {
+          "en": "disconnect",
+          "pos": "v.",
+          "zh": "斷開連結"
+        },
+        {
+          "en": "suggest",
+          "pos": "v.",
+          "zh": "提議"
+        },
+        {
+          "en": "cheerful",
+          "pos": "adj.",
+          "zh": "歡樂的"
+        },
+        {
+          "en": "put down",
+          "pos": "v.phr",
+          "zh": "放下"
+        },
+        {
+          "en": "bond",
+          "pos": "v./n.",
+          "zh": "建立情感連結"
+        },
+        {
+          "en": "genuine",
+          "pos": "adj.",
+          "zh": "真誠的"
+        }
+      ],
+      "grammar": [
+        "四格故事仍以過去式為主軸，注意動詞時態一致。",
+        "可用 not only...but also 描述所有人都在滑手機：Not only the two brothers but also their parents were glued to their phones.（連接兩個主詞，動詞跟最近的一致）",
+        "分詞構句可以描寫同時發生的動作：Putting down her phone, she suggested they play a card game instead.",
+        "留意介係詞固定搭配，例如 be glued to（不是 glued on）。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "Not only my classmates but also I was surprised by the figure.",
+          "why": "not only A but also B 連接兩主詞、動詞跟最近的一致，可以改寫成 Not only the parents but also the children were glued to their phones，寫出全家人都低頭滑手機的畫面。"
+        },
+        {
+          "sentence": "Comparing my plan with the average, I found a clear gap.",
+          "why": "Ving 分詞構句可以改成 Putting her phone aside, the girl suggested they talk instead，很自然地寫出第四格『放下手機』的轉折動作。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾句型可以改成 What matters is remembering to look up once in a while，用來收掉『科技便利但別忘了真實互動』的寓意。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "讓步倒裝句可改成 Reluctant though he was to put his phone down, he did it anyway，寫出角色一開始猶豫、後來還是行動的心理轉折。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "倒裝／助動詞後面：did he won → did he win（動詞回原形）",
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）",
+        "拼字：broden → broaden（要用複數 horizons）；accross → across；accommidate → accommodate；gose → goes；a phenomena → a phenomenon（單數）"
+      ],
+      "model_essay": "At a family dinner, everyone was glued to their phones the moment they sat down. Not only the two teenagers but also their parents kept scrolling through their screens, barely looking up to speak. The table was filled with delicious food, yet the room felt strangely quiet, and an awkward silence settled over the family. After a while, the youngest daughter noticed how disconnected everyone seemed and quietly put her phone aside. She looked up and asked her grandmother about a story from her childhood. One by one, the others put down their phones too, drawn into the conversation. Laughter slowly filled the room again, replacing the silence. Reluctant though some of them were to leave their group chats, they realized that the stories shared at that table meant far more than anything on their screens. Technology may connect us to the world, but nothing replaces a real conversation.",
+      "model_essay_used": [
+        "not only A but also B（Not only the two teenagers but also their parents...）",
+        "分詞構句（改寫參考：Putting her phone aside...）",
+        "讓步倒裝 adj. though S V（Reluctant though some of them were...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 149
+    },
+    {
+      "prompt_id": "104-gsat-essay",
+      "exam": "學測",
+      "year_roc": 104,
+      "category": "議論文",
+      "structure_p1": "第一段先講你選了哪一本書（示範用書名：A Thousand Doors 和 The Silent Ocean 二選一），用書名去合理想像可能的故事內容或主題，把你想像的內容說清楚。",
+      "structure_p2": "第二段講你選這本書而不選另一本的理由：可能是書名引發的好奇心、想探索的主題、或跟自己興趣的連結，舉一兩個具體理由。",
+      "ideas": [
+        "選『A Thousand Doors』，想像是一個關於平行世界或人生選擇的奇幻故事",
+        "選『The Silent Ocean』，想像是一個關於海洋保育或內心平靜的故事",
+        "理由：書名讓人好奇每一道門後面是什麼，呼應自己對未知的興趣",
+        "理由：另一本書名聽起來偏向平靜溫和，但自己更喜歡有想像空間、留白的故事",
+        "把書名和自己的個性/興趣連結，讓理由更具體不空泛"
+      ],
+      "phrases": [
+        {
+          "en": "be drawn to N",
+          "zh": "被…吸引"
+        },
+        {
+          "en": "spark one's curiosity",
+          "zh": "激起某人的好奇心"
+        },
+        {
+          "en": "judging from the title",
+          "zh": "從書名判斷"
+        },
+        {
+          "en": "leave room for imagination",
+          "zh": "留給人想像空間"
+        },
+        {
+          "en": "resonate with sb",
+          "zh": "引起某人共鳴"
+        },
+        {
+          "en": "dive into N",
+          "zh": "深入探索…"
+        },
+        {
+          "en": "a coming-of-age story",
+          "zh": "一個成長故事"
+        },
+        {
+          "en": "at first glance",
+          "zh": "乍看之下"
+        },
+        {
+          "en": "appeal to sb",
+          "zh": "吸引某人"
+        },
+        {
+          "en": "embark on a journey",
+          "zh": "展開一段旅程"
+        },
+        {
+          "en": "unravel a mystery",
+          "zh": "解開一個謎團"
+        },
+        {
+          "en": "strike a chord with sb",
+          "zh": "打動某人"
+        }
+      ],
+      "words": [
+        {
+          "en": "imaginative",
+          "pos": "adj.",
+          "zh": "富有想像力的"
+        },
+        {
+          "en": "curiosity",
+          "pos": "n.",
+          "zh": "好奇心"
+        },
+        {
+          "en": "plot",
+          "pos": "n.",
+          "zh": "情節"
+        },
+        {
+          "en": "protagonist",
+          "pos": "n.",
+          "zh": "主角"
+        },
+        {
+          "en": "theme",
+          "pos": "n.",
+          "zh": "主題"
+        },
+        {
+          "en": "mysterious",
+          "pos": "adj.",
+          "zh": "神秘的"
+        },
+        {
+          "en": "adventure",
+          "pos": "n.",
+          "zh": "冒險"
+        },
+        {
+          "en": "reflect",
+          "pos": "v.",
+          "zh": "反映、思考"
+        },
+        {
+          "en": "intrigued",
+          "pos": "adj.",
+          "zh": "感到好奇的"
+        },
+        {
+          "en": "metaphor",
+          "pos": "n.",
+          "zh": "隱喻"
+        },
+        {
+          "en": "unconventional",
+          "pos": "adj.",
+          "zh": "不落俗套的"
+        },
+        {
+          "en": "resonate",
+          "pos": "v.",
+          "zh": "引起共鳴"
+        }
+      ],
+      "grammar": [
+        "第一段先表態選哪本書，再用推測語氣描述內容，可用 I imagine that... / It seems to be a story about...",
+        "第二段的理由句要具體，避免空泛：可用 What draws me to N is that... 帶出理由。",
+        "可用 not only A but also B 呈現雙重理由，例如書名不只吸引人，還跟自己的興趣呼應。",
+        "小心不要用 it 代替書名卻沒有先講清楚指的是哪一本。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "I hope to become money-savvy before I step into the workplace.",
+          "why": "I hope to V before... 的句型可以改成 I hope to read more stories like this before I graduate，表達對這本書主題的期待。"
+        },
+        {
+          "sentence": "Becoming a professional food taster tops my bucket list.",
+          "why": "sth tops my bucket list 這個句型可以改成 Reading a story about parallel worlds tops my reading list，把『想讀』講得更有畫面感。"
+        },
+        {
+          "sentence": "All these reasons can be boiled down to the pressure of a test-oriented society.",
+          "why": "All these reasons can be boiled down to N 這個收束句型很適合總結選書的理由：All these reasons can be boiled down to my love for stories that leave room for imagination。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾邏輯可以改成 After all, there is no wrong choice between the two books; what matters is which one speaks to you，收掉『二選一』的主題。"
+        }
+      ],
+      "common_mistakes": [
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "自創字：savement → savings；recreate → recreation（不確定的字不要自己造，換一個百分之百會的字）",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）"
+      ],
+      "model_essay": "Between the two books, I would choose A Thousand Doors. Judging from the title, I imagine a story about a girl who discovers a hallway of doors, each leading to a different version of her own life. The plot would follow her as she opens door after door, learning which choices truly matter and which she can let go of. This idea sparks my curiosity far more than a title suggesting a calm, silent sea. What draws me to this book is that it leaves room for imagination instead of handing me a clear answer. I often wonder what my life would look like if I had made different choices, so a story built around parallel possibilities resonates with me. All these reasons can be boiled down to my love for stories that make readers pause and reflect on their own doors.",
+      "model_essay_used": [
+        "sth tops my bucket list（精神改寫：a story that sparks my curiosity）",
+        "All these reasons can be boiled down to N（All these reasons can be boiled down to my love for...）",
+        "收尾 what matters is...（改寫精神呼應二選一的收尾邏輯）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 142
+    },
+    {
+      "prompt_id": "105-gsat-essay",
+      "exam": "學測",
+      "year_roc": 105,
+      "category": "經驗描述",
+      "structure_p1": "第一段說明你對家事分工的看法及理由，例如認為家事應該按照每個人的時間與能力一起分擔，而不是只靠一個人。",
+      "structure_p2": "第二段舉例說明你家實際的家事分工情形，描述自己做家事的經驗與感想，語氣可以從一開始覺得麻煩，轉變成有所體會。",
+      "ideas": [
+        "認為家事該按照能力與時間分工，不是只有媽媽或某一人做",
+        "舉例：自己負責倒垃圾、洗碗，弟弟負責摺衣服，爸媽分擔煮飯打掃",
+        "做家事的經驗：一開始覺得麻煩，後來發現能訓練責任感",
+        "感想：一起做家事讓家裡氣氛更好，也更能體會家人的辛苦",
+        "把做家事當作提前練習生活技能，對未來獨立生活有幫助"
+      ],
+      "phrases": [
+        {
+          "en": "household chores",
+          "zh": "家事"
+        },
+        {
+          "en": "divide the housework",
+          "zh": "分配家事"
+        },
+        {
+          "en": "take turns Ving",
+          "zh": "輪流做…"
+        },
+        {
+          "en": "be responsible for N",
+          "zh": "負責…"
+        },
+        {
+          "en": "lend a hand",
+          "zh": "幫忙"
+        },
+        {
+          "en": "pull one's weight",
+          "zh": "盡自己的本分"
+        },
+        {
+          "en": "do the dishes",
+          "zh": "洗碗"
+        },
+        {
+          "en": "take out the trash",
+          "zh": "倒垃圾"
+        },
+        {
+          "en": "fold the laundry",
+          "zh": "摺衣服"
+        },
+        {
+          "en": "make a habit of Ving",
+          "zh": "養成…的習慣"
+        },
+        {
+          "en": "appreciate sb's effort",
+          "zh": "感激某人的付出"
+        },
+        {
+          "en": "share the workload",
+          "zh": "分攤工作量"
+        }
+      ],
+      "words": [
+        {
+          "en": "chore",
+          "pos": "n.",
+          "zh": "家事、雜務"
+        },
+        {
+          "en": "household",
+          "pos": "adj./n.",
+          "zh": "家庭的；家戶"
+        },
+        {
+          "en": "responsibility",
+          "pos": "n.",
+          "zh": "責任"
+        },
+        {
+          "en": "routine",
+          "pos": "n.",
+          "zh": "例行公事"
+        },
+        {
+          "en": "laundry",
+          "pos": "n.",
+          "zh": "待洗衣物"
+        },
+        {
+          "en": "effort",
+          "pos": "n.",
+          "zh": "努力、付出"
+        },
+        {
+          "en": "teamwork",
+          "pos": "n.",
+          "zh": "團隊合作"
+        },
+        {
+          "en": "grateful",
+          "pos": "adj.",
+          "zh": "感激的"
+        },
+        {
+          "en": "independent",
+          "pos": "adj.",
+          "zh": "獨立的"
+        },
+        {
+          "en": "contribute",
+          "pos": "v.",
+          "zh": "貢獻、付出"
+        },
+        {
+          "en": "convenience",
+          "pos": "n.",
+          "zh": "方便"
+        },
+        {
+          "en": "annoying",
+          "pos": "adj.",
+          "zh": "惱人的"
+        }
+      ],
+      "grammar": [
+        "第一段陳述看法可用 I believe that... / In my opinion, household chores should be shared by every family member.",
+        "第二段描述經驗宜用過去式或現在完成式：I have been in charge of taking out the trash since I was ten.",
+        "可用 not only...but also 列出自己負責的多項家事，注意句首倒裝時動詞要回原形。",
+        "小心 it 沒有指涉對象：講『這件事』要用 doing chores／this task 等具體名詞，不要只寫 it。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "Striking a balance between work and entertainment is important for us to reap the quality of life.",
+          "why": "Striking a balance between A and B 可以改成 Striking a balance between schoolwork and household chores is important for building responsibility，用在第一段的看法句。"
+        },
+        {
+          "sentence": "This arrangement reflects the priorities of career growth, financial stability, and future planning.",
+          "why": "N reflects the priorities of... 可以改寫成 This arrangement reflects our family's shared belief that everyone should contribute，說明家事分工反映的價值觀。"
+        },
+        {
+          "sentence": "By front-loading savings in my early career, I would give my future self more room to choose.",
+          "why": "By Ving, S V 的句型可以改成 By taking on these small chores early, I am learning skills my future self will need，把做家事跟未來連結。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可以改成 what matters is finding a division of labor that fits each family，呼應家事分工沒有標準答案。"
+        }
+      ],
+      "common_mistakes": [
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）"
+      ],
+      "model_essay": "In my opinion, household chores should be shared by every family member, not left to just one parent. Everyone under the same roof should contribute according to their time and ability. In my family, this belief is put into practice weekly: not only do I take out the trash, but I also wash the dishes after dinner, while my brother folds the laundry and my parents take turns cooking and cleaning. At first, I found these tasks annoying and complained about losing study time. Over time, however, I noticed how tired my parents looked after work, and doing my share made me feel like a real contributor, not a guest in my own home. By taking on these chores early, I am learning skills my future self will need. This arrangement reflects our family's belief that responsibility, not convenience, should decide who does what.",
+      "model_essay_used": [
+        "not only A but also B 倒裝（not only do I take out the trash, but I also wash...）",
+        "By Ving, S V（By taking on these small chores early, I am learning...）",
+        "N reflects the priorities of...（This arrangement reflects our family's shared belief...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 144
+    },
+    {
+      "prompt_id": "106-gsat-essay",
+      "exam": "學測",
+      "year_roc": 106,
+      "category": "看圖說故事",
+      "structure_p1": "第一段描述前三格：熱門景點前排了長長的隊伍，遊客在大太陽下等候，有人開始不耐煩，甚至有人想插隊。",
+      "structure_p2": "第二段想像第四格的結局：插隊的人被其他人禮貌但堅定地提醒後乖乖排回隊伍，最後大家順利進場，看到美景覺得等待值得。",
+      "ideas": [
+        "隊伍延伸到街角，大家頂著大太陽排隊等候",
+        "有人不耐煩想插隊，被前面排隊的人禮貌但堅定地提醒",
+        "插隊的人不好意思地回到隊伍後方重新排隊",
+        "排了將近兩小時後終於進場，眼前的美景讓大家覺得值得",
+        "收尾點出耐心和守規矩才能讓大家都盡興"
+      ],
+      "phrases": [
+        {
+          "en": "wait in line",
+          "zh": "排隊等候"
+        },
+        {
+          "en": "cut in line",
+          "zh": "插隊"
+        },
+        {
+          "en": "lose one's patience",
+          "zh": "失去耐心"
+        },
+        {
+          "en": "keep one's cool",
+          "zh": "保持冷靜"
+        },
+        {
+          "en": "point out N",
+          "zh": "指出…"
+        },
+        {
+          "en": "step back in line",
+          "zh": "退回隊伍"
+        },
+        {
+          "en": "make it worth the wait",
+          "zh": "讓等待值得"
+        },
+        {
+          "en": "a long queue",
+          "zh": "長長的隊伍"
+        },
+        {
+          "en": "the scorching sun",
+          "zh": "烈日"
+        },
+        {
+          "en": "hold one's ground",
+          "zh": "堅持立場"
+        },
+        {
+          "en": "take turns Ving",
+          "zh": "輪流"
+        },
+        {
+          "en": "breathe a sigh of relief",
+          "zh": "鬆一口氣"
+        }
+      ],
+      "words": [
+        {
+          "en": "attraction",
+          "pos": "n.",
+          "zh": "景點"
+        },
+        {
+          "en": "queue",
+          "pos": "n.",
+          "zh": "隊伍"
+        },
+        {
+          "en": "patience",
+          "pos": "n.",
+          "zh": "耐心"
+        },
+        {
+          "en": "tourist",
+          "pos": "n.",
+          "zh": "遊客"
+        },
+        {
+          "en": "exhausted",
+          "pos": "adj.",
+          "zh": "疲憊的"
+        },
+        {
+          "en": "embarrassed",
+          "pos": "adj.",
+          "zh": "尷尬的"
+        },
+        {
+          "en": "scenery",
+          "pos": "n.",
+          "zh": "風景"
+        },
+        {
+          "en": "worthwhile",
+          "pos": "adj.",
+          "zh": "值得的"
+        },
+        {
+          "en": "polite",
+          "pos": "adj.",
+          "zh": "有禮貌的"
+        },
+        {
+          "en": "remind",
+          "pos": "v.",
+          "zh": "提醒"
+        },
+        {
+          "en": "discipline",
+          "pos": "n.",
+          "zh": "秩序、自律"
+        },
+        {
+          "en": "fair",
+          "pos": "adj.",
+          "zh": "公平的"
+        }
+      ],
+      "grammar": [
+        "過去式敘事要一致；可用 as soon as 描寫排隊瞬間的轉折：As soon as the man tried to cut in line, the people behind him spoke up.",
+        "分詞構句可壓縮排隊的疲憊畫面：Standing under the scorching sun for nearly two hours, the tourists began to lose patience.",
+        "讓步句型可用來寫『雖然等待很久，但…』：Exhausted though they were, everyone stayed in line.",
+        "留意 it 是誰：講『這個等待』要用具體名詞如 the wait／the line，不要只寫 it。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The moment I saw the chart, I realized my own habits were very different.",
+          "why": "The moment S V, S V 可以改成 The moment the man tried to cut in line, an elderly woman calmly reminded him of the rule，寫插隊瞬間的轉折。"
+        },
+        {
+          "sentence": "Comparing my plan with the average, I found a clear gap.",
+          "why": "Ving 分詞構句可以改成 Standing under the scorching sun, the tourists slowly began to lose patience，描寫排隊時的疲憊畫面。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "讓步倒裝可以改成 Exhausted though they were, the tourists stayed patiently in line，呈現忍耐後仍守規矩的態度。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾句型可以改成 What matters most is not how fast one gets in, but how fairly everyone is treated，收掉排隊插曲的寓意。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "倒裝／助動詞後面：did he won → did he win（動詞回原形）",
+        "which accounts slightly under one-third → which accounts for slightly under one-third（介係詞別漏掉）",
+        "living（活著）／leaving（離開）搞混"
+      ],
+      "model_essay": "At one of the city's most popular attractions, a long queue stretched around the corner as tourists waited under the scorching sun. Exhausted though they were after nearly two hours, most people stayed patiently in line, chatting quietly to pass the time. Just then, a man walked straight to the front and tried to cut in line, ignoring everyone who had been waiting. The moment he did, an elderly woman standing nearby calmly reminded him that everyone deserved a fair turn. Embarrassed, the man apologized and walked all the way back to the end of the queue. A few minutes later, the gates finally opened, and the crowd moved forward smoothly. When the tourists stepped inside and saw the breathtaking scenery, every tired minute of waiting suddenly felt worthwhile. What mattered most, they realized, was not how fast they got in, but how fairly everyone was treated.",
+      "model_essay_used": [
+        "讓步倒裝 adj. though S V（Exhausted though they were...）",
+        "The moment S V, S V（The moment he did, an elderly woman...）",
+        "收尾 what matters（What mattered most, they realized...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 147
+    },
+    {
+      "prompt_id": "107-gsat-essay",
+      "exam": "學測",
+      "year_roc": 107,
+      "category": "經驗描述",
+      "structure_p1": "第一段以自己或親友的經驗、報導為例，描述一次一窩蜂排隊的情形，交代人事時地物。",
+      "structure_p2": "第二段轉為現在式，說明你對這種一窩蜂排隊現象的心得或感想，可以是正面看法也可以是反思。",
+      "ideas": [
+        "舉例：某家排隊名店開幕，隊伍繞了好幾圈，自己也跟著排了兩小時",
+        "親友經驗：朋友為了限量球鞋清晨五點就去排隊",
+        "心得：覺得有些排隊只是跟風，東西不一定值得等那麼久",
+        "心得：排隊也反映大家對品質與話題的重視，適度參與無妨",
+        "建議：與其盲目跟風，不如先做功課再決定要不要排"
+      ],
+      "phrases": [
+        {
+          "en": "follow the crowd",
+          "zh": "跟風"
+        },
+        {
+          "en": "queue up for N",
+          "zh": "為…排隊"
+        },
+        {
+          "en": "limited-edition",
+          "zh": "限量的"
+        },
+        {
+          "en": "word of mouth",
+          "zh": "口耳相傳"
+        },
+        {
+          "en": "live up to the hype",
+          "zh": "名符其實"
+        },
+        {
+          "en": "a waste of time",
+          "zh": "浪費時間"
+        },
+        {
+          "en": "get caught up in N",
+          "zh": "被…捲入"
+        },
+        {
+          "en": "fear of missing out",
+          "zh": "錯失恐懼"
+        },
+        {
+          "en": "worth the trouble",
+          "zh": "值得費這番功夫"
+        },
+        {
+          "en": "make an informed decision",
+          "zh": "做出有根據的決定"
+        },
+        {
+          "en": "blindly follow N",
+          "zh": "盲目跟隨"
+        },
+        {
+          "en": "pay off",
+          "zh": "有回報"
+        }
+      ],
+      "words": [
+        {
+          "en": "phenomenon",
+          "pos": "n.",
+          "zh": "現象（單數）"
+        },
+        {
+          "en": "trend",
+          "pos": "n.",
+          "zh": "趨勢"
+        },
+        {
+          "en": "crowd",
+          "pos": "n.",
+          "zh": "人群"
+        },
+        {
+          "en": "impulsive",
+          "pos": "adj.",
+          "zh": "衝動的"
+        },
+        {
+          "en": "overrated",
+          "pos": "adj.",
+          "zh": "被過度吹捧的"
+        },
+        {
+          "en": "curiosity",
+          "pos": "n.",
+          "zh": "好奇心"
+        },
+        {
+          "en": "disappointed",
+          "pos": "adj.",
+          "zh": "失望的"
+        },
+        {
+          "en": "hype",
+          "pos": "n.",
+          "zh": "話題炒作"
+        },
+        {
+          "en": "reasonable",
+          "pos": "adj.",
+          "zh": "合理的"
+        },
+        {
+          "en": "envious",
+          "pos": "adj.",
+          "zh": "羨慕的"
+        },
+        {
+          "en": "worthwhile",
+          "pos": "adj.",
+          "zh": "值得的"
+        },
+        {
+          "en": "reflect",
+          "pos": "v.",
+          "zh": "反映"
+        }
+      ],
+      "grammar": [
+        "第一段用具體經驗（過去式）描述排隊情形，要有時間地點人物細節。",
+        "第二段轉換成現在式表達看法/心得：I believe that... / This phenomenon reflects...",
+        "可用分詞構句收掉描述：Waiting for nearly three hours, I began to question whether it was worth it.",
+        "小心 phenomenon 單複數：a phenomenon（單）／phenomena（複），不要拼成 phenomena 當單數用。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "Upon closer inspection, it stands to reason that individuals are inclined to spend their wages on necessities.",
+          "why": "Upon closer inspection, it stands to reason that... 這個推論句型可以改成 Upon closer inspection, it stands to reason that people are simply afraid of missing out，用在第二段的心得分析。"
+        },
+        {
+          "sentence": "One phenomenon worth discussing is that the expenses of food only make up for 19%.",
+          "why": "One phenomenon worth discussing is that... 可以直接拿來當第二段開頭，改成談排隊現象背後的心理。"
+        },
+        {
+          "sentence": "Seeing how little others spend on education makes me green with envy.",
+          "why": "Seeing sth makes me + adj. 的句型可以改成 Seeing my friend line up at 5 a.m. for a pair of shoes made me both amused and a little envious，用來寫親友經驗。"
+        },
+        {
+          "sentence": "All these reasons can be boiled down to the pressure of a test-oriented society.",
+          "why": "收束句型可以改成 All these reasons can be boiled down to the fear of missing out on something everyone else seems to want。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "開頭語意重複：As can be seen in the bar chart, we can observe how... → The bar chart illustrates how...（同一句裡不要放兩個意思重複的動詞）",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）"
+      ],
+      "model_essay": "Last spring, a new bubble tea shop opened near my school, and the line soon stretched around the block. Curious, I joined my classmates and waited almost two hours just to try a drink everyone was talking about online. One phenomenon worth discussing is that people often queue up not for the product itself, but for the experience of being part of a trend. My friend once got up at five in the morning to line up for limited-edition sneakers, and her excitement left me both amused and a little envious. Upon closer inspection, it stands to reason that much of this behavior comes from the fear of missing out on something everyone else seems to want. Personally, I think joining in occasionally is fine, but blindly following every trend without asking whether it is worth the wait rarely pays off.",
+      "model_essay_used": [
+        "One phenomenon worth discussing is that...（開頭句直接借用）",
+        "Seeing sth makes me adj.（seeing her excitement made me both amused and a little envious）",
+        "Upon closer inspection, it stands to reason that...（推論句直接借用）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 141
+    },
+    {
+      "prompt_id": "108-gsat-essay",
+      "exam": "學測",
+      "year_roc": 108,
+      "category": "議論文",
+      "structure_p1": "第一段談台灣最讓你驕傲的兩個面向（例如全民健保和夜市文化），描述這些特色並說明為何讓你驕傲。",
+      "structure_p2": "第二段說明可以怎麼介紹或行銷這些台灣特色給外國人，例如透過社群媒體短影音、邀請國際旅客實際體驗等。",
+      "ideas": [
+        "台灣的全民健保：便宜又普及，讓人不用擔心生病的醫療費用",
+        "台灣的夜市文化與小吃：多元又平價，展現濃厚人情味",
+        "台灣人的友善與熱心助人",
+        "行銷方式：拍攝短影音在社群平台分享、邀請外國網紅來體驗",
+        "行銷方式：結合美食與文化導覽，讓外國旅客親身感受"
+      ],
+      "phrases": [
+        {
+          "en": "take pride in N",
+          "zh": "以…為榮"
+        },
+        {
+          "en": "be renowned for N",
+          "zh": "以…聞名"
+        },
+        {
+          "en": "a sense of community",
+          "zh": "人情味、社區感"
+        },
+        {
+          "en": "go the extra mile",
+          "zh": "多付出一份心力"
+        },
+        {
+          "en": "showcase N to the world",
+          "zh": "向世界展示…"
+        },
+        {
+          "en": "word of mouth",
+          "zh": "口碑"
+        },
+        {
+          "en": "night market culture",
+          "zh": "夜市文化"
+        },
+        {
+          "en": "universal healthcare",
+          "zh": "全民健保"
+        },
+        {
+          "en": "affordable and accessible",
+          "zh": "平價又容易取得"
+        },
+        {
+          "en": "leave a lasting impression",
+          "zh": "留下深刻印象"
+        },
+        {
+          "en": "promote N through N",
+          "zh": "透過…推廣…"
+        },
+        {
+          "en": "hospitality",
+          "zh": "好客、熱情款待"
+        }
+      ],
+      "words": [
+        {
+          "en": "pride",
+          "pos": "n.",
+          "zh": "驕傲"
+        },
+        {
+          "en": "healthcare",
+          "pos": "n.",
+          "zh": "醫療照護"
+        },
+        {
+          "en": "affordable",
+          "pos": "adj.",
+          "zh": "負擔得起的"
+        },
+        {
+          "en": "hospitality",
+          "pos": "n.",
+          "zh": "好客"
+        },
+        {
+          "en": "culture",
+          "pos": "n.",
+          "zh": "文化"
+        },
+        {
+          "en": "diversity",
+          "pos": "n.",
+          "zh": "多元性"
+        },
+        {
+          "en": "promote",
+          "pos": "v.",
+          "zh": "推廣"
+        },
+        {
+          "en": "showcase",
+          "pos": "v.",
+          "zh": "展示"
+        },
+        {
+          "en": "impression",
+          "pos": "n.",
+          "zh": "印象"
+        },
+        {
+          "en": "authentic",
+          "pos": "adj.",
+          "zh": "道地的"
+        },
+        {
+          "en": "friendly",
+          "pos": "adj.",
+          "zh": "友善的"
+        },
+        {
+          "en": "tourism",
+          "pos": "n.",
+          "zh": "觀光業"
+        }
+      ],
+      "grammar": [
+        "第一段可用 What makes me proud of N is that... 帶出驕傲的理由。",
+        "可用 not only A but also B 並列兩個驕傲的面向，倒裝時動詞回原形。",
+        "第二段講行銷方式可用 could/should + 原形動詞 表建議：Taiwan could promote this through short videos on social media.",
+        "小心冠詞：講『台灣人』要注意複數與定冠詞的用法，例如 the majority of Taiwanese people。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "This arrangement reflects the priorities of career growth, financial stability, and future planning.",
+          "why": "N reflects the priorities of... 可以改成 Taiwan's healthcare system reflects the priorities of fairness and care for every citizen。"
+        },
+        {
+          "sentence": "Striking a balance between work and entertainment is important for us to reap the quality of life.",
+          "why": "Striking a balance between A and B 可以改成 Striking a balance between affordability and quality is what makes Taiwan's night markets so special。"
+        },
+        {
+          "sentence": "I aim to leverage compound interest and build a secure financial future.",
+          "why": "I aim to V and V 的句型可以改成 Taiwan could aim to leverage social media and build a stronger international image，用在第二段行銷方式。"
+        },
+        {
+          "sentence": "The chart drives me into opening my eyes to the way others spend their money, and I wish I could become money-savvy in the future.",
+          "why": "『讓某事物帶動改變』的句型可以改成 Short videos could drive more foreigners into discovering these hidden gems for themselves。"
+        }
+      ],
+      "common_mistakes": [
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "自創字：savement → savings；recreate → recreation（不確定的字不要自己造，換一個百分之百會的字）"
+      ],
+      "model_essay": "Two things make me especially proud of Taiwan: our universal healthcare system and our night market culture. What makes me proud of the healthcare system is that it is both affordable and accessible, so no family has to choose between paying rent and seeing a doctor. Not only does this system protect citizens' health, but it also reflects the priorities of fairness and care that define our society. Our night markets tell a similar story. Striking a balance between affordability and quality is what makes them so special, offering everything from stinky tofu to bubble tea at prices anyone can enjoy. To share these strengths with the world, Taiwan could invite international content creators to film short videos exploring our night markets and hospitals firsthand. Word of mouth from real visitors, spread through social media, would likely leave a far more lasting impression than any official advertisement ever could.",
+      "model_essay_used": [
+        "not only A but also B 倒裝（Not only does this system protect...but it also reflects...）",
+        "N reflects the priorities of...（reflects the priorities of fairness and care）",
+        "Striking a balance between A and B（Striking a balance between affordability and quality...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 149
+    },
+    {
+      "prompt_id": "109-gsat-essay",
+      "exam": "學測",
+      "year_roc": 109,
+      "category": "看圖說故事",
+      "structure_p1": "第一段描述兩張照片呈現的場景：賣場週年慶開賣瞬間人潮蜂擁而入，接著顧客搶購折扣商品、賣場一片混亂的畫面。",
+      "structure_p2": "第二段想像接下來發生的事，例如兩位顧客同時搶到最後一件特價商品發生爭執，最後在店員協調下化解，收尾帶出理性消費的省思。",
+      "ideas": [
+        "開店瞬間大批顧客衝進賣場，直奔特價區",
+        "貨架上的商品被搶購一空，走道擠得水泄不通",
+        "兩位顧客同時抓住最後一件特價外套，僵持不下",
+        "店員出面協調，其中一人讓步或提議用其他優惠彌補",
+        "收尾提醒：搶便宜之餘也別忘了基本的禮貌與耐心"
+      ],
+      "phrases": [
+        {
+          "en": "rush into N",
+          "zh": "蜂擁而入"
+        },
+        {
+          "en": "grab N off the shelf",
+          "zh": "從架上搶下…"
+        },
+        {
+          "en": "sell out",
+          "zh": "賣完（不及物）"
+        },
+        {
+          "en": "a mad rush",
+          "zh": "瘋狂搶購"
+        },
+        {
+          "en": "fight over N",
+          "zh": "為…爭執"
+        },
+        {
+          "en": "step in to V",
+          "zh": "出面介入"
+        },
+        {
+          "en": "reach a compromise",
+          "zh": "達成妥協"
+        },
+        {
+          "en": "keep one's composure",
+          "zh": "保持冷靜"
+        },
+        {
+          "en": "snap up a bargain",
+          "zh": "搶到便宜貨"
+        },
+        {
+          "en": "be worth fighting over",
+          "zh": "值得爭奪"
+        },
+        {
+          "en": "settle a dispute",
+          "zh": "解決爭端"
+        },
+        {
+          "en": "in the chaos",
+          "zh": "在混亂中"
+        }
+      ],
+      "words": [
+        {
+          "en": "anniversary sale",
+          "pos": "n.",
+          "zh": "週年慶"
+        },
+        {
+          "en": "discount",
+          "pos": "n.",
+          "zh": "折扣"
+        },
+        {
+          "en": "crowd",
+          "pos": "n.",
+          "zh": "人潮"
+        },
+        {
+          "en": "chaos",
+          "pos": "n.",
+          "zh": "混亂"
+        },
+        {
+          "en": "bargain",
+          "pos": "n.",
+          "zh": "便宜貨"
+        },
+        {
+          "en": "dispute",
+          "pos": "n.",
+          "zh": "爭執"
+        },
+        {
+          "en": "compromise",
+          "pos": "n./v.",
+          "zh": "妥協"
+        },
+        {
+          "en": "staff",
+          "pos": "n.",
+          "zh": "員工"
+        },
+        {
+          "en": "mediate",
+          "pos": "v.",
+          "zh": "調解"
+        },
+        {
+          "en": "courteous",
+          "pos": "adj.",
+          "zh": "有禮貌的"
+        },
+        {
+          "en": "hectic",
+          "pos": "adj.",
+          "zh": "忙亂的"
+        },
+        {
+          "en": "shopper",
+          "pos": "n.",
+          "zh": "購物者"
+        }
+      ],
+      "grammar": [
+        "兩張圖描述用過去式，可用 The moment the doors opened 表達『一開店就…』。",
+        "用分詞構句描寫混亂畫面：Pushing past one another, shoppers rushed toward the discount racks.",
+        "第二段的衝突與化解可用 however/eventually 表轉折。",
+        "小心不及物動詞當及物用：sell out 是不及物（賣完了），不要接受詞當『把…賣完』使用。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The moment I saw the chart, I realized my own habits were very different.",
+          "why": "The moment S V, S V 可以改成 The moment the doors opened, shoppers rushed toward the discount racks，寫開店瞬間的畫面。"
+        },
+        {
+          "sentence": "Comparing my plan with the average, I found a clear gap.",
+          "why": "Ving 分詞構句可改成 Pushing past one another, shoppers grabbed whatever they could reach，描寫搶購的混亂。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "讓步倒裝可改成 Reluctant though she was to let go of the jacket, she finally agreed to share the discount，寫顧客讓步的心理轉折。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 What matters is not who grabs the bargain first, but how everyone treats each other in the process。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "倒裝／助動詞後面：did he won → did he win（動詞回原形）",
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）",
+        "living（活著）／leaving（離開）搞混"
+      ],
+      "model_essay": "The moment the doors of the department store opened for its anniversary sale, a huge crowd rushed inside, heading straight for the discount racks. Pushing past one another, shoppers grabbed whatever they could reach, and within minutes the shelves looked as if a storm had passed through. Near the coat section, two customers reached for the very last discounted jacket at the same time, and neither was willing to let go. Voices grew louder as other shoppers turned to watch the argument unfold. A staff member quickly stepped in, calmly suggesting that one of them take the jacket while the other received an extra coupon for a future purchase. Reluctant though she was at first, one woman finally agreed, and the tension melted away. What mattered in a sale like this was not who grabbed the bargain first, but how people treated each other in the rush.",
+      "model_essay_used": [
+        "The moment S V, S V（The moment the doors opened...）",
+        "分詞構句 Ving 開頭（Pushing past one another, shoppers grabbed...）",
+        "讓步倒裝 adj. though S V（Reluctant though she was at first...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 147
+    },
+    {
+      "prompt_id": "110-gsat-essay",
+      "exam": "學測",
+      "year_roc": 110,
+      "category": "看圖表達意見",
+      "structure_p1": "第一段客觀描述圖片內容：遊客為了拍照走進花圃、踩踏花朵，警告標示被忽略，不要出現「我」。",
+      "structure_p2": "第二段站在遊客或場地主人的立場表達看法，可以呼籲尊重規則、提出改善建議（例如設置拍照區），收尾點出公德心的重要。",
+      "ideas": [
+        "遊客為了拍出好看的照片，走進花圃中央踩踏花朵",
+        "花瓣被踩得東倒西歪，園方立的告示牌被忽略",
+        "站在花農/場地主人角度：心血被破壞感到心痛，呼籲遊客尊重規則",
+        "站在遊客角度：反省拍照該保持距離，建議設置拍照專區",
+        "呼籲：公德心比一張照片更重要，美景需要大家共同維護"
+      ],
+      "phrases": [
+        {
+          "en": "pose for a photo",
+          "zh": "擺姿勢拍照"
+        },
+        {
+          "en": "trample on N",
+          "zh": "踩踏"
+        },
+        {
+          "en": "step over the barrier",
+          "zh": "跨過柵欄"
+        },
+        {
+          "en": "damage the flowers",
+          "zh": "破壞花朵"
+        },
+        {
+          "en": "public etiquette",
+          "zh": "公德心"
+        },
+        {
+          "en": "take sth for granted",
+          "zh": "把…視為理所當然"
+        },
+        {
+          "en": "a designated photo zone",
+          "zh": "指定拍照區"
+        },
+        {
+          "en": "show respect for N",
+          "zh": "對…表示尊重"
+        },
+        {
+          "en": "ignore the warning sign",
+          "zh": "忽視警告標誌"
+        },
+        {
+          "en": "put oneself in sb's shoes",
+          "zh": "將心比心"
+        },
+        {
+          "en": "preserve natural beauty",
+          "zh": "維護自然美景"
+        },
+        {
+          "en": "cross the line",
+          "zh": "越界、太過分"
+        }
+      ],
+      "words": [
+        {
+          "en": "trample",
+          "pos": "v.",
+          "zh": "踩踏"
+        },
+        {
+          "en": "visitor",
+          "pos": "n.",
+          "zh": "遊客"
+        },
+        {
+          "en": "damage",
+          "pos": "n./v.",
+          "zh": "損害"
+        },
+        {
+          "en": "signage",
+          "pos": "n.",
+          "zh": "告示牌"
+        },
+        {
+          "en": "considerate",
+          "pos": "adj.",
+          "zh": "體貼的"
+        },
+        {
+          "en": "regulation",
+          "pos": "n.",
+          "zh": "規定"
+        },
+        {
+          "en": "scenery",
+          "pos": "n.",
+          "zh": "風景"
+        },
+        {
+          "en": "etiquette",
+          "pos": "n.",
+          "zh": "禮節、公德心"
+        },
+        {
+          "en": "heartbroken",
+          "pos": "adj.",
+          "zh": "心碎的"
+        },
+        {
+          "en": "preserve",
+          "pos": "v.",
+          "zh": "維護、保存"
+        },
+        {
+          "en": "respect",
+          "pos": "n.",
+          "zh": "尊重"
+        },
+        {
+          "en": "barrier",
+          "pos": "n.",
+          "zh": "柵欄、屏障"
+        }
+      ],
+      "grammar": [
+        "第一段客觀描述用現在簡單式或過去式，不出現「我」。",
+        "第二段表態可用 As with N, S V 帶出立場，注意前後主詞要不同、不能用 it 代替。",
+        "可用讓步句型：Tempting though a perfect photo may be, trampling the flowers crosses the line.",
+        "小心不及物動詞誤用成及物，例如 stand out 不能直接接受詞。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The bar chart reveals some intriguing findings.",
+          "why": "N reveals... 句型可改成 The photo reveals a troubling scene: visitors stepping directly into the flower bed，用於第一段開場描述照片。"
+        },
+        {
+          "sentence": "As with baseball stadiums in Taiwan, the Tokyo Dome has a round roof and can accommodate tens of thousands of fans.",
+          "why": "As with N, S V 前後主詞不同的句型，可以改成 As with any shared public space, a flower field requires visitors to respect the same basic rules，用於表達立場句。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "讓步倒裝可改成 Tempting though a perfect photo may be, no picture is worth destroying something so many people worked hard to grow。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 What matters most is respecting the effort behind the scenery, not just capturing it，收掉呼籲的重點。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）"
+      ],
+      "model_essay": "The photo reveals a troubling scene: several visitors have stepped directly into the flower bed, trampling the blossoms just to get a better photo. Petals are scattered across the soil, and a nearby warning sign asking people to stay on the path is completely ignored. As the owner of this flower field, I would feel heartbroken watching months of careful work ruined within minutes. Tempting though a perfect photo may be, no picture is worth destroying something so many people worked hard to grow. As with any shared public space, a flower field requires visitors to respect the same basic rules. I would suggest setting up a designated photo zone at the edge of the field instead. What matters most is respecting the effort behind the scenery, not just capturing it.",
+      "model_essay_used": [
+        "N reveals...（The photo reveals a troubling scene...）",
+        "讓步倒裝 adj. though S V（Tempting though a perfect photo may be...）",
+        "As with N, S V（As with any shared public space...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 131
+    },
+    {
+      "prompt_id": "111-gsat-essay",
+      "exam": "學測",
+      "year_roc": 111,
+      "category": "看圖表達意見",
+      "structure_p1": "第一段客觀描述圖A和圖B兩座公園各有什麼特色（例如圖A是熱鬧的兒童遊樂公園，圖B是安靜的自然生態公園），不出現「我」。",
+      "structure_p2": "第二段說明你理想公園的樣貌與特色，並解釋理由，可以是結合兩種公園的優點。",
+      "ideas": [
+        "圖A公園：色彩繽紛的遊樂設施，充滿孩子的笑聲，適合親子活動",
+        "圖B公園：綠樹成蔭、有池塘和步道，適合散步放鬆、觀察生態",
+        "理想公園：希望兼具活力遊戲區和安靜綠地，滿足不同年齡層需求",
+        "理由：假日有時候想動、有時候想靜，一個公園兩種選擇最理想",
+        "理由：結合生態教育功能，讓公園不只是休閒場所也是學習場域"
+      ],
+      "phrases": [
+        {
+          "en": "be equipped with N",
+          "zh": "配備…"
+        },
+        {
+          "en": "a play area",
+          "zh": "遊樂區"
+        },
+        {
+          "en": "lush greenery",
+          "zh": "茂密的綠意"
+        },
+        {
+          "en": "a tranquil atmosphere",
+          "zh": "寧靜的氛圍"
+        },
+        {
+          "en": "cater to N",
+          "zh": "迎合、滿足…"
+        },
+        {
+          "en": "recharge one's batteries",
+          "zh": "充電放鬆"
+        },
+        {
+          "en": "a walking trail",
+          "zh": "步道"
+        },
+        {
+          "en": "foster a sense of community",
+          "zh": "培養社區感"
+        },
+        {
+          "en": "strike a balance between A and B",
+          "zh": "在A和B間取得平衡"
+        },
+        {
+          "en": "provide a getaway from N",
+          "zh": "提供逃離…的去處"
+        },
+        {
+          "en": "blend A with B",
+          "zh": "把A與B融合"
+        },
+        {
+          "en": "appeal to all ages",
+          "zh": "老少咸宜"
+        }
+      ],
+      "words": [
+        {
+          "en": "playground",
+          "pos": "n.",
+          "zh": "遊樂場"
+        },
+        {
+          "en": "vibrant",
+          "pos": "adj.",
+          "zh": "充滿活力的"
+        },
+        {
+          "en": "tranquil",
+          "pos": "adj.",
+          "zh": "寧靜的"
+        },
+        {
+          "en": "pond",
+          "pos": "n.",
+          "zh": "池塘"
+        },
+        {
+          "en": "trail",
+          "pos": "n.",
+          "zh": "步道"
+        },
+        {
+          "en": "ecosystem",
+          "pos": "n.",
+          "zh": "生態系"
+        },
+        {
+          "en": "recreational",
+          "pos": "adj.",
+          "zh": "休閒的"
+        },
+        {
+          "en": "leisure",
+          "pos": "n.",
+          "zh": "休閒"
+        },
+        {
+          "en": "scenic",
+          "pos": "adj.",
+          "zh": "風景優美的"
+        },
+        {
+          "en": "diverse",
+          "pos": "adj.",
+          "zh": "多元的"
+        },
+        {
+          "en": "refreshing",
+          "pos": "adj.",
+          "zh": "令人神清氣爽的"
+        },
+        {
+          "en": "community",
+          "pos": "n.",
+          "zh": "社區"
+        }
+      ],
+      "grammar": [
+        "第一段描述兩張圖用現在簡單式，不出現「我」。",
+        "可用 not only...but also 比較兩公園吸引的族群，注意倒裝時動詞回原形。",
+        "第二段用 In my opinion... / An ideal park should... 表態，加上 Striking a balance between A and B 說明理由。",
+        "小心冠詞：park 前面該有 a/the，不要漏掉。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The bar chart illustrates the average monthly salary allocation of Taiwanese adults.",
+          "why": "開場句型可改成 Picture A illustrates a lively park filled with colorful play equipment，用於第一段開場描述。"
+        },
+        {
+          "sentence": "Not only my classmates but also I was surprised by the figure.",
+          "why": "not only A but also B 可改成 Not only children but also parents are drawn to the playground in Picture A，比較兩公園的吸引族群。"
+        },
+        {
+          "sentence": "Striking a balance between work and entertainment is important for us to reap the quality of life.",
+          "why": "可改成 Striking a balance between excitement and tranquility is what makes a park ideal for everyone，用於第二段的理想公園論述。"
+        },
+        {
+          "sentence": "As with baseball stadiums in Taiwan, the Tokyo Dome has a round roof and can accommodate tens of thousands of fans.",
+          "why": "As with N, S V 可改成 As with any shared green space, a good park should welcome visitors of every age，強調理想公園的包容性。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "which accounts slightly under one-third → which accounts for slightly under one-third（介係詞別漏掉）"
+      ],
+      "model_essay": "Picture A illustrates a lively park filled with colorful play equipment, where children run and laugh while their parents watch nearby. Picture B, in contrast, shows a quieter park with a pond, walking trails, and lush greenery, attracting joggers and older visitors who simply want to relax. Not only children but also parents are drawn to the playground in Picture A, while Picture B seems to appeal more to people seeking peace after a long week. In my opinion, an ideal park should combine both qualities. Striking a balance between excitement and tranquility is what makes a park enjoyable for everyone, from toddlers who need space to run to elderly visitors who prefer a slow walk beside the water. As with any shared green space, a good park should welcome visitors of every age, offering both energy and rest.",
+      "model_essay_used": [
+        "開場句型 N illustrates...（Picture A illustrates a lively park...）",
+        "not only A but also B（Not only children but also parents are drawn to...）",
+        "Striking a balance between A and B（Striking a balance between excitement and tranquility...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 139
+    },
+    {
+      "prompt_id": "112-gsat-essay",
+      "exam": "學測",
+      "year_roc": 112,
+      "category": "議論文",
+      "structure_p1": "第一段說明人們為何喜歡使用表情符號，並舉一到二例說明其溝通功能，例如表達語氣、節省打字時間、增加親切感。",
+      "structure_p2": "第二段以個人或親友經驗為例，描述表情符號造成的誤會或困擾，並提出化解方法。",
+      "ideas": [
+        "表情符號能快速傳達情緒，補足文字缺乏語氣的問題",
+        "例如一個笑臉可以讓提醒的話聽起來不那麼嚴肅",
+        "誤會案例：同一個表情符號在不同人眼中解讀不同，曾被朋友誤會語帶諷刺",
+        "化解方法：重要或正式的訊息還是搭配文字說清楚",
+        "化解方法：不確定對方怎麼解讀時，直接打電話或當面確認"
+      ],
+      "phrases": [
+        {
+          "en": "convey emotion",
+          "zh": "傳達情緒"
+        },
+        {
+          "en": "soften the tone",
+          "zh": "緩和語氣"
+        },
+        {
+          "en": "save time typing",
+          "zh": "節省打字時間"
+        },
+        {
+          "en": "come across as adj.",
+          "zh": "讓人感覺像…"
+        },
+        {
+          "en": "be open to interpretation",
+          "zh": "可能有多種解讀"
+        },
+        {
+          "en": "clear up a misunderstanding",
+          "zh": "澄清誤會"
+        },
+        {
+          "en": "read between the lines",
+          "zh": "讀出言外之意"
+        },
+        {
+          "en": "lighten the mood",
+          "zh": "讓氣氛輕鬆"
+        },
+        {
+          "en": "a double-edged sword",
+          "zh": "雙面刃"
+        },
+        {
+          "en": "get one's point across",
+          "zh": "讓對方明白自己的意思"
+        },
+        {
+          "en": "take sth the wrong way",
+          "zh": "誤解某事"
+        },
+        {
+          "en": "strike the right tone",
+          "zh": "抓對語氣"
+        }
+      ],
+      "words": [
+        {
+          "en": "emoji",
+          "pos": "n.",
+          "zh": "表情符號"
+        },
+        {
+          "en": "tone",
+          "pos": "n.",
+          "zh": "語氣"
+        },
+        {
+          "en": "sarcastic",
+          "pos": "adj.",
+          "zh": "諷刺的"
+        },
+        {
+          "en": "context",
+          "pos": "n.",
+          "zh": "情境、脈絡"
+        },
+        {
+          "en": "ambiguous",
+          "pos": "adj.",
+          "zh": "模稜兩可的"
+        },
+        {
+          "en": "interpretation",
+          "pos": "n.",
+          "zh": "解讀"
+        },
+        {
+          "en": "clarify",
+          "pos": "v.",
+          "zh": "澄清"
+        },
+        {
+          "en": "casual",
+          "pos": "adj.",
+          "zh": "隨性的"
+        },
+        {
+          "en": "misinterpret",
+          "pos": "v.",
+          "zh": "誤解"
+        },
+        {
+          "en": "sincerity",
+          "pos": "n.",
+          "zh": "真誠"
+        },
+        {
+          "en": "nonverbal",
+          "pos": "adj.",
+          "zh": "非語言的"
+        },
+        {
+          "en": "friendly",
+          "pos": "adj.",
+          "zh": "友善的"
+        }
+      ],
+      "grammar": [
+        "第一段用現在式陳述普遍現象：People use emojis because...",
+        "舉例可用 for instance/for example 帶出具體情境。",
+        "第二段用過去式敘述親友經驗，再回到現在式給建議。",
+        "小心不要用 it 指涉不清楚，講「這個表情符號」要具體寫 this emoji／the message。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "As we often grab something to eat on the way home, the line between living expenses and food blurs.",
+          "why": "the line between A and B blurs 可以改成 the line between playful teasing and sincerity often blurs when only an emoji is used，描述表情符號容易造成誤會的原因。"
+        },
+        {
+          "sentence": "All these reasons can be boiled down to the pressure of a test-oriented society.",
+          "why": "收束句型可改成 All these misunderstandings can be boiled down to the fact that a single emoji can mean different things to different people。"
+        },
+        {
+          "sentence": "This strategy requires some short-term sacrifices but aligns with long-term goals.",
+          "why": "可改成 This habit requires a little more effort but aligns with the goal of being clearly understood，用於化解方法的建議句。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is making sure the other person reads a message the way you meant it。"
+        }
+      ],
+      "common_mistakes": [
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "固定搭配：associate to → associate A with B；participate the game → participate in the game；coerce me to turn away → coerce me into turning away",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary"
+      ],
+      "model_essay": "People love using emojis because they convey emotion that plain text often cannot. A simple smiley face, for instance, can soften the tone of a reminder and make it feel friendly, while a laughing emoji saves time typing out a joke. However, emojis are also a double-edged sword. Once, I sent a friend a winking face after a joke, but she took it the wrong way and thought I was being sarcastic. The line between playful teasing and sincerity often blurs when only an emoji is used. All these misunderstandings can be boiled down to the fact that a single emoji can mean different things to different people. To avoid this, I now add a short sentence to important emojis, and call the person when a message still feels unclear. This habit requires a little more effort but aligns with the goal of being clearly understood.",
+      "model_essay_used": [
+        "the line between A and B blurs（The line between playful teasing and sincerity often blurs...）",
+        "All these reasons can be boiled down to N（All these misunderstandings can be boiled down to...）",
+        "This strategy requires...but aligns with...（This habit requires a little more effort but aligns with the goal...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 146
+    },
+    {
+      "prompt_id": "113-gsat-essay",
+      "exam": "學測",
+      "year_roc": 113,
+      "category": "議論文",
+      "structure_p1": "第一段選一項青少年常見問題（例如時間管理不佳、容易拖延），說明機器人幫手可以怎麼協助解決這個問題。",
+      "structure_p2": "第二段陳述理由，說明為什麼這個機器人幫手的協助方式有效或重要，例如比父母念更容易被接受。",
+      "ideas": [
+        "選擇問題：青少年常常拖延、時間管理不佳",
+        "機器人幫手功能：提醒待辦事項、規劃讀書時間表、適時提醒休息",
+        "機器人幫手功能：用溫和不說教的語氣提醒，比爸媽念更容易被接受",
+        "理由：青少年在意自主權，機器人建議而非命令，更容易被採納",
+        "理由：長期使用能培養時間管理的習慣，處理根本原因而非治標"
+      ],
+      "phrases": [
+        {
+          "en": "struggle with N",
+          "zh": "在…方面感到吃力"
+        },
+        {
+          "en": "procrastinate",
+          "zh": "拖延"
+        },
+        {
+          "en": "keep track of N",
+          "zh": "追蹤記錄…"
+        },
+        {
+          "en": "set reminders for N",
+          "zh": "為…設定提醒"
+        },
+        {
+          "en": "break a task into smaller steps",
+          "zh": "把任務拆解成小步驟"
+        },
+        {
+          "en": "without being nagged",
+          "zh": "不被嘮叨"
+        },
+        {
+          "en": "build a habit of Ving",
+          "zh": "養成…的習慣"
+        },
+        {
+          "en": "take the initiative",
+          "zh": "主動出擊"
+        },
+        {
+          "en": "in a non-judgmental way",
+          "zh": "不帶批判地"
+        },
+        {
+          "en": "tackle the root cause",
+          "zh": "處理根本原因"
+        },
+        {
+          "en": "personalized assistance",
+          "zh": "個人化的協助"
+        },
+        {
+          "en": "stay on top of N",
+          "zh": "掌握…的進度"
+        }
+      ],
+      "words": [
+        {
+          "en": "assistant",
+          "pos": "n.",
+          "zh": "助手"
+        },
+        {
+          "en": "procrastination",
+          "pos": "n.",
+          "zh": "拖延"
+        },
+        {
+          "en": "reminder",
+          "pos": "n.",
+          "zh": "提醒"
+        },
+        {
+          "en": "schedule",
+          "pos": "n./v.",
+          "zh": "時間表、安排"
+        },
+        {
+          "en": "autonomy",
+          "pos": "n.",
+          "zh": "自主權"
+        },
+        {
+          "en": "habit",
+          "pos": "n.",
+          "zh": "習慣"
+        },
+        {
+          "en": "personalized",
+          "pos": "adj.",
+          "zh": "個人化的"
+        },
+        {
+          "en": "effective",
+          "pos": "adj.",
+          "zh": "有效的"
+        },
+        {
+          "en": "motivate",
+          "pos": "v.",
+          "zh": "激勵"
+        },
+        {
+          "en": "overwhelmed",
+          "pos": "adj.",
+          "zh": "不知所措的"
+        },
+        {
+          "en": "independence",
+          "pos": "n.",
+          "zh": "獨立、自主"
+        },
+        {
+          "en": "burnout",
+          "pos": "n.",
+          "zh": "身心俱疲"
+        }
+      ],
+      "grammar": [
+        "第一段先點名問題再說明機器人怎麼協助，可用 One problem worth solving is that... 開頭。",
+        "可用 not only...but also 說明機器人幫手的雙重功能，倒裝時動詞回原形。",
+        "第二段給理由可用 The reason this works is that.../This approach requires...but aligns with...",
+        "小心固定搭配：be inclined to V，不要接成 be inclined V。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "One phenomenon worth discussing is that the expenses of food only make up for 19%.",
+          "why": "句型 One ... worth discussing/considering is that... 可改成 One problem worth solving is that many teenagers struggle to manage their own time，用於第一段開頭點題。"
+        },
+        {
+          "sentence": "I have sufficient reasons to pour tremendous expenses into education.",
+          "why": "I have sufficient reasons to V 可改成 I have sufficient reasons to believe that a personal robot assistant could solve this problem，用於第二段開頭表態。"
+        },
+        {
+          "sentence": "This strategy requires some short-term sacrifices but aligns with long-term goals.",
+          "why": "可改成 This approach requires some initial setup but aligns with building a lasting habit of managing time well。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is helping teenagers build the habit for themselves，收掉『幫手是輔助而非取代自律』的重點。"
+        }
+      ],
+      "common_mistakes": [
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "自創字：savement → savings；recreate → recreation（不確定的字不要自己造，換一個百分之百會的字）"
+      ],
+      "model_essay": "One problem worth solving is that many teenagers struggle to manage their own time, often procrastinating until deadlines are dangerously close. A personal robot assistant could help by breaking large tasks into smaller steps and sending gentle reminders throughout the day, without ever sounding like a nagging parent. Not only would it keep track of assignments, but it could also suggest short breaks to prevent burnout, learning each teenager's habits over time. I have sufficient reasons to believe that this kind of quiet, non-judgmental support would work better than being told what to do. Teenagers value their independence, and a suggestion feels far more acceptable than a command. This approach requires some initial setup but aligns with building a lasting habit of managing time well. After all, a robot assistant should not replace self-discipline; what matters is helping teenagers build that habit for themselves, one small reminder at a time.",
+      "model_essay_used": [
+        "One...worth Ving is that...（One problem worth solving is that...）",
+        "not only...but also（Not only would it keep track of assignments, but it could also suggest...）",
+        "I have sufficient reasons to V（I have sufficient reasons to believe that...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 150
+    },
+    {
+      "prompt_id": "114-gsat-essay",
+      "exam": "學測",
+      "year_roc": 114,
+      "category": "看圖表達意見",
+      "structure_p1": "第一段客觀對比兩張圖片：一張是放颱風假時學生在家輕鬆的畫面，一張是沒放假時大家冒著風雨通勤的畫面，不出現「我」。",
+      "structure_p2": "第二段說明個人看法與經驗，例如支持安全優先於到課率、分享自己淋雨上學的經驗，收尾呼籲放假標準要一致透明。",
+      "ideas": [
+        "圖一：放假的學生開心地在家看電視、和家人在一起",
+        "圖二：沒放假時，學生和上班族在風雨中艱難通勤，道路淹水",
+        "看法：安全應該優先於到課率，只要有風雨警報就該果斷放假",
+        "經驗：自己曾經在沒放颱風假那天冒雨上學，鞋子全濕、上課也無心",
+        "看法：放假標準應該更透明一致，避免各地認定落差造成困擾"
+      ],
+      "phrases": [
+        {
+          "en": "declare a typhoon day off",
+          "zh": "宣布颱風假"
+        },
+        {
+          "en": "brave the storm",
+          "zh": "冒著暴風雨"
+        },
+        {
+          "en": "commute in heavy rain",
+          "zh": "在大雨中通勤"
+        },
+        {
+          "en": "flood the streets",
+          "zh": "淹沒街道"
+        },
+        {
+          "en": "play it safe",
+          "zh": "求安全至上"
+        },
+        {
+          "en": "weigh safety against N",
+          "zh": "在安全和…之間權衡"
+        },
+        {
+          "en": "soaked to the skin",
+          "zh": "全身濕透"
+        },
+        {
+          "en": "inconsistent standards",
+          "zh": "標準不一致"
+        },
+        {
+          "en": "make a judgment call",
+          "zh": "做出判斷、決定"
+        },
+        {
+          "en": "stay indoors",
+          "zh": "待在室內"
+        },
+        {
+          "en": "put safety first",
+          "zh": "把安全放在第一位"
+        },
+        {
+          "en": "a sense of relief",
+          "zh": "鬆一口氣的感覺"
+        }
+      ],
+      "words": [
+        {
+          "en": "typhoon",
+          "pos": "n.",
+          "zh": "颱風"
+        },
+        {
+          "en": "commute",
+          "pos": "v./n.",
+          "zh": "通勤"
+        },
+        {
+          "en": "flood",
+          "pos": "v./n.",
+          "zh": "淹水"
+        },
+        {
+          "en": "drenched",
+          "pos": "adj.",
+          "zh": "溼透的"
+        },
+        {
+          "en": "announcement",
+          "pos": "n.",
+          "zh": "宣布、公告"
+        },
+        {
+          "en": "inconsistent",
+          "pos": "adj.",
+          "zh": "不一致的"
+        },
+        {
+          "en": "precaution",
+          "pos": "n.",
+          "zh": "預防措施"
+        },
+        {
+          "en": "relief",
+          "pos": "n.",
+          "zh": "寬慰、鬆一口氣"
+        },
+        {
+          "en": "forecast",
+          "pos": "n.",
+          "zh": "預報"
+        },
+        {
+          "en": "cautious",
+          "pos": "adj.",
+          "zh": "謹慎的"
+        },
+        {
+          "en": "disruption",
+          "pos": "n.",
+          "zh": "打亂、中斷"
+        },
+        {
+          "en": "attendance",
+          "pos": "n.",
+          "zh": "出席、到課"
+        }
+      ],
+      "grammar": [
+        "第一段客觀對比兩張圖用現在式，不出現「我」，可用 In contrast/On the other hand 連接。",
+        "第二段轉主觀可用 From my own experience,.../In my view, safety should always come first.",
+        "可用附帶動作句型 S V with O Vpp 描寫淋雨畫面：trudging to school with their shoes soaked。",
+        "小心被動語態：the announcement was made too late（宣布得太晚）要用被動，不要主動被動混淆。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The bar chart reveals some intriguing findings.",
+          "why": "N reveals... 可改成 The second photo reveals a striking contrast between a relaxed day off and a chaotic commute in the storm，用於第一段開場。"
+        },
+        {
+          "sentence": "She stepped into adulthood with all her savings gone.",
+          "why": "S V with O Vpp（附帶動作）可改成 Students trudged to school with their shoes soaked and their umbrellas broken，描寫沒放假時淋雨上學的畫面。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "讓步倒裝可改成 Frustrating though the flooded streets were, many still had to make it to school on time，寫沒放颱風假時的無奈。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters most is that safety, not attendance, should decide whether school is called off。"
+        }
+      ],
+      "common_mistakes": [
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）"
+      ],
+      "model_essay": "The first photo shows students happily lounging at home, watching television while heavy rain falls safely outside their windows. The second, taken on a day without a typhoon day off, reveals a striking contrast: students trudging to school with their shoes soaked and their umbrellas broken, wading through flooded streets. From my own experience, I once had to commute to school through ankle-deep water because the announcement of no day off came too late for anyone to prepare. In my view, safety should always come first, and schools should be quicker to declare a day off during serious storm warnings. Frustrating though the flooded streets were that day, I made it to class only to find half of my classmates missing anyway. What matters most is that safety, not attendance, should decide whether school is called off, and that decision should be made early enough for families to plan.",
+      "model_essay_used": [
+        "N reveals...（reveals a striking contrast）",
+        "附帶動作 with O Vpp（trudging to school with their shoes soaked and their umbrellas broken）",
+        "讓步倒裝 adj. though S V（Frustrating though the flooded streets were...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 149
+    },
+    {
+      "prompt_id": "99-ast-essay",
+      "exam": "指考",
+      "year_roc": 99,
+      "category": "經驗描述",
+      "structure_p1": "第一段以『Exams of all kinds have become a necessary part of my high school life.』為主題句展開，說明各種考試如何融入你的高中生活及帶來的感受或壓力。",
+      "structure_p2": "第二段以『The most unforgettable exam I have ever taken is…』開頭，描述一次印象最深刻的考試經驗，交代發生了什麼事、為什麼難忘，並點出這次經驗帶來的體會。",
+      "ideas": [
+        "各種考試從小考到模擬考幾乎每週都有，壓力大但也逼自己養成讀書習慣",
+        "難忘的考試：準備不足卻意外考好，或反之準備充分卻失常",
+        "難忘的考試：身體不適仍堅持應考，或考試當天發生意外插曲",
+        "體會：考試不只是測驗知識，也在測驗抗壓性和臨場應變",
+        "體會：分數不是唯一重點，準備過程學到的紀律更重要"
+      ],
+      "phrases": [
+        {
+          "en": "a pop quiz",
+          "zh": "隨堂考"
+        },
+        {
+          "en": "a mock exam",
+          "zh": "模擬考"
+        },
+        {
+          "en": "cram for an exam",
+          "zh": "臨時抱佛腳"
+        },
+        {
+          "en": "under pressure",
+          "zh": "承受壓力"
+        },
+        {
+          "en": "blank out",
+          "zh": "腦筋一片空白"
+        },
+        {
+          "en": "keep one's composure",
+          "zh": "保持鎮定"
+        },
+        {
+          "en": "against all odds",
+          "zh": "儘管情況不利"
+        },
+        {
+          "en": "pay off in the end",
+          "zh": "最後有回報"
+        },
+        {
+          "en": "build up test-taking skills",
+          "zh": "培養應考技巧"
+        },
+        {
+          "en": "let one's guard down",
+          "zh": "鬆懈"
+        },
+        {
+          "en": "come to terms with N",
+          "zh": "坦然接受…"
+        },
+        {
+          "en": "revolve around N",
+          "zh": "圍繞著…轉"
+        }
+      ],
+      "words": [
+        {
+          "en": "quiz",
+          "pos": "n.",
+          "zh": "小考"
+        },
+        {
+          "en": "midterm",
+          "pos": "n.",
+          "zh": "期中考"
+        },
+        {
+          "en": "pressure",
+          "pos": "n.",
+          "zh": "壓力"
+        },
+        {
+          "en": "anxious",
+          "pos": "adj.",
+          "zh": "焦慮的"
+        },
+        {
+          "en": "composure",
+          "pos": "n.",
+          "zh": "鎮定"
+        },
+        {
+          "en": "unexpected",
+          "pos": "adj.",
+          "zh": "意外的"
+        },
+        {
+          "en": "discipline",
+          "pos": "n.",
+          "zh": "紀律"
+        },
+        {
+          "en": "preparation",
+          "pos": "n.",
+          "zh": "準備"
+        },
+        {
+          "en": "resilience",
+          "pos": "n.",
+          "zh": "韌性"
+        },
+        {
+          "en": "memorable",
+          "pos": "adj.",
+          "zh": "難忘的"
+        },
+        {
+          "en": "setback",
+          "pos": "n.",
+          "zh": "挫折"
+        },
+        {
+          "en": "composed",
+          "pos": "adj.",
+          "zh": "鎮定的"
+        }
+      ],
+      "grammar": [
+        "全篇用第一人稱敘述：第一段用現在完成式（have become），第二段可用過去式敘述那次考試的細節。",
+        "可用分詞構句描寫緊張感：Staring at the blank page, I felt my mind go completely empty.",
+        "可用讓步句型：Nervous though I was walking into the exam hall, I forced myself to stay calm.",
+        "小心 it 沒有指涉對象，講『這次考試』要用 this exam／the test，不要只寫 it。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "All these reasons can be boiled down to the pressure of a test-oriented society.",
+          "why": "這句直接點出考試文化背後的壓力，可以放在第一段收尾，說明各種考試存在的原因。"
+        },
+        {
+          "sentence": "Comparing my plan with the average, I found a clear gap.",
+          "why": "Ving 分詞構句可改成 Staring at the exam paper, I realized I had studied the wrong chapter entirely，用來描寫發現準備方向錯誤的那一刻。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "讓步倒裝可改成 Nervous though I was walking into the exam hall, I forced myself to stay calm。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is not the score itself, but what the experience of preparing for it teaches you。"
+        }
+      ],
+      "common_mistakes": [
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "拼字：broden → broaden（要用複數 horizons）；accross → across；accommidate → accommodate；gose → goes；a phenomena → a phenomenon（單數）"
+      ],
+      "model_essay": "Exams of all kinds have become a necessary part of my high school life. Between pop quizzes, midterms, and mock exams, I sometimes feel like my whole semester revolves around test dates. All these reasons can be boiled down to the pressure of a test-oriented society. Still, this constant testing has taught me discipline I might never have built otherwise. The most unforgettable exam I have ever taken is my second-year math midterm. I had studied for weeks, yet the moment I opened the paper, half the questions covered a chapter I had skipped while reviewing. Staring at the page, I felt my mind go completely blank. Nervous though I was, I forced myself to stay calm and work through every question I knew. I ended up passing, and I learned that staying composed under pressure matters just as much as studying hard.",
+      "model_essay_used": [
+        "All these reasons can be boiled down to N（直接借用）",
+        "分詞構句 Ving 開頭（Staring at the page, I felt my mind...）",
+        "讓步倒裝 adj. though S V（Nervous though I was...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 143
+    },
+    {
+      "prompt_id": "100-ast-essay",
+      "exam": "指考",
+      "year_roc": 100,
+      "category": "議論文",
+      "structure_p1": "第一段表態畢業典禮該有的氛圍（例如溫馨感人為主），並說明理由。",
+      "structure_p2": "第二段舉具體的活動安排延伸說明這種氛圍該怎麼呈現，並適度讓步承認完全嚴肅或完全熱鬧各有道理。",
+      "ideas": [
+        "認為畢業典禮該以溫馨感人為主，因為這是道別的時刻，重點是回顧與感謝",
+        "舉例：播放同學這幾年的照片影片、老師寫給每位學生的小卡片",
+        "也可以穿插活潑的表演，讓氣氛不會太沉重",
+        "反對太過嚴肅傷感，因為畢業也代表新階段的開始",
+        "描繪自己想像中理想畢業典禮的畫面作結"
+      ],
+      "phrases": [
+        {
+          "en": "bid farewell to N",
+          "zh": "向…道別"
+        },
+        {
+          "en": "look back on N",
+          "zh": "回顧…"
+        },
+        {
+          "en": "a heartfelt speech",
+          "zh": "真情流露的演講"
+        },
+        {
+          "en": "strike the right balance",
+          "zh": "抓對平衡"
+        },
+        {
+          "en": "mark the end of a chapter",
+          "zh": "為一個階段畫下句點"
+        },
+        {
+          "en": "a fresh start",
+          "zh": "新的開始"
+        },
+        {
+          "en": "hold back tears",
+          "zh": "忍住淚水"
+        },
+        {
+          "en": "cherish the memories",
+          "zh": "珍惜回憶"
+        },
+        {
+          "en": "lighten the atmosphere",
+          "zh": "讓氣氛輕鬆一點"
+        },
+        {
+          "en": "pay tribute to sb",
+          "zh": "向某人致敬"
+        },
+        {
+          "en": "look forward to N",
+          "zh": "期待…"
+        },
+        {
+          "en": "bittersweet",
+          "zh": "悲喜交加的"
+        }
+      ],
+      "words": [
+        {
+          "en": "farewell",
+          "pos": "n.",
+          "zh": "道別"
+        },
+        {
+          "en": "sentimental",
+          "pos": "adj.",
+          "zh": "感傷的"
+        },
+        {
+          "en": "ceremony",
+          "pos": "n.",
+          "zh": "典禮"
+        },
+        {
+          "en": "heartfelt",
+          "pos": "adj.",
+          "zh": "真心的"
+        },
+        {
+          "en": "bittersweet",
+          "pos": "adj.",
+          "zh": "苦樂參半的"
+        },
+        {
+          "en": "commemorate",
+          "pos": "v.",
+          "zh": "紀念"
+        },
+        {
+          "en": "milestone",
+          "pos": "n.",
+          "zh": "里程碑"
+        },
+        {
+          "en": "atmosphere",
+          "pos": "n.",
+          "zh": "氣氛"
+        },
+        {
+          "en": "cheerful",
+          "pos": "adj.",
+          "zh": "歡樂的"
+        },
+        {
+          "en": "tribute",
+          "pos": "n.",
+          "zh": "致敬"
+        },
+        {
+          "en": "anticipation",
+          "pos": "n.",
+          "zh": "期待"
+        },
+        {
+          "en": "gratitude",
+          "pos": "n.",
+          "zh": "感激"
+        }
+      ],
+      "grammar": [
+        "第一段表態用 In my opinion, graduation should be... 並給理由。",
+        "可用讓步句型承認另一種氛圍也有道理：Solemn though some moments may be, ...",
+        "可用分詞構句描寫畫面：Looking back on three years of friendship, students should leave with smiles, not just tears.",
+        "小心用語精準：不要用 bizarre 這種語氣過重的字形容溫馨場合，改用更貼切的字。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "This arrangement reflects the priorities of career growth, financial stability, and future planning.",
+          "why": "N reflects the priorities of... 可改成 Such a ceremony reflects the priorities of gratitude and connection rather than empty formality。"
+        },
+        {
+          "sentence": "Striking a balance between work and entertainment is important for us to reap the quality of life.",
+          "why": "可改成 Striking a balance between warmth and celebration is what makes graduation truly meaningful，直接呼應『氛圍』的討論。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "讓步倒裝可改成 Solemn though some moments may be, the ceremony should not forget to celebrate what students have achieved。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters most is that every student leaves feeling both proud and thankful。"
+        }
+      ],
+      "common_mistakes": [
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "開頭語意重複：As can be seen in the bar chart, we can observe how... → The bar chart illustrates how...（同一句裡不要放兩個意思重複的動詞）"
+      ],
+      "model_essay": "In my opinion, a graduation ceremony should be warm and heartfelt rather than overly solemn. Graduation marks the end of one chapter, but it should also be a moment to celebrate everything students have accomplished together. A ceremony filled with slideshows of old class photos, short videos of memorable moments, and handwritten notes from teachers would let students look back on three years of friendship with smiles rather than only tears. Such a ceremony reflects the priorities of gratitude and connection rather than empty formality. Striking a balance between warmth and celebration is what makes graduation truly meaningful, so I would still include a few lively performances to keep the mood from becoming too heavy. Solemn though some moments may be, the ceremony should not forget to celebrate what students have achieved. After all, what matters most is that every student leaves feeling both proud and thankful.",
+      "model_essay_used": [
+        "N reflects the priorities of...（Such a ceremony reflects the priorities of gratitude...）",
+        "Striking a balance between A and B（Striking a balance between warmth and celebration...）",
+        "讓步倒裝 adj. though S V（Solemn though some moments may be...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 147
+    },
+    {
+      "prompt_id": "102-ast-essay",
+      "exam": "指考",
+      "year_roc": 102,
+      "category": "議論文",
+      "structure_p1": "第一段說明你選擇哪一項新科技產品（示範用：可摺疊智慧筆記本 vs. AI姿勢矯正智慧背包）及理由，並舉例說明你將如何使用這項產品。",
+      "structure_p2": "第二段說明你不選擇另一項產品的理由，以及該產品可能衍生的問題。",
+      "ideas": [
+        "選擇智慧筆記本：方便手寫又能自動整理雲端筆記，適合讀書使用",
+        "使用情境：上課手寫筆記，自動轉成電子檔方便複習和搜尋",
+        "不選背包的理由：震動提醒容易分心或干擾上課",
+        "不選背包的理由：矯正效果因人而異，長期依賴不如自己養成習慣",
+        "智慧筆記本更符合日常讀書需求，實用性更高"
+      ],
+      "phrases": [
+        {
+          "en": "sync to the cloud",
+          "zh": "同步到雲端"
+        },
+        {
+          "en": "take notes by hand",
+          "zh": "手寫筆記"
+        },
+        {
+          "en": "convert handwriting into text",
+          "zh": "把手寫轉成文字"
+        },
+        {
+          "en": "be prone to N",
+          "zh": "容易發生…"
+        },
+        {
+          "en": "a potential drawback",
+          "zh": "潛在的缺點"
+        },
+        {
+          "en": "come with a hefty price tag",
+          "zh": "價格不菲"
+        },
+        {
+          "en": "distract sb from N",
+          "zh": "使某人從…分心"
+        },
+        {
+          "en": "in the long run",
+          "zh": "長遠來看"
+        },
+        {
+          "en": "rely on N",
+          "zh": "依賴…"
+        },
+        {
+          "en": "foster a lasting habit",
+          "zh": "培養持久的習慣"
+        },
+        {
+          "en": "search through one's notes",
+          "zh": "搜尋筆記"
+        },
+        {
+          "en": "a practical choice",
+          "zh": "實用的選擇"
+        }
+      ],
+      "words": [
+        {
+          "en": "foldable",
+          "pos": "adj.",
+          "zh": "可摺疊的"
+        },
+        {
+          "en": "handwriting",
+          "pos": "n.",
+          "zh": "手寫字跡"
+        },
+        {
+          "en": "digitize",
+          "pos": "v.",
+          "zh": "數位化"
+        },
+        {
+          "en": "convenient",
+          "pos": "adj.",
+          "zh": "方便的"
+        },
+        {
+          "en": "posture",
+          "pos": "n.",
+          "zh": "姿勢"
+        },
+        {
+          "en": "vibration",
+          "pos": "n.",
+          "zh": "震動"
+        },
+        {
+          "en": "distracting",
+          "pos": "adj.",
+          "zh": "令人分心的"
+        },
+        {
+          "en": "practical",
+          "pos": "adj.",
+          "zh": "實用的"
+        },
+        {
+          "en": "reliable",
+          "pos": "adj.",
+          "zh": "可靠的"
+        },
+        {
+          "en": "drawback",
+          "pos": "n.",
+          "zh": "缺點"
+        },
+        {
+          "en": "device",
+          "pos": "n.",
+          "zh": "裝置"
+        },
+        {
+          "en": "adjustment",
+          "pos": "n.",
+          "zh": "調整、適應"
+        }
+      ],
+      "grammar": [
+        "第一段用 I would choose N because... 表態，舉具體使用情境。",
+        "可用 not only...but also 說明產品的雙重優點，倒裝時動詞回原形。",
+        "第二段講不選的理由可用 As for N, I am concerned that... 或 One potential drawback of N is that...",
+        "小心固定搭配：be prone to Ving（不是 to V）。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "I aim to leverage compound interest and build a secure financial future.",
+          "why": "I aim to V and V 可改成 I aim to leverage this notebook and digitize my handwriting instantly，用於第一段的使用情境。"
+        },
+        {
+          "sentence": "This strategy requires some short-term sacrifices but aligns with long-term goals.",
+          "why": "可改成 Handwriting on the notebook requires a small adjustment at first but aligns with how I already like to study，說明選擇理由。"
+        },
+        {
+          "sentence": "One phenomenon worth discussing is that the expenses of food only make up for 19%.",
+          "why": "句型可改成 One potential drawback worth discussing is that the vibration reminders could distract students during class，用於第二段。"
+        },
+        {
+          "sentence": "All these reasons can be boiled down to the pressure of a test-oriented society.",
+          "why": "收束句可改成 All these concerns can be boiled down to one thing: a good habit should come from the person, not the product。"
+        }
+      ],
+      "common_mistakes": [
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "固定搭配：associate to → associate A with B；participate the game → participate in the game；coerce me to turn away → coerce me into turning away"
+      ],
+      "model_essay": "Between the two products, I would choose the foldable smart notebook over the posture-correcting backpack. As a student who already takes notes by hand, I aim to leverage this notebook to digitize my handwriting instantly and sync it to the cloud, so I can search past notes before exams. Not only would this save me from rewriting notes, but it would also let me review lectures anywhere. Handwriting on the notebook requires a small adjustment at first but aligns with how I already like to study. As for the smart backpack, I am concerned its vibration reminders could distract students in class. One potential drawback worth discussing is that relying on a device to fix posture might prevent someone from building the habit alone. All these concerns can be boiled down to one thing: a good habit should come from the person, not the product.",
+      "model_essay_used": [
+        "I aim to V and V（I aim to leverage this notebook and digitize...）",
+        "requires...but aligns with...（Handwriting on the notebook requires a small adjustment...but aligns with...）",
+        "One...worth discussing is that...（One potential drawback worth discussing is that...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 145
+    },
+    {
+      "prompt_id": "103-ast-essay",
+      "exam": "指考",
+      "year_roc": 103,
+      "category": "圖表數據題",
+      "structure_p1": "第一段客觀描述圖表所呈現的美國高中生每天活動時間分配，指出其中一個特別的現象，不出現「我」。",
+      "structure_p2": "第二段說明整體而言，自己一天的時間分配與該圖表的異同，並說明理由。",
+      "ideas": [
+        "圖表顯示美國高中生睡眠佔最大比例，其次是在校時間",
+        "特別現象：休閒／看螢幕的時間比例意外偏高，甚至高於做作業的時間",
+        "比較：自己花在功課和讀書的時間比圖表中的美國學生多一些",
+        "比較：自己的睡眠時間和圖表中的比例接近，說明睡眠對雙方都很重要",
+        "相同處：休閒和社交時間在兩邊都占有一定份量，顯示放鬆對學生同樣必要"
+      ],
+      "phrases": [
+        {
+          "en": "allocate time to N",
+          "zh": "把時間分配給…"
+        },
+        {
+          "en": "account for a significant share",
+          "zh": "佔了相當大的比例"
+        },
+        {
+          "en": "a striking feature",
+          "zh": "一個顯著的特點"
+        },
+        {
+          "en": "on average",
+          "zh": "平均而言"
+        },
+        {
+          "en": "in contrast to N",
+          "zh": "與…形成對比"
+        },
+        {
+          "en": "devote time to N",
+          "zh": "把時間投入…"
+        },
+        {
+          "en": "strike a balance between A and B",
+          "zh": "在A和B間取得平衡"
+        },
+        {
+          "en": "screen time",
+          "zh": "使用螢幕的時間"
+        },
+        {
+          "en": "extracurricular activities",
+          "zh": "課外活動"
+        },
+        {
+          "en": "comparable to N",
+          "zh": "與…相當"
+        },
+        {
+          "en": "differ from N in that...",
+          "zh": "在…方面與…不同"
+        },
+        {
+          "en": "make the most of one's time",
+          "zh": "善用自己的時間"
+        }
+      ],
+      "words": [
+        {
+          "en": "allocation",
+          "pos": "n.",
+          "zh": "分配"
+        },
+        {
+          "en": "proportion",
+          "pos": "n.",
+          "zh": "比例"
+        },
+        {
+          "en": "leisure",
+          "pos": "n.",
+          "zh": "休閒"
+        },
+        {
+          "en": "average",
+          "pos": "n./adj.",
+          "zh": "平均"
+        },
+        {
+          "en": "significant",
+          "pos": "adj.",
+          "zh": "顯著的"
+        },
+        {
+          "en": "comparable",
+          "pos": "adj.",
+          "zh": "可比較的"
+        },
+        {
+          "en": "extracurricular",
+          "pos": "adj.",
+          "zh": "課外的"
+        },
+        {
+          "en": "schedule",
+          "pos": "n.",
+          "zh": "時間表"
+        },
+        {
+          "en": "routine",
+          "pos": "n.",
+          "zh": "例行作息"
+        },
+        {
+          "en": "notable",
+          "pos": "adj.",
+          "zh": "值得注意的"
+        },
+        {
+          "en": "similarity",
+          "pos": "n.",
+          "zh": "相似之處"
+        },
+        {
+          "en": "rhythm",
+          "pos": "n.",
+          "zh": "節奏"
+        }
+      ],
+      "grammar": [
+        "第一段客觀描述圖表用現在式，不出現「我」，可用 The chart illustrates.../reveals...",
+        "可用 account for + 百分比 報數據，followed by 表排序。",
+        "第二段轉主觀可用 In comparison, my own schedule... / Unlike the students in the chart, I...",
+        "小心主詞動詞一致，例如 which accounts for（不是 account）。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The bar chart illustrates the average monthly salary allocation of Taiwanese adults.",
+          "why": "開場句型可直接套用，改成 The chart illustrates the average daily time allocation of American high school students，是最貼切的圖表開場句。"
+        },
+        {
+          "sentence": "The bar chart reveals some intriguing findings.",
+          "why": "可直接用在描述完數據後的轉折句，帶出『休閒時間比作業時間長』這個特別現象。"
+        },
+        {
+          "sentence": "The way I spend my money is a far cry from what is presented in the graph.",
+          "why": "可以改成 The way I spend my afternoons is a far cry from what is presented in the chart，用於第二段開頭的『我跟圖表不一樣』宣告句。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可直接借用改寫，說明時間分配沒有標準答案，只有適合自己的安排。"
+        }
+      ],
+      "common_mistakes": [
+        "開頭語意重複：As can be seen in the bar chart, we can observe how... → The bar chart illustrates how...（同一句裡不要放兩個意思重複的動詞）",
+        "which accounts slightly under one-third → which accounts for slightly under one-third（介係詞別漏掉）",
+        "自創字：savement → savings；recreate → recreation（不確定的字不要自己造，換一個百分之百會的字）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）"
+      ],
+      "model_essay": "The chart illustrates the average daily time allocation of American high school students. Sleep accounts for the largest share at roughly 33%, followed by time spent at school at about 29%. The bar chart reveals some intriguing findings: leisure and screen time account for nearly 15%, slightly more than the 12% spent on homework, suggesting that relaxation plays a bigger role than many might expect. The way I spend my afternoons is a far cry from what is presented in the chart. My homework and study time take up close to 25% of my day, almost double the American average, while my leisure time is smaller. Even so, my sleep proportion is fairly similar to the chart, showing that rest remains a shared priority. After all, there is no single correct way to divide a day; what matters is finding a rhythm that fits one's own life.",
+      "model_essay_used": [
+        "開場句 The chart illustrates...（直接借用）",
+        "The bar chart reveals some intriguing findings.（直接借用）",
+        "The way I V is a far cry from what is presented in the graph（改寫套用）",
+        "收尾 there is no single correct answer; what matters is...（直接借用改寫）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 147
+    },
+    {
+      "prompt_id": "104-ast-essay",
+      "exam": "指考",
+      "year_roc": 104,
+      "category": "經驗描述",
+      "structure_p1": "第一段說明一次指導別人學習（或被別人指導）的緣由、內容和過程，交代時間地點人物，例如教同學解開一直不懂的數學單元。",
+      "structure_p2": "第二段說明對這次經驗的感想，例如發現教別人也能加深自己的理解，或耐心和換句話說的能力很重要。",
+      "ideas": [
+        "緣由：同學某單元一直不懂，自己主動提出要教他",
+        "過程：用簡單的例子和圖解慢慢拆解概念，反覆練習到他真的懂",
+        "感想：教別人的過程中自己也把觀念想得更清楚",
+        "感想：發現耐心和換句話說的能力，比直接給答案更重要",
+        "延伸：這次經驗讓自己更有信心面對需要說明複雜概念的場合"
+      ],
+      "phrases": [
+        {
+          "en": "break sth down into simple steps",
+          "zh": "把…拆解成簡單步驟"
+        },
+        {
+          "en": "walk sb through N",
+          "zh": "帶著某人一步步了解…"
+        },
+        {
+          "en": "have a lightbulb moment",
+          "zh": "恍然大悟的瞬間"
+        },
+        {
+          "en": "in layman's terms",
+          "zh": "用簡單的話來說"
+        },
+        {
+          "en": "reinforce one's own understanding",
+          "zh": "加深自己的理解"
+        },
+        {
+          "en": "be patient with sb",
+          "zh": "對某人有耐心"
+        },
+        {
+          "en": "a two-way learning process",
+          "zh": "雙向學習的過程"
+        },
+        {
+          "en": "put oneself in sb's shoes",
+          "zh": "將心比心"
+        },
+        {
+          "en": "from scratch",
+          "zh": "從頭開始"
+        },
+        {
+          "en": "make progress",
+          "zh": "有所進步"
+        },
+        {
+          "en": "take a different approach",
+          "zh": "採取不同的方法"
+        },
+        {
+          "en": "a sense of accomplishment",
+          "zh": "成就感"
+        }
+      ],
+      "words": [
+        {
+          "en": "tutor",
+          "pos": "v./n.",
+          "zh": "指導；家教"
+        },
+        {
+          "en": "concept",
+          "pos": "n.",
+          "zh": "概念"
+        },
+        {
+          "en": "struggle",
+          "pos": "v.",
+          "zh": "掙扎、感到吃力"
+        },
+        {
+          "en": "explain",
+          "pos": "v.",
+          "zh": "解釋"
+        },
+        {
+          "en": "patience",
+          "pos": "n.",
+          "zh": "耐心"
+        },
+        {
+          "en": "approach",
+          "pos": "n.",
+          "zh": "方法"
+        },
+        {
+          "en": "breakthrough",
+          "pos": "n.",
+          "zh": "突破"
+        },
+        {
+          "en": "mutual",
+          "pos": "adj.",
+          "zh": "互相的"
+        },
+        {
+          "en": "clarify",
+          "pos": "v.",
+          "zh": "釐清"
+        },
+        {
+          "en": "confidence",
+          "pos": "n.",
+          "zh": "信心"
+        },
+        {
+          "en": "reinforce",
+          "pos": "v.",
+          "zh": "加強"
+        },
+        {
+          "en": "rewarding",
+          "pos": "adj.",
+          "zh": "有收穫的"
+        }
+      ],
+      "grammar": [
+        "第一段用過去式敘述事情經過，交代時間地點人物。",
+        "可用 Upon Ving 或 The moment S V, S V 描寫關鍵轉折，例如同學終於聽懂的瞬間。",
+        "第二段轉現在完成式表達長期感想：This experience has taught me that...",
+        "全篇動詞時態要一致，注意過去式的規則與不規則變化。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The moment I saw the chart, I realized my own habits were very different.",
+          "why": "The moment S V, S V 可改成 The moment I explained the idea with a simple diagram, his face lit up with understanding，寫同學恍然大悟的瞬間。"
+        },
+        {
+          "sentence": "Comparing my plan with the average, I found a clear gap.",
+          "why": "Ving 分詞構句可改成 Breaking the problem down into smaller steps, I found a way to explain it that finally made sense to him。"
+        },
+        {
+          "sentence": "I have sufficient reasons to pour tremendous expenses into education.",
+          "why": "I have sufficient reasons to V 可改成 I have sufficient reasons to believe that teaching someone else is one of the best ways to learn，用於第二段的感想。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is finding an explanation that fits how the other person thinks，呼應教學過程中因材施教的體會。"
+        }
+      ],
+      "common_mistakes": [
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "固定搭配：associate to → associate A with B；participate the game → participate in the game；coerce me to turn away → coerce me into turning away"
+      ],
+      "model_essay": "Last semester, one of my classmates kept struggling with a geometry unit no matter how the teacher explained it. Since I understood the concept fairly well, I offered to walk him through it after school. Breaking the problem down into smaller steps, I found a way to explain it that finally made sense to him, using shapes instead of abstract formulas. The moment I explained the idea with a simple diagram, his face lit up with understanding, and he solved the next three problems almost on his own. I have sufficient reasons to believe that teaching someone else is one of the best ways to learn, because explaining it forced me to understand it fully myself. This experience also taught me patience: what matters is finding an explanation that fits how the other person thinks, not repeating the textbook.",
+      "model_essay_used": [
+        "Ving 分詞構句（Breaking the problem down into smaller steps...）",
+        "The moment S V, S V（The moment I explained the idea...）",
+        "I have sufficient reasons to V（I have sufficient reasons to believe that...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 139
+    },
+    {
+      "prompt_id": "105-ast-essay",
+      "exam": "指考",
+      "year_roc": 105,
+      "category": "議論文",
+      "structure_p1": "第一段依觀察說明『碩士清潔隊員滿街跑』這個現象的成因，例如就業市場競爭激烈、公部門職缺穩定。",
+      "structure_p2": "第二段說明你如何因應這個現象，具體舉例你的大學生涯學習規劃，例如提早累積實務經驗。",
+      "ideas": [
+        "成因：部分科系畢業生就業市場競爭激烈，公部門職缺穩定、福利好",
+        "成因：社會對『學歷等於好工作』的既定印象與現實job market有落差",
+        "因應規劃：大學時期多修實務課程、爭取實習機會",
+        "因應規劃：培養一技之長或證照，不只依賴學位本身",
+        "因應規劃：重視能力與興趣的媒合，而非只看學歷高低"
+      ],
+      "phrases": [
+        {
+          "en": "a mismatch between N and N",
+          "zh": "…與…之間的落差"
+        },
+        {
+          "en": "be oversaturated",
+          "zh": "供過於求"
+        },
+        {
+          "en": "job security",
+          "zh": "工作保障"
+        },
+        {
+          "en": "a stable income",
+          "zh": "穩定收入"
+        },
+        {
+          "en": "overqualified for N",
+          "zh": "學經歷高於…所需"
+        },
+        {
+          "en": "hands-on experience",
+          "zh": "實作經驗"
+        },
+        {
+          "en": "keep an open mind",
+          "zh": "保持開放的心態"
+        },
+        {
+          "en": "align one's skills with N",
+          "zh": "讓自己的能力和…契合"
+        },
+        {
+          "en": "gain a competitive edge",
+          "zh": "取得競爭優勢"
+        },
+        {
+          "en": "bridge the gap between A and B",
+          "zh": "弭平A和B之間的差距"
+        },
+        {
+          "en": "a wake-up call",
+          "zh": "警訊"
+        },
+        {
+          "en": "a diploma",
+          "zh": "文憑"
+        }
+      ],
+      "words": [
+        {
+          "en": "qualification",
+          "pos": "n.",
+          "zh": "學經歷、資格"
+        },
+        {
+          "en": "oversaturated",
+          "pos": "adj.",
+          "zh": "供過於求的"
+        },
+        {
+          "en": "stability",
+          "pos": "n.",
+          "zh": "穩定性"
+        },
+        {
+          "en": "internship",
+          "pos": "n.",
+          "zh": "實習"
+        },
+        {
+          "en": "competitive",
+          "pos": "adj.",
+          "zh": "競爭激烈的"
+        },
+        {
+          "en": "mismatch",
+          "pos": "n.",
+          "zh": "落差、不匹配"
+        },
+        {
+          "en": "realistic",
+          "pos": "adj.",
+          "zh": "務實的"
+        },
+        {
+          "en": "proactive",
+          "pos": "adj.",
+          "zh": "主動積極的"
+        },
+        {
+          "en": "credential",
+          "pos": "n.",
+          "zh": "學經歷證明"
+        },
+        {
+          "en": "versatile",
+          "pos": "adj.",
+          "zh": "多才多藝的"
+        },
+        {
+          "en": "pragmatic",
+          "pos": "adj.",
+          "zh": "務實的"
+        },
+        {
+          "en": "adapt",
+          "pos": "v.",
+          "zh": "調適、適應"
+        }
+      ],
+      "grammar": [
+        "第一段用現在式分析現象成因，可用 One phenomenon worth discussing is that... 開頭。",
+        "可用 not only...but also 並列兩個成因，倒裝時動詞回原形。",
+        "第二段用未來式或 would 表達規劃：I would make sure to..., I plan to...",
+        "小心 phenomenon 單複數，以及 it 沒有指涉對象。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "One phenomenon worth discussing is that the expenses of food only make up for 19%.",
+          "why": "句型可改成 One phenomenon worth discussing is that graduate degree holders are taking jobs that do not require a degree at all，直接切入這個社會現象。"
+        },
+        {
+          "sentence": "All these reasons can be boiled down to the pressure of a test-oriented society.",
+          "why": "可改成 All these reasons can be boiled down to a mismatch between academic credentials and the actual job market，用於歸納成因。"
+        },
+        {
+          "sentence": "By front-loading savings in my early career, I would give my future self more room to choose.",
+          "why": "By Ving, S V 可改成 By gaining hands-on experience early in college, I would give my future self more options to choose from，用於第二段的規劃。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is finding work that matches one's actual skills and interests, not just a diploma。"
+        }
+      ],
+      "common_mistakes": [
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "開頭語意重複：As can be seen in the bar chart, we can observe how... → The bar chart illustrates how...（同一句裡不要放兩個意思重複的動詞）"
+      ],
+      "model_essay": "One phenomenon worth discussing is that graduate degree holders are increasingly taking jobs, such as street cleaning, that do not require an advanced degree at all. This trend partly stems from a job market that is oversaturated in certain academic fields, while public-sector positions like sanitation work offer the security and stable income many young graduates now crave. All these reasons can be boiled down to a mismatch between academic credentials and what the actual job market needs. To avoid facing the same mismatch myself, I plan to use my college years differently. Rather than focusing only on grades, I intend to take practical courses and apply for internships every summer. By gaining hands-on experience early, I would give my future self more options to choose from after graduation. After all, what matters is finding work that matches one's actual skills and interests, not simply holding a diploma.",
+      "model_essay_used": [
+        "One...worth discussing is that...（直接借用）",
+        "All these reasons can be boiled down to N（改寫：a mismatch between academic credentials...）",
+        "By Ving, S V（By gaining hands-on experience early...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 148
+    },
+    {
+      "prompt_id": "106-ast-essay",
+      "exam": "指考",
+      "year_roc": 106,
+      "category": "經驗描述",
+      "structure_p1": "第一段說明你會因為什麼原因或在何種情境下感到寂寞，例如剛換新環境、深夜獨自讀書時。",
+      "structure_p2": "第二段描述某個人、事或物如何陪你度過寂寞時光，交代具體細節與感受。",
+      "ideas": [
+        "情境：剛轉學或搬到新環境，身邊沒有熟悉的朋友時感到寂寞",
+        "情境：半夜讀書讀到很累，身邊沒有人可以說話時",
+        "陪伴：一隻寵物安靜陪在身邊，給了安慰",
+        "陪伴：一個興趣（畫畫、音樂）成為抒發寂寞的出口",
+        "陪伴：朋友的一句簡訊或電話，讓寂寞感瞬間消散"
+      ],
+      "phrases": [
+        {
+          "en": "feel a sense of loneliness",
+          "zh": "感到一種寂寞感"
+        },
+        {
+          "en": "keep sb company",
+          "zh": "陪伴某人"
+        },
+        {
+          "en": "find comfort in N",
+          "zh": "從…中找到安慰"
+        },
+        {
+          "en": "a source of solace",
+          "zh": "慰藉的來源"
+        },
+        {
+          "en": "reach out to sb",
+          "zh": "主動聯繫某人"
+        },
+        {
+          "en": "in the dead of night",
+          "zh": "在深夜"
+        },
+        {
+          "en": "fill the silence",
+          "zh": "填補沉默"
+        },
+        {
+          "en": "lean on sb/sth",
+          "zh": "依靠某人事物"
+        },
+        {
+          "en": "take one's mind off N",
+          "zh": "讓某人不再想…"
+        },
+        {
+          "en": "ease the loneliness",
+          "zh": "緩解寂寞"
+        },
+        {
+          "en": "a quiet companion",
+          "zh": "安靜的陪伴者"
+        },
+        {
+          "en": "fade away",
+          "zh": "逐漸消失"
+        }
+      ],
+      "words": [
+        {
+          "en": "loneliness",
+          "pos": "n.",
+          "zh": "寂寞"
+        },
+        {
+          "en": "solitude",
+          "pos": "n.",
+          "zh": "獨處"
+        },
+        {
+          "en": "comfort",
+          "pos": "n.",
+          "zh": "安慰"
+        },
+        {
+          "en": "companionship",
+          "pos": "n.",
+          "zh": "陪伴"
+        },
+        {
+          "en": "isolated",
+          "pos": "adj.",
+          "zh": "孤立的"
+        },
+        {
+          "en": "solace",
+          "pos": "n.",
+          "zh": "慰藉"
+        },
+        {
+          "en": "reassurance",
+          "pos": "n.",
+          "zh": "安心感"
+        },
+        {
+          "en": "bond",
+          "pos": "n.",
+          "zh": "情感連結"
+        },
+        {
+          "en": "warmth",
+          "pos": "n.",
+          "zh": "溫暖"
+        },
+        {
+          "en": "gratitude",
+          "pos": "n.",
+          "zh": "感激"
+        },
+        {
+          "en": "quiet",
+          "pos": "adj.",
+          "zh": "安靜的"
+        },
+        {
+          "en": "comforted",
+          "pos": "adj.",
+          "zh": "感到安慰的"
+        }
+      ],
+      "grammar": [
+        "第一段可用 I feel loneliest when... 或 There are moments when... 開頭。",
+        "第二段描述陪伴用過去式敘述具體事件，可搭配分詞構句。",
+        "可用 The moment S V, S V 描寫陪伴帶來安慰的瞬間。",
+        "小心動詞時態一致，以及 living／leaving 拼字混淆。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The moment I saw the chart, I realized my own habits were very different.",
+          "why": "The moment S V, S V 可改成 The moment my dog rests her head on my lap, the loneliness of the day quietly fades away。"
+        },
+        {
+          "sentence": "Reluctant though I was to cut my entertainment budget, I did it anyway.",
+          "why": "讓步倒裝可改成 Tired though I was after studying late into the night, I still felt comforted simply having my dog beside me。"
+        },
+        {
+          "sentence": "Sitting at my desk, I opened the chart, comparing every category with my own budget.",
+          "why": "三連續動作句型可改成 Sitting on my bed, I opened my sketchbook, letting the quiet hours turn into something worth keeping，描寫用畫畫排解寂寞的畫面。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is having something, or someone, that reminds you that you are not truly alone。"
+        }
+      ],
+      "common_mistakes": [
+        "a child who grow up → who grew up（時態要跟主詞的時間一致）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "living（活著）／leaving（離開）搞混",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary"
+      ],
+      "model_essay": "I feel loneliest late at night, when I am still studying while the rest of the house has already gone quiet. Moving to a new school last year made it worse, since I no longer had close friends to text when the silence became heavy. During those nights, my dog has become my quiet companion. The moment she rests her head on my lap, the loneliness of the day quietly fades away, even though she cannot say a single word. Tired though I was after studying late into the night, I still felt comforted simply having her beside me. On nights when she was asleep, I would open my sketchbook instead, sitting on my bed and letting the quiet hours turn into something worth keeping. Looking back, what matters is having something, or someone, that reminds you that you are not truly alone, even in the middle of the night.",
+      "model_essay_used": [
+        "The moment S V, S V（The moment she rests her head on my lap...）",
+        "讓步倒裝 adj. though S V（Tired though I was...）",
+        "分詞構句／三連續動作精神（sitting on my bed and letting the quiet hours turn into...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 150
+    },
+    {
+      "prompt_id": "107-ast-essay",
+      "exam": "指考",
+      "year_roc": 107,
+      "category": "議論文",
+      "structure_p1": "第一段說明你選擇哪一項社區活動方案（示範用：特色市集）及理由。",
+      "structure_p2": "第二段敘述活動內容規劃，並說明設計理由，例如動線安排、如何吸引不同年齡層。",
+      "ideas": [
+        "選擇特色市集：能吸引不同年齡層參與，也能讓在地店家有曝光機會",
+        "理由：比起單一族群受益的活動，市集能凝聚整個社區",
+        "活動內容：邀請在地小吃攤、手作攤位、學生社團表演",
+        "設計理由：動線規劃讓親子、長者都能輕鬆逛，設置休息區",
+        "設計理由：結合小型闖關遊戲，提升居民互動與參與感"
+      ],
+      "phrases": [
+        {
+          "en": "draw people of all ages",
+          "zh": "吸引各年齡層"
+        },
+        {
+          "en": "foster a sense of community",
+          "zh": "培養社區凝聚力"
+        },
+        {
+          "en": "showcase local talent",
+          "zh": "展現在地才華"
+        },
+        {
+          "en": "set up a booth",
+          "zh": "設攤位"
+        },
+        {
+          "en": "a win-win situation",
+          "zh": "雙贏局面"
+        },
+        {
+          "en": "cater to different needs",
+          "zh": "滿足不同的需求"
+        },
+        {
+          "en": "create a lively atmosphere",
+          "zh": "營造熱鬧的氣氛"
+        },
+        {
+          "en": "encourage participation",
+          "zh": "鼓勵參與"
+        },
+        {
+          "en": "bring people together",
+          "zh": "讓大家聚在一起"
+        },
+        {
+          "en": "a designated rest area",
+          "zh": "指定休息區"
+        },
+        {
+          "en": "support local businesses",
+          "zh": "支持在地店家"
+        },
+        {
+          "en": "a hands-on activity",
+          "zh": "動手體驗的活動"
+        }
+      ],
+      "words": [
+        {
+          "en": "vendor",
+          "pos": "n.",
+          "zh": "攤販"
+        },
+        {
+          "en": "handicraft",
+          "pos": "n.",
+          "zh": "手工藝品"
+        },
+        {
+          "en": "booth",
+          "pos": "n.",
+          "zh": "攤位"
+        },
+        {
+          "en": "participation",
+          "pos": "n.",
+          "zh": "參與"
+        },
+        {
+          "en": "community",
+          "pos": "n.",
+          "zh": "社區"
+        },
+        {
+          "en": "diverse",
+          "pos": "adj.",
+          "zh": "多元的"
+        },
+        {
+          "en": "engage",
+          "pos": "v.",
+          "zh": "使投入、吸引"
+        },
+        {
+          "en": "atmosphere",
+          "pos": "n.",
+          "zh": "氣氛"
+        },
+        {
+          "en": "local",
+          "pos": "adj.",
+          "zh": "在地的"
+        },
+        {
+          "en": "showcase",
+          "pos": "v.",
+          "zh": "展現"
+        },
+        {
+          "en": "inclusiveness",
+          "pos": "n.",
+          "zh": "包容性"
+        },
+        {
+          "en": "worthwhile",
+          "pos": "adj.",
+          "zh": "值得的"
+        }
+      ],
+      "grammar": [
+        "第一段表態用 I would choose N because...",
+        "可用 not only...but also 說明市集的雙重效益，倒裝時動詞回原形。",
+        "第二段描述活動設計可用 To V, S would... 表目的。",
+        "小心固定搭配：participate in（不是 participate the），及 to V 表目的時態一致。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "This arrangement reflects the priorities of career growth, financial stability, and future planning.",
+          "why": "N reflects the priorities of... 可改成 This choice reflects the priorities of inclusiveness and community spirit rather than serving just one group。"
+        },
+        {
+          "sentence": "Striking a balance between work and entertainment is important for us to reap the quality of life.",
+          "why": "可改成 Striking a balance between fun and local support is what makes a community market worthwhile。"
+        },
+        {
+          "sentence": "Not only my classmates but also I was surprised by the figure.",
+          "why": "not only A but also B 可改成 Not only elderly residents but also young families would find something to enjoy at the market。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is designing an event that brings the whole community together, not just one group of people。"
+        }
+      ],
+      "common_mistakes": [
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "固定搭配：associate to → associate A with B；participate the game → participate in the game；coerce me to turn away → coerce me into turning away",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）"
+      ],
+      "model_essay": "Among the three options, I would choose organizing a specialty community market. This choice reflects the priorities of inclusiveness and community spirit rather than serving just one group of residents. Not only elderly residents but also young families would find something to enjoy at the market, from local snacks to handmade crafts. To design the event well, I would invite nearby food vendors and student clubs to set up booths, while leaving space for a small stage where local performers could showcase their talent throughout the day. A designated rest area with chairs and shade would let older visitors relax between booths, and a simple stamp-collecting game could encourage children to visit every stall. Striking a balance between fun and local support is what makes a community market worthwhile. After all, what matters is designing an event that brings the whole community together, not just one group of people.",
+      "model_essay_used": [
+        "N reflects the priorities of...（This choice reflects the priorities of inclusiveness...）",
+        "not only A but also B（Not only elderly residents but also young families...）",
+        "Striking a balance between A and B（Striking a balance between fun and local support...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 149
+    },
+    {
+      "prompt_id": "108-ast-essay",
+      "exam": "指考",
+      "year_roc": 108,
+      "category": "圖表數據題",
+      "structure_p1": "第一段客觀描述圖表內容，指出美國青年關注度較高及偏低的新聞類別，不出現「我」。",
+      "structure_p2": "第二段描述自己較關注和較不關注的新聞主題，並說明理由。",
+      "ideas": [
+        "圖表顯示娛樂新聞關注度最高，國際新聞關注度最低",
+        "特別現象：科技新聞關注度不低，反映年輕族群對3C／AI話題的興趣",
+        "自己較關注：科技新聞，因為跟自己興趣與未來生活相關",
+        "自己較不關注：政治新聞，因為覺得議題複雜、資訊多元不易判斷",
+        "說明理由：選擇關注跟自己生活切身相關的主題，而非全面涉獵"
+      ],
+      "phrases": [
+        {
+          "en": "rank highest/lowest among N",
+          "zh": "在…中排名最高／最低"
+        },
+        {
+          "en": "garner attention",
+          "zh": "獲得關注"
+        },
+        {
+          "en": "be indifferent to N",
+          "zh": "對…漠不關心"
+        },
+        {
+          "en": "keep up with N",
+          "zh": "跟上…的動態"
+        },
+        {
+          "en": "a niche interest",
+          "zh": "小眾興趣"
+        },
+        {
+          "en": "stay informed about N",
+          "zh": "隨時關注…的資訊"
+        },
+        {
+          "en": "resonate with young people",
+          "zh": "引起年輕人共鳴"
+        },
+        {
+          "en": "a growing concern",
+          "zh": "日益受到關注的議題"
+        },
+        {
+          "en": "filter out N",
+          "zh": "過濾掉…"
+        },
+        {
+          "en": "devote attention to N",
+          "zh": "把注意力放在…"
+        },
+        {
+          "en": "a personal connection to N",
+          "zh": "與…有個人的連結"
+        },
+        {
+          "en": "pale in comparison",
+          "zh": "相形失色、不重要"
+        }
+      ],
+      "words": [
+        {
+          "en": "attention",
+          "pos": "n.",
+          "zh": "關注"
+        },
+        {
+          "en": "category",
+          "pos": "n.",
+          "zh": "類別"
+        },
+        {
+          "en": "entertainment",
+          "pos": "n.",
+          "zh": "娛樂"
+        },
+        {
+          "en": "coverage",
+          "pos": "n.",
+          "zh": "報導"
+        },
+        {
+          "en": "indifferent",
+          "pos": "adj.",
+          "zh": "漠不關心的"
+        },
+        {
+          "en": "niche",
+          "pos": "adj.",
+          "zh": "小眾的"
+        },
+        {
+          "en": "engagement",
+          "pos": "n.",
+          "zh": "投入、關注度"
+        },
+        {
+          "en": "priority",
+          "pos": "n.",
+          "zh": "優先事項"
+        },
+        {
+          "en": "relevant",
+          "pos": "adj.",
+          "zh": "相關的"
+        },
+        {
+          "en": "informed",
+          "pos": "adj.",
+          "zh": "消息靈通的"
+        },
+        {
+          "en": "skew",
+          "pos": "v.",
+          "zh": "偏向"
+        },
+        {
+          "en": "overlook",
+          "pos": "v.",
+          "zh": "忽略"
+        }
+      ],
+      "grammar": [
+        "第一段客觀描述圖表用現在式，可用 rank highest/lowest 表排序。",
+        "可用 in contrast/whereas 連接關注度高低的對比。",
+        "第二段轉主觀可用 Personally, I am drawn to.../ I tend to overlook...",
+        "小心主詞動詞一致與冠詞使用。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "The given chart illustrates a survey regarding how Taiwanese adults allocate their salary.",
+          "why": "開場句型可改成 The given chart illustrates a survey regarding how young Americans allocate their attention to different news categories，直接套用做圖表開場。"
+        },
+        {
+          "sentence": "Entertainment takes up the biggest share of my budget, and other expenses pale in comparison.",
+          "why": "可改成 Entertainment news takes up the biggest share of attention, and international news pales in comparison，用來描述圖表最大和最小類別。"
+        },
+        {
+          "sentence": "I have sufficient reasons to pour tremendous expenses into education.",
+          "why": "可改成 I have sufficient reasons to pay closer attention to technology news, since it directly shapes the tools I will use in the future，用於第二段表態。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is paying attention to the news that actually shapes the life you are building。"
+        }
+      ],
+      "common_mistakes": [
+        "開頭語意重複：As can be seen in the bar chart, we can observe how... → The bar chart illustrates how...（同一句裡不要放兩個意思重複的動詞）",
+        "which accounts slightly under one-third → which accounts for slightly under one-third（介係詞別漏掉）",
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）"
+      ],
+      "model_essay": "The given chart illustrates a survey regarding how young Americans allocate their attention to different news categories. Entertainment news ranks highest at 28%, followed by sports at 20% and technology at 18%. International affairs, by contrast, ranks lowest at just 7%, suggesting that global events attract far less attention among this age group than celebrity gossip or games. Entertainment news takes up the biggest share of attention, and international news pales in comparison. Personally, my own attention skews differently. I have sufficient reasons to pay closer attention to technology news, since it directly shapes the tools I will use in the future, from AI to new apps. Political news, however, is something I tend to overlook, mainly because constant arguments between sides make it hard to know what to believe. After all, what matters is paying attention to the news that actually shapes the life you are building.",
+      "model_essay_used": [
+        "開場句 The given chart illustrates a survey regarding...（直接借用）",
+        "N takes up the biggest share..., and N pales in comparison（改寫套用）",
+        "I have sufficient reasons to V（I have sufficient reasons to pay closer attention to...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 148
+    },
+    {
+      "prompt_id": "109-ast-essay",
+      "exam": "指考",
+      "year_roc": 109,
+      "category": "議論文",
+      "structure_p1": "第一段說明校園安全的重要性，以及校園內可能發生的安全問題，例如陌生人進出、逃生通道堆放雜物。",
+      "structure_p2": "第二段說明身為校園一份子，成員應該採取哪些具體作為以維護校園安全。",
+      "ideas": [
+        "重要性：安全的環境是專心學習的基礎，一旦出事會影響全校",
+        "可能問題：校門管制不嚴、陌生人隨意進出",
+        "可能問題：逃生通道堆放雜物、消防安全被忽視",
+        "作為：配戴學生證、訪客登記，養成舉報陌生人的習慣",
+        "作為：定期消防演練，同學間互相關心、通報異常狀況"
+      ],
+      "phrases": [
+        {
+          "en": "raise awareness of N",
+          "zh": "提升…的意識"
+        },
+        {
+          "en": "keep an eye out for N",
+          "zh": "留意…"
+        },
+        {
+          "en": "report suspicious activity",
+          "zh": "通報可疑行動"
+        },
+        {
+          "en": "a fire drill",
+          "zh": "消防演習"
+        },
+        {
+          "en": "take precautions against N",
+          "zh": "對…採取預防措施"
+        },
+        {
+          "en": "a sense of responsibility",
+          "zh": "責任感"
+        },
+        {
+          "en": "an evacuation route",
+          "zh": "逃生路線"
+        },
+        {
+          "en": "look out for one another",
+          "zh": "互相照應"
+        },
+        {
+          "en": "enforce a rule",
+          "zh": "落實一項規定"
+        },
+        {
+          "en": "play one's part",
+          "zh": "盡自己的一份力"
+        },
+        {
+          "en": "a safe learning environment",
+          "zh": "安全的學習環境"
+        },
+        {
+          "en": "pose a threat to N",
+          "zh": "對…構成威脅"
+        }
+      ],
+      "words": [
+        {
+          "en": "safety",
+          "pos": "n.",
+          "zh": "安全"
+        },
+        {
+          "en": "precaution",
+          "pos": "n.",
+          "zh": "預防措施"
+        },
+        {
+          "en": "stranger",
+          "pos": "n.",
+          "zh": "陌生人"
+        },
+        {
+          "en": "evacuation",
+          "pos": "n.",
+          "zh": "疏散、逃生"
+        },
+        {
+          "en": "responsibility",
+          "pos": "n.",
+          "zh": "責任"
+        },
+        {
+          "en": "vigilant",
+          "pos": "adj.",
+          "zh": "警覺的"
+        },
+        {
+          "en": "enforce",
+          "pos": "v.",
+          "zh": "落實、執行"
+        },
+        {
+          "en": "awareness",
+          "pos": "n.",
+          "zh": "意識"
+        },
+        {
+          "en": "incident",
+          "pos": "n.",
+          "zh": "事件"
+        },
+        {
+          "en": "cooperation",
+          "pos": "n.",
+          "zh": "合作"
+        },
+        {
+          "en": "accountable",
+          "pos": "adj.",
+          "zh": "負責任的"
+        },
+        {
+          "en": "monitor",
+          "pos": "v.",
+          "zh": "監控、留意"
+        }
+      ],
+      "grammar": [
+        "第一段說明重要性可用 N is the foundation on which... 開頭。",
+        "可用 not only...but also 列出兩種安全隱患，倒裝時動詞回原形。",
+        "第二段用 should/could + 原形動詞 給建議，可搭配 by Ving 說明方法。",
+        "小心被動語態：規定『被落實』要用 rules should be enforced，不要主動被動混淆。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "One phenomenon worth discussing is that the expenses of food only make up for 19%.",
+          "why": "句型可改成 One problem worth addressing is that visitors can sometimes walk onto campus without being noticed，用於第一段點出安全隱患。"
+        },
+        {
+          "sentence": "Not only my classmates but also I was surprised by the figure.",
+          "why": "not only A but also B 可改成 Not only strangers wandering onto campus but also blocked evacuation routes pose a real threat to student safety。"
+        },
+        {
+          "sentence": "By front-loading savings in my early career, I would give my future self more room to choose.",
+          "why": "By Ving, S V 可改成 By reporting anything unusual right away, students can give teachers more time to respond before a small issue grows，用於第二段建議。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is that every member of the campus plays a part in keeping it safe。"
+        }
+      ],
+      "common_mistakes": [
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "固定搭配：associate to → associate A with B；participate the game → participate in the game；coerce me to turn away → coerce me into turning away"
+      ],
+      "model_essay": "A safe campus is the foundation on which real learning can happen; once something goes wrong, the whole school suffers. One problem worth addressing is that visitors can sometimes walk onto campus without being noticed, since the gates are not always closely monitored. Not only strangers wandering onto campus but also blocked evacuation routes pose a real threat to student safety. As a member of this school, I believe every student has a role to play in keeping it safe. Wearing a student ID and asking visitors to register at the gate would already help. By reporting anything unusual, students can give teachers more time to respond before a small issue grows serious. Regular fire drills should also be enforced so everyone knows the evacuation route. After all, what matters is that every member of the campus plays a part in keeping it safe.",
+      "model_essay_used": [
+        "One...worth Ving is that...（One problem worth addressing is that...）",
+        "not only A but also B（Not only strangers wandering onto campus but also blocked evacuation routes...）",
+        "By Ving, S V（By reporting anything unusual right away...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 144
+    },
+    {
+      "prompt_id": "110-ast-essay",
+      "exam": "指考",
+      "year_roc": 110,
+      "category": "議論文",
+      "structure_p1": "第一段說明你是否認同大學教授以英語授課的趨勢，並陳述理由，可以承認優缺點都有。",
+      "structure_p2": "第二段說明如果未來就讀的大學必修課是英語授課，你將如何因應或提前規劃。",
+      "ideas": [
+        "立場：部分認同，因為能提早接軌國際、閱讀原文資料更直接",
+        "但也擔心：學生英語程度落差大，可能影響理解專業內容",
+        "因應規劃：提前加強學術英文字彙與聽力，多看相關領域的英文教學影片",
+        "因應規劃：上課前預習投影片生字，課後找同學討論釐清不懂之處",
+        "因應規劃：善用學校的英語資源，逐步累積用英語討論專業內容的信心"
+      ],
+      "phrases": [
+        {
+          "en": "keep up with international trends",
+          "zh": "跟上國際趨勢"
+        },
+        {
+          "en": "be exposed to N",
+          "zh": "接觸到…"
+        },
+        {
+          "en": "a steep learning curve",
+          "zh": "陡峭的學習曲線"
+        },
+        {
+          "en": "get accustomed to N",
+          "zh": "習慣於…"
+        },
+        {
+          "en": "academic vocabulary",
+          "zh": "學術字彙"
+        },
+        {
+          "en": "fall behind",
+          "zh": "落後"
+        },
+        {
+          "en": "bridge the language gap",
+          "zh": "弭平語言差距"
+        },
+        {
+          "en": "build up one's confidence",
+          "zh": "建立信心"
+        },
+        {
+          "en": "access original sources",
+          "zh": "接觸原文資料"
+        },
+        {
+          "en": "a double-edged sword",
+          "zh": "雙面刃"
+        },
+        {
+          "en": "brush up on N",
+          "zh": "溫習、加強…"
+        },
+        {
+          "en": "preview the material",
+          "zh": "預習教材"
+        }
+      ],
+      "words": [
+        {
+          "en": "transition",
+          "pos": "n.",
+          "zh": "轉換"
+        },
+        {
+          "en": "vocabulary",
+          "pos": "n.",
+          "zh": "字彙"
+        },
+        {
+          "en": "fluency",
+          "pos": "n.",
+          "zh": "流暢度"
+        },
+        {
+          "en": "comprehension",
+          "pos": "n.",
+          "zh": "理解力"
+        },
+        {
+          "en": "accustomed",
+          "pos": "adj.",
+          "zh": "習慣的"
+        },
+        {
+          "en": "proficient",
+          "pos": "adj.",
+          "zh": "熟練的"
+        },
+        {
+          "en": "resource",
+          "pos": "n.",
+          "zh": "資源"
+        },
+        {
+          "en": "confidence",
+          "pos": "n.",
+          "zh": "信心"
+        },
+        {
+          "en": "preview",
+          "pos": "v.",
+          "zh": "預習"
+        },
+        {
+          "en": "gradually",
+          "pos": "adv.",
+          "zh": "逐漸地"
+        },
+        {
+          "en": "international",
+          "pos": "adj.",
+          "zh": "國際的"
+        },
+        {
+          "en": "specialized",
+          "pos": "adj.",
+          "zh": "專業的"
+        }
+      ],
+      "grammar": [
+        "第一段表態用 I partly agree with this trend because...",
+        "可用讓步句型呈現雙面看法：While studying in English has clear advantages, it may also disadvantage students with a weaker foundation.",
+        "第二段用未來式/would 表達因應規劃：I would make sure to.../I plan to...",
+        "小心 it 沒有指涉對象，講『這個趨勢』要用 this trend，不要只寫 it。"
+      ],
+      "from_bank": [
+        {
+          "sentence": "This strategy requires some short-term sacrifices but aligns with long-term goals.",
+          "why": "可改成 Taking courses in English requires some short-term struggle but aligns with the long-term goal of studying and working internationally，用於第一段的立場說明。"
+        },
+        {
+          "sentence": "I hope to become money-savvy before I step into the workplace.",
+          "why": "I hope to V before... 可改成 I hope to become comfortable with academic English before I step into a full English-taught classroom，用於第二段的規劃。"
+        },
+        {
+          "sentence": "By front-loading savings in my early career, I would give my future self more room to choose.",
+          "why": "By Ving, S V 可改成 By previewing the vocabulary in each slide beforehand, I would give myself more room to focus on the actual content in class。"
+        },
+        {
+          "sentence": "After all, there is no single correct answer; what matters is finding the arrangement that fits one's own life.",
+          "why": "收尾可改成 what matters is preparing early enough that the language itself stops being the obstacle。"
+        }
+      ],
+      "common_mistakes": [
+        "冠詞漏掉：In comparison with average Taiwanese adult → with the average Taiwanese adult；willing to allocate majority of salary → the majority of my salary",
+        "用語不精準：my income management may seem quite bizarre → unconventional（bizarre 語氣太重）；people coming to participate in the game → spectators（一個字取代一串修飾語，是拉分最快的方法）",
+        "Compared with regular work days, it's third the amount of people coming to participate the game. → On holidays, the game attracts three times the number of spectators it does on regular work days.（只要打出 it／it's，先停下來問一次「it 是誰？」句子裡找不到，就換成一個真正的名詞）",
+        "固定搭配：associate to → associate A with B；participate the game → participate in the game；coerce me to turn away → coerce me into turning away"
+      ],
+      "model_essay": "I partly agree with the growing trend of teaching university courses in English. Taking courses in English requires some short-term struggle but aligns with the long-term goal of studying and working internationally, since students gain direct access to original research. At the same time, I worry that students with a weaker foundation might struggle to follow specialized content, which could slow their learning. If my required courses turn out to be taught in English, I would start preparing early. I hope to become comfortable with academic English before I step into a full English-taught classroom, so I plan to watch English lectures in my field over the summer. By previewing the vocabulary in each slide beforehand, I would give myself more room to focus on the actual content in class. After all, what matters is preparing early enough that the language itself stops being the obstacle.",
+      "model_essay_used": [
+        "requires...but aligns with...（Taking courses in English requires...but aligns with...）",
+        "I hope to V before...（I hope to become comfortable with academic English before...）",
+        "By Ving, S V（By previewing the vocabulary in each slide beforehand...）"
+      ],
+      "author": "bot 寫的",
+      "model_essay_words": 146
+    }
+  ]
+}
