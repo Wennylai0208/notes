@@ -48,6 +48,9 @@ button{font:inherit}
 .tag.y{background:var(--warn-soft);color:var(--warn)}
 .prompt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
   border-radius:10px;padding:14px;margin-bottom:14px;white-space:pre-wrap}
+.pic{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:14px}
+.pic img{display:block;width:100%;height:auto;border-radius:8px}
+.pic .cap{font-size:12px;color:var(--ink2);text-align:center;margin-top:7px}
 details{border:1px solid var(--line);background:var(--card);border-radius:12px;margin-bottom:8px;overflow:hidden}
 details>summary{padding:12px 14px;cursor:pointer;font-weight:600;list-style:none}
 details>summary::-webkit-details-marker{display:none}
@@ -111,6 +114,11 @@ async function boot(){
   home();
 }
 function items(){ return S.data?.items || []; }
+function picHTML(p){
+  if(!p.image) return '';
+  return `<div class="pic"><img src="${esc(p.image)}" alt="${esc(p.image_alt||p.title)}" loading="lazy">
+    <div class="cap">${esc(p.image_alt||'')}</div></div>`;
+}
 function byCat(c){ return items().filter(i=>i.category===c); }
 
 /* ---------- 首頁 ---------- */
@@ -170,6 +178,7 @@ function openEssay(id){
   $(`<div class="bar"><button class="back" onclick="essayList('${esc(S.cat||'全部')}')">← 回題目列表</button></div>
   <h1>${esc(p.title)}</h1>
   <p class="sub">${esc(p.category)}　・　${esc(p.origin_label)}</p>
+  ${picHTML(p)}
   <div class="prompt">${esc(p.prompt_zh)}${p.prompt_en?'\n\n'+esc(p.prompt_en):''}</div>
   <h2>要怎麼練這題？</h2>
   <button class="big" onclick="startEssay('guide')">
@@ -198,6 +207,7 @@ function renderWrite(){
   const p=S.cur, saved=LS.get(key(),{text:''});
   $(`<div class="bar"><button class="back" onclick="clearInterval(S.tTick);openEssay('${p.id}')">← 換一種練法</button></div>
   <h1>${esc(p.title)}</h1>
+  ${picHTML(p)}
   <div class="prompt">${esc(p.prompt_zh)}${p.prompt_en?'\n\n'+esc(p.prompt_en):''}</div>
   <div id="guidezone">${S.revealed?guideHTML(p):`
     <div class="warnbox">✏️ <b>裸寫模式</b>：先自己寫。寫完按下面的按鈕，引導和範文才會放出來。</div>`}</div>
