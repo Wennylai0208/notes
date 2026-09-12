@@ -4631,7 +4631,7 @@
    "models": []
   },
   {
-   "id": "bank-a-001",
+   "id": "A-bank-a-001",
    "category": "看圖說故事",
    "title": "迷路的小狗",
    "prompt_zh": "請看以下連環圖文字敘述：第一格，小美在公園散步時，一隻脖子上沒有名牌的小狗突然跑向她；第二格，小美到處張貼「協尋主人」公告，也在社群網站發文求助；第三格，三天後一位焦急的老先生看到公告後聯絡小美；第四格，老先生與小狗重逢，緊緊抱住小狗並向小美道謝。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -4747,7 +4747,7 @@
    "models": []
   },
   {
-   "id": "bank-a-002",
+   "id": "A-bank-a-002",
    "category": "看圖說故事",
    "title": "忘記帶傘的雨天",
    "prompt_zh": "第一格，小凱放學時發現外面下起大雨，卻沒帶傘；第二格，他站在校門口猶豫要不要淋雨衝回家；第三格，同班的小華撐傘走過來，主動邀他一起走；第四格，兩人有說有笑地一起走到公車站，從此變成好朋友。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -4863,7 +4863,7 @@
    "models": []
   },
   {
-   "id": "bank-a-003",
+   "id": "A-bank-a-003",
    "category": "看圖說故事",
    "title": "撿到錢包",
    "prompt_zh": "第一格，阿翔在放學路上撿到一個裝滿現金與證件的錢包；第二格，他一度猶豫要不要據為己有，但最後決定交給附近的警察局；第三格，警察聯絡上失主，是一位趕著繳學費的大學生；第四格，失主親自到學校向阿翔道謝，並送他一份小禮物。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -4979,7 +4979,7 @@
    "models": []
   },
   {
-   "id": "bank-a-004",
+   "id": "A-bank-a-004",
    "category": "看圖說故事",
    "title": "考前臨時抱佛腳",
    "prompt_zh": "第一格，小傑因為打電動而拖到考試前一晚才開始複習；第二格，他熬夜苦讀卻仍一知半解，隔天考試時腦筋一片空白；第三格，考完後他反省自己的讀書習慣，決定製作讀書計畫表；第四格，下次段考前，他按表操課，成績明顯進步。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -5095,7 +5095,7 @@
    "models": []
   },
   {
-   "id": "bank-a-005",
+   "id": "A-bank-a-005",
    "category": "看圖說故事",
    "title": "社團表演的意外",
    "prompt_zh": "第一格，熱舞社準備校慶表演，主跳的小柔卻在彩排時扭傷了腳；第二格，社員們心急如焚，討論是否要取消表演；第三格，大家決定臨時調整隊形，讓小柔坐著比手勢帶動全場；第四格，表演結束後全場歡呼，社員們相擁而泣。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -5211,7 +5211,7 @@
    "models": []
   },
   {
-   "id": "bank-a-006",
+   "id": "A-bank-a-006",
    "category": "看圖說故事",
    "title": "手機遺失記",
    "prompt_zh": "第一格，小安搭公車時把手機遺留在座位上；第二格，她發現後心急如焚，馬上聯絡客運公司與撥打遺失電話；第三格，一位好心的乘客撿到手機後主動聯絡「家人」緊急聯絡人；第四格，小安與拾獲者約在超商見面，順利拿回手機並致謝。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -5327,7 +5327,7 @@
    "models": []
   },
   {
-   "id": "bank-a-007",
+   "id": "A-bank-a-007",
    "category": "看圖說故事",
    "title": "校外教學迷路記",
    "prompt_zh": "第一格，班上到老街校外教學，小威因為顧著拍照而脫隊；第二格，他發現同學都不見了，在陌生的巷弄裡越走越慌；第三格，他鼓起勇氣向一位老闆娘求助，對方帶他到集合地點；第四格，老師與同學看到他平安歸來，鬆了一口氣並提醒大家要注意隊伍。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -5443,7 +5443,7 @@
    "models": []
   },
   {
-   "id": "bank-a-008",
+   "id": "A-bank-a-008",
    "category": "看圖說故事",
    "title": "打工遲到危機",
    "prompt_zh": "第一格，阿凱在飲料店打工，某天鬧鐘沒響導致他快遲到；第二格，他匆忙出門卻發現公車誤點，急得像熱鍋上的螞蟻；第三格，他打電話向店長誠實說明狀況，並用最快速度趕到；第四格，店長體諒他的誠實與努力，只提醒他下次要多留緩衝時間。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -5559,7 +5559,7 @@
    "models": []
   },
   {
-   "id": "bank-a-009",
+   "id": "A-bank-a-009",
    "category": "看圖說故事",
    "title": "生日驚喜派對",
    "prompt_zh": "第一格，小雯的朋友們偷偷計畫在她生日當天辦驚喜派對；第二格，大家分工布置教室、訂蛋糕，卻差點被小雯提早撞見；第三格，放學前大家假裝若無其事，把她騙進教室；第四格，燈光亮起，眾人齊聲祝她生日快樂，小雯感動落淚。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -5675,7 +5675,7 @@
    "models": []
   },
   {
-   "id": "bank-a-010",
+   "id": "A-bank-a-010",
    "category": "看圖說故事",
    "title": "超商退貨風波",
    "prompt_zh": "第一格，阿豪在超商買到一份過期的三明治；第二格，他回去理論時店員一開始態度冷淡，雙方起了爭執；第三格，店長出面了解狀況後，誠懇道歉並退費加贈飲料；第四格，阿豪離開時心情從生氣轉為釋懷，也理解店員只是新人不熟流程。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -5791,7 +5791,7 @@
    "models": []
   },
   {
-   "id": "bank-a-011",
+   "id": "A-bank-a-011",
    "category": "看圖說故事",
    "title": "外送餐點送錯記",
    "prompt_zh": "第一格，小恩點的晚餐外送到府，打開一看卻是別人的餐點；第二格，她聯絡外送員與店家，發現是系統出錯配對錯誤地址；第三格，外送員來回奔波幫她換回正確餐點，滿頭大汗地道歉；第四格，小恩不但沒生氣，還給了外送員一瓶水並留下好評。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -5907,7 +5907,7 @@
    "models": []
   },
   {
-   "id": "bank-a-012",
+   "id": "A-bank-a-012",
    "category": "看圖說故事",
    "title": "園遊會擺攤記",
    "prompt_zh": "第一格，班上決定在校慶園遊會賣手作餅乾，同學們興奮地分工準備；第二格，開賣前一天烤箱故障，大家急得團團轉；第三格，班長靈機一動借用家政教室的烤箱連夜趕工；第四格，隔天攤位大排長龍，餅乾銷售一空，全班開心慶功。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -6023,7 +6023,7 @@
    "models": []
   },
   {
-   "id": "bank-a-013",
+   "id": "A-bank-a-013",
    "category": "看圖說故事",
    "title": "颱風停電夜",
    "prompt_zh": "第一格，強颱來襲當晚全家正在吃晚餐，忽然一陣狂風後停電了；第二格，一家人摸黑找手電筒與蠟燭，氣氛一度緊張；第三格，爸爸提議點蠟燭圍在一起說故事、玩遊戲；第四格，停電夜意外成為全家難忘的溫馨回憶，隔天恢復供電時大家還有點捨不得。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -6139,7 +6139,7 @@
    "models": []
   },
   {
-   "id": "bank-a-014",
+   "id": "A-bank-a-014",
    "category": "看圖說故事",
    "title": "公車上的善意",
    "prompt_zh": "第一格，小茹搭公車返家時發現忘記帶零錢卡也沒帶現金；第二格，她窘迫地站在刷卡機前，後方乘客開始不耐；第三格，一位陌生老婦人主動幫她刷卡付車資；第四格，小茹想道謝並記下對方，卻發現老婦人已在下一站悄悄下車。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -6255,7 +6255,7 @@
    "models": []
   },
   {
-   "id": "bank-a-015",
+   "id": "A-bank-a-015",
    "category": "看圖說故事",
    "title": "接力賽大逆轉",
    "prompt_zh": "第一格，校運會大隊接力，小宇的班級一開始因隊友摔倒而大幅落後；第二格，隊友們互相打氣，喊著「還有機會」；第三格，最後一棒的小宇拚盡全力狂奔追趕；第四格，在終點前一步驚險超車，全班歡聲雷動衝上前擁抱他。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -6371,7 +6371,7 @@
    "models": []
   },
   {
-   "id": "bank-a-016",
+   "id": "A-bank-a-016",
    "category": "看圖說故事",
    "title": "圖書館借書糾紛",
    "prompt_zh": "第一格，小霖到圖書館要借一本熱門小說，卻發現系統顯示已被另一位同學借走；第二格，他失望之餘決定寫下預約，卻等了超過原定歸還日仍未還書；第三格，他鼓起勇氣向館員反映，館員協助聯繫對方並加開新規範；第四格，小霖順利借到書，也和另一位愛書的同學因此成為朋友。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -6487,7 +6487,7 @@
    "models": []
   },
   {
-   "id": "bank-a-017",
+   "id": "A-bank-a-017",
    "category": "看圖說故事",
    "title": "家庭旅遊的插曲",
    "prompt_zh": "第一格，一家人開心出發到花蓮自助旅行，卻在半路發現訂錯了民宿日期；第二格，全家人在路邊焦急討論該怎麼辦；第三格，爸爸打了好幾通電話，終於找到一間臨時空房的民宿；第四格，那間意外找到的民宿老闆熱情招待，反而成了此行最美好的回憶。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -6603,7 +6603,7 @@
    "models": []
   },
   {
-   "id": "bank-a-018",
+   "id": "A-bank-a-018",
    "category": "看圖說故事",
    "title": "新同學的第一天",
    "prompt_zh": "第一格，轉學生阿哲第一天到班上，坐在角落顯得緊張又沉默；第二格，午餐時間他獨自一人吃飯，看起來有些落寞；第三格，班長主動邀他一起加入球隊練習，並介紹其他同學給他認識；第四格，一個月後，阿哲已經完全融入班級，成為大家的好朋友。 請根據上述連環圖情節，發揮想像力寫一篇涵蓋所有情節、情節連貫且結局完整的故事。文分兩段：第一段描述故事的起因與經過，第二段描述故事的結局與你的感想或體悟。文長至少120個單詞。",
@@ -6719,7 +6719,7 @@
    "models": []
   },
   {
-   "id": "bank-b-001",
+   "id": "A-bank-b-001",
    "category": "看圖表達意見",
    "title": "搶手搖飲的隊伍",
    "prompt_zh": "請看以下情境描述：圖片中是一家人氣手搖飲料店，店外大排長龍，隊伍延伸到隔壁店面，天氣炎熱，顧客們拿著手機邊排隊邊滑，等待時間顯示要40分鐘以上。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
@@ -6835,7 +6835,4067 @@
    "models": []
   },
   {
-   "id": "bank-b-001",
+   "id": "A-bank-b-002",
+   "category": "看圖表達意見",
+   "title": "捷運讓座風波",
+   "prompt_zh": "請看以下情境描述：圖片中捷運車廂內，一位孕婦站在博愛座前，座位上坐著一位低頭滑手機、戴著耳機的年輕人，周圍乘客面面相覷，沒有人開口提醒。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中的場景：座位安排、乘客的動作與表情。",
+    "structure_p2": "表達你對「該不該主動讓座」以及公共場合助人態度的看法。",
+    "ideas": [
+     "讓座應出於自願而非強迫，但基本體貼很重要",
+     "低頭滑手機可能是沒注意到，而非故意",
+     "可提出用溫和方式提醒而非公開指責",
+     "也可討論博愛座制度是否該調整"
+    ],
+    "phrases": [
+     {
+      "en": "give up one's seat",
+      "zh": "讓座"
+     },
+     {
+      "en": "turn a blind eye to",
+      "zh": "對...視而不見"
+     },
+     {
+      "en": "be aware of one's surroundings",
+      "zh": "注意周遭環境"
+     },
+     {
+      "en": "out of courtesy",
+      "zh": "出於禮貌"
+     },
+     {
+      "en": "as far as I am concerned",
+      "zh": "就我而言"
+     },
+     {
+      "en": "there is no doubt that",
+      "zh": "毫無疑問地"
+     },
+     {
+      "en": "when it comes to",
+      "zh": "說到...這件事"
+     },
+     {
+      "en": "take ... into consideration",
+      "zh": "將...納入考量"
+     }
+    ],
+    "words": [
+     {
+      "en": "priority seat",
+      "pos": "n.",
+      "zh": "博愛座"
+     },
+     {
+      "en": "pregnant",
+      "pos": "adj.",
+      "zh": "懷孕的"
+     },
+     {
+      "en": "oblivious",
+      "pos": "adj.",
+      "zh": "未察覺的"
+     },
+     {
+      "en": "etiquette",
+      "pos": "n.",
+      "zh": "禮節"
+     },
+     {
+      "en": "convenient",
+      "pos": "adj.",
+      "zh": "方便的"
+     },
+     {
+      "en": "inconsiderate",
+      "pos": "adj.",
+      "zh": "不體貼的"
+     },
+     {
+      "en": "regulation",
+      "pos": "n.",
+      "zh": "規定"
+     },
+     {
+      "en": "encourage",
+      "pos": "v.",
+      "zh": "鼓勵"
+     },
+     {
+      "en": "criticize",
+      "pos": "v.",
+      "zh": "批評"
+     },
+     {
+      "en": "beneficial",
+      "pos": "adj.",
+      "zh": "有益的"
+     }
+    ],
+    "grammar": [
+     "用連接詞 although 表讓步，例如 Although he may not have noticed her, he should still pay attention.",
+     "用比較句型 more...than / not as...as 比較不同選項的優劣",
+     "用 should/ought to 表達建議或應該採取的行動"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-003",
+   "category": "看圖表達意見",
+   "title": "街頭餵養浪浪",
+   "prompt_zh": "請看以下情境描述：圖片中一位老婦人在公園角落固定時間餵食一群流浪貓，旁邊立著鄰居寫的「請勿餵食，造成環境髒亂」告示牌，兩者形成對比。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中的畫面：餵食的老婦人、貓群，以及告示牌的內容。",
+    "structure_p2": "表達你對「街頭餵養流浪動物」這個議題的看法。",
+    "ideas": [
+     "同理心與公共衛生之間如何取得平衡",
+     "可提出定點定時餵食並清理環境的折衷方案",
+     "討論政府是否該建立更完善的TNR（誘捕絕育）制度",
+     "可從動物福利角度提出看法"
+    ],
+    "phrases": [
+     {
+      "en": "feed stray animals",
+      "zh": "餵食流浪動物"
+     },
+     {
+      "en": "cause a mess",
+      "zh": "造成髒亂"
+     },
+     {
+      "en": "strike a balance between",
+      "zh": "在...間取得平衡"
+     },
+     {
+      "en": "take responsibility for",
+      "zh": "為...負責"
+     },
+     {
+      "en": "there is no doubt that",
+      "zh": "毫無疑問地"
+     },
+     {
+      "en": "when it comes to",
+      "zh": "說到...這件事"
+     },
+     {
+      "en": "take ... into consideration",
+      "zh": "將...納入考量"
+     },
+     {
+      "en": "at the same time",
+      "zh": "同時"
+     }
+    ],
+    "words": [
+     {
+      "en": "stray",
+      "pos": "adj.",
+      "zh": "流浪的"
+     },
+     {
+      "en": "sanitation",
+      "pos": "n.",
+      "zh": "衛生"
+     },
+     {
+      "en": "compassion",
+      "pos": "n.",
+      "zh": "同情心"
+     },
+     {
+      "en": "neighborhood",
+      "pos": "n.",
+      "zh": "鄰里"
+     },
+     {
+      "en": "inconsiderate",
+      "pos": "adj.",
+      "zh": "不體貼的"
+     },
+     {
+      "en": "regulation",
+      "pos": "n.",
+      "zh": "規定"
+     },
+     {
+      "en": "encourage",
+      "pos": "v.",
+      "zh": "鼓勵"
+     },
+     {
+      "en": "criticize",
+      "pos": "v.",
+      "zh": "批評"
+     },
+     {
+      "en": "beneficial",
+      "pos": "adj.",
+      "zh": "有益的"
+     },
+     {
+      "en": "solution",
+      "pos": "n.",
+      "zh": "解決方案"
+     }
+    ],
+    "grammar": [
+     "用 instead of Ving 表替代方案，例如 Instead of banning feeding completely, the city could set feeding zones.",
+     "用 should/ought to 表達建議或應該採取的行動",
+     "用 while 表對比兩種立場，例如 While some support it, others disagree."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-004",
+   "category": "看圖表達意見",
+   "title": "公共場所滑手機",
+   "prompt_zh": "請看以下情境描述：圖片中一群朋友聚餐，但每個人都低頭滑著自己的手機，桌上的餐點幾乎沒有動過，彼此之間完全沒有交談。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中的場景：聚餐的畫面、每個人的動作與氣氛。",
+    "structure_p2": "表達你對「聚會時滑手機」這種現象的看法。",
+    "ideas": [
+     "科技拉近了遠方的距離，卻疏遠了眼前的人",
+     "可提出聚餐時設立「手機疊疊樂」等小遊戲",
+     "也可以承認查詢資訊、拍照分享有其正當性",
+     "建議在特定時段放下手機、專注陪伴"
+    ],
+    "phrases": [
+     {
+      "en": "be glued to one's phone",
+      "zh": "機不離手"
+     },
+     {
+      "en": "catch up with friends",
+      "zh": "與朋友敘舊"
+     },
+     {
+      "en": "pay attention to",
+      "zh": "關注；留意"
+     },
+     {
+      "en": "miss out on",
+      "zh": "錯過"
+     },
+     {
+      "en": "when it comes to",
+      "zh": "說到...這件事"
+     },
+     {
+      "en": "take ... into consideration",
+      "zh": "將...納入考量"
+     },
+     {
+      "en": "at the same time",
+      "zh": "同時"
+     },
+     {
+      "en": "last but not least",
+      "zh": "最後但同樣重要的是"
+     }
+    ],
+    "words": [
+     {
+      "en": "distracted",
+      "pos": "adj.",
+      "zh": "分心的"
+     },
+     {
+      "en": "interaction",
+      "pos": "n.",
+      "zh": "互動"
+     },
+     {
+      "en": "addiction",
+      "pos": "n.",
+      "zh": "上癮"
+     },
+     {
+      "en": "presence",
+      "pos": "n.",
+      "zh": "在場；陪伴"
+     },
+     {
+      "en": "regulation",
+      "pos": "n.",
+      "zh": "規定"
+     },
+     {
+      "en": "encourage",
+      "pos": "v.",
+      "zh": "鼓勵"
+     },
+     {
+      "en": "criticize",
+      "pos": "v.",
+      "zh": "批評"
+     },
+     {
+      "en": "beneficial",
+      "pos": "adj.",
+      "zh": "有益的"
+     },
+     {
+      "en": "solution",
+      "pos": "n.",
+      "zh": "解決方案"
+     },
+     {
+      "en": "consequence",
+      "pos": "n.",
+      "zh": "後果"
+     }
+    ],
+    "grammar": [
+     "用 instead of Ving 表替代做法，例如 Instead of checking phones, they could simply talk to each other.",
+     "用 while 表對比兩種立場，例如 While some support it, others disagree.",
+     "用名詞子句 what I think is that... 引導個人看法"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-005",
+   "category": "看圖表達意見",
+   "title": "共享單車亂停",
+   "prompt_zh": "請看以下情境描述：圖片中人行道上散落著好幾輛橫七豎八的共享單車，擋住了輪椅使用者與行人的通行空間，一旁還有一輛倒地的單車無人扶起。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中共享單車亂停的情形，以及對行人造成的不便。",
+    "structure_p2": "表達你對「共享單車管理問題」的看法。",
+    "ideas": [
+     "共享單車便利性高，但使用者素養有待提升",
+     "可提出加強罰則或設立專屬停車格的建議",
+     "業者也應負起管理與教育使用者的責任",
+     "可從無障礙環境的角度切入討論"
+    ],
+    "phrases": [
+     {
+      "en": "block the way",
+      "zh": "擋住去路"
+     },
+     {
+      "en": "park properly",
+      "zh": "妥善停放"
+     },
+     {
+      "en": "impose a fine",
+      "zh": "處以罰款"
+     },
+     {
+      "en": "raise public awareness",
+      "zh": "提升公眾意識"
+     },
+     {
+      "en": "take ... into consideration",
+      "zh": "將...納入考量"
+     },
+     {
+      "en": "at the same time",
+      "zh": "同時"
+     },
+     {
+      "en": "last but not least",
+      "zh": "最後但同樣重要的是"
+     },
+     {
+      "en": "generally speaking",
+      "zh": "一般來說"
+     }
+    ],
+    "words": [
+     {
+      "en": "pedestrian",
+      "pos": "n.",
+      "zh": "行人"
+     },
+     {
+      "en": "obstacle",
+      "pos": "n.",
+      "zh": "障礙物"
+     },
+     {
+      "en": "designated",
+      "pos": "adj.",
+      "zh": "指定的"
+     },
+     {
+      "en": "accessibility",
+      "pos": "n.",
+      "zh": "無障礙；可及性"
+     },
+     {
+      "en": "encourage",
+      "pos": "v.",
+      "zh": "鼓勵"
+     },
+     {
+      "en": "criticize",
+      "pos": "v.",
+      "zh": "批評"
+     },
+     {
+      "en": "beneficial",
+      "pos": "adj.",
+      "zh": "有益的"
+     },
+     {
+      "en": "solution",
+      "pos": "n.",
+      "zh": "解決方案"
+     },
+     {
+      "en": "consequence",
+      "pos": "n.",
+      "zh": "後果"
+     },
+     {
+      "en": "tolerate",
+      "pos": "v.",
+      "zh": "容忍"
+     }
+    ],
+    "grammar": [
+     "用 not until 表直到才，例如 Not until someone gets hurt will the problem get enough attention.",
+     "用名詞子句 what I think is that... 引導個人看法",
+     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-006",
+   "category": "看圖表達意見",
+   "title": "校園健康餐販賣機",
+   "prompt_zh": "請看以下情境描述：圖片中學校走廊新設置了一台販售生菜沙拉、無糖豆漿與雜糧飯糰的自動販賣機，旁邊卻大排長龍地圍著原本賣汽水洋芋片的舊販賣機。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中兩台販賣機的對比，以及學生的選擇情形。",
+    "structure_p2": "表達你對「校園推廣健康飲食」這個做法的看法。",
+    "ideas": [
+     "健康選項要兼顧口味才有吸引力",
+     "可建議搭配集點優惠鼓勵學生嘗試",
+     "也可討論學校是否該直接下架高糖高油食品",
+     "強調從小培養健康飲食習慣的重要"
+    ],
+    "phrases": [
+     {
+      "en": "promote healthy eating",
+      "zh": "推廣健康飲食"
+     },
+     {
+      "en": "cut down on",
+      "zh": "減少（攝取）"
+     },
+     {
+      "en": "be tempted by",
+      "zh": "被...誘惑"
+     },
+     {
+      "en": "in the long run",
+      "zh": "從長遠來看"
+     },
+     {
+      "en": "at the same time",
+      "zh": "同時"
+     },
+     {
+      "en": "last but not least",
+      "zh": "最後但同樣重要的是"
+     },
+     {
+      "en": "generally speaking",
+      "zh": "一般來說"
+     },
+     {
+      "en": "strike a balance between",
+      "zh": "在...之間取得平衡"
+     }
+    ],
+    "words": [
+     {
+      "en": "nutritious",
+      "pos": "adj.",
+      "zh": "營養的"
+     },
+     {
+      "en": "vending machine",
+      "pos": "n.",
+      "zh": "自動販賣機"
+     },
+     {
+      "en": "habit",
+      "pos": "n.",
+      "zh": "習慣"
+     },
+     {
+      "en": "obesity",
+      "pos": "n.",
+      "zh": "肥胖"
+     },
+     {
+      "en": "criticize",
+      "pos": "v.",
+      "zh": "批評"
+     },
+     {
+      "en": "beneficial",
+      "pos": "adj.",
+      "zh": "有益的"
+     },
+     {
+      "en": "solution",
+      "pos": "n.",
+      "zh": "解決方案"
+     },
+     {
+      "en": "consequence",
+      "pos": "n.",
+      "zh": "後果"
+     },
+     {
+      "en": "tolerate",
+      "pos": "v.",
+      "zh": "容忍"
+     },
+     {
+      "en": "awareness",
+      "pos": "n.",
+      "zh": "意識"
+     }
+    ],
+    "grammar": [
+     "用 unless 表除非，例如 Students won't choose healthy snacks unless they taste good too.",
+     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次",
+     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-007",
+   "category": "看圖表達意見",
+   "title": "夜市一次性餐具",
+   "prompt_zh": "請看以下情境描述：圖片中熱鬧的夜市攤位前，顧客人手一份用塑膠袋裝著的小吃，附上免洗筷與塑膠湯匙，垃圾桶旁堆滿了用過即丟的餐具與容器。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中夜市使用一次性餐具的情形，以及造成的垃圾問題。",
+    "structure_p2": "表達你對「夜市大量使用一次性餐具」這個現象的看法。",
+    "ideas": [
+     "一次性餐具方便衛生，但對環境負擔大",
+     "可提出攤商合作推出可租借環保餐具的方案",
+     "消費者也可自備環保餐具響應減塑",
+     "討論政府法規（如禁用一次性餐具）的角色"
+    ],
+    "phrases": [
+     {
+      "en": "single-use",
+      "zh": "一次性的"
+     },
+     {
+      "en": "pile up",
+      "zh": "堆積"
+     },
+     {
+      "en": "bring one's own",
+      "zh": "自備"
+     },
+     {
+      "en": "reduce waste",
+      "zh": "減少垃圾"
+     },
+     {
+      "en": "last but not least",
+      "zh": "最後但同樣重要的是"
+     },
+     {
+      "en": "generally speaking",
+      "zh": "一般來說"
+     },
+     {
+      "en": "strike a balance between",
+      "zh": "在...之間取得平衡"
+     },
+     {
+      "en": "be in favor of",
+      "zh": "贊成"
+     }
+    ],
+    "words": [
+     {
+      "en": "disposable",
+      "pos": "adj.",
+      "zh": "用完即丟的"
+     },
+     {
+      "en": "environment",
+      "pos": "n.",
+      "zh": "環境"
+     },
+     {
+      "en": "sustainable",
+      "pos": "adj.",
+      "zh": "永續的"
+     },
+     {
+      "en": "convenience",
+      "pos": "n.",
+      "zh": "便利"
+     },
+     {
+      "en": "beneficial",
+      "pos": "adj.",
+      "zh": "有益的"
+     },
+     {
+      "en": "solution",
+      "pos": "n.",
+      "zh": "解決方案"
+     },
+     {
+      "en": "consequence",
+      "pos": "n.",
+      "zh": "後果"
+     },
+     {
+      "en": "tolerate",
+      "pos": "v.",
+      "zh": "容忍"
+     },
+     {
+      "en": "awareness",
+      "pos": "n.",
+      "zh": "意識"
+     },
+     {
+      "en": "drawback",
+      "pos": "n.",
+      "zh": "缺點"
+     }
+    ],
+    "grammar": [
+     "用 if only 表惋惜或期望，例如 If only more vendors offered reusable tableware.",
+     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public.",
+     "用比較句型 more...than / not as...as 比較不同選項的優劣"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-008",
+   "category": "看圖表達意見",
+   "title": "教室該不該裝冷氣",
+   "prompt_zh": "請看以下情境描述：圖片中一間教室，學生們揮汗上課，窗邊的電風扇轉個不停卻仍難消暑氣，黑板旁貼著一張全班連署「希望加裝冷氣」的簽名單。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中炎熱教室的情形，以及學生們的反應。",
+    "structure_p2": "表達你對「教室是否該加裝冷氣」這個議題的看法。",
+    "ideas": [
+     "高溫影響學習專注力是主要訴求",
+     "可討論電費由誰負擔、使用時段如何規範",
+     "也可提出加裝隔熱設施等替代方案",
+     "強調舒適的學習環境有助於提升效率"
+    ],
+    "phrases": [
+     {
+      "en": "sign a petition",
+      "zh": "連署"
+     },
+     {
+      "en": "beat the heat",
+      "zh": "消暑"
+     },
+     {
+      "en": "concentrate on",
+      "zh": "專注於"
+     },
+     {
+      "en": "cover the cost",
+      "zh": "支付費用"
+     },
+     {
+      "en": "generally speaking",
+      "zh": "一般來說"
+     },
+     {
+      "en": "strike a balance between",
+      "zh": "在...之間取得平衡"
+     },
+     {
+      "en": "be in favor of",
+      "zh": "贊成"
+     },
+     {
+      "en": "raise a concern",
+      "zh": "提出疑慮"
+     }
+    ],
+    "words": [
+     {
+      "en": "install",
+      "pos": "v.",
+      "zh": "安裝"
+     },
+     {
+      "en": "stuffy",
+      "pos": "adj.",
+      "zh": "悶熱不通風的"
+     },
+     {
+      "en": "efficiency",
+      "pos": "n.",
+      "zh": "效率"
+     },
+     {
+      "en": "budget",
+      "pos": "n.",
+      "zh": "預算"
+     },
+     {
+      "en": "solution",
+      "pos": "n.",
+      "zh": "解決方案"
+     },
+     {
+      "en": "consequence",
+      "pos": "n.",
+      "zh": "後果"
+     },
+     {
+      "en": "tolerate",
+      "pos": "v.",
+      "zh": "容忍"
+     },
+     {
+      "en": "awareness",
+      "pos": "n.",
+      "zh": "意識"
+     },
+     {
+      "en": "drawback",
+      "pos": "n.",
+      "zh": "缺點"
+     },
+     {
+      "en": "appropriate",
+      "pos": "adj.",
+      "zh": "適當的"
+     }
+    ],
+    "grammar": [
+     "用 It is time that + 過去式子句 表現在該做的事，例如 It is time that schools installed air conditioners.",
+     "用比較句型 more...than / not as...as 比較不同選項的優劣",
+     "用 should/ought to 表達建議或應該採取的行動"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-009",
+   "category": "看圖表達意見",
+   "title": "平板取代課本",
+   "prompt_zh": "請看以下情境描述：圖片中一間試辦「數位教室」，學生人手一台平板電腦上課，桌上不見紙本課本，但有幾位學生的平板螢幕上悄悄開著遊戲畫面。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中數位教室的上課情形，以及可能發生的狀況。",
+    "structure_p2": "表達你對「用平板取代紙本課本上課」這個做法的看法。",
+    "ideas": [
+     "數位化能減輕書包重量、即時更新教材",
+     "但也可能分心去玩遊戲或滑社群",
+     "可建議搭配監控軟體或分區座位管理",
+     "可比較長期閱讀紙本與螢幕對視力和專注力的差異"
+    ],
+    "phrases": [
+     {
+      "en": "switch to",
+      "zh": "改用；轉換成"
+     },
+     {
+      "en": "be distracted by",
+      "zh": "被...分心"
+     },
+     {
+      "en": "keep track of",
+      "zh": "追蹤；掌握"
+     },
+     {
+      "en": "weigh the pros and cons",
+      "zh": "權衡利弊"
+     },
+     {
+      "en": "strike a balance between",
+      "zh": "在...之間取得平衡"
+     },
+     {
+      "en": "be in favor of",
+      "zh": "贊成"
+     },
+     {
+      "en": "raise a concern",
+      "zh": "提出疑慮"
+     },
+     {
+      "en": "in my opinion",
+      "zh": "依我之見"
+     }
+    ],
+    "words": [
+     {
+      "en": "digital",
+      "pos": "adj.",
+      "zh": "數位的"
+     },
+     {
+      "en": "textbook",
+      "pos": "n.",
+      "zh": "教科書"
+     },
+     {
+      "en": "discipline",
+      "pos": "n.",
+      "zh": "紀律；自律"
+     },
+     {
+      "en": "eyesight",
+      "pos": "n.",
+      "zh": "視力"
+     },
+     {
+      "en": "consequence",
+      "pos": "n.",
+      "zh": "後果"
+     },
+     {
+      "en": "tolerate",
+      "pos": "v.",
+      "zh": "容忍"
+     },
+     {
+      "en": "awareness",
+      "pos": "n.",
+      "zh": "意識"
+     },
+     {
+      "en": "drawback",
+      "pos": "n.",
+      "zh": "缺點"
+     },
+     {
+      "en": "appropriate",
+      "pos": "adj.",
+      "zh": "適當的"
+     },
+     {
+      "en": "public",
+      "pos": "adj.",
+      "zh": "公共的"
+     }
+    ],
+    "grammar": [
+     "用 as long as 表條件，例如 Tablets can be useful as long as students use them responsibly.",
+     "用 should/ought to 表達建議或應該採取的行動",
+     "用 while 表對比兩種立場，例如 While some support it, others disagree."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-010",
+   "category": "看圖表達意見",
+   "title": "街頭藝人表演",
+   "prompt_zh": "請看以下情境描述：圖片中西門町廣場上，一位街頭藝人正彈著吉他唱歌，吸引不少路人駐足圍觀鼓掌，但也有店家抱怨音量太大影響做生意。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中街頭藝人表演的場景，以及路人與店家的不同反應。",
+    "structure_p2": "表達你對「街頭表演藝術」這個文化現象的看法。",
+    "ideas": [
+     "街頭表演能豐富城市文化、提供曝光機會",
+     "音量與地點規範需要平衡各方需求",
+     "可提出申請制、劃定表演區的做法",
+     "也可討論街頭藝人維生的辛苦與熱情"
+    ],
+    "phrases": [
+     {
+      "en": "draw a crowd",
+      "zh": "吸引人群"
+     },
+     {
+      "en": "make a living",
+      "zh": "謀生"
+     },
+     {
+      "en": "complain about",
+      "zh": "抱怨"
+     },
+     {
+      "en": "add color to",
+      "zh": "為...增添色彩"
+     },
+     {
+      "en": "be in favor of",
+      "zh": "贊成"
+     },
+     {
+      "en": "raise a concern",
+      "zh": "提出疑慮"
+     },
+     {
+      "en": "in my opinion",
+      "zh": "依我之見"
+     },
+     {
+      "en": "on the other hand",
+      "zh": "另一方面"
+     }
+    ],
+    "words": [
+     {
+      "en": "performer",
+      "pos": "n.",
+      "zh": "表演者"
+     },
+     {
+      "en": "volume",
+      "pos": "n.",
+      "zh": "音量"
+     },
+     {
+      "en": "license",
+      "pos": "n.",
+      "zh": "執照；許可證"
+     },
+     {
+      "en": "vibrant",
+      "pos": "adj.",
+      "zh": "充滿活力的"
+     },
+     {
+      "en": "tolerate",
+      "pos": "v.",
+      "zh": "容忍"
+     },
+     {
+      "en": "awareness",
+      "pos": "n.",
+      "zh": "意識"
+     },
+     {
+      "en": "drawback",
+      "pos": "n.",
+      "zh": "缺點"
+     },
+     {
+      "en": "appropriate",
+      "pos": "adj.",
+      "zh": "適當的"
+     },
+     {
+      "en": "public",
+      "pos": "adj.",
+      "zh": "公共的"
+     },
+     {
+      "en": "perspective",
+      "pos": "n.",
+      "zh": "觀點"
+     }
+    ],
+    "grammar": [
+     "用 while 表對比，例如 While passers-by enjoy the music, some shop owners find it too noisy.",
+     "用 while 表對比兩種立場，例如 While some support it, others disagree.",
+     "用名詞子句 what I think is that... 引導個人看法"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-011",
+   "category": "看圖表達意見",
+   "title": "寵物友善餐廳",
+   "prompt_zh": "請看以下情境描述：圖片中一間新開的咖啡廳掛著「歡迎攜帶寵物」的招牌，店內幾桌客人帶著狗狗用餐，但隔壁桌一位帶小孩的顧客顯得有些緊張不安。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中寵物友善餐廳的情形，以及不同顧客的反應。",
+    "structure_p2": "表達你對「寵物友善空間增加」這個趨勢的看法。",
+    "ideas": [
+     "寵物友善空間讓飼主與寵物有更多共處機會",
+     "也需考量對動物過敏或害怕動物的顧客",
+     "可建議規劃寵物專區與一般座位分開",
+     "反映社會對毛小孩地位提升的轉變"
+    ],
+    "phrases": [
+     {
+      "en": "be allergic to",
+      "zh": "對...過敏"
+     },
+     {
+      "en": "cater to",
+      "zh": "迎合；服務"
+     },
+     {
+      "en": "set aside a space for",
+      "zh": "為...保留一個空間"
+     },
+     {
+      "en": "on a leash",
+      "zh": "用牽繩牽著"
+     },
+     {
+      "en": "raise a concern",
+      "zh": "提出疑慮"
+     },
+     {
+      "en": "in my opinion",
+      "zh": "依我之見"
+     },
+     {
+      "en": "on the other hand",
+      "zh": "另一方面"
+     },
+     {
+      "en": "as far as I am concerned",
+      "zh": "就我而言"
+     }
+    ],
+    "words": [
+     {
+      "en": "pet-friendly",
+      "pos": "adj.",
+      "zh": "寵物友善的"
+     },
+     {
+      "en": "uneasy",
+      "pos": "adj.",
+      "zh": "不安的"
+     },
+     {
+      "en": "hygiene",
+      "pos": "n.",
+      "zh": "衛生"
+     },
+     {
+      "en": "companionship",
+      "pos": "n.",
+      "zh": "陪伴"
+     },
+     {
+      "en": "awareness",
+      "pos": "n.",
+      "zh": "意識"
+     },
+     {
+      "en": "drawback",
+      "pos": "n.",
+      "zh": "缺點"
+     },
+     {
+      "en": "appropriate",
+      "pos": "adj.",
+      "zh": "適當的"
+     },
+     {
+      "en": "public",
+      "pos": "adj.",
+      "zh": "公共的"
+     },
+     {
+      "en": "perspective",
+      "pos": "n.",
+      "zh": "觀點"
+     },
+     {
+      "en": "controversial",
+      "pos": "adj.",
+      "zh": "有爭議的"
+     }
+    ],
+    "grammar": [
+     "用分詞構句簡化句子，例如 Sitting nearby, a mother looked a little nervous about the dogs.",
+     "用名詞子句 what I think is that... 引導個人看法",
+     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-012",
+   "category": "看圖表達意見",
+   "title": "校園監視器爭議",
+   "prompt_zh": "請看以下情境描述：圖片中學校走廊新增裝設多支監視器，公告寫著「為維護校園安全」，但布告欄上也貼著幾張學生投書，質疑是否侵犯隱私。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中校園加裝監視器的情形，以及正反兩方的意見。",
+    "structure_p2": "表達你對「校園裝設監視器」這個議題的看法。",
+    "ideas": [
+     "監視器有助於嚇阻霸凌與竊盜等行為",
+     "也可能讓學生感到被過度監控、缺乏隱私",
+     "可提出只在特定公共區域裝設的折衷做法",
+     "討論監視畫面的保存與使用規範"
+    ],
+    "phrases": [
+     {
+      "en": "invade one's privacy",
+      "zh": "侵犯隱私"
+     },
+     {
+      "en": "deter crime",
+      "zh": "嚇阻犯罪"
+     },
+     {
+      "en": "strike a balance between",
+      "zh": "在...之間取得平衡"
+     },
+     {
+      "en": "keep an eye on",
+      "zh": "留意；看管"
+     },
+     {
+      "en": "in my opinion",
+      "zh": "依我之見"
+     },
+     {
+      "en": "on the other hand",
+      "zh": "另一方面"
+     },
+     {
+      "en": "as far as I am concerned",
+      "zh": "就我而言"
+     },
+     {
+      "en": "there is no doubt that",
+      "zh": "毫無疑問地"
+     }
+    ],
+    "words": [
+     {
+      "en": "surveillance",
+      "pos": "n.",
+      "zh": "監視"
+     },
+     {
+      "en": "privacy",
+      "pos": "n.",
+      "zh": "隱私"
+     },
+     {
+      "en": "security",
+      "pos": "n.",
+      "zh": "安全"
+     },
+     {
+      "en": "restrict",
+      "pos": "v.",
+      "zh": "限制"
+     },
+     {
+      "en": "drawback",
+      "pos": "n.",
+      "zh": "缺點"
+     },
+     {
+      "en": "appropriate",
+      "pos": "adj.",
+      "zh": "適當的"
+     },
+     {
+      "en": "public",
+      "pos": "adj.",
+      "zh": "公共的"
+     },
+     {
+      "en": "perspective",
+      "pos": "n.",
+      "zh": "觀點"
+     },
+     {
+      "en": "controversial",
+      "pos": "adj.",
+      "zh": "有爭議的"
+     },
+     {
+      "en": "convenient",
+      "pos": "adj.",
+      "zh": "方便的"
+     }
+    ],
+    "grammar": [
+     "用被動語態強調客體，例如 Every corner of the campus is now being monitored.",
+     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次",
+     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-013",
+   "category": "看圖表達意見",
+   "title": "電動機車趨勢",
+   "prompt_zh": "請看以下情境描述：圖片中機車行前停放著一整排嶄新的電動機車，招牌寫著「政府補助最高兩萬元」，旁邊傳統油車行的老闆則面露愁容看著自己的店面。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中電動機車興起的情形，以及傳統機車行的處境。",
+    "structure_p2": "表達你對「電動機車取代燃油機車」這個趨勢的看法。",
+    "ideas": [
+     "電動機車有助於減少空污、響應環保",
+     "但充電站不足、電池續航是待解問題",
+     "傳統機車行師傅也面臨轉型壓力",
+     "政府補助政策是否公平也值得討論"
+    ],
+    "phrases": [
+     {
+      "en": "switch to electric",
+      "zh": "改用電動的"
+     },
+     {
+      "en": "cut down on emissions",
+      "zh": "減少排放"
+     },
+     {
+      "en": "be phased out",
+      "zh": "被逐步淘汰"
+     },
+     {
+      "en": "keep up with the times",
+      "zh": "跟上時代"
+     },
+     {
+      "en": "on the other hand",
+      "zh": "另一方面"
+     },
+     {
+      "en": "as far as I am concerned",
+      "zh": "就我而言"
+     },
+     {
+      "en": "there is no doubt that",
+      "zh": "毫無疑問地"
+     },
+     {
+      "en": "when it comes to",
+      "zh": "說到...這件事"
+     }
+    ],
+    "words": [
+     {
+      "en": "emission",
+      "pos": "n.",
+      "zh": "排放"
+     },
+     {
+      "en": "subsidy",
+      "pos": "n.",
+      "zh": "補助金"
+     },
+     {
+      "en": "battery",
+      "pos": "n.",
+      "zh": "電池"
+     },
+     {
+      "en": "transition",
+      "pos": "n.",
+      "zh": "轉型；過渡"
+     },
+     {
+      "en": "appropriate",
+      "pos": "adj.",
+      "zh": "適當的"
+     },
+     {
+      "en": "public",
+      "pos": "adj.",
+      "zh": "公共的"
+     },
+     {
+      "en": "perspective",
+      "pos": "n.",
+      "zh": "觀點"
+     },
+     {
+      "en": "controversial",
+      "pos": "adj.",
+      "zh": "有爭議的"
+     },
+     {
+      "en": "convenient",
+      "pos": "adj.",
+      "zh": "方便的"
+     },
+     {
+      "en": "inconsiderate",
+      "pos": "adj.",
+      "zh": "不體貼的"
+     }
+    ],
+    "grammar": [
+     "用 as 引導原因子句，例如 As more people switch to electric scooters, gas stations may see fewer customers.",
+     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public.",
+     "用比較句型 more...than / not as...as 比較不同選項的優劣"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-014",
+   "category": "看圖表達意見",
+   "title": "超商全天候營業",
+   "prompt_zh": "請看以下情境描述：圖片中一間便利商店凌晨兩點依然燈火通明，店員獨自一人顧店，貨架上商品齊全，但整條街上其他店家早已拉下鐵門。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中深夜便利商店的營業情形，以及與周遭環境的對比。",
+    "structure_p2": "表達你對「便利商店二十四小時營業」這個制度的看法。",
+    "ideas": [
+     "24小時營業提供極大生活便利與安全感",
+     "也造成夜班員工的身心負擔與人力成本",
+     "可討論是否該視地區彈性調整營業時間",
+     "反映台灣便利、快速的生活步調"
+    ],
+    "phrases": [
+     {
+      "en": "operate around the clock",
+      "zh": "全天候營業"
+     },
+     {
+      "en": "take a toll on",
+      "zh": "對...造成負擔"
+     },
+     {
+      "en": "be at one's service",
+      "zh": "隨時提供服務"
+     },
+     {
+      "en": "cut labor costs",
+      "zh": "降低人力成本"
+     },
+     {
+      "en": "as far as I am concerned",
+      "zh": "就我而言"
+     },
+     {
+      "en": "there is no doubt that",
+      "zh": "毫無疑問地"
+     },
+     {
+      "en": "when it comes to",
+      "zh": "說到...這件事"
+     },
+     {
+      "en": "take ... into consideration",
+      "zh": "將...納入考量"
+     }
+    ],
+    "words": [
+     {
+      "en": "convenience store",
+      "pos": "n.",
+      "zh": "便利商店"
+     },
+     {
+      "en": "exhausting",
+      "pos": "adj.",
+      "zh": "令人筋疲力盡的"
+     },
+     {
+      "en": "flexible",
+      "pos": "adj.",
+      "zh": "有彈性的"
+     },
+     {
+      "en": "demand",
+      "pos": "n.",
+      "zh": "需求"
+     },
+     {
+      "en": "public",
+      "pos": "adj.",
+      "zh": "公共的"
+     },
+     {
+      "en": "perspective",
+      "pos": "n.",
+      "zh": "觀點"
+     },
+     {
+      "en": "controversial",
+      "pos": "adj.",
+      "zh": "有爭議的"
+     },
+     {
+      "en": "convenient",
+      "pos": "adj.",
+      "zh": "方便的"
+     },
+     {
+      "en": "inconsiderate",
+      "pos": "adj.",
+      "zh": "不體貼的"
+     },
+     {
+      "en": "regulation",
+      "pos": "n.",
+      "zh": "規定"
+     }
+    ],
+    "grammar": [
+     "用 whether...or not 表是否，例如 Whether or not stores should stay open all night is worth discussing.",
+     "用比較句型 more...than / not as...as 比較不同選項的優劣",
+     "用 should/ought to 表達建議或應該採取的行動"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-015",
+   "category": "看圖表達意見",
+   "title": "自習室太吵鬧",
+   "prompt_zh": "請看以下情境描述：圖片中圖書館自習室裡，大多數人安靜讀書，但角落一群學生正低聲討論功課、不時傳出笑聲，隔壁座位的同學皺著眉頭戴上耳塞。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中自習室的情形，以及安靜讀書與討論的學生之間的衝突。",
+    "structure_p2": "表達你對「自習室該不該完全禁止交談」這個議題的看法。",
+    "ideas": [
+     "安靜是自習室存在的基本共識",
+     "小組討論也有其學習價值，需要合適空間",
+     "可建議設置討論區與靜音區分開的做法",
+     "強調公共空間使用需要互相體諒"
+    ],
+    "phrases": [
+     {
+      "en": "keep one's voice down",
+      "zh": "放低音量"
+     },
+     {
+      "en": "disturb others",
+      "zh": "打擾他人"
+     },
+     {
+      "en": "set up a separate area",
+      "zh": "另闢一個區域"
+     },
+     {
+      "en": "show consideration for",
+      "zh": "體諒"
+     },
+     {
+      "en": "there is no doubt that",
+      "zh": "毫無疑問地"
+     },
+     {
+      "en": "when it comes to",
+      "zh": "說到...這件事"
+     },
+     {
+      "en": "take ... into consideration",
+      "zh": "將...納入考量"
+     },
+     {
+      "en": "at the same time",
+      "zh": "同時"
+     }
+    ],
+    "words": [
+     {
+      "en": "disturbance",
+      "pos": "n.",
+      "zh": "干擾"
+     },
+     {
+      "en": "concentration",
+      "pos": "n.",
+      "zh": "專注力"
+     },
+     {
+      "en": "considerate",
+      "pos": "adj.",
+      "zh": "體貼的"
+     },
+     {
+      "en": "designate",
+      "pos": "v.",
+      "zh": "指定"
+     },
+     {
+      "en": "perspective",
+      "pos": "n.",
+      "zh": "觀點"
+     },
+     {
+      "en": "controversial",
+      "pos": "adj.",
+      "zh": "有爭議的"
+     },
+     {
+      "en": "convenient",
+      "pos": "adj.",
+      "zh": "方便的"
+     },
+     {
+      "en": "inconsiderate",
+      "pos": "adj.",
+      "zh": "不體貼的"
+     },
+     {
+      "en": "regulation",
+      "pos": "n.",
+      "zh": "規定"
+     },
+     {
+      "en": "encourage",
+      "pos": "v.",
+      "zh": "鼓勵"
+     }
+    ],
+    "grammar": [
+     "用 so that 表目的，例如 The library could add a discussion room so that quiet readers won't be disturbed.",
+     "用 should/ought to 表達建議或應該採取的行動",
+     "用 while 表對比兩種立場，例如 While some support it, others disagree."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-016",
+   "category": "看圖表達意見",
+   "title": "公園樂齡健身器材",
+   "prompt_zh": "請看以下情境描述：圖片中社區公園新設置了一區銀髮族健身器材，幾位阿公阿嬤正開心地使用，但器材數量有限，常常需要排隊等候，年輕人反而較少使用。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中公園樂齡健身器材的使用情形。",
+    "structure_p2": "表達你對「公園增設樂齡健身器材」這個做法的看法。",
+    "ideas": [
+     "有助於促進長者運動習慣與社交互動",
+     "器材數量不足可能造成排隊等候的問題",
+     "可討論是否該增加不同年齡層都適用的設施",
+     "反映高齡化社會對公共建設的新需求"
+    ],
+    "phrases": [
+     {
+      "en": "take up exercise",
+      "zh": "開始運動"
+     },
+     {
+      "en": "wait in turn",
+      "zh": "依序等候"
+     },
+     {
+      "en": "cater to the needs of",
+      "zh": "滿足...的需求"
+     },
+     {
+      "en": "an aging society",
+      "zh": "高齡化社會"
+     },
+     {
+      "en": "when it comes to",
+      "zh": "說到...這件事"
+     },
+     {
+      "en": "take ... into consideration",
+      "zh": "將...納入考量"
+     },
+     {
+      "en": "at the same time",
+      "zh": "同時"
+     },
+     {
+      "en": "last but not least",
+      "zh": "最後但同樣重要的是"
+     }
+    ],
+    "words": [
+     {
+      "en": "elderly",
+      "pos": "adj.",
+      "zh": "年長的"
+     },
+     {
+      "en": "facility",
+      "pos": "n.",
+      "zh": "設施"
+     },
+     {
+      "en": "beneficial",
+      "pos": "adj.",
+      "zh": "有益的"
+     },
+     {
+      "en": "insufficient",
+      "pos": "adj.",
+      "zh": "不足的"
+     },
+     {
+      "en": "controversial",
+      "pos": "adj.",
+      "zh": "有爭議的"
+     },
+     {
+      "en": "convenient",
+      "pos": "adj.",
+      "zh": "方便的"
+     },
+     {
+      "en": "inconsiderate",
+      "pos": "adj.",
+      "zh": "不體貼的"
+     },
+     {
+      "en": "regulation",
+      "pos": "n.",
+      "zh": "規定"
+     },
+     {
+      "en": "encourage",
+      "pos": "v.",
+      "zh": "鼓勵"
+     },
+     {
+      "en": "criticize",
+      "pos": "v.",
+      "zh": "批評"
+     }
+    ],
+    "grammar": [
+     "用 the number of + 複數名詞 + is/are 描述數量，例如 The number of facilities is still limited.",
+     "用 while 表對比兩種立場，例如 While some support it, others disagree.",
+     "用名詞子句 what I think is that... 引導個人看法"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-017",
+   "category": "看圖表達意見",
+   "title": "無手機日活動",
+   "prompt_zh": "請看以下情境描述：圖片中學校公告推行「每週三無手機日」，當天教室走廊上學生們改成打桌遊、聊天、打球，氣氛熱絡，但也有學生一臉焦慮地不斷張望手機收納櫃。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中無手機日當天校園的情形，以及學生們不同的反應。",
+    "structure_p2": "表達你對「學校推行無手機日」這個政策的看法。",
+    "ideas": [
+     "無手機日能促進面對面互動、減少3C依賴",
+     "對重度使用手機的學生可能造成焦慮不適",
+     "可建議循序漸進，先從短時間開始",
+     "反映數位排毒（digital detox）的重要性"
+    ],
+    "phrases": [
+     {
+      "en": "go phone-free",
+      "zh": "不使用手機"
+     },
+     {
+      "en": "face-to-face interaction",
+      "zh": "面對面互動"
+     },
+     {
+      "en": "be dependent on",
+      "zh": "依賴"
+     },
+     {
+      "en": "ease into",
+      "zh": "逐漸適應"
+     },
+     {
+      "en": "take ... into consideration",
+      "zh": "將...納入考量"
+     },
+     {
+      "en": "at the same time",
+      "zh": "同時"
+     },
+     {
+      "en": "last but not least",
+      "zh": "最後但同樣重要的是"
+     },
+     {
+      "en": "generally speaking",
+      "zh": "一般來說"
+     }
+    ],
+    "words": [
+     {
+      "en": "detox",
+      "pos": "n.",
+      "zh": "排毒；戒除"
+     },
+     {
+      "en": "anxious",
+      "pos": "adj.",
+      "zh": "焦慮的"
+     },
+     {
+      "en": "gradually",
+      "pos": "adv.",
+      "zh": "逐漸地"
+     },
+     {
+      "en": "engagement",
+      "pos": "n.",
+      "zh": "投入；參與"
+     },
+     {
+      "en": "convenient",
+      "pos": "adj.",
+      "zh": "方便的"
+     },
+     {
+      "en": "inconsiderate",
+      "pos": "adj.",
+      "zh": "不體貼的"
+     },
+     {
+      "en": "regulation",
+      "pos": "n.",
+      "zh": "規定"
+     },
+     {
+      "en": "encourage",
+      "pos": "v.",
+      "zh": "鼓勵"
+     },
+     {
+      "en": "criticize",
+      "pos": "v.",
+      "zh": "批評"
+     },
+     {
+      "en": "beneficial",
+      "pos": "adj.",
+      "zh": "有益的"
+     }
+    ],
+    "grammar": [
+     "用 the more...the less 句型，例如 The more time students spend on phones, the less they talk to each other.",
+     "用名詞子句 what I think is that... 引導個人看法",
+     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-b-018",
+   "category": "看圖表達意見",
+   "title": "街道塗鴉藝術",
+   "prompt_zh": "請看以下情境描述：圖片中一面原本灰暗的圍牆被藝術家畫上色彩繽紛的塗鴉壁畫，吸引許多人拍照打卡，但牆角仍留著幾筆未經許可、字跡潦草的噴漆塗鴉。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "",
+   "image_alt": "",
+   "guide": {
+    "structure_p1": "描述圖片中牆面的對比：精心創作的壁畫與隨意噴漆的塗鴉。",
+    "structure_p2": "表達你對「街頭塗鴉藝術」這個現象的看法。",
+    "ideas": [
+     "合法授權的壁畫能美化市容、帶動觀光",
+     "未經許可的塗鴉則可能被視為破壞公物",
+     "可建議政府規劃合法塗鴉牆供創作者發揮",
+     "討論如何在創作自由與公共秩序間取得平衡"
+    ],
+    "phrases": [
+     {
+      "en": "beautify the city",
+      "zh": "美化城市"
+     },
+     {
+      "en": "without permission",
+      "zh": "未經許可"
+     },
+     {
+      "en": "be seen as vandalism",
+      "zh": "被視為破壞公物的行為"
+     },
+     {
+      "en": "provide an outlet for",
+      "zh": "提供...的抒發管道"
+     },
+     {
+      "en": "at the same time",
+      "zh": "同時"
+     },
+     {
+      "en": "last but not least",
+      "zh": "最後但同樣重要的是"
+     },
+     {
+      "en": "generally speaking",
+      "zh": "一般來說"
+     },
+     {
+      "en": "strike a balance between",
+      "zh": "在...之間取得平衡"
+     }
+    ],
+    "words": [
+     {
+      "en": "mural",
+      "pos": "n.",
+      "zh": "壁畫"
+     },
+     {
+      "en": "graffiti",
+      "pos": "n.",
+      "zh": "塗鴉"
+     },
+     {
+      "en": "authorized",
+      "pos": "adj.",
+      "zh": "經授權的"
+     },
+     {
+      "en": "creativity",
+      "pos": "n.",
+      "zh": "創意"
+     },
+     {
+      "en": "inconsiderate",
+      "pos": "adj.",
+      "zh": "不體貼的"
+     },
+     {
+      "en": "regulation",
+      "pos": "n.",
+      "zh": "規定"
+     },
+     {
+      "en": "encourage",
+      "pos": "v.",
+      "zh": "鼓勵"
+     },
+     {
+      "en": "criticize",
+      "pos": "v.",
+      "zh": "批評"
+     },
+     {
+      "en": "beneficial",
+      "pos": "adj.",
+      "zh": "有益的"
+     },
+     {
+      "en": "solution",
+      "pos": "n.",
+      "zh": "解決方案"
+     }
+    ],
+    "grammar": [
+     "用對等連接詞 whereas 表明顯對比，例如 The mural is admired, whereas the random graffiti is criticized.",
+     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次",
+     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-001",
+   "category": "圖表數據題",
+   "title": "手機使用時數調查",
+   "prompt_zh": "某機構針對全台高中生進行「每日使用手機時數」調查，結果如下：1小時以下占12%，1到3小時占35%，3到5小時占33%，5小時以上占20%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-001.png",
+   "image_alt": "手機使用時數調查：1小時以下 12%、1到3小時 35%、3到5小時 33%、5小時以上 20%",
+   "guide": {
+    "structure_p1": "描述圖表數據：說明各時數區間所占的百分比，並指出哪個區間人數最多。",
+    "structure_p2": "說明你自己每天使用手機的時數，以及你對這個現象的看法。",
+    "ideas": [
+     "超過一半學生每天使用手機超過3小時",
+     "可討論手機使用對學業與睡眠的影響",
+     "可提出自我管理手機使用時間的方法",
+     "也可肯定手機在學習與社交上的正面功能"
+    ],
+    "phrases": [
+     {
+      "en": "spend time on",
+      "zh": "花時間在..."
+     },
+     {
+      "en": "cut back on screen time",
+      "zh": "減少螢幕使用時間"
+     },
+     {
+      "en": "set a limit on",
+      "zh": "設下...的限制"
+     },
+     {
+      "en": "be glued to a screen",
+      "zh": "機不離手"
+     },
+     {
+      "en": "account for",
+      "zh": "占（比例）"
+     },
+     {
+      "en": "the majority of",
+      "zh": "大多數的"
+     },
+     {
+      "en": "as shown in the table",
+      "zh": "如表格所示"
+     },
+     {
+      "en": "in contrast to",
+      "zh": "與...相對比"
+     }
+    ],
+    "words": [
+     {
+      "en": "screen time",
+      "pos": "n.",
+      "zh": "螢幕使用時間"
+     },
+     {
+      "en": "moderate",
+      "pos": "adj.",
+      "zh": "適度的"
+     },
+     {
+      "en": "excessive",
+      "pos": "adj.",
+      "zh": "過度的"
+     },
+     {
+      "en": "productivity",
+      "pos": "n.",
+      "zh": "生產力"
+     },
+     {
+      "en": "survey",
+      "pos": "n.",
+      "zh": "調查"
+     },
+     {
+      "en": "respondent",
+      "pos": "n.",
+      "zh": "受訪者"
+     },
+     {
+      "en": "trend",
+      "pos": "n.",
+      "zh": "趨勢"
+     },
+     {
+      "en": "significant",
+      "pos": "adj.",
+      "zh": "顯著的"
+     },
+     {
+      "en": "proportion",
+      "pos": "n.",
+      "zh": "比例"
+     },
+     {
+      "en": "category",
+      "pos": "n.",
+      "zh": "類別"
+     }
+    ],
+    "grammar": [
+     "用 nearly half 描述接近一半的比例，例如 Nearly half of the students use their phones for more than three hours a day.",
+     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B.",
+     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-002",
+   "category": "圖表數據題",
+   "title": "高中生睡眠時間調查",
+   "prompt_zh": "某調查詢問高中生「平日平均睡眠時數」，結果為：不到6小時占28%，6到7小時占40%，7到8小時占22%，8小時以上僅占10%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-002.png",
+   "image_alt": "高中生睡眠時間調查：不到6小時 28%、6到7小時 40%、7到8小時 22%、8小時以上 10%",
+   "guide": {
+    "structure_p1": "描述圖表數據：說明各睡眠時數區間的百分比分布。",
+    "structure_p2": "說明你自己平日的睡眠情形，以及你對高中生睡眠不足這個問題的看法。",
+    "ideas": [
+     "近三成學生每天睡不到6小時，遠低於建議時數",
+     "可討論課業壓力與3C使用對睡眠的影響",
+     "可提出調整作息或減少熬夜的建議",
+     "也可提及學校是否該延後上課時間"
+    ],
+    "phrases": [
+     {
+      "en": "get enough sleep",
+      "zh": "獲得足夠睡眠"
+     },
+     {
+      "en": "stay up late",
+      "zh": "熬夜"
+     },
+     {
+      "en": "fall short of",
+      "zh": "不足；未達到"
+     },
+     {
+      "en": "catch up on sleep",
+      "zh": "補眠"
+     },
+     {
+      "en": "the majority of",
+      "zh": "大多數的"
+     },
+     {
+      "en": "as shown in the table",
+      "zh": "如表格所示"
+     },
+     {
+      "en": "in contrast to",
+      "zh": "與...相對比"
+     },
+     {
+      "en": "a slight increase",
+      "zh": "些微上升"
+     }
+    ],
+    "words": [
+     {
+      "en": "sufficient",
+      "pos": "adj.",
+      "zh": "足夠的"
+     },
+     {
+      "en": "fatigue",
+      "pos": "n.",
+      "zh": "疲勞"
+     },
+     {
+      "en": "insomnia",
+      "pos": "n.",
+      "zh": "失眠"
+     },
+     {
+      "en": "routine",
+      "pos": "n.",
+      "zh": "作息；例行程序"
+     },
+     {
+      "en": "respondent",
+      "pos": "n.",
+      "zh": "受訪者"
+     },
+     {
+      "en": "trend",
+      "pos": "n.",
+      "zh": "趨勢"
+     },
+     {
+      "en": "significant",
+      "pos": "adj.",
+      "zh": "顯著的"
+     },
+     {
+      "en": "proportion",
+      "pos": "n.",
+      "zh": "比例"
+     },
+     {
+      "en": "category",
+      "pos": "n.",
+      "zh": "類別"
+     },
+     {
+      "en": "fluctuate",
+      "pos": "v.",
+      "zh": "波動"
+     }
+    ],
+    "grammar": [
+     "用倒裝句強調數據，例如 Rarely do students get eight hours of sleep on school nights.",
+     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理",
+     "用最高級描述之最，例如 Using the phone is the most common way students spend free time."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-003",
+   "category": "圖表數據題",
+   "title": "早餐習慣調查",
+   "prompt_zh": "下圖為某校學生早餐習慣圓餅圖：在家吃早餐占18%，早餐店購買占45%，便利商店購買占22%，完全不吃早餐占15%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-003.png",
+   "image_alt": "早餐習慣調查：在家吃早餐 18%、早餐店購買 45%、便利商店購買 22%、完全不吃早餐 15%",
+   "guide": {
+    "structure_p1": "描述圓餅圖數據：說明各項早餐來源所占的比例，並指出最多與最少的選項。",
+    "structure_p2": "說明你自己的早餐習慣，以及你對「不吃早餐」這個現象的看法。",
+    "ideas": [
+     "近半數學生選擇早餐店，反映外食普遍",
+     "一成五完全不吃早餐值得關注",
+     "可討論不吃早餐對上課專注力的影響",
+     "可提出簡單快速的健康早餐建議"
+    ],
+    "phrases": [
+     {
+      "en": "skip breakfast",
+      "zh": "不吃早餐"
+     },
+     {
+      "en": "grab breakfast on the way",
+      "zh": "路上隨手買早餐"
+     },
+     {
+      "en": "a balanced diet",
+      "zh": "均衡飲食"
+     },
+     {
+      "en": "fuel one's body",
+      "zh": "為身體補充能量"
+     },
+     {
+      "en": "as shown in the table",
+      "zh": "如表格所示"
+     },
+     {
+      "en": "in contrast to",
+      "zh": "與...相對比"
+     },
+     {
+      "en": "a slight increase",
+      "zh": "些微上升"
+     },
+     {
+      "en": "make up X percent",
+      "zh": "占百分之X"
+     }
+    ],
+    "words": [
+     {
+      "en": "nutrient",
+      "pos": "n.",
+      "zh": "營養素"
+     },
+     {
+      "en": "appetite",
+      "pos": "n.",
+      "zh": "食慾"
+     },
+     {
+      "en": "metabolism",
+      "pos": "n.",
+      "zh": "新陳代謝"
+     },
+     {
+      "en": "source",
+      "pos": "n.",
+      "zh": "來源"
+     },
+     {
+      "en": "trend",
+      "pos": "n.",
+      "zh": "趨勢"
+     },
+     {
+      "en": "significant",
+      "pos": "adj.",
+      "zh": "顯著的"
+     },
+     {
+      "en": "proportion",
+      "pos": "n.",
+      "zh": "比例"
+     },
+     {
+      "en": "category",
+      "pos": "n.",
+      "zh": "類別"
+     },
+     {
+      "en": "fluctuate",
+      "pos": "v.",
+      "zh": "波動"
+     },
+     {
+      "en": "represent",
+      "pos": "v.",
+      "zh": "代表"
+     }
+    ],
+    "grammar": [
+     "用 less than one in five 描述少數比例，例如 Less than one in five students eat breakfast at home.",
+     "用最高級描述之最，例如 Using the phone is the most common way students spend free time.",
+     "用分數或比例片語如 one in three / nearly half 讓敘述更生動"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-004",
+   "category": "圖表數據題",
+   "title": "通勤方式長條圖",
+   "prompt_zh": "下圖長條圖顯示某校學生上學通勤方式：走路占15%，騎腳踏車占10%，家長接送占25%，搭乘公車或捷運占30%，騎機車占20%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-004.png",
+   "image_alt": "通勤方式長條圖：走路 15%、騎腳踏車 10%、家長接送 25%、搭乘公車或捷運 30%、騎機車 20%",
+   "guide": {
+    "structure_p1": "描述長條圖數據：說明各種通勤方式所占的比例，指出最多人使用的方式。",
+    "structure_p2": "說明你自己上學的通勤方式，以及你對這個城市交通與通勤方式的看法。",
+    "ideas": [
+     "大眾運輸與家長接送合計超過一半",
+     "可討論尖峰時段交通壅塞的問題",
+     "可提出鼓勵騎腳踏車或步行的環保建議",
+     "也可提及校車或共乘制度的可行性"
+    ],
+    "phrases": [
+     {
+      "en": "commute to school",
+      "zh": "通勤上學"
+     },
+     {
+      "en": "rely on public transportation",
+      "zh": "依賴大眾運輸"
+     },
+     {
+      "en": "cause traffic congestion",
+      "zh": "造成交通壅塞"
+     },
+     {
+      "en": "an eco-friendly way",
+      "zh": "環保的方式"
+     },
+     {
+      "en": "in contrast to",
+      "zh": "與...相對比"
+     },
+     {
+      "en": "a slight increase",
+      "zh": "些微上升"
+     },
+     {
+      "en": "make up X percent",
+      "zh": "占百分之X"
+     },
+     {
+      "en": "compared with",
+      "zh": "與...相比"
+     }
+    ],
+    "words": [
+     {
+      "en": "commute",
+      "pos": "n./v.",
+      "zh": "通勤"
+     },
+     {
+      "en": "congestion",
+      "pos": "n.",
+      "zh": "壅塞"
+     },
+     {
+      "en": "efficient",
+      "pos": "adj.",
+      "zh": "有效率的"
+     },
+     {
+      "en": "carpool",
+      "pos": "v.",
+      "zh": "共乘"
+     },
+     {
+      "en": "significant",
+      "pos": "adj.",
+      "zh": "顯著的"
+     },
+     {
+      "en": "proportion",
+      "pos": "n.",
+      "zh": "比例"
+     },
+     {
+      "en": "category",
+      "pos": "n.",
+      "zh": "類別"
+     },
+     {
+      "en": "fluctuate",
+      "pos": "v.",
+      "zh": "波動"
+     },
+     {
+      "en": "represent",
+      "pos": "v.",
+      "zh": "代表"
+     },
+     {
+      "en": "statistics",
+      "pos": "n.",
+      "zh": "統計數據"
+     }
+    ],
+    "grammar": [
+     "用最高級加名詞子句，例如 What most students choose is public transportation.",
+     "用分數或比例片語如 one in three / nearly half 讓敘述更生動",
+     "用 whereas/on the contrary 銜接兩種相反的數據結果"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-005",
+   "category": "圖表數據題",
+   "title": "運動頻率調查",
+   "prompt_zh": "某調查詢問高中生「每週運動次數」，結果為：完全不運動占20%，每週1到2次占38%，每週3到4次占27%，每週5次以上僅占15%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-005.png",
+   "image_alt": "運動頻率調查：完全不運動 20%、每週1到2次 38%、每週3到4次 27%、每週5次以上 15%",
+   "guide": {
+    "structure_p1": "描述圖表數據：說明各運動頻率區間所占的百分比。",
+    "structure_p2": "說明你自己每週運動的習慣，以及你對高中生運動量普遍偏低這個現象的看法。",
+    "ideas": [
+     "兩成學生完全不運動，反映靜態生活型態",
+     "可討論課業繁重、時間不足是常見原因",
+     "可提出利用零碎時間運動的具體方法",
+     "也可強調規律運動對紓壓與健康的好處"
+    ],
+    "phrases": [
+     {
+      "en": "work out regularly",
+      "zh": "規律運動"
+     },
+     {
+      "en": "lead a sedentary lifestyle",
+      "zh": "過著久坐少動的生活"
+     },
+     {
+      "en": "squeeze in exercise",
+      "zh": "擠出時間運動"
+     },
+     {
+      "en": "relieve stress",
+      "zh": "紓解壓力"
+     },
+     {
+      "en": "a slight increase",
+      "zh": "些微上升"
+     },
+     {
+      "en": "make up X percent",
+      "zh": "占百分之X"
+     },
+     {
+      "en": "compared with",
+      "zh": "與...相比"
+     },
+     {
+      "en": "rank first",
+      "zh": "排名第一"
+     }
+    ],
+    "words": [
+     {
+      "en": "sedentary",
+      "pos": "adj.",
+      "zh": "久坐少動的"
+     },
+     {
+      "en": "stamina",
+      "pos": "n.",
+      "zh": "體力；耐力"
+     },
+     {
+      "en": "frequency",
+      "pos": "n.",
+      "zh": "頻率"
+     },
+     {
+      "en": "wellbeing",
+      "pos": "n.",
+      "zh": "身心健康"
+     },
+     {
+      "en": "proportion",
+      "pos": "n.",
+      "zh": "比例"
+     },
+     {
+      "en": "category",
+      "pos": "n.",
+      "zh": "類別"
+     },
+     {
+      "en": "fluctuate",
+      "pos": "v.",
+      "zh": "波動"
+     },
+     {
+      "en": "represent",
+      "pos": "v.",
+      "zh": "代表"
+     },
+     {
+      "en": "statistics",
+      "pos": "n.",
+      "zh": "統計數據"
+     },
+     {
+      "en": "conduct",
+      "pos": "v.",
+      "zh": "進行（調查、研究）"
+     }
+    ],
+    "grammar": [
+     "用 one fifth 描述五分之一，例如 One fifth of the students reported that they never exercise.",
+     "用 whereas/on the contrary 銜接兩種相反的數據結果",
+     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-006",
+   "category": "圖表數據題",
+   "title": "零用錢花費圓餅圖",
+   "prompt_zh": "下圖圓餅圖為高中生零用錢花費項目：餐飲零食占40%，飲料手搖占20%，文具書籍占15%，娛樂社交占15%，儲蓄占10%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-006.png",
+   "image_alt": "零用錢花費圓餅圖：餐飲零食 40%、飲料手搖 20%、文具書籍 15%、娛樂社交 15%、儲蓄 10%",
+   "guide": {
+    "structure_p1": "描述圓餅圖數據：說明各項花費類別所占的比例，指出花費最多的項目。",
+    "structure_p2": "說明你自己零用錢的花費習慣，以及你對高中生理財這個議題的看法。",
+    "ideas": [
+     "飲食類支出合計占六成，是最大宗開銷",
+     "儲蓄比例偏低，反映理財觀念待加強",
+     "可提出記帳或設立存款目標的建議",
+     "也可討論零用錢金額與家庭經濟的關聯"
+    ],
+    "phrases": [
+     {
+      "en": "spend money on",
+      "zh": "把錢花在..."
+     },
+     {
+      "en": "save up for",
+      "zh": "為...存錢"
+     },
+     {
+      "en": "keep track of expenses",
+      "zh": "記帳；追蹤支出"
+     },
+     {
+      "en": "live within one's means",
+      "zh": "量入為出"
+     },
+     {
+      "en": "make up X percent",
+      "zh": "占百分之X"
+     },
+     {
+      "en": "compared with",
+      "zh": "與...相比"
+     },
+     {
+      "en": "rank first",
+      "zh": "排名第一"
+     },
+     {
+      "en": "remain steady",
+      "zh": "保持穩定"
+     }
+    ],
+    "words": [
+     {
+      "en": "allowance",
+      "pos": "n.",
+      "zh": "零用錢"
+     },
+     {
+      "en": "budget",
+      "pos": "v./n.",
+      "zh": "預算；編列預算"
+     },
+     {
+      "en": "expenditure",
+      "pos": "n.",
+      "zh": "支出"
+     },
+     {
+      "en": "saving",
+      "pos": "n.",
+      "zh": "儲蓄"
+     },
+     {
+      "en": "category",
+      "pos": "n.",
+      "zh": "類別"
+     },
+     {
+      "en": "fluctuate",
+      "pos": "v.",
+      "zh": "波動"
+     },
+     {
+      "en": "represent",
+      "pos": "v.",
+      "zh": "代表"
+     },
+     {
+      "en": "statistics",
+      "pos": "n.",
+      "zh": "統計數據"
+     },
+     {
+      "en": "conduct",
+      "pos": "v.",
+      "zh": "進行（調查、研究）"
+     },
+     {
+      "en": "overall",
+      "pos": "adj.",
+      "zh": "整體的"
+     }
+    ],
+    "grammar": [
+     "用 make up 表構成比例，例如 Food and snacks make up 40% of students' spending.",
+     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast.",
+     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-007",
+   "category": "圖表數據題",
+   "title": "課外閱讀時間趨勢圖",
+   "prompt_zh": "下圖折線圖顯示近五年高中生每週課外閱讀時間的變化：2022年平均3.5小時，2023年3.2小時，2024年2.6小時，2025年2.1小時，2026年僅剩1.8小時，呈現逐年下降的趨勢。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-007.png",
+   "image_alt": "課外閱讀時間趨勢圖：2022年 3.5小時、2023年 3.2小時、2024年 2.6小時、2025年 2.1小時、2026年 1.8小時",
+   "guide": {
+    "structure_p1": "描述折線圖數據：說明近五年課外閱讀時間的變化趨勢。",
+    "structure_p2": "說明你自己閱讀課外書的習慣，以及你對「學生課外閱讀時間逐年減少」這個趨勢的看法。",
+    "ideas": [
+     "五年間閱讀時間幾乎減半，趨勢明顯",
+     "可討論手機與短影音是否排擠了閱讀時間",
+     "可提出設立班級讀書會或閱讀獎勵制度的建議",
+     "也可強調閱讀對思考與寫作能力的重要性"
+    ],
+    "phrases": [
+     {
+      "en": "decline steadily",
+      "zh": "穩定下降"
+     },
+     {
+      "en": "be replaced by",
+      "zh": "被...取代"
+     },
+     {
+      "en": "cultivate a habit",
+      "zh": "培養習慣"
+     },
+     {
+      "en": "broaden one's horizons",
+      "zh": "拓展視野"
+     },
+     {
+      "en": "compared with",
+      "zh": "與...相比"
+     },
+     {
+      "en": "rank first",
+      "zh": "排名第一"
+     },
+     {
+      "en": "remain steady",
+      "zh": "保持穩定"
+     },
+     {
+      "en": "be followed by",
+      "zh": "緊接著是"
+     }
+    ],
+    "words": [
+     {
+      "en": "decline",
+      "pos": "n./v.",
+      "zh": "下降"
+     },
+     {
+      "en": "literacy",
+      "pos": "n.",
+      "zh": "讀寫能力；素養"
+     },
+     {
+      "en": "consecutive",
+      "pos": "adj.",
+      "zh": "連續的"
+     },
+     {
+      "en": "alternative",
+      "pos": "n.",
+      "zh": "替代方案"
+     },
+     {
+      "en": "fluctuate",
+      "pos": "v.",
+      "zh": "波動"
+     },
+     {
+      "en": "represent",
+      "pos": "v.",
+      "zh": "代表"
+     },
+     {
+      "en": "statistics",
+      "pos": "n.",
+      "zh": "統計數據"
+     },
+     {
+      "en": "conduct",
+      "pos": "v.",
+      "zh": "進行（調查、研究）"
+     },
+     {
+      "en": "overall",
+      "pos": "adj.",
+      "zh": "整體的"
+     },
+     {
+      "en": "decline",
+      "pos": "v.",
+      "zh": "下降"
+     }
+    ],
+    "grammar": [
+     "用現在完成式描述持續到現在的變化，例如 Reading time has dropped nearly by half over the past five years.",
+     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B.",
+     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-008",
+   "category": "圖表數據題",
+   "title": "家長對手機態度調查",
+   "prompt_zh": "某調查詢問高中生家長「對孩子使用手機的態度」，結果為：完全禁止占8%，嚴格限制時間占35%，適度規範占42%，完全不干涉占15%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-008.png",
+   "image_alt": "家長對手機態度調查：完全禁止 8%、嚴格限制時間 35%、適度規範 42%、完全不干涉 15%",
+   "guide": {
+    "structure_p1": "描述圖表數據：說明家長對孩子使用手機各種態度所占的比例。",
+    "structure_p2": "說明你自己家裡對使用手機的規範情形，以及你對家長管理孩子手機使用方式的看法。",
+    "ideas": [
+     "超過四成家長採取「適度規範」，屬於較常見做法",
+     "可討論完全禁止是否容易造成親子衝突",
+     "可提出親子共同討論規則會更有效",
+     "也可反思學生自身應負起自律的責任"
+    ],
+    "phrases": [
+     {
+      "en": "set rules for",
+      "zh": "為...訂定規則"
+     },
+     {
+      "en": "reach a compromise",
+      "zh": "達成妥協"
+     },
+     {
+      "en": "lead to conflict",
+      "zh": "導致衝突"
+     },
+     {
+      "en": "take the initiative",
+      "zh": "主動採取行動"
+     },
+     {
+      "en": "rank first",
+      "zh": "排名第一"
+     },
+     {
+      "en": "remain steady",
+      "zh": "保持穩定"
+     },
+     {
+      "en": "be followed by",
+      "zh": "緊接著是"
+     },
+     {
+      "en": "vary from...to...",
+      "zh": "從...到...不等"
+     }
+    ],
+    "words": [
+     {
+      "en": "restriction",
+      "pos": "n.",
+      "zh": "限制"
+     },
+     {
+      "en": "moderate",
+      "pos": "adj.",
+      "zh": "適度的"
+     },
+     {
+      "en": "autonomy",
+      "pos": "n.",
+      "zh": "自主性"
+     },
+     {
+      "en": "negotiate",
+      "pos": "v.",
+      "zh": "協商"
+     },
+     {
+      "en": "represent",
+      "pos": "v.",
+      "zh": "代表"
+     },
+     {
+      "en": "statistics",
+      "pos": "n.",
+      "zh": "統計數據"
+     },
+     {
+      "en": "conduct",
+      "pos": "v.",
+      "zh": "進行（調查、研究）"
+     },
+     {
+      "en": "overall",
+      "pos": "adj.",
+      "zh": "整體的"
+     },
+     {
+      "en": "decline",
+      "pos": "v.",
+      "zh": "下降"
+     },
+     {
+      "en": "noticeable",
+      "pos": "adj.",
+      "zh": "明顯的"
+     }
+    ],
+    "grammar": [
+     "用 nearly half 描述接近半數，例如 Nearly half of the parents choose to set moderate rules.",
+     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理",
+     "用最高級描述之最，例如 Using the phone is the most common way students spend free time."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-009",
+   "category": "圖表數據題",
+   "title": "社團參與比例圖",
+   "prompt_zh": "下圖圓餅圖為全校學生參與社團類型比例：體育性社團占30%，學術性社團占18%，藝文性社團占22%，服務性社團占12%，完全沒有參加社團占18%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-009.png",
+   "image_alt": "社團參與比例圖：體育性社團 30%、學術性社團 18%、藝文性社團 22%、服務性社團 12%、完全沒有參加社團 18%",
+   "guide": {
+    "structure_p1": "描述圓餅圖數據：說明各類社團參與比例，並指出最多與最少的類型。",
+    "structure_p2": "說明你自己參與社團的情形，以及你對高中生參加社團這件事的看法。",
+    "ideas": [
+     "體育性社團最受歡迎，藝文性社團緊追在後",
+     "近兩成學生完全沒參加社團，可能因課業繁忙",
+     "可討論社團活動對人際關係與紓壓的幫助",
+     "也可提出如何在課業與社團間取得平衡"
+    ],
+    "phrases": [
+     {
+      "en": "take part in",
+      "zh": "參加"
+     },
+     {
+      "en": "strike a balance between",
+      "zh": "在...之間取得平衡"
+     },
+     {
+      "en": "broaden one's social circle",
+      "zh": "拓展交友圈"
+     },
+     {
+      "en": "a well-rounded life",
+      "zh": "多元均衡的生活"
+     },
+     {
+      "en": "remain steady",
+      "zh": "保持穩定"
+     },
+     {
+      "en": "be followed by",
+      "zh": "緊接著是"
+     },
+     {
+      "en": "vary from...to...",
+      "zh": "從...到...不等"
+     },
+     {
+      "en": "according to the chart",
+      "zh": "根據這張圖表"
+     }
+    ],
+    "words": [
+     {
+      "en": "extracurricular",
+      "pos": "adj.",
+      "zh": "課外的"
+     },
+     {
+      "en": "involvement",
+      "pos": "n.",
+      "zh": "參與"
+     },
+     {
+      "en": "leadership",
+      "pos": "n.",
+      "zh": "領導能力"
+     },
+     {
+      "en": "commitment",
+      "pos": "n.",
+      "zh": "投入；承諾"
+     },
+     {
+      "en": "statistics",
+      "pos": "n.",
+      "zh": "統計數據"
+     },
+     {
+      "en": "conduct",
+      "pos": "v.",
+      "zh": "進行（調查、研究）"
+     },
+     {
+      "en": "overall",
+      "pos": "adj.",
+      "zh": "整體的"
+     },
+     {
+      "en": "decline",
+      "pos": "v.",
+      "zh": "下降"
+     },
+     {
+      "en": "noticeable",
+      "pos": "adj.",
+      "zh": "明顯的"
+     },
+     {
+      "en": "reveal",
+      "pos": "v.",
+      "zh": "顯示；揭露"
+     }
+    ],
+    "grammar": [
+     "用最高級句型描述之最，例如 Sports clubs are the most popular type among students.",
+     "用最高級描述之最，例如 Using the phone is the most common way students spend free time.",
+     "用分數或比例片語如 one in three / nearly half 讓敘述更生動"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-010",
+   "category": "圖表數據題",
+   "title": "壓力來源長條圖",
+   "prompt_zh": "下圖長條圖顯示高中生主要壓力來源：課業考試占45%，未來升學占30%，人際關係占15%，家庭因素占10%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-010.png",
+   "image_alt": "壓力來源長條圖：課業考試 45%、未來升學 30%、人際關係 15%、家庭因素 10%",
+   "guide": {
+    "structure_p1": "描述長條圖數據：說明各壓力來源所占的比例，指出最主要的壓力來源。",
+    "structure_p2": "說明你自己主要的壓力來源，以及你平常如何紓解壓力。",
+    "ideas": [
+     "課業與升學合計占七成五，是壓力主因",
+     "可討論長期壓力對身心健康的影響",
+     "可提出運動、與朋友傾訴等紓壓方法",
+     "也可建議學校提供心理諮商資源"
+    ],
+    "phrases": [
+     {
+      "en": "be under pressure",
+      "zh": "承受壓力"
+     },
+     {
+      "en": "cope with stress",
+      "zh": "應付壓力"
+     },
+     {
+      "en": "seek support from",
+      "zh": "向...尋求支持"
+     },
+     {
+      "en": "take a toll on",
+      "zh": "對...造成負擔"
+     },
+     {
+      "en": "be followed by",
+      "zh": "緊接著是"
+     },
+     {
+      "en": "vary from...to...",
+      "zh": "從...到...不等"
+     },
+     {
+      "en": "according to the chart",
+      "zh": "根據這張圖表"
+     },
+     {
+      "en": "account for",
+      "zh": "占（比例）"
+     }
+    ],
+    "words": [
+     {
+      "en": "pressure",
+      "pos": "n.",
+      "zh": "壓力"
+     },
+     {
+      "en": "academic",
+      "pos": "adj.",
+      "zh": "學業的"
+     },
+     {
+      "en": "counseling",
+      "pos": "n.",
+      "zh": "諮商輔導"
+     },
+     {
+      "en": "resilience",
+      "pos": "n.",
+      "zh": "韌性；復原力"
+     },
+     {
+      "en": "conduct",
+      "pos": "v.",
+      "zh": "進行（調查、研究）"
+     },
+     {
+      "en": "overall",
+      "pos": "adj.",
+      "zh": "整體的"
+     },
+     {
+      "en": "decline",
+      "pos": "v.",
+      "zh": "下降"
+     },
+     {
+      "en": "noticeable",
+      "pos": "adj.",
+      "zh": "明顯的"
+     },
+     {
+      "en": "reveal",
+      "pos": "v.",
+      "zh": "顯示；揭露"
+     },
+     {
+      "en": "percentage",
+      "pos": "n.",
+      "zh": "百分比"
+     }
+    ],
+    "grammar": [
+     "用分數片語 three quarters 表四分之三，例如 Three quarters of the stress comes from schoolwork and further studies.",
+     "用分數或比例片語如 one in three / nearly half 讓敘述更生動",
+     "用 whereas/on the contrary 銜接兩種相反的數據結果"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-011",
+   "category": "圖表數據題",
+   "title": "午餐選擇調查",
+   "prompt_zh": "某調查詢問高中生「平常午餐怎麼解決」，結果為：學校營養午餐占35%，自備便當占20%，訂購外食占30%，到校外餐廳吃占15%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-011.png",
+   "image_alt": "午餐選擇調查：學校營養午餐 35%、自備便當 20%、訂購外食 30%、到校外餐廳吃 15%",
+   "guide": {
+    "structure_p1": "描述圖表數據：說明各項午餐選擇所占的比例。",
+    "structure_p2": "說明你自己平常午餐怎麼解決，以及你對學生午餐選擇這件事的看法。",
+    "ideas": [
+     "外食（訂購與外出）合計占45%，反映飲食選擇多元",
+     "可討論營養午餐與外食在健康與價格上的差異",
+     "可提出自備便當的優點與挑戰",
+     "也可反思如何在忙碌課業中兼顧健康飲食"
+    ],
+    "phrases": [
+     {
+      "en": "order takeout",
+      "zh": "叫外送"
+     },
+     {
+      "en": "pack a lunch",
+      "zh": "帶便當"
+     },
+     {
+      "en": "a well-balanced meal",
+      "zh": "均衡的一餐"
+     },
+     {
+      "en": "on a tight schedule",
+      "zh": "時間緊湊"
+     },
+     {
+      "en": "vary from...to...",
+      "zh": "從...到...不等"
+     },
+     {
+      "en": "according to the chart",
+      "zh": "根據這張圖表"
+     },
+     {
+      "en": "account for",
+      "zh": "占（比例）"
+     },
+     {
+      "en": "the majority of",
+      "zh": "大多數的"
+     }
+    ],
+    "words": [
+     {
+      "en": "cafeteria",
+      "pos": "n.",
+      "zh": "自助餐廳；學校餐廳"
+     },
+     {
+      "en": "takeout",
+      "pos": "n.",
+      "zh": "外帶食物"
+     },
+     {
+      "en": "nutrition",
+      "pos": "n.",
+      "zh": "營養"
+     },
+     {
+      "en": "preference",
+      "pos": "n.",
+      "zh": "偏好"
+     },
+     {
+      "en": "overall",
+      "pos": "adj.",
+      "zh": "整體的"
+     },
+     {
+      "en": "decline",
+      "pos": "v.",
+      "zh": "下降"
+     },
+     {
+      "en": "noticeable",
+      "pos": "adj.",
+      "zh": "明顯的"
+     },
+     {
+      "en": "reveal",
+      "pos": "v.",
+      "zh": "顯示；揭露"
+     },
+     {
+      "en": "percentage",
+      "pos": "n.",
+      "zh": "百分比"
+     },
+     {
+      "en": "survey",
+      "pos": "n.",
+      "zh": "調查"
+     }
+    ],
+    "grammar": [
+     "用 nearly half 表接近一半，例如 Nearly half of the students choose to eat out for lunch.",
+     "用 whereas/on the contrary 銜接兩種相反的數據結果",
+     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-012",
+   "category": "圖表數據題",
+   "title": "社群媒體使用比例圖",
+   "prompt_zh": "下圖圓餅圖為高中生最常使用的社群媒體平台：Instagram占38%，抖音（TikTok）占30%，YouTube占20%，Facebook占7%，其他占5%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-012.png",
+   "image_alt": "社群媒體使用比例圖：Instagram 38%、抖音（TikTok） 30%、YouTube 20%、Facebook 7%、其他 5%",
+   "guide": {
+    "structure_p1": "描述圓餅圖數據：說明各平台使用比例，並指出最受歡迎與最少使用的平台。",
+    "structure_p2": "說明你自己最常使用哪個社群平台，以及你對社群媒體使用這件事的看法。",
+    "ideas": [
+     "Instagram與抖音合計占近七成，短影音當道",
+     "Facebook使用比例低，反映世代差異",
+     "可討論社群媒體對自我形象與比較心理的影響",
+     "也可提出適度使用、避免過度比較的建議"
+    ],
+    "phrases": [
+     {
+      "en": "scroll through social media",
+      "zh": "滑社群媒體"
+     },
+     {
+      "en": "keep up with trends",
+      "zh": "跟上潮流"
+     },
+     {
+      "en": "compare oneself to others",
+      "zh": "拿自己與他人比較"
+     },
+     {
+      "en": "set boundaries",
+      "zh": "設立界線"
+     },
+     {
+      "en": "according to the chart",
+      "zh": "根據這張圖表"
+     },
+     {
+      "en": "account for",
+      "zh": "占（比例）"
+     },
+     {
+      "en": "the majority of",
+      "zh": "大多數的"
+     },
+     {
+      "en": "as shown in the table",
+      "zh": "如表格所示"
+     }
+    ],
+    "words": [
+     {
+      "en": "platform",
+      "pos": "n.",
+      "zh": "平台"
+     },
+     {
+      "en": "influencer",
+      "pos": "n.",
+      "zh": "網紅；意見領袖"
+     },
+     {
+      "en": "algorithm",
+      "pos": "n.",
+      "zh": "演算法"
+     },
+     {
+      "en": "self-esteem",
+      "pos": "n.",
+      "zh": "自尊；自我價值感"
+     },
+     {
+      "en": "decline",
+      "pos": "v.",
+      "zh": "下降"
+     },
+     {
+      "en": "noticeable",
+      "pos": "adj.",
+      "zh": "明顯的"
+     },
+     {
+      "en": "reveal",
+      "pos": "v.",
+      "zh": "顯示；揭露"
+     },
+     {
+      "en": "percentage",
+      "pos": "n.",
+      "zh": "百分比"
+     },
+     {
+      "en": "survey",
+      "pos": "n.",
+      "zh": "調查"
+     },
+     {
+      "en": "respondent",
+      "pos": "n.",
+      "zh": "受訪者"
+     }
+    ],
+    "grammar": [
+     "用最高級加分數片語，例如 Instagram, the most popular platform, is used by nearly two in five students.",
+     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast.",
+     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-013",
+   "category": "圖表數據題",
+   "title": "學生打工調查",
+   "prompt_zh": "某調查詢問高中生「是否有打工經驗」，結果為：目前有打工占18%，曾經打工過占25%，從未打工但有興趣占32%，完全沒興趣占25%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-013.png",
+   "image_alt": "學生打工調查：目前有打工 18%、曾經打工過 25%、從未打工但有興趣 32%、完全沒興趣 25%",
+   "guide": {
+    "structure_p1": "描述圖表數據：說明各項打工經驗所占的比例。",
+    "structure_p2": "說明你自己對打工的想法，以及你對高中生打工這件事的看法。",
+    "ideas": [
+     "有打工經驗（現在加曾經）合計超過四成",
+     "可討論打工對時間管理與課業的影響",
+     "可提出打工能培養責任感與經濟獨立的好處",
+     "也可反思打工與升學準備如何取得平衡"
+    ],
+    "phrases": [
+     {
+      "en": "take on a part-time job",
+      "zh": "從事兼職工作"
+     },
+     {
+      "en": "earn one's own money",
+      "zh": "賺自己的錢"
+     },
+     {
+      "en": "gain work experience",
+      "zh": "獲得工作經驗"
+     },
+     {
+      "en": "juggle work and study",
+      "zh": "兼顧工作與課業"
+     },
+     {
+      "en": "account for",
+      "zh": "占（比例）"
+     },
+     {
+      "en": "the majority of",
+      "zh": "大多數的"
+     },
+     {
+      "en": "as shown in the table",
+      "zh": "如表格所示"
+     },
+     {
+      "en": "in contrast to",
+      "zh": "與...相對比"
+     }
+    ],
+    "words": [
+     {
+      "en": "part-time job",
+      "pos": "n.",
+      "zh": "兼職工作"
+     },
+     {
+      "en": "independence",
+      "pos": "n.",
+      "zh": "獨立"
+     },
+     {
+      "en": "priority",
+      "pos": "n.",
+      "zh": "優先事項"
+     },
+     {
+      "en": "minimum wage",
+      "pos": "n.",
+      "zh": "最低薪資"
+     },
+     {
+      "en": "noticeable",
+      "pos": "adj.",
+      "zh": "明顯的"
+     },
+     {
+      "en": "reveal",
+      "pos": "v.",
+      "zh": "顯示；揭露"
+     },
+     {
+      "en": "percentage",
+      "pos": "n.",
+      "zh": "百分比"
+     },
+     {
+      "en": "survey",
+      "pos": "n.",
+      "zh": "調查"
+     },
+     {
+      "en": "respondent",
+      "pos": "n.",
+      "zh": "受訪者"
+     },
+     {
+      "en": "trend",
+      "pos": "n.",
+      "zh": "趨勢"
+     }
+    ],
+    "grammar": [
+     "用 more than 表超過，例如 More than 40% of the students have some work experience.",
+     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B.",
+     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-014",
+   "category": "圖表數據題",
+   "title": "視力不良比例趨勢圖",
+   "prompt_zh": "下圖長條圖顯示近三次調查高中生視力不良比例：五年前為65%，三年前上升至72%，去年最新數據已達到80%，呈現持續上升的趨勢。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-014.png",
+   "image_alt": "視力不良比例趨勢圖：五年前 65%、三年前 72%、去年最新數據 80%",
+   "guide": {
+    "structure_p1": "描述長條圖數據：說明近幾年視力不良比例的變化趨勢。",
+    "structure_p2": "說明你自己的視力狀況，以及你對「學生視力不良比例持續上升」這個現象的看法。",
+    "ideas": [
+     "視力不良比例逐年攀升，情況值得重視",
+     "可討論長時間使用3C產品是主要原因之一",
+     "可提出定時讓眼睛休息、增加戶外活動的建議",
+     "也可提及學校視力保健宣導的重要性"
+    ],
+    "phrases": [
+     {
+      "en": "strain one's eyes",
+      "zh": "讓眼睛過度疲勞"
+     },
+     {
+      "en": "take a break from screens",
+      "zh": "暫時遠離螢幕"
+     },
+     {
+      "en": "spend time outdoors",
+      "zh": "花時間在戶外"
+     },
+     {
+      "en": "be on the rise",
+      "zh": "持續上升"
+     },
+     {
+      "en": "the majority of",
+      "zh": "大多數的"
+     },
+     {
+      "en": "as shown in the table",
+      "zh": "如表格所示"
+     },
+     {
+      "en": "in contrast to",
+      "zh": "與...相對比"
+     },
+     {
+      "en": "a slight increase",
+      "zh": "些微上升"
+     }
+    ],
+    "words": [
+     {
+      "en": "eyesight",
+      "pos": "n.",
+      "zh": "視力"
+     },
+     {
+      "en": "myopia",
+      "pos": "n.",
+      "zh": "近視"
+     },
+     {
+      "en": "deteriorate",
+      "pos": "v.",
+      "zh": "惡化"
+     },
+     {
+      "en": "prevention",
+      "pos": "n.",
+      "zh": "預防"
+     },
+     {
+      "en": "reveal",
+      "pos": "v.",
+      "zh": "顯示；揭露"
+     },
+     {
+      "en": "percentage",
+      "pos": "n.",
+      "zh": "百分比"
+     },
+     {
+      "en": "survey",
+      "pos": "n.",
+      "zh": "調查"
+     },
+     {
+      "en": "respondent",
+      "pos": "n.",
+      "zh": "受訪者"
+     },
+     {
+      "en": "trend",
+      "pos": "n.",
+      "zh": "趨勢"
+     },
+     {
+      "en": "significant",
+      "pos": "adj.",
+      "zh": "顯著的"
+     }
+    ],
+    "grammar": [
+     "用 rise from...to... 描述數據變化，例如 The rate rose from 65% to 80% over five years.",
+     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理",
+     "用最高級描述之最，例如 Using the phone is the most common way students spend free time."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-015",
+   "category": "圖表數據題",
+   "title": "寵物飼養種類圓餅圖",
+   "prompt_zh": "下圖圓餅圖為高中生家庭飼養寵物種類：狗占42%，貓占33%，魚類或烏龜占12%，沒有養寵物占13%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-015.png",
+   "image_alt": "寵物飼養種類圓餅圖：狗 42%、貓 33%、魚類或烏龜 12%、沒有養寵物 13%",
+   "guide": {
+    "structure_p1": "描述圓餅圖數據：說明各類寵物飼養比例，並指出最普遍飼養的寵物。",
+    "structure_p2": "說明你自己家裡有沒有養寵物，以及你對「飼養寵物」這件事的看法。",
+    "ideas": [
+     "狗與貓合計占了七成五，是最受歡迎的寵物",
+     "可討論飼養寵物需要負起的責任與花費",
+     "可提出領養代替購買的觀念",
+     "也可分享寵物對家庭情感支持的價值"
+    ],
+    "phrases": [
+     {
+      "en": "take care of a pet",
+      "zh": "照顧寵物"
+     },
+     {
+      "en": "adopt instead of buy",
+      "zh": "以領養代替購買"
+     },
+     {
+      "en": "be responsible for",
+      "zh": "對...負責"
+     },
+     {
+      "en": "provide companionship",
+      "zh": "提供陪伴"
+     },
+     {
+      "en": "as shown in the table",
+      "zh": "如表格所示"
+     },
+     {
+      "en": "in contrast to",
+      "zh": "與...相對比"
+     },
+     {
+      "en": "a slight increase",
+      "zh": "些微上升"
+     },
+     {
+      "en": "make up X percent",
+      "zh": "占百分之X"
+     }
+    ],
+    "words": [
+     {
+      "en": "companion animal",
+      "pos": "n.",
+      "zh": "陪伴動物"
+     },
+     {
+      "en": "adoption",
+      "pos": "n.",
+      "zh": "領養"
+     },
+     {
+      "en": "commitment",
+      "pos": "n.",
+      "zh": "承諾；投入"
+     },
+     {
+      "en": "bond",
+      "pos": "n.",
+      "zh": "情感連結"
+     },
+     {
+      "en": "percentage",
+      "pos": "n.",
+      "zh": "百分比"
+     },
+     {
+      "en": "survey",
+      "pos": "n.",
+      "zh": "調查"
+     },
+     {
+      "en": "respondent",
+      "pos": "n.",
+      "zh": "受訪者"
+     },
+     {
+      "en": "trend",
+      "pos": "n.",
+      "zh": "趨勢"
+     },
+     {
+      "en": "significant",
+      "pos": "adj.",
+      "zh": "顯著的"
+     },
+     {
+      "en": "proportion",
+      "pos": "n.",
+      "zh": "比例"
+     }
+    ],
+    "grammar": [
+     "用 three out of four 表四分之三，例如 Three out of four families keep a dog or a cat.",
+     "用最高級描述之最，例如 Using the phone is the most common way students spend free time.",
+     "用分數或比例片語如 one in three / nearly half 讓敘述更生動"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-016",
+   "category": "圖表數據題",
+   "title": "課後補習時數長條圖",
+   "prompt_zh": "下圖長條圖顯示高中生每週課後補習時數：完全不補習占15%，1到5小時占30%，6到10小時占33%，10小時以上占22%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-016.png",
+   "image_alt": "課後補習時數長條圖：完全不補習 15%、1到5小時 30%、6到10小時 33%、10小時以上 22%",
+   "guide": {
+    "structure_p1": "描述長條圖數據：說明各補習時數區間所占的百分比。",
+    "structure_p2": "說明你自己補習的情形，以及你對「高中生花大量時間補習」這個現象的看法。",
+    "ideas": [
+     "超過五成學生每週補習超過6小時，負擔不小",
+     "可討論補習對睡眠與自由時間的排擠效應",
+     "可提出提升課堂效率、減少額外補習需求的想法",
+     "也可承認補習在準備考試上確實有其效果"
+    ],
+    "phrases": [
+     {
+      "en": "take cram school classes",
+      "zh": "上補習班"
+     },
+     {
+      "en": "squeeze out free time",
+      "zh": "擠壓自由時間"
+     },
+     {
+      "en": "be under academic pressure",
+      "zh": "承受學業壓力"
+     },
+     {
+      "en": "make the most of class time",
+      "zh": "善用上課時間"
+     },
+     {
+      "en": "in contrast to",
+      "zh": "與...相對比"
+     },
+     {
+      "en": "a slight increase",
+      "zh": "些微上升"
+     },
+     {
+      "en": "make up X percent",
+      "zh": "占百分之X"
+     },
+     {
+      "en": "compared with",
+      "zh": "與...相比"
+     }
+    ],
+    "words": [
+     {
+      "en": "cram school",
+      "pos": "n.",
+      "zh": "補習班"
+     },
+     {
+      "en": "workload",
+      "pos": "n.",
+      "zh": "工作量；課業量"
+     },
+     {
+      "en": "burnout",
+      "pos": "n.",
+      "zh": "倦怠；過勞"
+     },
+     {
+      "en": "self-study",
+      "pos": "n.",
+      "zh": "自習"
+     },
+     {
+      "en": "survey",
+      "pos": "n.",
+      "zh": "調查"
+     },
+     {
+      "en": "respondent",
+      "pos": "n.",
+      "zh": "受訪者"
+     },
+     {
+      "en": "trend",
+      "pos": "n.",
+      "zh": "趨勢"
+     },
+     {
+      "en": "significant",
+      "pos": "adj.",
+      "zh": "顯著的"
+     },
+     {
+      "en": "proportion",
+      "pos": "n.",
+      "zh": "比例"
+     },
+     {
+      "en": "category",
+      "pos": "n.",
+      "zh": "類別"
+     }
+    ],
+    "grammar": [
+     "用 over half 描述超過一半，例如 Over half of the students spend more than six hours on cram school every week.",
+     "用分數或比例片語如 one in three / nearly half 讓敘述更生動",
+     "用 whereas/on the contrary 銜接兩種相反的數據結果"
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-017",
+   "category": "圖表數據題",
+   "title": "垃圾分類習慣調查",
+   "prompt_zh": "某調查詢問高中生「在家是否確實做垃圾分類」，結果為：每次都確實分類占40%，偶爾才分類占35%，很少分類占15%，從不分類占10%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-017.png",
+   "image_alt": "垃圾分類習慣調查：每次都確實分類 40%、偶爾才分類 35%、很少分類 15%、從不分類 10%",
+   "guide": {
+    "structure_p1": "描述圖表數據：說明各項垃圾分類習慣所占的比例。",
+    "structure_p2": "說明你自己在家垃圾分類的習慣，以及你對環保與垃圾分類這個議題的看法。",
+    "ideas": [
+     "六成學生無法每次都確實分類，仍有進步空間",
+     "可討論垃圾分類對環境永續的重要性",
+     "可提出從小地方做起，例如隨手清洗回收容器",
+     "也可反思學校是否該加強環保教育宣導"
+    ],
+    "phrases": [
+     {
+      "en": "sort recyclables",
+      "zh": "將回收物分類"
+     },
+     {
+      "en": "raise environmental awareness",
+      "zh": "提升環保意識"
+     },
+     {
+      "en": "reduce, reuse, recycle",
+      "zh": "減量、再利用、回收"
+     },
+     {
+      "en": "take small steps toward",
+      "zh": "朝...邁出小小的一步"
+     },
+     {
+      "en": "a slight increase",
+      "zh": "些微上升"
+     },
+     {
+      "en": "make up X percent",
+      "zh": "占百分之X"
+     },
+     {
+      "en": "compared with",
+      "zh": "與...相比"
+     },
+     {
+      "en": "rank first",
+      "zh": "排名第一"
+     }
+    ],
+    "words": [
+     {
+      "en": "recycling",
+      "pos": "n.",
+      "zh": "回收"
+     },
+     {
+      "en": "sustainability",
+      "pos": "n.",
+      "zh": "永續性"
+     },
+     {
+      "en": "landfill",
+      "pos": "n.",
+      "zh": "垃圾掩埋場"
+     },
+     {
+      "en": "consistently",
+      "pos": "adv.",
+      "zh": "一貫地；持續地"
+     },
+     {
+      "en": "respondent",
+      "pos": "n.",
+      "zh": "受訪者"
+     },
+     {
+      "en": "trend",
+      "pos": "n.",
+      "zh": "趨勢"
+     },
+     {
+      "en": "significant",
+      "pos": "adj.",
+      "zh": "顯著的"
+     },
+     {
+      "en": "proportion",
+      "pos": "n.",
+      "zh": "比例"
+     },
+     {
+      "en": "category",
+      "pos": "n.",
+      "zh": "類別"
+     },
+     {
+      "en": "fluctuate",
+      "pos": "v.",
+      "zh": "波動"
+     }
+    ],
+    "grammar": [
+     "用 not always 表並非總是，例如 Students do not always sort their trash correctly.",
+     "用 whereas/on the contrary 銜接兩種相反的數據結果",
+     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "A-bank-c-018",
+   "category": "圖表數據題",
+   "title": "畢業旅行偏好調查",
+   "prompt_zh": "下圖圓餅圖為高中生對旅遊方式的偏好調查：跟團的畢業旅行占28%，家庭旅遊占35%，與朋友自助旅行占25%，很少或不旅遊占12%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
+   "prompt_en": "",
+   "origin": "bot 出題",
+   "origin_label": "bot 出題",
+   "exam": "",
+   "year_roc": null,
+   "source_url": "",
+   "image": "img/bank-c-018.png",
+   "image_alt": "畢業旅行偏好調查：跟團的畢業旅行 28%、家庭旅遊 35%、與朋友自助旅行 25%、很少或不旅遊 12%",
+   "guide": {
+    "structure_p1": "描述圓餅圖數據：說明各種旅遊方式所占的比例，並指出最受歡迎的選項。",
+    "structure_p2": "說明你自己偏好哪一種旅遊方式，以及你對高中生旅遊經驗的看法。",
+    "ideas": [
+     "家庭旅遊比例最高，反映家人共遊仍是主流",
+     "自助旅行比例不低，顯示學生渴望獨立探索",
+     "可討論旅遊對開拓視野、增進見聞的價值",
+     "也可提及旅遊經費與時間安排的現實考量"
+    ],
+    "phrases": [
+     {
+      "en": "broaden one's horizons",
+      "zh": "拓展視野"
+     },
+     {
+      "en": "plan an itinerary",
+      "zh": "規劃行程"
+     },
+     {
+      "en": "travel on a budget",
+      "zh": "用有限預算旅遊"
+     },
+     {
+      "en": "gain independence",
+      "zh": "獲得獨立自主的能力"
+     },
+     {
+      "en": "make up X percent",
+      "zh": "占百分之X"
+     },
+     {
+      "en": "compared with",
+      "zh": "與...相比"
+     },
+     {
+      "en": "rank first",
+      "zh": "排名第一"
+     },
+     {
+      "en": "remain steady",
+      "zh": "保持穩定"
+     }
+    ],
+    "words": [
+     {
+      "en": "itinerary",
+      "pos": "n.",
+      "zh": "行程"
+     },
+     {
+      "en": "independent travel",
+      "pos": "n.",
+      "zh": "自助旅行"
+     },
+     {
+      "en": "budget",
+      "pos": "n.",
+      "zh": "預算"
+     },
+     {
+      "en": "exposure",
+      "pos": "n.",
+      "zh": "見聞；接觸經驗"
+     },
+     {
+      "en": "trend",
+      "pos": "n.",
+      "zh": "趨勢"
+     },
+     {
+      "en": "significant",
+      "pos": "adj.",
+      "zh": "顯著的"
+     },
+     {
+      "en": "proportion",
+      "pos": "n.",
+      "zh": "比例"
+     },
+     {
+      "en": "category",
+      "pos": "n.",
+      "zh": "類別"
+     },
+     {
+      "en": "fluctuate",
+      "pos": "v.",
+      "zh": "波動"
+     },
+     {
+      "en": "represent",
+      "pos": "v.",
+      "zh": "代表"
+     }
+    ],
+    "grammar": [
+     "用 slightly more than 描述略多於，例如 Slightly more than a third of the students prefer traveling with their families.",
+     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast.",
+     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B."
+    ]
+   },
+   "models": []
+  },
+  {
+   "id": "B-bank-b-001",
    "category": "書信",
    "title": "給學弟妹的建議信",
    "prompt_zh": "假設你是即將畢業的高三學生，請寫一封信給即將升上高三的學弟妹。第一段說明你寫信的目的，並簡述你這三年在讀書方法或時間管理上的心得；第二段給予至少兩項具體建議（例如如何準備考試、如何調適壓力），並鼓勵他們。文長至少120個單詞。",
@@ -6952,123 +11012,7 @@
    "models": []
   },
   {
-   "id": "bank-b-002",
-   "category": "看圖表達意見",
-   "title": "捷運讓座風波",
-   "prompt_zh": "請看以下情境描述：圖片中捷運車廂內，一位孕婦站在博愛座前，座位上坐著一位低頭滑手機、戴著耳機的年輕人，周圍乘客面面相覷，沒有人開口提醒。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中的場景：座位安排、乘客的動作與表情。",
-    "structure_p2": "表達你對「該不該主動讓座」以及公共場合助人態度的看法。",
-    "ideas": [
-     "讓座應出於自願而非強迫，但基本體貼很重要",
-     "低頭滑手機可能是沒注意到，而非故意",
-     "可提出用溫和方式提醒而非公開指責",
-     "也可討論博愛座制度是否該調整"
-    ],
-    "phrases": [
-     {
-      "en": "give up one's seat",
-      "zh": "讓座"
-     },
-     {
-      "en": "turn a blind eye to",
-      "zh": "對...視而不見"
-     },
-     {
-      "en": "be aware of one's surroundings",
-      "zh": "注意周遭環境"
-     },
-     {
-      "en": "out of courtesy",
-      "zh": "出於禮貌"
-     },
-     {
-      "en": "as far as I am concerned",
-      "zh": "就我而言"
-     },
-     {
-      "en": "there is no doubt that",
-      "zh": "毫無疑問地"
-     },
-     {
-      "en": "when it comes to",
-      "zh": "說到...這件事"
-     },
-     {
-      "en": "take ... into consideration",
-      "zh": "將...納入考量"
-     }
-    ],
-    "words": [
-     {
-      "en": "priority seat",
-      "pos": "n.",
-      "zh": "博愛座"
-     },
-     {
-      "en": "pregnant",
-      "pos": "adj.",
-      "zh": "懷孕的"
-     },
-     {
-      "en": "oblivious",
-      "pos": "adj.",
-      "zh": "未察覺的"
-     },
-     {
-      "en": "etiquette",
-      "pos": "n.",
-      "zh": "禮節"
-     },
-     {
-      "en": "convenient",
-      "pos": "adj.",
-      "zh": "方便的"
-     },
-     {
-      "en": "inconsiderate",
-      "pos": "adj.",
-      "zh": "不體貼的"
-     },
-     {
-      "en": "regulation",
-      "pos": "n.",
-      "zh": "規定"
-     },
-     {
-      "en": "encourage",
-      "pos": "v.",
-      "zh": "鼓勵"
-     },
-     {
-      "en": "criticize",
-      "pos": "v.",
-      "zh": "批評"
-     },
-     {
-      "en": "beneficial",
-      "pos": "adj.",
-      "zh": "有益的"
-     }
-    ],
-    "grammar": [
-     "用連接詞 although 表讓步，例如 Although he may not have noticed her, he should still pay attention.",
-     "用比較句型 more...than / not as...as 比較不同選項的優劣",
-     "用 should/ought to 表達建議或應該採取的行動"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-002",
+   "id": "B-bank-b-002",
    "category": "書信",
    "title": "邀請筆友來台旅遊",
    "prompt_zh": "假設你有一位國外筆友，請寫一封email邀請他明年暑假來台灣玩。第一段說明邀請的原因與希望對方來訪的時間；第二段介紹一個你想帶他去的景點，並說明去之前需要注意的事情（如天氣、交通、需準備的東西）。文長至少120個單詞。",
@@ -7185,123 +11129,7 @@
    "models": []
   },
   {
-   "id": "bank-b-003",
-   "category": "看圖表達意見",
-   "title": "街頭餵養浪浪",
-   "prompt_zh": "請看以下情境描述：圖片中一位老婦人在公園角落固定時間餵食一群流浪貓，旁邊立著鄰居寫的「請勿餵食，造成環境髒亂」告示牌，兩者形成對比。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中的畫面：餵食的老婦人、貓群，以及告示牌的內容。",
-    "structure_p2": "表達你對「街頭餵養流浪動物」這個議題的看法。",
-    "ideas": [
-     "同理心與公共衛生之間如何取得平衡",
-     "可提出定點定時餵食並清理環境的折衷方案",
-     "討論政府是否該建立更完善的TNR（誘捕絕育）制度",
-     "可從動物福利角度提出看法"
-    ],
-    "phrases": [
-     {
-      "en": "feed stray animals",
-      "zh": "餵食流浪動物"
-     },
-     {
-      "en": "cause a mess",
-      "zh": "造成髒亂"
-     },
-     {
-      "en": "strike a balance between",
-      "zh": "在...間取得平衡"
-     },
-     {
-      "en": "take responsibility for",
-      "zh": "為...負責"
-     },
-     {
-      "en": "there is no doubt that",
-      "zh": "毫無疑問地"
-     },
-     {
-      "en": "when it comes to",
-      "zh": "說到...這件事"
-     },
-     {
-      "en": "take ... into consideration",
-      "zh": "將...納入考量"
-     },
-     {
-      "en": "at the same time",
-      "zh": "同時"
-     }
-    ],
-    "words": [
-     {
-      "en": "stray",
-      "pos": "adj.",
-      "zh": "流浪的"
-     },
-     {
-      "en": "sanitation",
-      "pos": "n.",
-      "zh": "衛生"
-     },
-     {
-      "en": "compassion",
-      "pos": "n.",
-      "zh": "同情心"
-     },
-     {
-      "en": "neighborhood",
-      "pos": "n.",
-      "zh": "鄰里"
-     },
-     {
-      "en": "inconsiderate",
-      "pos": "adj.",
-      "zh": "不體貼的"
-     },
-     {
-      "en": "regulation",
-      "pos": "n.",
-      "zh": "規定"
-     },
-     {
-      "en": "encourage",
-      "pos": "v.",
-      "zh": "鼓勵"
-     },
-     {
-      "en": "criticize",
-      "pos": "v.",
-      "zh": "批評"
-     },
-     {
-      "en": "beneficial",
-      "pos": "adj.",
-      "zh": "有益的"
-     },
-     {
-      "en": "solution",
-      "pos": "n.",
-      "zh": "解決方案"
-     }
-    ],
-    "grammar": [
-     "用 instead of Ving 表替代方案，例如 Instead of banning feeding completely, the city could set feeding zones.",
-     "用 should/ought to 表達建議或應該採取的行動",
-     "用 while 表對比兩種立場，例如 While some support it, others disagree."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-003",
+   "id": "B-bank-b-003",
    "category": "書信",
    "title": "向店長反映服務問題",
    "prompt_zh": "假設你常光顧住家附近的一間便利商店，最近發現該店的服務出現問題（例如結帳排隊太久、店員態度不佳、商品常缺貨等，請自選一項）。請寫一封email給店長，第一段具體描述你遇到的問題與發生的情況；第二段提出至少一項具體改善建議，並表達你仍希望繼續光顧的態度。文長至少120個單詞。",
@@ -7418,123 +11246,7 @@
    "models": []
   },
   {
-   "id": "bank-b-004",
-   "category": "看圖表達意見",
-   "title": "公共場所滑手機",
-   "prompt_zh": "請看以下情境描述：圖片中一群朋友聚餐，但每個人都低頭滑著自己的手機，桌上的餐點幾乎沒有動過，彼此之間完全沒有交談。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中的場景：聚餐的畫面、每個人的動作與氣氛。",
-    "structure_p2": "表達你對「聚會時滑手機」這種現象的看法。",
-    "ideas": [
-     "科技拉近了遠方的距離，卻疏遠了眼前的人",
-     "可提出聚餐時設立「手機疊疊樂」等小遊戲",
-     "也可以承認查詢資訊、拍照分享有其正當性",
-     "建議在特定時段放下手機、專注陪伴"
-    ],
-    "phrases": [
-     {
-      "en": "be glued to one's phone",
-      "zh": "機不離手"
-     },
-     {
-      "en": "catch up with friends",
-      "zh": "與朋友敘舊"
-     },
-     {
-      "en": "pay attention to",
-      "zh": "關注；留意"
-     },
-     {
-      "en": "miss out on",
-      "zh": "錯過"
-     },
-     {
-      "en": "when it comes to",
-      "zh": "說到...這件事"
-     },
-     {
-      "en": "take ... into consideration",
-      "zh": "將...納入考量"
-     },
-     {
-      "en": "at the same time",
-      "zh": "同時"
-     },
-     {
-      "en": "last but not least",
-      "zh": "最後但同樣重要的是"
-     }
-    ],
-    "words": [
-     {
-      "en": "distracted",
-      "pos": "adj.",
-      "zh": "分心的"
-     },
-     {
-      "en": "interaction",
-      "pos": "n.",
-      "zh": "互動"
-     },
-     {
-      "en": "addiction",
-      "pos": "n.",
-      "zh": "上癮"
-     },
-     {
-      "en": "presence",
-      "pos": "n.",
-      "zh": "在場；陪伴"
-     },
-     {
-      "en": "regulation",
-      "pos": "n.",
-      "zh": "規定"
-     },
-     {
-      "en": "encourage",
-      "pos": "v.",
-      "zh": "鼓勵"
-     },
-     {
-      "en": "criticize",
-      "pos": "v.",
-      "zh": "批評"
-     },
-     {
-      "en": "beneficial",
-      "pos": "adj.",
-      "zh": "有益的"
-     },
-     {
-      "en": "solution",
-      "pos": "n.",
-      "zh": "解決方案"
-     },
-     {
-      "en": "consequence",
-      "pos": "n.",
-      "zh": "後果"
-     }
-    ],
-    "grammar": [
-     "用 instead of Ving 表替代做法，例如 Instead of checking phones, they could simply talk to each other.",
-     "用 while 表對比兩種立場，例如 While some support it, others disagree.",
-     "用名詞子句 what I think is that... 引導個人看法"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-004",
+   "id": "B-bank-b-004",
    "category": "書信",
    "title": "請假信給導師",
    "prompt_zh": "假設你因為身體不適需要向導師請假三天。請寫一封信給導師，第一段說明請假的原因與請假的日期；第二段說明你會如何安排這段期間的課業（如請同學代抄筆記、返校後補交作業的計畫），並表達歉意與感謝。文長至少120個單詞。",
@@ -7651,123 +11363,7 @@
    "models": []
   },
   {
-   "id": "bank-b-005",
-   "category": "看圖表達意見",
-   "title": "共享單車亂停",
-   "prompt_zh": "請看以下情境描述：圖片中人行道上散落著好幾輛橫七豎八的共享單車，擋住了輪椅使用者與行人的通行空間，一旁還有一輛倒地的單車無人扶起。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中共享單車亂停的情形，以及對行人造成的不便。",
-    "structure_p2": "表達你對「共享單車管理問題」的看法。",
-    "ideas": [
-     "共享單車便利性高，但使用者素養有待提升",
-     "可提出加強罰則或設立專屬停車格的建議",
-     "業者也應負起管理與教育使用者的責任",
-     "可從無障礙環境的角度切入討論"
-    ],
-    "phrases": [
-     {
-      "en": "block the way",
-      "zh": "擋住去路"
-     },
-     {
-      "en": "park properly",
-      "zh": "妥善停放"
-     },
-     {
-      "en": "impose a fine",
-      "zh": "處以罰款"
-     },
-     {
-      "en": "raise public awareness",
-      "zh": "提升公眾意識"
-     },
-     {
-      "en": "take ... into consideration",
-      "zh": "將...納入考量"
-     },
-     {
-      "en": "at the same time",
-      "zh": "同時"
-     },
-     {
-      "en": "last but not least",
-      "zh": "最後但同樣重要的是"
-     },
-     {
-      "en": "generally speaking",
-      "zh": "一般來說"
-     }
-    ],
-    "words": [
-     {
-      "en": "pedestrian",
-      "pos": "n.",
-      "zh": "行人"
-     },
-     {
-      "en": "obstacle",
-      "pos": "n.",
-      "zh": "障礙物"
-     },
-     {
-      "en": "designated",
-      "pos": "adj.",
-      "zh": "指定的"
-     },
-     {
-      "en": "accessibility",
-      "pos": "n.",
-      "zh": "無障礙；可及性"
-     },
-     {
-      "en": "encourage",
-      "pos": "v.",
-      "zh": "鼓勵"
-     },
-     {
-      "en": "criticize",
-      "pos": "v.",
-      "zh": "批評"
-     },
-     {
-      "en": "beneficial",
-      "pos": "adj.",
-      "zh": "有益的"
-     },
-     {
-      "en": "solution",
-      "pos": "n.",
-      "zh": "解決方案"
-     },
-     {
-      "en": "consequence",
-      "pos": "n.",
-      "zh": "後果"
-     },
-     {
-      "en": "tolerate",
-      "pos": "v.",
-      "zh": "容忍"
-     }
-    ],
-    "grammar": [
-     "用 not until 表直到才，例如 Not until someone gets hurt will the problem get enough attention.",
-     "用名詞子句 what I think is that... 引導個人看法",
-     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-005",
+   "id": "B-bank-b-005",
    "category": "書信",
    "title": "向市長信箱反映交通問題",
    "prompt_zh": "假設你上下學經過的路口常發生險象環生的交通狀況（如缺乏紅綠燈、行人穿越道不明顯等）。請寫一封信到市長信箱，第一段具體描述問題發生的地點與情況；第二段提出至少一項具體改善建議，並說明這對學生族群的重要性。文長至少120個單詞。",
@@ -7884,123 +11480,7 @@
    "models": []
   },
   {
-   "id": "bank-b-006",
-   "category": "看圖表達意見",
-   "title": "校園健康餐販賣機",
-   "prompt_zh": "請看以下情境描述：圖片中學校走廊新設置了一台販售生菜沙拉、無糖豆漿與雜糧飯糰的自動販賣機，旁邊卻大排長龍地圍著原本賣汽水洋芋片的舊販賣機。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中兩台販賣機的對比，以及學生的選擇情形。",
-    "structure_p2": "表達你對「校園推廣健康飲食」這個做法的看法。",
-    "ideas": [
-     "健康選項要兼顧口味才有吸引力",
-     "可建議搭配集點優惠鼓勵學生嘗試",
-     "也可討論學校是否該直接下架高糖高油食品",
-     "強調從小培養健康飲食習慣的重要"
-    ],
-    "phrases": [
-     {
-      "en": "promote healthy eating",
-      "zh": "推廣健康飲食"
-     },
-     {
-      "en": "cut down on",
-      "zh": "減少（攝取）"
-     },
-     {
-      "en": "be tempted by",
-      "zh": "被...誘惑"
-     },
-     {
-      "en": "in the long run",
-      "zh": "從長遠來看"
-     },
-     {
-      "en": "at the same time",
-      "zh": "同時"
-     },
-     {
-      "en": "last but not least",
-      "zh": "最後但同樣重要的是"
-     },
-     {
-      "en": "generally speaking",
-      "zh": "一般來說"
-     },
-     {
-      "en": "strike a balance between",
-      "zh": "在...之間取得平衡"
-     }
-    ],
-    "words": [
-     {
-      "en": "nutritious",
-      "pos": "adj.",
-      "zh": "營養的"
-     },
-     {
-      "en": "vending machine",
-      "pos": "n.",
-      "zh": "自動販賣機"
-     },
-     {
-      "en": "habit",
-      "pos": "n.",
-      "zh": "習慣"
-     },
-     {
-      "en": "obesity",
-      "pos": "n.",
-      "zh": "肥胖"
-     },
-     {
-      "en": "criticize",
-      "pos": "v.",
-      "zh": "批評"
-     },
-     {
-      "en": "beneficial",
-      "pos": "adj.",
-      "zh": "有益的"
-     },
-     {
-      "en": "solution",
-      "pos": "n.",
-      "zh": "解決方案"
-     },
-     {
-      "en": "consequence",
-      "pos": "n.",
-      "zh": "後果"
-     },
-     {
-      "en": "tolerate",
-      "pos": "v.",
-      "zh": "容忍"
-     },
-     {
-      "en": "awareness",
-      "pos": "n.",
-      "zh": "意識"
-     }
-    ],
-    "grammar": [
-     "用 unless 表除非，例如 Students won't choose healthy snacks unless they taste good too.",
-     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次",
-     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-006",
+   "id": "B-bank-b-006",
    "category": "書信",
    "title": "向網購賣家要求退換貨",
    "prompt_zh": "假設你上週在網路商店購買的商品到貨後發現有瑕疵（自訂商品，如衣服尺寸不合、電子產品故障）。請寫一封email給賣家，第一段說明訂單資訊與商品的問題；第二段提出你希望的處理方式（退貨或換貨），並詢問後續流程。文長至少120個單詞。",
@@ -8117,123 +11597,7 @@
    "models": []
   },
   {
-   "id": "bank-b-007",
-   "category": "看圖表達意見",
-   "title": "夜市一次性餐具",
-   "prompt_zh": "請看以下情境描述：圖片中熱鬧的夜市攤位前，顧客人手一份用塑膠袋裝著的小吃，附上免洗筷與塑膠湯匙，垃圾桶旁堆滿了用過即丟的餐具與容器。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中夜市使用一次性餐具的情形，以及造成的垃圾問題。",
-    "structure_p2": "表達你對「夜市大量使用一次性餐具」這個現象的看法。",
-    "ideas": [
-     "一次性餐具方便衛生，但對環境負擔大",
-     "可提出攤商合作推出可租借環保餐具的方案",
-     "消費者也可自備環保餐具響應減塑",
-     "討論政府法規（如禁用一次性餐具）的角色"
-    ],
-    "phrases": [
-     {
-      "en": "single-use",
-      "zh": "一次性的"
-     },
-     {
-      "en": "pile up",
-      "zh": "堆積"
-     },
-     {
-      "en": "bring one's own",
-      "zh": "自備"
-     },
-     {
-      "en": "reduce waste",
-      "zh": "減少垃圾"
-     },
-     {
-      "en": "last but not least",
-      "zh": "最後但同樣重要的是"
-     },
-     {
-      "en": "generally speaking",
-      "zh": "一般來說"
-     },
-     {
-      "en": "strike a balance between",
-      "zh": "在...之間取得平衡"
-     },
-     {
-      "en": "be in favor of",
-      "zh": "贊成"
-     }
-    ],
-    "words": [
-     {
-      "en": "disposable",
-      "pos": "adj.",
-      "zh": "用完即丟的"
-     },
-     {
-      "en": "environment",
-      "pos": "n.",
-      "zh": "環境"
-     },
-     {
-      "en": "sustainable",
-      "pos": "adj.",
-      "zh": "永續的"
-     },
-     {
-      "en": "convenience",
-      "pos": "n.",
-      "zh": "便利"
-     },
-     {
-      "en": "beneficial",
-      "pos": "adj.",
-      "zh": "有益的"
-     },
-     {
-      "en": "solution",
-      "pos": "n.",
-      "zh": "解決方案"
-     },
-     {
-      "en": "consequence",
-      "pos": "n.",
-      "zh": "後果"
-     },
-     {
-      "en": "tolerate",
-      "pos": "v.",
-      "zh": "容忍"
-     },
-     {
-      "en": "awareness",
-      "pos": "n.",
-      "zh": "意識"
-     },
-     {
-      "en": "drawback",
-      "pos": "n.",
-      "zh": "缺點"
-     }
-    ],
-    "grammar": [
-     "用 if only 表惋惜或期望，例如 If only more vendors offered reusable tableware.",
-     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public.",
-     "用比較句型 more...than / not as...as 比較不同選項的優劣"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-007",
+   "id": "B-bank-b-007",
    "category": "書信",
    "title": "介紹台灣飲食文化給交換學生",
    "prompt_zh": "假設你的學校即將迎來一位外國交換學生。請寫一封信歡迎他，第一段簡短自我介紹並歡迎他到來；第二段介紹至少兩樣台灣的特色美食，並邀請他一起去品嚐。文長至少120個單詞。",
@@ -8350,123 +11714,7 @@
    "models": []
   },
   {
-   "id": "bank-b-008",
-   "category": "看圖表達意見",
-   "title": "教室該不該裝冷氣",
-   "prompt_zh": "請看以下情境描述：圖片中一間教室，學生們揮汗上課，窗邊的電風扇轉個不停卻仍難消暑氣，黑板旁貼著一張全班連署「希望加裝冷氣」的簽名單。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中炎熱教室的情形，以及學生們的反應。",
-    "structure_p2": "表達你對「教室是否該加裝冷氣」這個議題的看法。",
-    "ideas": [
-     "高溫影響學習專注力是主要訴求",
-     "可討論電費由誰負擔、使用時段如何規範",
-     "也可提出加裝隔熱設施等替代方案",
-     "強調舒適的學習環境有助於提升效率"
-    ],
-    "phrases": [
-     {
-      "en": "sign a petition",
-      "zh": "連署"
-     },
-     {
-      "en": "beat the heat",
-      "zh": "消暑"
-     },
-     {
-      "en": "concentrate on",
-      "zh": "專注於"
-     },
-     {
-      "en": "cover the cost",
-      "zh": "支付費用"
-     },
-     {
-      "en": "generally speaking",
-      "zh": "一般來說"
-     },
-     {
-      "en": "strike a balance between",
-      "zh": "在...之間取得平衡"
-     },
-     {
-      "en": "be in favor of",
-      "zh": "贊成"
-     },
-     {
-      "en": "raise a concern",
-      "zh": "提出疑慮"
-     }
-    ],
-    "words": [
-     {
-      "en": "install",
-      "pos": "v.",
-      "zh": "安裝"
-     },
-     {
-      "en": "stuffy",
-      "pos": "adj.",
-      "zh": "悶熱不通風的"
-     },
-     {
-      "en": "efficiency",
-      "pos": "n.",
-      "zh": "效率"
-     },
-     {
-      "en": "budget",
-      "pos": "n.",
-      "zh": "預算"
-     },
-     {
-      "en": "solution",
-      "pos": "n.",
-      "zh": "解決方案"
-     },
-     {
-      "en": "consequence",
-      "pos": "n.",
-      "zh": "後果"
-     },
-     {
-      "en": "tolerate",
-      "pos": "v.",
-      "zh": "容忍"
-     },
-     {
-      "en": "awareness",
-      "pos": "n.",
-      "zh": "意識"
-     },
-     {
-      "en": "drawback",
-      "pos": "n.",
-      "zh": "缺點"
-     },
-     {
-      "en": "appropriate",
-      "pos": "adj.",
-      "zh": "適當的"
-     }
-    ],
-    "grammar": [
-     "用 It is time that + 過去式子句 表現在該做的事，例如 It is time that schools installed air conditioners.",
-     "用比較句型 more...than / not as...as 比較不同選項的優劣",
-     "用 should/ought to 表達建議或應該採取的行動"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-008",
+   "id": "B-bank-b-008",
    "category": "書信",
    "title": "建議圖書館延長開放時間",
    "prompt_zh": "假設你的學校圖書館目前的開放時間對考試期間的學生來說不夠用。請寫一封信給圖書館館長，第一段說明目前開放時間造成的不便；第二段提出具體建議（如延長至晚上九點、假日開放），並說明這樣做對學生的好處。文長至少120個單詞。",
@@ -8583,123 +11831,7 @@
    "models": []
   },
   {
-   "id": "bank-b-009",
-   "category": "看圖表達意見",
-   "title": "平板取代課本",
-   "prompt_zh": "請看以下情境描述：圖片中一間試辦「數位教室」，學生人手一台平板電腦上課，桌上不見紙本課本，但有幾位學生的平板螢幕上悄悄開著遊戲畫面。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中數位教室的上課情形，以及可能發生的狀況。",
-    "structure_p2": "表達你對「用平板取代紙本課本上課」這個做法的看法。",
-    "ideas": [
-     "數位化能減輕書包重量、即時更新教材",
-     "但也可能分心去玩遊戲或滑社群",
-     "可建議搭配監控軟體或分區座位管理",
-     "可比較長期閱讀紙本與螢幕對視力和專注力的差異"
-    ],
-    "phrases": [
-     {
-      "en": "switch to",
-      "zh": "改用；轉換成"
-     },
-     {
-      "en": "be distracted by",
-      "zh": "被...分心"
-     },
-     {
-      "en": "keep track of",
-      "zh": "追蹤；掌握"
-     },
-     {
-      "en": "weigh the pros and cons",
-      "zh": "權衡利弊"
-     },
-     {
-      "en": "strike a balance between",
-      "zh": "在...之間取得平衡"
-     },
-     {
-      "en": "be in favor of",
-      "zh": "贊成"
-     },
-     {
-      "en": "raise a concern",
-      "zh": "提出疑慮"
-     },
-     {
-      "en": "in my opinion",
-      "zh": "依我之見"
-     }
-    ],
-    "words": [
-     {
-      "en": "digital",
-      "pos": "adj.",
-      "zh": "數位的"
-     },
-     {
-      "en": "textbook",
-      "pos": "n.",
-      "zh": "教科書"
-     },
-     {
-      "en": "discipline",
-      "pos": "n.",
-      "zh": "紀律；自律"
-     },
-     {
-      "en": "eyesight",
-      "pos": "n.",
-      "zh": "視力"
-     },
-     {
-      "en": "consequence",
-      "pos": "n.",
-      "zh": "後果"
-     },
-     {
-      "en": "tolerate",
-      "pos": "v.",
-      "zh": "容忍"
-     },
-     {
-      "en": "awareness",
-      "pos": "n.",
-      "zh": "意識"
-     },
-     {
-      "en": "drawback",
-      "pos": "n.",
-      "zh": "缺點"
-     },
-     {
-      "en": "appropriate",
-      "pos": "adj.",
-      "zh": "適當的"
-     },
-     {
-      "en": "public",
-      "pos": "adj.",
-      "zh": "公共的"
-     }
-    ],
-    "grammar": [
-     "用 as long as 表條件，例如 Tablets can be useful as long as students use them responsibly.",
-     "用 should/ought to 表達建議或應該採取的行動",
-     "用 while 表對比兩種立場，例如 While some support it, others disagree."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-009",
+   "id": "B-bank-b-009",
    "category": "書信",
    "title": "社團交接信給學弟妹",
    "prompt_zh": "假設你即將卸任社團社長，請寫一封信給接任的學弟妹。第一段簡述你這一年帶領社團的心得與最有成就感的事；第二段交代至少兩項經營社團的重要提醒（如經費管理、招生宣傳），並祝福對方。文長至少120個單詞。",
@@ -8816,123 +11948,7 @@
    "models": []
   },
   {
-   "id": "bank-b-010",
-   "category": "看圖表達意見",
-   "title": "街頭藝人表演",
-   "prompt_zh": "請看以下情境描述：圖片中西門町廣場上，一位街頭藝人正彈著吉他唱歌，吸引不少路人駐足圍觀鼓掌，但也有店家抱怨音量太大影響做生意。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中街頭藝人表演的場景，以及路人與店家的不同反應。",
-    "structure_p2": "表達你對「街頭表演藝術」這個文化現象的看法。",
-    "ideas": [
-     "街頭表演能豐富城市文化、提供曝光機會",
-     "音量與地點規範需要平衡各方需求",
-     "可提出申請制、劃定表演區的做法",
-     "也可討論街頭藝人維生的辛苦與熱情"
-    ],
-    "phrases": [
-     {
-      "en": "draw a crowd",
-      "zh": "吸引人群"
-     },
-     {
-      "en": "make a living",
-      "zh": "謀生"
-     },
-     {
-      "en": "complain about",
-      "zh": "抱怨"
-     },
-     {
-      "en": "add color to",
-      "zh": "為...增添色彩"
-     },
-     {
-      "en": "be in favor of",
-      "zh": "贊成"
-     },
-     {
-      "en": "raise a concern",
-      "zh": "提出疑慮"
-     },
-     {
-      "en": "in my opinion",
-      "zh": "依我之見"
-     },
-     {
-      "en": "on the other hand",
-      "zh": "另一方面"
-     }
-    ],
-    "words": [
-     {
-      "en": "performer",
-      "pos": "n.",
-      "zh": "表演者"
-     },
-     {
-      "en": "volume",
-      "pos": "n.",
-      "zh": "音量"
-     },
-     {
-      "en": "license",
-      "pos": "n.",
-      "zh": "執照；許可證"
-     },
-     {
-      "en": "vibrant",
-      "pos": "adj.",
-      "zh": "充滿活力的"
-     },
-     {
-      "en": "tolerate",
-      "pos": "v.",
-      "zh": "容忍"
-     },
-     {
-      "en": "awareness",
-      "pos": "n.",
-      "zh": "意識"
-     },
-     {
-      "en": "drawback",
-      "pos": "n.",
-      "zh": "缺點"
-     },
-     {
-      "en": "appropriate",
-      "pos": "adj.",
-      "zh": "適當的"
-     },
-     {
-      "en": "public",
-      "pos": "adj.",
-      "zh": "公共的"
-     },
-     {
-      "en": "perspective",
-      "pos": "n.",
-      "zh": "觀點"
-     }
-    ],
-    "grammar": [
-     "用 while 表對比，例如 While passers-by enjoy the music, some shop owners find it too noisy.",
-     "用 while 表對比兩種立場，例如 While some support it, others disagree.",
-     "用名詞子句 what I think is that... 引導個人看法"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-010",
+   "id": "B-bank-b-010",
    "category": "書信",
    "title": "詢問旅行社畢業旅行行程",
    "prompt_zh": "假設你是班上負責聯絡畢業旅行的同學，請寫一封email給旅行社，第一段說明你們班的人數與希望出遊的天數/預算；第二段詢問至少兩項具體問題（如行程安排、住宿品質、是否含保險），並請對方盡快回覆報價。文長至少120個單詞。",
@@ -9049,123 +12065,7 @@
    "models": []
   },
   {
-   "id": "bank-b-011",
-   "category": "看圖表達意見",
-   "title": "寵物友善餐廳",
-   "prompt_zh": "請看以下情境描述：圖片中一間新開的咖啡廳掛著「歡迎攜帶寵物」的招牌，店內幾桌客人帶著狗狗用餐，但隔壁桌一位帶小孩的顧客顯得有些緊張不安。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中寵物友善餐廳的情形，以及不同顧客的反應。",
-    "structure_p2": "表達你對「寵物友善空間增加」這個趨勢的看法。",
-    "ideas": [
-     "寵物友善空間讓飼主與寵物有更多共處機會",
-     "也需考量對動物過敏或害怕動物的顧客",
-     "可建議規劃寵物專區與一般座位分開",
-     "反映社會對毛小孩地位提升的轉變"
-    ],
-    "phrases": [
-     {
-      "en": "be allergic to",
-      "zh": "對...過敏"
-     },
-     {
-      "en": "cater to",
-      "zh": "迎合；服務"
-     },
-     {
-      "en": "set aside a space for",
-      "zh": "為...保留一個空間"
-     },
-     {
-      "en": "on a leash",
-      "zh": "用牽繩牽著"
-     },
-     {
-      "en": "raise a concern",
-      "zh": "提出疑慮"
-     },
-     {
-      "en": "in my opinion",
-      "zh": "依我之見"
-     },
-     {
-      "en": "on the other hand",
-      "zh": "另一方面"
-     },
-     {
-      "en": "as far as I am concerned",
-      "zh": "就我而言"
-     }
-    ],
-    "words": [
-     {
-      "en": "pet-friendly",
-      "pos": "adj.",
-      "zh": "寵物友善的"
-     },
-     {
-      "en": "uneasy",
-      "pos": "adj.",
-      "zh": "不安的"
-     },
-     {
-      "en": "hygiene",
-      "pos": "n.",
-      "zh": "衛生"
-     },
-     {
-      "en": "companionship",
-      "pos": "n.",
-      "zh": "陪伴"
-     },
-     {
-      "en": "awareness",
-      "pos": "n.",
-      "zh": "意識"
-     },
-     {
-      "en": "drawback",
-      "pos": "n.",
-      "zh": "缺點"
-     },
-     {
-      "en": "appropriate",
-      "pos": "adj.",
-      "zh": "適當的"
-     },
-     {
-      "en": "public",
-      "pos": "adj.",
-      "zh": "公共的"
-     },
-     {
-      "en": "perspective",
-      "pos": "n.",
-      "zh": "觀點"
-     },
-     {
-      "en": "controversial",
-      "pos": "adj.",
-      "zh": "有爭議的"
-     }
-    ],
-    "grammar": [
-     "用分詞構句簡化句子，例如 Sitting nearby, a mother looked a little nervous about the dogs.",
-     "用名詞子句 what I think is that... 引導個人看法",
-     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-011",
+   "id": "B-bank-b-011",
    "category": "書信",
    "title": "向餐廳經理投訴用餐經驗",
    "prompt_zh": "假設你上週末和家人到一間餐廳用餐，卻遇到不愉快的經驗（如上菜太慢、餐點與菜單不符）。請寫一封信給餐廳經理，第一段具體描述當天的用餐經驗；第二段說明你希望對方如何處理（道歉、退費或改善），並表達你的期待。文長至少120個單詞。",
@@ -9282,123 +12182,7 @@
    "models": []
   },
   {
-   "id": "bank-b-012",
-   "category": "看圖表達意見",
-   "title": "校園監視器爭議",
-   "prompt_zh": "請看以下情境描述：圖片中學校走廊新增裝設多支監視器，公告寫著「為維護校園安全」，但布告欄上也貼著幾張學生投書，質疑是否侵犯隱私。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中校園加裝監視器的情形，以及正反兩方的意見。",
-    "structure_p2": "表達你對「校園裝設監視器」這個議題的看法。",
-    "ideas": [
-     "監視器有助於嚇阻霸凌與竊盜等行為",
-     "也可能讓學生感到被過度監控、缺乏隱私",
-     "可提出只在特定公共區域裝設的折衷做法",
-     "討論監視畫面的保存與使用規範"
-    ],
-    "phrases": [
-     {
-      "en": "invade one's privacy",
-      "zh": "侵犯隱私"
-     },
-     {
-      "en": "deter crime",
-      "zh": "嚇阻犯罪"
-     },
-     {
-      "en": "strike a balance between",
-      "zh": "在...之間取得平衡"
-     },
-     {
-      "en": "keep an eye on",
-      "zh": "留意；看管"
-     },
-     {
-      "en": "in my opinion",
-      "zh": "依我之見"
-     },
-     {
-      "en": "on the other hand",
-      "zh": "另一方面"
-     },
-     {
-      "en": "as far as I am concerned",
-      "zh": "就我而言"
-     },
-     {
-      "en": "there is no doubt that",
-      "zh": "毫無疑問地"
-     }
-    ],
-    "words": [
-     {
-      "en": "surveillance",
-      "pos": "n.",
-      "zh": "監視"
-     },
-     {
-      "en": "privacy",
-      "pos": "n.",
-      "zh": "隱私"
-     },
-     {
-      "en": "security",
-      "pos": "n.",
-      "zh": "安全"
-     },
-     {
-      "en": "restrict",
-      "pos": "v.",
-      "zh": "限制"
-     },
-     {
-      "en": "drawback",
-      "pos": "n.",
-      "zh": "缺點"
-     },
-     {
-      "en": "appropriate",
-      "pos": "adj.",
-      "zh": "適當的"
-     },
-     {
-      "en": "public",
-      "pos": "adj.",
-      "zh": "公共的"
-     },
-     {
-      "en": "perspective",
-      "pos": "n.",
-      "zh": "觀點"
-     },
-     {
-      "en": "controversial",
-      "pos": "adj.",
-      "zh": "有爭議的"
-     },
-     {
-      "en": "convenient",
-      "pos": "adj.",
-      "zh": "方便的"
-     }
-    ],
-    "grammar": [
-     "用被動語態強調客體，例如 Every corner of the campus is now being monitored.",
-     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次",
-     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-012",
+   "id": "B-bank-b-012",
    "category": "書信",
    "title": "投書校刊反映校園議題",
    "prompt_zh": "假設你想針對校園中的某個現象（如福利社排隊人潮、班際活動安排不公）投稿給校刊。請寫一封信給校刊編輯，第一段說明你觀察到的現象與具體例子；第二段提出你的看法與改善建議，希望引起校方重視。文長至少120個單詞。",
@@ -9515,123 +12299,7 @@
    "models": []
   },
   {
-   "id": "bank-b-013",
-   "category": "看圖表達意見",
-   "title": "電動機車趨勢",
-   "prompt_zh": "請看以下情境描述：圖片中機車行前停放著一整排嶄新的電動機車，招牌寫著「政府補助最高兩萬元」，旁邊傳統油車行的老闆則面露愁容看著自己的店面。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中電動機車興起的情形，以及傳統機車行的處境。",
-    "structure_p2": "表達你對「電動機車取代燃油機車」這個趨勢的看法。",
-    "ideas": [
-     "電動機車有助於減少空污、響應環保",
-     "但充電站不足、電池續航是待解問題",
-     "傳統機車行師傅也面臨轉型壓力",
-     "政府補助政策是否公平也值得討論"
-    ],
-    "phrases": [
-     {
-      "en": "switch to electric",
-      "zh": "改用電動的"
-     },
-     {
-      "en": "cut down on emissions",
-      "zh": "減少排放"
-     },
-     {
-      "en": "be phased out",
-      "zh": "被逐步淘汰"
-     },
-     {
-      "en": "keep up with the times",
-      "zh": "跟上時代"
-     },
-     {
-      "en": "on the other hand",
-      "zh": "另一方面"
-     },
-     {
-      "en": "as far as I am concerned",
-      "zh": "就我而言"
-     },
-     {
-      "en": "there is no doubt that",
-      "zh": "毫無疑問地"
-     },
-     {
-      "en": "when it comes to",
-      "zh": "說到...這件事"
-     }
-    ],
-    "words": [
-     {
-      "en": "emission",
-      "pos": "n.",
-      "zh": "排放"
-     },
-     {
-      "en": "subsidy",
-      "pos": "n.",
-      "zh": "補助金"
-     },
-     {
-      "en": "battery",
-      "pos": "n.",
-      "zh": "電池"
-     },
-     {
-      "en": "transition",
-      "pos": "n.",
-      "zh": "轉型；過渡"
-     },
-     {
-      "en": "appropriate",
-      "pos": "adj.",
-      "zh": "適當的"
-     },
-     {
-      "en": "public",
-      "pos": "adj.",
-      "zh": "公共的"
-     },
-     {
-      "en": "perspective",
-      "pos": "n.",
-      "zh": "觀點"
-     },
-     {
-      "en": "controversial",
-      "pos": "adj.",
-      "zh": "有爭議的"
-     },
-     {
-      "en": "convenient",
-      "pos": "adj.",
-      "zh": "方便的"
-     },
-     {
-      "en": "inconsiderate",
-      "pos": "adj.",
-      "zh": "不體貼的"
-     }
-    ],
-    "grammar": [
-     "用 as 引導原因子句，例如 As more people switch to electric scooters, gas stations may see fewer customers.",
-     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public.",
-     "用比較句型 more...than / not as...as 比較不同選項的優劣"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-013",
+   "id": "B-bank-b-013",
    "category": "書信",
    "title": "恭賀朋友考上理想學校",
    "prompt_zh": "假設你的好朋友剛收到理想學校的錄取通知。請寫一封信恭喜他，第一段表達你的祝賀與為他感到開心的心情；第二段回顧你們一起努力準備考試的過程，並分享你對他未來的期許或祝福。文長至少120個單詞。",
@@ -9748,123 +12416,7 @@
    "models": []
   },
   {
-   "id": "bank-b-014",
-   "category": "看圖表達意見",
-   "title": "超商全天候營業",
-   "prompt_zh": "請看以下情境描述：圖片中一間便利商店凌晨兩點依然燈火通明，店員獨自一人顧店，貨架上商品齊全，但整條街上其他店家早已拉下鐵門。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中深夜便利商店的營業情形，以及與周遭環境的對比。",
-    "structure_p2": "表達你對「便利商店二十四小時營業」這個制度的看法。",
-    "ideas": [
-     "24小時營業提供極大生活便利與安全感",
-     "也造成夜班員工的身心負擔與人力成本",
-     "可討論是否該視地區彈性調整營業時間",
-     "反映台灣便利、快速的生活步調"
-    ],
-    "phrases": [
-     {
-      "en": "operate around the clock",
-      "zh": "全天候營業"
-     },
-     {
-      "en": "take a toll on",
-      "zh": "對...造成負擔"
-     },
-     {
-      "en": "be at one's service",
-      "zh": "隨時提供服務"
-     },
-     {
-      "en": "cut labor costs",
-      "zh": "降低人力成本"
-     },
-     {
-      "en": "as far as I am concerned",
-      "zh": "就我而言"
-     },
-     {
-      "en": "there is no doubt that",
-      "zh": "毫無疑問地"
-     },
-     {
-      "en": "when it comes to",
-      "zh": "說到...這件事"
-     },
-     {
-      "en": "take ... into consideration",
-      "zh": "將...納入考量"
-     }
-    ],
-    "words": [
-     {
-      "en": "convenience store",
-      "pos": "n.",
-      "zh": "便利商店"
-     },
-     {
-      "en": "exhausting",
-      "pos": "adj.",
-      "zh": "令人筋疲力盡的"
-     },
-     {
-      "en": "flexible",
-      "pos": "adj.",
-      "zh": "有彈性的"
-     },
-     {
-      "en": "demand",
-      "pos": "n.",
-      "zh": "需求"
-     },
-     {
-      "en": "public",
-      "pos": "adj.",
-      "zh": "公共的"
-     },
-     {
-      "en": "perspective",
-      "pos": "n.",
-      "zh": "觀點"
-     },
-     {
-      "en": "controversial",
-      "pos": "adj.",
-      "zh": "有爭議的"
-     },
-     {
-      "en": "convenient",
-      "pos": "adj.",
-      "zh": "方便的"
-     },
-     {
-      "en": "inconsiderate",
-      "pos": "adj.",
-      "zh": "不體貼的"
-     },
-     {
-      "en": "regulation",
-      "pos": "n.",
-      "zh": "規定"
-     }
-    ],
-    "grammar": [
-     "用 whether...or not 表是否，例如 Whether or not stores should stay open all night is worth discussing.",
-     "用比較句型 more...than / not as...as 比較不同選項的優劣",
-     "用 should/ought to 表達建議或應該採取的行動"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-014",
+   "id": "B-bank-b-014",
    "category": "書信",
    "title": "向打工老闆說明調整排班",
    "prompt_zh": "假設你在一間店打工，因為即將面臨重要考試需要調整排班。請寫一封信給老闆，第一段說明你目前的狀況與需要調整的原因；第二段提出具體的調整方案（如減少班數、更換時段），並表達你對這份工作的重視。文長至少120個單詞。",
@@ -9981,123 +12533,7 @@
    "models": []
   },
   {
-   "id": "bank-b-015",
-   "category": "看圖表達意見",
-   "title": "自習室太吵鬧",
-   "prompt_zh": "請看以下情境描述：圖片中圖書館自習室裡，大多數人安靜讀書，但角落一群學生正低聲討論功課、不時傳出笑聲，隔壁座位的同學皺著眉頭戴上耳塞。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中自習室的情形，以及安靜讀書與討論的學生之間的衝突。",
-    "structure_p2": "表達你對「自習室該不該完全禁止交談」這個議題的看法。",
-    "ideas": [
-     "安靜是自習室存在的基本共識",
-     "小組討論也有其學習價值，需要合適空間",
-     "可建議設置討論區與靜音區分開的做法",
-     "強調公共空間使用需要互相體諒"
-    ],
-    "phrases": [
-     {
-      "en": "keep one's voice down",
-      "zh": "放低音量"
-     },
-     {
-      "en": "disturb others",
-      "zh": "打擾他人"
-     },
-     {
-      "en": "set up a separate area",
-      "zh": "另闢一個區域"
-     },
-     {
-      "en": "show consideration for",
-      "zh": "體諒"
-     },
-     {
-      "en": "there is no doubt that",
-      "zh": "毫無疑問地"
-     },
-     {
-      "en": "when it comes to",
-      "zh": "說到...這件事"
-     },
-     {
-      "en": "take ... into consideration",
-      "zh": "將...納入考量"
-     },
-     {
-      "en": "at the same time",
-      "zh": "同時"
-     }
-    ],
-    "words": [
-     {
-      "en": "disturbance",
-      "pos": "n.",
-      "zh": "干擾"
-     },
-     {
-      "en": "concentration",
-      "pos": "n.",
-      "zh": "專注力"
-     },
-     {
-      "en": "considerate",
-      "pos": "adj.",
-      "zh": "體貼的"
-     },
-     {
-      "en": "designate",
-      "pos": "v.",
-      "zh": "指定"
-     },
-     {
-      "en": "perspective",
-      "pos": "n.",
-      "zh": "觀點"
-     },
-     {
-      "en": "controversial",
-      "pos": "adj.",
-      "zh": "有爭議的"
-     },
-     {
-      "en": "convenient",
-      "pos": "adj.",
-      "zh": "方便的"
-     },
-     {
-      "en": "inconsiderate",
-      "pos": "adj.",
-      "zh": "不體貼的"
-     },
-     {
-      "en": "regulation",
-      "pos": "n.",
-      "zh": "規定"
-     },
-     {
-      "en": "encourage",
-      "pos": "v.",
-      "zh": "鼓勵"
-     }
-    ],
-    "grammar": [
-     "用 so that 表目的，例如 The library could add a discussion room so that quiet readers won't be disturbed.",
-     "用 should/ought to 表達建議或應該採取的行動",
-     "用 while 表對比兩種立場，例如 While some support it, others disagree."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-015",
+   "id": "B-bank-b-015",
    "category": "書信",
    "title": "與國外筆友分享台灣過年文化",
    "prompt_zh": "假設你想寫信告訴國外筆友關於台灣農曆新年的習俗。第一段介紹過年前後你們家通常會做的兩件事（如大掃除、圍爐）；第二段邀請他明年有機會來台灣體驗過年，並說明這個節日對你的意義。文長至少120個單詞。",
@@ -10214,123 +12650,7 @@
    "models": []
   },
   {
-   "id": "bank-b-016",
-   "category": "看圖表達意見",
-   "title": "公園樂齡健身器材",
-   "prompt_zh": "請看以下情境描述：圖片中社區公園新設置了一區銀髮族健身器材，幾位阿公阿嬤正開心地使用，但器材數量有限，常常需要排隊等候，年輕人反而較少使用。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中公園樂齡健身器材的使用情形。",
-    "structure_p2": "表達你對「公園增設樂齡健身器材」這個做法的看法。",
-    "ideas": [
-     "有助於促進長者運動習慣與社交互動",
-     "器材數量不足可能造成排隊等候的問題",
-     "可討論是否該增加不同年齡層都適用的設施",
-     "反映高齡化社會對公共建設的新需求"
-    ],
-    "phrases": [
-     {
-      "en": "take up exercise",
-      "zh": "開始運動"
-     },
-     {
-      "en": "wait in turn",
-      "zh": "依序等候"
-     },
-     {
-      "en": "cater to the needs of",
-      "zh": "滿足...的需求"
-     },
-     {
-      "en": "an aging society",
-      "zh": "高齡化社會"
-     },
-     {
-      "en": "when it comes to",
-      "zh": "說到...這件事"
-     },
-     {
-      "en": "take ... into consideration",
-      "zh": "將...納入考量"
-     },
-     {
-      "en": "at the same time",
-      "zh": "同時"
-     },
-     {
-      "en": "last but not least",
-      "zh": "最後但同樣重要的是"
-     }
-    ],
-    "words": [
-     {
-      "en": "elderly",
-      "pos": "adj.",
-      "zh": "年長的"
-     },
-     {
-      "en": "facility",
-      "pos": "n.",
-      "zh": "設施"
-     },
-     {
-      "en": "beneficial",
-      "pos": "adj.",
-      "zh": "有益的"
-     },
-     {
-      "en": "insufficient",
-      "pos": "adj.",
-      "zh": "不足的"
-     },
-     {
-      "en": "controversial",
-      "pos": "adj.",
-      "zh": "有爭議的"
-     },
-     {
-      "en": "convenient",
-      "pos": "adj.",
-      "zh": "方便的"
-     },
-     {
-      "en": "inconsiderate",
-      "pos": "adj.",
-      "zh": "不體貼的"
-     },
-     {
-      "en": "regulation",
-      "pos": "n.",
-      "zh": "規定"
-     },
-     {
-      "en": "encourage",
-      "pos": "v.",
-      "zh": "鼓勵"
-     },
-     {
-      "en": "criticize",
-      "pos": "v.",
-      "zh": "批評"
-     }
-    ],
-    "grammar": [
-     "用 the number of + 複數名詞 + is/are 描述數量，例如 The number of facilities is still limited.",
-     "用 while 表對比兩種立場，例如 While some support it, others disagree.",
-     "用名詞子句 what I think is that... 引導個人看法"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-016",
+   "id": "B-bank-b-016",
    "category": "書信",
    "title": "寫信給爸媽表達感謝",
    "prompt_zh": "假設你想藉由一封信向父母表達平常沒說出口的感謝。第一段描述一件讓你印象深刻、感受到父母付出的具體事件；第二段說明這件事對你的影響，並表達你的感謝與未來想回報的心意。文長至少120個單詞。",
@@ -10447,123 +12767,7 @@
    "models": []
   },
   {
-   "id": "bank-b-017",
-   "category": "看圖表達意見",
-   "title": "無手機日活動",
-   "prompt_zh": "請看以下情境描述：圖片中學校公告推行「每週三無手機日」，當天教室走廊上學生們改成打桌遊、聊天、打球，氣氛熱絡，但也有學生一臉焦慮地不斷張望手機收納櫃。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中無手機日當天校園的情形，以及學生們不同的反應。",
-    "structure_p2": "表達你對「學校推行無手機日」這個政策的看法。",
-    "ideas": [
-     "無手機日能促進面對面互動、減少3C依賴",
-     "對重度使用手機的學生可能造成焦慮不適",
-     "可建議循序漸進，先從短時間開始",
-     "反映數位排毒（digital detox）的重要性"
-    ],
-    "phrases": [
-     {
-      "en": "go phone-free",
-      "zh": "不使用手機"
-     },
-     {
-      "en": "face-to-face interaction",
-      "zh": "面對面互動"
-     },
-     {
-      "en": "be dependent on",
-      "zh": "依賴"
-     },
-     {
-      "en": "ease into",
-      "zh": "逐漸適應"
-     },
-     {
-      "en": "take ... into consideration",
-      "zh": "將...納入考量"
-     },
-     {
-      "en": "at the same time",
-      "zh": "同時"
-     },
-     {
-      "en": "last but not least",
-      "zh": "最後但同樣重要的是"
-     },
-     {
-      "en": "generally speaking",
-      "zh": "一般來說"
-     }
-    ],
-    "words": [
-     {
-      "en": "detox",
-      "pos": "n.",
-      "zh": "排毒；戒除"
-     },
-     {
-      "en": "anxious",
-      "pos": "adj.",
-      "zh": "焦慮的"
-     },
-     {
-      "en": "gradually",
-      "pos": "adv.",
-      "zh": "逐漸地"
-     },
-     {
-      "en": "engagement",
-      "pos": "n.",
-      "zh": "投入；參與"
-     },
-     {
-      "en": "convenient",
-      "pos": "adj.",
-      "zh": "方便的"
-     },
-     {
-      "en": "inconsiderate",
-      "pos": "adj.",
-      "zh": "不體貼的"
-     },
-     {
-      "en": "regulation",
-      "pos": "n.",
-      "zh": "規定"
-     },
-     {
-      "en": "encourage",
-      "pos": "v.",
-      "zh": "鼓勵"
-     },
-     {
-      "en": "criticize",
-      "pos": "v.",
-      "zh": "批評"
-     },
-     {
-      "en": "beneficial",
-      "pos": "adj.",
-      "zh": "有益的"
-     }
-    ],
-    "grammar": [
-     "用 the more...the less 句型，例如 The more time students spend on phones, the less they talk to each other.",
-     "用名詞子句 what I think is that... 引導個人看法",
-     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-017",
+   "id": "B-bank-b-017",
    "category": "書信",
    "title": "向網路平台客服反映帳號問題",
    "prompt_zh": "假設你使用的某個網路服務（如影音串流、遊戲平台）帳號突然無法登入。請寫一封email給客服，第一段說明帳號資訊與發生問題的時間點；第二段描述你已經嘗試過的解決方法，並請對方協助處理。文長至少120個單詞。",
@@ -10680,123 +12884,7 @@
    "models": []
   },
   {
-   "id": "bank-b-018",
-   "category": "看圖表達意見",
-   "title": "街道塗鴉藝術",
-   "prompt_zh": "請看以下情境描述：圖片中一面原本灰暗的圍牆被藝術家畫上色彩繽紛的塗鴉壁畫，吸引許多人拍照打卡，但牆角仍留著幾筆未經許可、字跡潦草的噴漆塗鴉。 請根據上述情境寫一篇文章，文分兩段：第一段描述圖片中的情境與細節，第二段表達你對這個現象或議題的看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "",
-   "image_alt": "",
-   "guide": {
-    "structure_p1": "描述圖片中牆面的對比：精心創作的壁畫與隨意噴漆的塗鴉。",
-    "structure_p2": "表達你對「街頭塗鴉藝術」這個現象的看法。",
-    "ideas": [
-     "合法授權的壁畫能美化市容、帶動觀光",
-     "未經許可的塗鴉則可能被視為破壞公物",
-     "可建議政府規劃合法塗鴉牆供創作者發揮",
-     "討論如何在創作自由與公共秩序間取得平衡"
-    ],
-    "phrases": [
-     {
-      "en": "beautify the city",
-      "zh": "美化城市"
-     },
-     {
-      "en": "without permission",
-      "zh": "未經許可"
-     },
-     {
-      "en": "be seen as vandalism",
-      "zh": "被視為破壞公物的行為"
-     },
-     {
-      "en": "provide an outlet for",
-      "zh": "提供...的抒發管道"
-     },
-     {
-      "en": "at the same time",
-      "zh": "同時"
-     },
-     {
-      "en": "last but not least",
-      "zh": "最後但同樣重要的是"
-     },
-     {
-      "en": "generally speaking",
-      "zh": "一般來說"
-     },
-     {
-      "en": "strike a balance between",
-      "zh": "在...之間取得平衡"
-     }
-    ],
-    "words": [
-     {
-      "en": "mural",
-      "pos": "n.",
-      "zh": "壁畫"
-     },
-     {
-      "en": "graffiti",
-      "pos": "n.",
-      "zh": "塗鴉"
-     },
-     {
-      "en": "authorized",
-      "pos": "adj.",
-      "zh": "經授權的"
-     },
-     {
-      "en": "creativity",
-      "pos": "n.",
-      "zh": "創意"
-     },
-     {
-      "en": "inconsiderate",
-      "pos": "adj.",
-      "zh": "不體貼的"
-     },
-     {
-      "en": "regulation",
-      "pos": "n.",
-      "zh": "規定"
-     },
-     {
-      "en": "encourage",
-      "pos": "v.",
-      "zh": "鼓勵"
-     },
-     {
-      "en": "criticize",
-      "pos": "v.",
-      "zh": "批評"
-     },
-     {
-      "en": "beneficial",
-      "pos": "adj.",
-      "zh": "有益的"
-     },
-     {
-      "en": "solution",
-      "pos": "n.",
-      "zh": "解決方案"
-     }
-    ],
-    "grammar": [
-     "用對等連接詞 whereas 表明顯對比，例如 The mural is admired, whereas the random graffiti is criticized.",
-     "用連接詞 however/moreover 銜接不同看法，讓論述更有層次",
-     "善用 It is + adj + that/to V 句型表達立場，例如 It is important to respect others in public."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-b-018",
+   "id": "B-bank-b-018",
    "category": "書信",
    "title": "寫信向老師表達建議與感謝",
    "prompt_zh": "假設這學期某位老師的教學方式讓你獲益良多，但你也有一項小建議。請寫一封信給這位老師，第一段具體說明這堂課或某次教學讓你印象深刻並表達感謝；第二段禮貌地提出一項你認為可以更好的小建議。文長至少120個單詞。",
@@ -10913,7 +13001,7 @@
    "models": []
   },
   {
-   "id": "bank-b-019",
+   "id": "B-bank-b-019",
    "category": "議論文",
    "title": "校園是否該開放使用手機",
    "prompt_zh": "近來有人主張高中應開放學生在校園內自由使用手機，也有人認為應該全面禁止。請寫一篇文章表達你的立場。第一段清楚表明你支持或反對開放手機使用；第二段提出至少兩項理由支持你的立場，並可反駁對方最常見的論點。文長至少120個單詞。",
@@ -11030,7 +13118,7 @@
    "models": []
   },
   {
-   "id": "bank-b-020",
+   "id": "B-bank-b-020",
    "category": "議論文",
    "title": "學校是否該禁止販售含糖飲料",
    "prompt_zh": "有人主張學校福利社應全面禁止販售含糖飲料以維護學生健康，也有人認為這是學生的個人選擇，不應該被限制。請表達你的立場，第一段表明支持或反對禁售，第二段提出理由並反駁對立意見。文長至少120個單詞。",
@@ -11147,7 +13235,7 @@
    "models": []
   },
   {
-   "id": "bank-b-021",
+   "id": "B-bank-b-021",
    "category": "議論文",
    "title": "線上學習能否取代實體上課",
    "prompt_zh": "隨著科技進步，有人認為線上學習未來能完全取代傳統實體上課，也有人不這麼認為。請表達你的立場，第一段表明線上學習能否取代實體上課，第二段提出理由支持你的看法並反駁相反意見。文長至少120個單詞。",
@@ -11264,7 +13352,7 @@
    "models": []
   },
   {
-   "id": "bank-b-022",
+   "id": "B-bank-b-022",
    "category": "議論文",
    "title": "高中生打工是否利大於弊",
    "prompt_zh": "有人認為高中生利用課餘時間打工能學到寶貴經驗，也有人擔心打工會影響課業。請表達你對「高中生打工」的立場，第一段表明打工利大於弊或弊大於利，第二段提出理由支持你的立場並回應反方意見。文長至少120個單詞。",
@@ -11381,7 +13469,7 @@
    "models": []
   },
   {
-   "id": "bank-b-023",
+   "id": "B-bank-b-023",
    "category": "議論文",
    "title": "養寵物對現代人是利多於弊還是弊多於利",
    "prompt_zh": "養寵物在台灣越來越普遍，有人認為養寵物帶來許多好處，也有人認為責任與負擔過重。請表達你的立場，第一段表明養寵物利大於弊或弊大於利，第二段提出理由並回應相反意見。文長至少120個單詞。",
@@ -11498,7 +13586,7 @@
    "models": []
   },
   {
-   "id": "bank-b-024",
+   "id": "B-bank-b-024",
    "category": "議論文",
    "title": "社群媒體對青少年利大於弊還是弊大於利",
    "prompt_zh": "社群媒體已成為青少年生活的一部分。有人認為它帶來許多正面影響，也有人擔心負面效應更大。請表達你的立場，第一段表明社群媒體對青少年利大於弊或弊大於利，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -11615,7 +13703,7 @@
    "models": []
   },
   {
-   "id": "bank-b-025",
+   "id": "B-bank-b-025",
    "category": "議論文",
    "title": "高中是否該延後上課時間",
    "prompt_zh": "有醫學研究指出青少年需要更多睡眠，因此有人主張高中應延後上課時間。也有人認為維持現行時間較為方便。請表達你的立場，第一段表明支持或反對延後上課，第二段提出理由並回應相反意見。文長至少120個單詞。",
@@ -11732,7 +13820,7 @@
    "models": []
   },
   {
-   "id": "bank-b-026",
+   "id": "B-bank-b-026",
    "category": "議論文",
    "title": "學校是否該廢除制服規定",
    "prompt_zh": "有人認為學校應該廢除制服規定，讓學生依自己喜好穿著；也有人認為制服有其存在的必要。請表達你的立場，第一段表明支持或反對廢除制服，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -11849,7 +13937,7 @@
    "models": []
   },
   {
-   "id": "bank-b-027",
+   "id": "B-bank-b-027",
    "category": "議論文",
    "title": "AI工具是否該被允許用於寫作業",
    "prompt_zh": "隨著ChatGPT等AI工具普及，有人認為學生應該被允許使用AI協助寫作業，也有人認為這會妨礙學習。請表達你的立場，第一段表明支持或反對，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -11966,7 +14054,7 @@
    "models": []
   },
   {
-   "id": "bank-b-028",
+   "id": "B-bank-b-028",
    "category": "議論文",
    "title": "觀光客暴增是否對在地生活造成負面影響",
    "prompt_zh": "近年來台灣一些熱門景點觀光客大量湧入，有人認為這帶來經濟效益，也有人認為對當地居民生活造成困擾。請表達你的立場，第一段表明觀光客暴增利大於弊或弊大於利，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -12083,7 +14171,7 @@
    "models": []
   },
   {
-   "id": "bank-b-029",
+   "id": "B-bank-b-029",
    "category": "議論文",
    "title": "是否應該調漲基本工資",
    "prompt_zh": "政府每年都會討論是否調漲基本工資，有人支持調漲以改善勞工生活，也有人擔心會造成企業經營壓力甚至物價上漲。請表達你的立場，第一段表明支持或反對調漲基本工資，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -12200,7 +14288,7 @@
    "models": []
   },
   {
-   "id": "bank-b-030",
+   "id": "B-bank-b-030",
    "category": "議論文",
    "title": "大眾運輸是否該對學生免費",
    "prompt_zh": "有人主張政府應該讓學生族群免費搭乘大眾運輸工具，也有人認為這會造成財政負擔且不公平。請表達你的立場，第一段表明支持或反對學生免費搭乘大眾運輸，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -12317,7 +14405,7 @@
    "models": []
   },
   {
-   "id": "bank-b-031",
+   "id": "B-bank-b-031",
    "category": "議論文",
    "title": "校園是否該裝設監視器",
    "prompt_zh": "有人主張校園應廣泛裝設監視器以加強安全，也有人擔心這會侵犯學生隱私。請表達你的立場，第一段表明支持或反對在校園廣設監視器，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -12434,7 +14522,7 @@
    "models": []
   },
   {
-   "id": "bank-b-032",
+   "id": "B-bank-b-032",
    "category": "議論文",
    "title": "動物園存在是否具有必要性",
    "prompt_zh": "有人主張動物園限制動物自由、應該關閉，也有人認為動物園在保育與教育上仍有重要價值。請表達你的立場，第一段表明支持保留或關閉動物園，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -12551,7 +14639,7 @@
    "models": []
   },
   {
-   "id": "bank-b-033",
+   "id": "B-bank-b-033",
    "category": "議論文",
    "title": "網路發言是否應該全面實名制",
    "prompt_zh": "有人主張網路發言應該全面採用實名制以減少不當言論，也有人認為這會限制言論自由。請表達你的立場，第一段表明支持或反對網路實名制，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -12668,7 +14756,7 @@
    "models": []
   },
   {
-   "id": "bank-b-034",
+   "id": "B-bank-b-034",
    "category": "議論文",
    "title": "外送平台興起是否弊大於利",
    "prompt_zh": "外送平台在台灣快速興起，帶來許多便利，但也衍生一些問題。請表達你對外送平台興起的立場，第一段表明利大於弊或弊大於利，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -12785,7 +14873,7 @@
    "models": []
   },
   {
-   "id": "bank-b-035",
+   "id": "B-bank-b-035",
    "category": "議論文",
    "title": "家長是否該限制青少年的螢幕使用時間",
    "prompt_zh": "有人主張家長應該嚴格限制青少年使用手機、平板等螢幕產品的時間，也有人認為應該讓青少年自主管理。請表達你的立場，第一段表明支持或反對嚴格限制螢幕時間，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -12902,7 +14990,7 @@
    "models": []
   },
   {
-   "id": "bank-b-036",
+   "id": "B-bank-b-036",
    "category": "議論文",
    "title": "台灣是否該推動全面禁塑政策",
    "prompt_zh": "為了保護環境，有人主張台灣應盡快推動全面禁用一次性塑膠製品，也有人擔心會造成生活不便與商家成本增加。請表達你的立場，第一段表明支持或反對全面禁塑，第二段提出理由並反駁相反意見。文長至少120個單詞。",
@@ -13019,7 +15107,7 @@
    "models": []
   },
   {
-   "id": "bank-b-037",
+   "id": "B-bank-b-037",
    "category": "經驗描述",
    "title": "一次讓你重新認識自己的失敗經驗",
    "prompt_zh": "請以「一次讓你重新認識自己的失敗經驗」為題，寫一篇文章。第一段描述這次失敗經驗發生的經過（時間、地點、發生了什麼事）；第二段說明你當下的感受，以及這次經驗如何讓你重新認識自己、帶來什麼影響。文長至少120個單詞。",
@@ -13136,7 +15224,7 @@
    "models": []
   },
   {
-   "id": "bank-b-038",
+   "id": "B-bank-b-038",
    "category": "經驗描述",
    "title": "第一次獨自出遠門的經驗",
    "prompt_zh": "請以「第一次獨自出遠門的經驗」為題，寫一篇文章。第一段描述這趟旅程的起因、目的地及出發前的心情；第二段描述旅途中印象最深刻的一件事，以及這次經驗對你的影響。文長至少120個單詞。",
@@ -13253,7 +15341,7 @@
    "models": []
   },
   {
-   "id": "bank-b-039",
+   "id": "B-bank-b-039",
    "category": "經驗描述",
    "title": "一次和家人發生衝突後和解的經驗",
    "prompt_zh": "請以「一次和家人發生衝突後和解的經驗」為題，寫一篇文章。第一段描述這次衝突發生的原因與經過；第二段描述你們如何和解，以及這次經驗讓你對家人關係有什麼新的體會。文長至少120個單詞。",
@@ -13370,7 +15458,7 @@
    "models": []
   },
   {
-   "id": "bank-b-040",
+   "id": "B-bank-b-040",
    "category": "經驗描述",
    "title": "一次因為堅持而成功的經驗",
    "prompt_zh": "請以「一次因為堅持而成功的經驗」為題，寫一篇文章。第一段描述當時遇到的困難與你想放棄的念頭；第二段描述你如何堅持下去、最後的結果，以及這次經驗帶給你的啟發。文長至少120個單詞。",
@@ -13487,7 +15575,7 @@
    "models": []
   },
   {
-   "id": "bank-b-041",
+   "id": "B-bank-b-041",
    "category": "經驗描述",
    "title": "一次幫助陌生人的經驗",
    "prompt_zh": "請以「一次幫助陌生人的經驗」為題，寫一篇文章。第一段描述你遇到需要幫助的人、當時的情況；第二段描述你如何提供協助，以及這次經驗帶給你什麼樣的感受或想法。文長至少120個單詞。",
@@ -13604,7 +15692,7 @@
    "models": []
   },
   {
-   "id": "bank-b-042",
+   "id": "B-bank-b-042",
    "category": "經驗描述",
    "title": "一次因誤會而學到教訓的經驗",
    "prompt_zh": "請以「一次因誤會而學到教訓的經驗」為題，寫一篇文章。第一段描述當初誤會發生的經過；第二段描述誤會如何被澄清，以及這次經驗讓你學到什麼教訓。文長至少120個單詞。",
@@ -13721,7 +15809,7 @@
    "models": []
   },
   {
-   "id": "bank-b-043",
+   "id": "B-bank-b-043",
    "category": "經驗描述",
    "title": "養寵物帶給你的改變",
    "prompt_zh": "請以「養寵物帶給你的改變」為題，寫一篇文章。第一段描述你開始養這隻寵物的經過與最初的相處情形；第二段描述牠帶給你生活或心態上的具體改變。文長至少120個單詞。",
@@ -13838,7 +15926,7 @@
    "models": []
   },
   {
-   "id": "bank-b-044",
+   "id": "B-bank-b-044",
    "category": "經驗描述",
    "title": "一次印象深刻的旅行經驗",
    "prompt_zh": "請以「一次印象深刻的旅行經驗」為題，寫一篇文章。第一段描述這趟旅行的地點與同行的人，並說明最初的期待；第二段描述旅程中最難忘的一件事，以及這次旅行帶給你的收穫。文長至少120個單詞。",
@@ -13955,7 +16043,7 @@
    "models": []
   },
   {
-   "id": "bank-b-045",
+   "id": "B-bank-b-045",
    "category": "經驗描述",
    "title": "一次面對考試失利的心路歷程",
    "prompt_zh": "請以「一次面對考試失利的心路歷程」為題，寫一篇文章。第一段描述考試失利當下的情況與心情；第二段描述你如何調適心情、重新振作，以及這次經驗帶給你的成長。文長至少120個單詞。",
@@ -14072,7 +16160,7 @@
    "models": []
   },
   {
-   "id": "bank-b-046",
+   "id": "B-bank-b-046",
    "category": "經驗描述",
    "title": "一次參加社團或比賽的難忘經驗",
    "prompt_zh": "請以「一次參加社團或比賽的難忘經驗」為題，寫一篇文章。第一段描述這次活動的背景與你的角色；第二段描述過程中印象最深刻的一刻，以及這次經驗帶給你的收穫。文長至少120個單詞。",
@@ -14189,7 +16277,7 @@
    "models": []
   },
   {
-   "id": "bank-b-047",
+   "id": "B-bank-b-047",
    "category": "經驗描述",
    "title": "一次因為環保行動而受到的啟發",
    "prompt_zh": "請以「一次因為環保行動而受到的啟發」為題，寫一篇文章。第一段描述你參與過的一次環保相關活動或行動（如淨灘、減塑）；第二段描述這次經驗帶給你的想法轉變，以及之後你在生活中做出的改變。文長至少120個單詞。",
@@ -14306,7 +16394,7 @@
    "models": []
   },
   {
-   "id": "bank-b-048",
+   "id": "B-bank-b-048",
    "category": "經驗描述",
    "title": "一次打工經驗帶來的成長",
    "prompt_zh": "請以「一次打工經驗帶來的成長」為題，寫一篇文章。第一段描述你的打工內容與最初的動機；第二段描述工作過程中遇到的挑戰，以及這份工作帶給你的成長。文長至少120個單詞。",
@@ -14423,7 +16511,7 @@
    "models": []
   },
   {
-   "id": "bank-b-049",
+   "id": "B-bank-b-049",
    "category": "經驗描述",
    "title": "一次因網路而受益或受害的經驗",
    "prompt_zh": "請以「一次因網路而受益或受害的經驗」為題，寫一篇文章。第一段描述這次與網路使用相關的具體經驗；第二段說明這次經驗帶給你的反思，以及之後你使用網路的態度有什麼改變。文長至少120個單詞。",
@@ -14540,7 +16628,7 @@
    "models": []
   },
   {
-   "id": "bank-b-050",
+   "id": "B-bank-b-050",
    "category": "經驗描述",
    "title": "搬家或轉學的適應經驗",
    "prompt_zh": "請以「搬家或轉學的適應經驗」為題，寫一篇文章。第一段描述你搬家或轉學當時的心情與遇到的困難；第二段描述你如何適應新環境，以及這段過程帶給你的成長。文長至少120個單詞。",
@@ -14657,7 +16745,7 @@
    "models": []
   },
   {
-   "id": "bank-b-051",
+   "id": "B-bank-b-051",
    "category": "經驗描述",
    "title": "一次克服恐懼的經驗",
    "prompt_zh": "請以「一次克服恐懼的經驗」為題，寫一篇文章。第一段描述你原本害怕的事物與相關經歷；第二段描述你如何鼓起勇氣面對並克服這個恐懼，以及帶來的改變。文長至少120個單詞。",
@@ -14774,7 +16862,7 @@
    "models": []
   },
   {
-   "id": "bank-b-052",
+   "id": "B-bank-b-052",
    "category": "經驗描述",
    "title": "一次被誤解卻選擇原諒的經驗",
    "prompt_zh": "請以「一次被誤解卻選擇原諒的經驗」為題，寫一篇文章。第一段描述你被誤解的經過與當下的心情；第二段描述你如何選擇原諒對方，以及這次經驗帶給你的體悟。文長至少120個單詞。",
@@ -14891,7 +16979,7 @@
    "models": []
   },
   {
-   "id": "bank-b-053",
+   "id": "B-bank-b-053",
    "category": "經驗描述",
    "title": "一次因科技產品改變生活習慣的經驗",
    "prompt_zh": "請以「一次因科技產品改變生活習慣的經驗」為題，寫一篇文章。第一段描述你開始使用某項科技產品或應用程式的經過（如智慧手錶、學習app）；第二段描述這項產品如何改變了你的日常習慣。文長至少120個單詞。",
@@ -15008,7 +17096,7 @@
    "models": []
   },
   {
-   "id": "bank-b-054",
+   "id": "B-bank-b-054",
    "category": "經驗描述",
    "title": "一次因為運動而改變自己的經驗",
    "prompt_zh": "請以「一次因為運動而改變自己的經驗」為題，寫一篇文章。第一段描述你開始接觸這項運動的契機與最初的困難；第二段描述持續運動後，你在身體或心理上發生的具體改變。文長至少120個單詞。",
@@ -15120,2094 +17208,6 @@
      "過去式敘事：I decided to start running after...",
      "現在完成式表達持續改變：I have become much more confident since I started exercising.",
      "結果子句：This experience taught me that consistency leads to progress."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-001",
-   "category": "圖表數據題",
-   "title": "手機使用時數調查",
-   "prompt_zh": "某機構針對全台高中生進行「每日使用手機時數」調查，結果如下：1小時以下占12%，1到3小時占35%，3到5小時占33%，5小時以上占20%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-001.png",
-   "image_alt": "手機使用時數調查：1小時以下 12%、1到3小時 35%、3到5小時 33%、5小時以上 20%",
-   "guide": {
-    "structure_p1": "描述圖表數據：說明各時數區間所占的百分比，並指出哪個區間人數最多。",
-    "structure_p2": "說明你自己每天使用手機的時數，以及你對這個現象的看法。",
-    "ideas": [
-     "超過一半學生每天使用手機超過3小時",
-     "可討論手機使用對學業與睡眠的影響",
-     "可提出自我管理手機使用時間的方法",
-     "也可肯定手機在學習與社交上的正面功能"
-    ],
-    "phrases": [
-     {
-      "en": "spend time on",
-      "zh": "花時間在..."
-     },
-     {
-      "en": "cut back on screen time",
-      "zh": "減少螢幕使用時間"
-     },
-     {
-      "en": "set a limit on",
-      "zh": "設下...的限制"
-     },
-     {
-      "en": "be glued to a screen",
-      "zh": "機不離手"
-     },
-     {
-      "en": "account for",
-      "zh": "占（比例）"
-     },
-     {
-      "en": "the majority of",
-      "zh": "大多數的"
-     },
-     {
-      "en": "as shown in the table",
-      "zh": "如表格所示"
-     },
-     {
-      "en": "in contrast to",
-      "zh": "與...相對比"
-     }
-    ],
-    "words": [
-     {
-      "en": "screen time",
-      "pos": "n.",
-      "zh": "螢幕使用時間"
-     },
-     {
-      "en": "moderate",
-      "pos": "adj.",
-      "zh": "適度的"
-     },
-     {
-      "en": "excessive",
-      "pos": "adj.",
-      "zh": "過度的"
-     },
-     {
-      "en": "productivity",
-      "pos": "n.",
-      "zh": "生產力"
-     },
-     {
-      "en": "survey",
-      "pos": "n.",
-      "zh": "調查"
-     },
-     {
-      "en": "respondent",
-      "pos": "n.",
-      "zh": "受訪者"
-     },
-     {
-      "en": "trend",
-      "pos": "n.",
-      "zh": "趨勢"
-     },
-     {
-      "en": "significant",
-      "pos": "adj.",
-      "zh": "顯著的"
-     },
-     {
-      "en": "proportion",
-      "pos": "n.",
-      "zh": "比例"
-     },
-     {
-      "en": "category",
-      "pos": "n.",
-      "zh": "類別"
-     }
-    ],
-    "grammar": [
-     "用 nearly half 描述接近一半的比例，例如 Nearly half of the students use their phones for more than three hours a day.",
-     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B.",
-     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-002",
-   "category": "圖表數據題",
-   "title": "高中生睡眠時間調查",
-   "prompt_zh": "某調查詢問高中生「平日平均睡眠時數」，結果為：不到6小時占28%，6到7小時占40%，7到8小時占22%，8小時以上僅占10%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-002.png",
-   "image_alt": "高中生睡眠時間調查：不到6小時 28%、6到7小時 40%、7到8小時 22%、8小時以上 10%",
-   "guide": {
-    "structure_p1": "描述圖表數據：說明各睡眠時數區間的百分比分布。",
-    "structure_p2": "說明你自己平日的睡眠情形，以及你對高中生睡眠不足這個問題的看法。",
-    "ideas": [
-     "近三成學生每天睡不到6小時，遠低於建議時數",
-     "可討論課業壓力與3C使用對睡眠的影響",
-     "可提出調整作息或減少熬夜的建議",
-     "也可提及學校是否該延後上課時間"
-    ],
-    "phrases": [
-     {
-      "en": "get enough sleep",
-      "zh": "獲得足夠睡眠"
-     },
-     {
-      "en": "stay up late",
-      "zh": "熬夜"
-     },
-     {
-      "en": "fall short of",
-      "zh": "不足；未達到"
-     },
-     {
-      "en": "catch up on sleep",
-      "zh": "補眠"
-     },
-     {
-      "en": "the majority of",
-      "zh": "大多數的"
-     },
-     {
-      "en": "as shown in the table",
-      "zh": "如表格所示"
-     },
-     {
-      "en": "in contrast to",
-      "zh": "與...相對比"
-     },
-     {
-      "en": "a slight increase",
-      "zh": "些微上升"
-     }
-    ],
-    "words": [
-     {
-      "en": "sufficient",
-      "pos": "adj.",
-      "zh": "足夠的"
-     },
-     {
-      "en": "fatigue",
-      "pos": "n.",
-      "zh": "疲勞"
-     },
-     {
-      "en": "insomnia",
-      "pos": "n.",
-      "zh": "失眠"
-     },
-     {
-      "en": "routine",
-      "pos": "n.",
-      "zh": "作息；例行程序"
-     },
-     {
-      "en": "respondent",
-      "pos": "n.",
-      "zh": "受訪者"
-     },
-     {
-      "en": "trend",
-      "pos": "n.",
-      "zh": "趨勢"
-     },
-     {
-      "en": "significant",
-      "pos": "adj.",
-      "zh": "顯著的"
-     },
-     {
-      "en": "proportion",
-      "pos": "n.",
-      "zh": "比例"
-     },
-     {
-      "en": "category",
-      "pos": "n.",
-      "zh": "類別"
-     },
-     {
-      "en": "fluctuate",
-      "pos": "v.",
-      "zh": "波動"
-     }
-    ],
-    "grammar": [
-     "用倒裝句強調數據，例如 Rarely do students get eight hours of sleep on school nights.",
-     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理",
-     "用最高級描述之最，例如 Using the phone is the most common way students spend free time."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-003",
-   "category": "圖表數據題",
-   "title": "早餐習慣調查",
-   "prompt_zh": "下圖為某校學生早餐習慣圓餅圖：在家吃早餐占18%，早餐店購買占45%，便利商店購買占22%，完全不吃早餐占15%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-003.png",
-   "image_alt": "早餐習慣調查：在家吃早餐 18%、早餐店購買 45%、便利商店購買 22%、完全不吃早餐 15%",
-   "guide": {
-    "structure_p1": "描述圓餅圖數據：說明各項早餐來源所占的比例，並指出最多與最少的選項。",
-    "structure_p2": "說明你自己的早餐習慣，以及你對「不吃早餐」這個現象的看法。",
-    "ideas": [
-     "近半數學生選擇早餐店，反映外食普遍",
-     "一成五完全不吃早餐值得關注",
-     "可討論不吃早餐對上課專注力的影響",
-     "可提出簡單快速的健康早餐建議"
-    ],
-    "phrases": [
-     {
-      "en": "skip breakfast",
-      "zh": "不吃早餐"
-     },
-     {
-      "en": "grab breakfast on the way",
-      "zh": "路上隨手買早餐"
-     },
-     {
-      "en": "a balanced diet",
-      "zh": "均衡飲食"
-     },
-     {
-      "en": "fuel one's body",
-      "zh": "為身體補充能量"
-     },
-     {
-      "en": "as shown in the table",
-      "zh": "如表格所示"
-     },
-     {
-      "en": "in contrast to",
-      "zh": "與...相對比"
-     },
-     {
-      "en": "a slight increase",
-      "zh": "些微上升"
-     },
-     {
-      "en": "make up X percent",
-      "zh": "占百分之X"
-     }
-    ],
-    "words": [
-     {
-      "en": "nutrient",
-      "pos": "n.",
-      "zh": "營養素"
-     },
-     {
-      "en": "appetite",
-      "pos": "n.",
-      "zh": "食慾"
-     },
-     {
-      "en": "metabolism",
-      "pos": "n.",
-      "zh": "新陳代謝"
-     },
-     {
-      "en": "source",
-      "pos": "n.",
-      "zh": "來源"
-     },
-     {
-      "en": "trend",
-      "pos": "n.",
-      "zh": "趨勢"
-     },
-     {
-      "en": "significant",
-      "pos": "adj.",
-      "zh": "顯著的"
-     },
-     {
-      "en": "proportion",
-      "pos": "n.",
-      "zh": "比例"
-     },
-     {
-      "en": "category",
-      "pos": "n.",
-      "zh": "類別"
-     },
-     {
-      "en": "fluctuate",
-      "pos": "v.",
-      "zh": "波動"
-     },
-     {
-      "en": "represent",
-      "pos": "v.",
-      "zh": "代表"
-     }
-    ],
-    "grammar": [
-     "用 less than one in five 描述少數比例，例如 Less than one in five students eat breakfast at home.",
-     "用最高級描述之最，例如 Using the phone is the most common way students spend free time.",
-     "用分數或比例片語如 one in three / nearly half 讓敘述更生動"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-004",
-   "category": "圖表數據題",
-   "title": "通勤方式長條圖",
-   "prompt_zh": "下圖長條圖顯示某校學生上學通勤方式：走路占15%，騎腳踏車占10%，家長接送占25%，搭乘公車或捷運占30%，騎機車占20%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-004.png",
-   "image_alt": "通勤方式長條圖：走路 15%、騎腳踏車 10%、家長接送 25%、搭乘公車或捷運 30%、騎機車 20%",
-   "guide": {
-    "structure_p1": "描述長條圖數據：說明各種通勤方式所占的比例，指出最多人使用的方式。",
-    "structure_p2": "說明你自己上學的通勤方式，以及你對這個城市交通與通勤方式的看法。",
-    "ideas": [
-     "大眾運輸與家長接送合計超過一半",
-     "可討論尖峰時段交通壅塞的問題",
-     "可提出鼓勵騎腳踏車或步行的環保建議",
-     "也可提及校車或共乘制度的可行性"
-    ],
-    "phrases": [
-     {
-      "en": "commute to school",
-      "zh": "通勤上學"
-     },
-     {
-      "en": "rely on public transportation",
-      "zh": "依賴大眾運輸"
-     },
-     {
-      "en": "cause traffic congestion",
-      "zh": "造成交通壅塞"
-     },
-     {
-      "en": "an eco-friendly way",
-      "zh": "環保的方式"
-     },
-     {
-      "en": "in contrast to",
-      "zh": "與...相對比"
-     },
-     {
-      "en": "a slight increase",
-      "zh": "些微上升"
-     },
-     {
-      "en": "make up X percent",
-      "zh": "占百分之X"
-     },
-     {
-      "en": "compared with",
-      "zh": "與...相比"
-     }
-    ],
-    "words": [
-     {
-      "en": "commute",
-      "pos": "n./v.",
-      "zh": "通勤"
-     },
-     {
-      "en": "congestion",
-      "pos": "n.",
-      "zh": "壅塞"
-     },
-     {
-      "en": "efficient",
-      "pos": "adj.",
-      "zh": "有效率的"
-     },
-     {
-      "en": "carpool",
-      "pos": "v.",
-      "zh": "共乘"
-     },
-     {
-      "en": "significant",
-      "pos": "adj.",
-      "zh": "顯著的"
-     },
-     {
-      "en": "proportion",
-      "pos": "n.",
-      "zh": "比例"
-     },
-     {
-      "en": "category",
-      "pos": "n.",
-      "zh": "類別"
-     },
-     {
-      "en": "fluctuate",
-      "pos": "v.",
-      "zh": "波動"
-     },
-     {
-      "en": "represent",
-      "pos": "v.",
-      "zh": "代表"
-     },
-     {
-      "en": "statistics",
-      "pos": "n.",
-      "zh": "統計數據"
-     }
-    ],
-    "grammar": [
-     "用最高級加名詞子句，例如 What most students choose is public transportation.",
-     "用分數或比例片語如 one in three / nearly half 讓敘述更生動",
-     "用 whereas/on the contrary 銜接兩種相反的數據結果"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-005",
-   "category": "圖表數據題",
-   "title": "運動頻率調查",
-   "prompt_zh": "某調查詢問高中生「每週運動次數」，結果為：完全不運動占20%，每週1到2次占38%，每週3到4次占27%，每週5次以上僅占15%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-005.png",
-   "image_alt": "運動頻率調查：完全不運動 20%、每週1到2次 38%、每週3到4次 27%、每週5次以上 15%",
-   "guide": {
-    "structure_p1": "描述圖表數據：說明各運動頻率區間所占的百分比。",
-    "structure_p2": "說明你自己每週運動的習慣，以及你對高中生運動量普遍偏低這個現象的看法。",
-    "ideas": [
-     "兩成學生完全不運動，反映靜態生活型態",
-     "可討論課業繁重、時間不足是常見原因",
-     "可提出利用零碎時間運動的具體方法",
-     "也可強調規律運動對紓壓與健康的好處"
-    ],
-    "phrases": [
-     {
-      "en": "work out regularly",
-      "zh": "規律運動"
-     },
-     {
-      "en": "lead a sedentary lifestyle",
-      "zh": "過著久坐少動的生活"
-     },
-     {
-      "en": "squeeze in exercise",
-      "zh": "擠出時間運動"
-     },
-     {
-      "en": "relieve stress",
-      "zh": "紓解壓力"
-     },
-     {
-      "en": "a slight increase",
-      "zh": "些微上升"
-     },
-     {
-      "en": "make up X percent",
-      "zh": "占百分之X"
-     },
-     {
-      "en": "compared with",
-      "zh": "與...相比"
-     },
-     {
-      "en": "rank first",
-      "zh": "排名第一"
-     }
-    ],
-    "words": [
-     {
-      "en": "sedentary",
-      "pos": "adj.",
-      "zh": "久坐少動的"
-     },
-     {
-      "en": "stamina",
-      "pos": "n.",
-      "zh": "體力；耐力"
-     },
-     {
-      "en": "frequency",
-      "pos": "n.",
-      "zh": "頻率"
-     },
-     {
-      "en": "wellbeing",
-      "pos": "n.",
-      "zh": "身心健康"
-     },
-     {
-      "en": "proportion",
-      "pos": "n.",
-      "zh": "比例"
-     },
-     {
-      "en": "category",
-      "pos": "n.",
-      "zh": "類別"
-     },
-     {
-      "en": "fluctuate",
-      "pos": "v.",
-      "zh": "波動"
-     },
-     {
-      "en": "represent",
-      "pos": "v.",
-      "zh": "代表"
-     },
-     {
-      "en": "statistics",
-      "pos": "n.",
-      "zh": "統計數據"
-     },
-     {
-      "en": "conduct",
-      "pos": "v.",
-      "zh": "進行（調查、研究）"
-     }
-    ],
-    "grammar": [
-     "用 one fifth 描述五分之一，例如 One fifth of the students reported that they never exercise.",
-     "用 whereas/on the contrary 銜接兩種相反的數據結果",
-     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-006",
-   "category": "圖表數據題",
-   "title": "零用錢花費圓餅圖",
-   "prompt_zh": "下圖圓餅圖為高中生零用錢花費項目：餐飲零食占40%，飲料手搖占20%，文具書籍占15%，娛樂社交占15%，儲蓄占10%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-006.png",
-   "image_alt": "零用錢花費圓餅圖：餐飲零食 40%、飲料手搖 20%、文具書籍 15%、娛樂社交 15%、儲蓄 10%",
-   "guide": {
-    "structure_p1": "描述圓餅圖數據：說明各項花費類別所占的比例，指出花費最多的項目。",
-    "structure_p2": "說明你自己零用錢的花費習慣，以及你對高中生理財這個議題的看法。",
-    "ideas": [
-     "飲食類支出合計占六成，是最大宗開銷",
-     "儲蓄比例偏低，反映理財觀念待加強",
-     "可提出記帳或設立存款目標的建議",
-     "也可討論零用錢金額與家庭經濟的關聯"
-    ],
-    "phrases": [
-     {
-      "en": "spend money on",
-      "zh": "把錢花在..."
-     },
-     {
-      "en": "save up for",
-      "zh": "為...存錢"
-     },
-     {
-      "en": "keep track of expenses",
-      "zh": "記帳；追蹤支出"
-     },
-     {
-      "en": "live within one's means",
-      "zh": "量入為出"
-     },
-     {
-      "en": "make up X percent",
-      "zh": "占百分之X"
-     },
-     {
-      "en": "compared with",
-      "zh": "與...相比"
-     },
-     {
-      "en": "rank first",
-      "zh": "排名第一"
-     },
-     {
-      "en": "remain steady",
-      "zh": "保持穩定"
-     }
-    ],
-    "words": [
-     {
-      "en": "allowance",
-      "pos": "n.",
-      "zh": "零用錢"
-     },
-     {
-      "en": "budget",
-      "pos": "v./n.",
-      "zh": "預算；編列預算"
-     },
-     {
-      "en": "expenditure",
-      "pos": "n.",
-      "zh": "支出"
-     },
-     {
-      "en": "saving",
-      "pos": "n.",
-      "zh": "儲蓄"
-     },
-     {
-      "en": "category",
-      "pos": "n.",
-      "zh": "類別"
-     },
-     {
-      "en": "fluctuate",
-      "pos": "v.",
-      "zh": "波動"
-     },
-     {
-      "en": "represent",
-      "pos": "v.",
-      "zh": "代表"
-     },
-     {
-      "en": "statistics",
-      "pos": "n.",
-      "zh": "統計數據"
-     },
-     {
-      "en": "conduct",
-      "pos": "v.",
-      "zh": "進行（調查、研究）"
-     },
-     {
-      "en": "overall",
-      "pos": "adj.",
-      "zh": "整體的"
-     }
-    ],
-    "grammar": [
-     "用 make up 表構成比例，例如 Food and snacks make up 40% of students' spending.",
-     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast.",
-     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-007",
-   "category": "圖表數據題",
-   "title": "課外閱讀時間趨勢圖",
-   "prompt_zh": "下圖折線圖顯示近五年高中生每週課外閱讀時間的變化：2022年平均3.5小時，2023年3.2小時，2024年2.6小時，2025年2.1小時，2026年僅剩1.8小時，呈現逐年下降的趨勢。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-007.png",
-   "image_alt": "課外閱讀時間趨勢圖：2022年 3.5小時、2023年 3.2小時、2024年 2.6小時、2025年 2.1小時、2026年 1.8小時",
-   "guide": {
-    "structure_p1": "描述折線圖數據：說明近五年課外閱讀時間的變化趨勢。",
-    "structure_p2": "說明你自己閱讀課外書的習慣，以及你對「學生課外閱讀時間逐年減少」這個趨勢的看法。",
-    "ideas": [
-     "五年間閱讀時間幾乎減半，趨勢明顯",
-     "可討論手機與短影音是否排擠了閱讀時間",
-     "可提出設立班級讀書會或閱讀獎勵制度的建議",
-     "也可強調閱讀對思考與寫作能力的重要性"
-    ],
-    "phrases": [
-     {
-      "en": "decline steadily",
-      "zh": "穩定下降"
-     },
-     {
-      "en": "be replaced by",
-      "zh": "被...取代"
-     },
-     {
-      "en": "cultivate a habit",
-      "zh": "培養習慣"
-     },
-     {
-      "en": "broaden one's horizons",
-      "zh": "拓展視野"
-     },
-     {
-      "en": "compared with",
-      "zh": "與...相比"
-     },
-     {
-      "en": "rank first",
-      "zh": "排名第一"
-     },
-     {
-      "en": "remain steady",
-      "zh": "保持穩定"
-     },
-     {
-      "en": "be followed by",
-      "zh": "緊接著是"
-     }
-    ],
-    "words": [
-     {
-      "en": "decline",
-      "pos": "n./v.",
-      "zh": "下降"
-     },
-     {
-      "en": "literacy",
-      "pos": "n.",
-      "zh": "讀寫能力；素養"
-     },
-     {
-      "en": "consecutive",
-      "pos": "adj.",
-      "zh": "連續的"
-     },
-     {
-      "en": "alternative",
-      "pos": "n.",
-      "zh": "替代方案"
-     },
-     {
-      "en": "fluctuate",
-      "pos": "v.",
-      "zh": "波動"
-     },
-     {
-      "en": "represent",
-      "pos": "v.",
-      "zh": "代表"
-     },
-     {
-      "en": "statistics",
-      "pos": "n.",
-      "zh": "統計數據"
-     },
-     {
-      "en": "conduct",
-      "pos": "v.",
-      "zh": "進行（調查、研究）"
-     },
-     {
-      "en": "overall",
-      "pos": "adj.",
-      "zh": "整體的"
-     },
-     {
-      "en": "decline",
-      "pos": "v.",
-      "zh": "下降"
-     }
-    ],
-    "grammar": [
-     "用現在完成式描述持續到現在的變化，例如 Reading time has dropped nearly by half over the past five years.",
-     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B.",
-     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-008",
-   "category": "圖表數據題",
-   "title": "家長對手機態度調查",
-   "prompt_zh": "某調查詢問高中生家長「對孩子使用手機的態度」，結果為：完全禁止占8%，嚴格限制時間占35%，適度規範占42%，完全不干涉占15%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-008.png",
-   "image_alt": "家長對手機態度調查：完全禁止 8%、嚴格限制時間 35%、適度規範 42%、完全不干涉 15%",
-   "guide": {
-    "structure_p1": "描述圖表數據：說明家長對孩子使用手機各種態度所占的比例。",
-    "structure_p2": "說明你自己家裡對使用手機的規範情形，以及你對家長管理孩子手機使用方式的看法。",
-    "ideas": [
-     "超過四成家長採取「適度規範」，屬於較常見做法",
-     "可討論完全禁止是否容易造成親子衝突",
-     "可提出親子共同討論規則會更有效",
-     "也可反思學生自身應負起自律的責任"
-    ],
-    "phrases": [
-     {
-      "en": "set rules for",
-      "zh": "為...訂定規則"
-     },
-     {
-      "en": "reach a compromise",
-      "zh": "達成妥協"
-     },
-     {
-      "en": "lead to conflict",
-      "zh": "導致衝突"
-     },
-     {
-      "en": "take the initiative",
-      "zh": "主動採取行動"
-     },
-     {
-      "en": "rank first",
-      "zh": "排名第一"
-     },
-     {
-      "en": "remain steady",
-      "zh": "保持穩定"
-     },
-     {
-      "en": "be followed by",
-      "zh": "緊接著是"
-     },
-     {
-      "en": "vary from...to...",
-      "zh": "從...到...不等"
-     }
-    ],
-    "words": [
-     {
-      "en": "restriction",
-      "pos": "n.",
-      "zh": "限制"
-     },
-     {
-      "en": "moderate",
-      "pos": "adj.",
-      "zh": "適度的"
-     },
-     {
-      "en": "autonomy",
-      "pos": "n.",
-      "zh": "自主性"
-     },
-     {
-      "en": "negotiate",
-      "pos": "v.",
-      "zh": "協商"
-     },
-     {
-      "en": "represent",
-      "pos": "v.",
-      "zh": "代表"
-     },
-     {
-      "en": "statistics",
-      "pos": "n.",
-      "zh": "統計數據"
-     },
-     {
-      "en": "conduct",
-      "pos": "v.",
-      "zh": "進行（調查、研究）"
-     },
-     {
-      "en": "overall",
-      "pos": "adj.",
-      "zh": "整體的"
-     },
-     {
-      "en": "decline",
-      "pos": "v.",
-      "zh": "下降"
-     },
-     {
-      "en": "noticeable",
-      "pos": "adj.",
-      "zh": "明顯的"
-     }
-    ],
-    "grammar": [
-     "用 nearly half 描述接近半數，例如 Nearly half of the parents choose to set moderate rules.",
-     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理",
-     "用最高級描述之最，例如 Using the phone is the most common way students spend free time."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-009",
-   "category": "圖表數據題",
-   "title": "社團參與比例圖",
-   "prompt_zh": "下圖圓餅圖為全校學生參與社團類型比例：體育性社團占30%，學術性社團占18%，藝文性社團占22%，服務性社團占12%，完全沒有參加社團占18%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-009.png",
-   "image_alt": "社團參與比例圖：體育性社團 30%、學術性社團 18%、藝文性社團 22%、服務性社團 12%、完全沒有參加社團 18%",
-   "guide": {
-    "structure_p1": "描述圓餅圖數據：說明各類社團參與比例，並指出最多與最少的類型。",
-    "structure_p2": "說明你自己參與社團的情形，以及你對高中生參加社團這件事的看法。",
-    "ideas": [
-     "體育性社團最受歡迎，藝文性社團緊追在後",
-     "近兩成學生完全沒參加社團，可能因課業繁忙",
-     "可討論社團活動對人際關係與紓壓的幫助",
-     "也可提出如何在課業與社團間取得平衡"
-    ],
-    "phrases": [
-     {
-      "en": "take part in",
-      "zh": "參加"
-     },
-     {
-      "en": "strike a balance between",
-      "zh": "在...之間取得平衡"
-     },
-     {
-      "en": "broaden one's social circle",
-      "zh": "拓展交友圈"
-     },
-     {
-      "en": "a well-rounded life",
-      "zh": "多元均衡的生活"
-     },
-     {
-      "en": "remain steady",
-      "zh": "保持穩定"
-     },
-     {
-      "en": "be followed by",
-      "zh": "緊接著是"
-     },
-     {
-      "en": "vary from...to...",
-      "zh": "從...到...不等"
-     },
-     {
-      "en": "according to the chart",
-      "zh": "根據這張圖表"
-     }
-    ],
-    "words": [
-     {
-      "en": "extracurricular",
-      "pos": "adj.",
-      "zh": "課外的"
-     },
-     {
-      "en": "involvement",
-      "pos": "n.",
-      "zh": "參與"
-     },
-     {
-      "en": "leadership",
-      "pos": "n.",
-      "zh": "領導能力"
-     },
-     {
-      "en": "commitment",
-      "pos": "n.",
-      "zh": "投入；承諾"
-     },
-     {
-      "en": "statistics",
-      "pos": "n.",
-      "zh": "統計數據"
-     },
-     {
-      "en": "conduct",
-      "pos": "v.",
-      "zh": "進行（調查、研究）"
-     },
-     {
-      "en": "overall",
-      "pos": "adj.",
-      "zh": "整體的"
-     },
-     {
-      "en": "decline",
-      "pos": "v.",
-      "zh": "下降"
-     },
-     {
-      "en": "noticeable",
-      "pos": "adj.",
-      "zh": "明顯的"
-     },
-     {
-      "en": "reveal",
-      "pos": "v.",
-      "zh": "顯示；揭露"
-     }
-    ],
-    "grammar": [
-     "用最高級句型描述之最，例如 Sports clubs are the most popular type among students.",
-     "用最高級描述之最，例如 Using the phone is the most common way students spend free time.",
-     "用分數或比例片語如 one in three / nearly half 讓敘述更生動"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-010",
-   "category": "圖表數據題",
-   "title": "壓力來源長條圖",
-   "prompt_zh": "下圖長條圖顯示高中生主要壓力來源：課業考試占45%，未來升學占30%，人際關係占15%，家庭因素占10%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-010.png",
-   "image_alt": "壓力來源長條圖：課業考試 45%、未來升學 30%、人際關係 15%、家庭因素 10%",
-   "guide": {
-    "structure_p1": "描述長條圖數據：說明各壓力來源所占的比例，指出最主要的壓力來源。",
-    "structure_p2": "說明你自己主要的壓力來源，以及你平常如何紓解壓力。",
-    "ideas": [
-     "課業與升學合計占七成五，是壓力主因",
-     "可討論長期壓力對身心健康的影響",
-     "可提出運動、與朋友傾訴等紓壓方法",
-     "也可建議學校提供心理諮商資源"
-    ],
-    "phrases": [
-     {
-      "en": "be under pressure",
-      "zh": "承受壓力"
-     },
-     {
-      "en": "cope with stress",
-      "zh": "應付壓力"
-     },
-     {
-      "en": "seek support from",
-      "zh": "向...尋求支持"
-     },
-     {
-      "en": "take a toll on",
-      "zh": "對...造成負擔"
-     },
-     {
-      "en": "be followed by",
-      "zh": "緊接著是"
-     },
-     {
-      "en": "vary from...to...",
-      "zh": "從...到...不等"
-     },
-     {
-      "en": "according to the chart",
-      "zh": "根據這張圖表"
-     },
-     {
-      "en": "account for",
-      "zh": "占（比例）"
-     }
-    ],
-    "words": [
-     {
-      "en": "pressure",
-      "pos": "n.",
-      "zh": "壓力"
-     },
-     {
-      "en": "academic",
-      "pos": "adj.",
-      "zh": "學業的"
-     },
-     {
-      "en": "counseling",
-      "pos": "n.",
-      "zh": "諮商輔導"
-     },
-     {
-      "en": "resilience",
-      "pos": "n.",
-      "zh": "韌性；復原力"
-     },
-     {
-      "en": "conduct",
-      "pos": "v.",
-      "zh": "進行（調查、研究）"
-     },
-     {
-      "en": "overall",
-      "pos": "adj.",
-      "zh": "整體的"
-     },
-     {
-      "en": "decline",
-      "pos": "v.",
-      "zh": "下降"
-     },
-     {
-      "en": "noticeable",
-      "pos": "adj.",
-      "zh": "明顯的"
-     },
-     {
-      "en": "reveal",
-      "pos": "v.",
-      "zh": "顯示；揭露"
-     },
-     {
-      "en": "percentage",
-      "pos": "n.",
-      "zh": "百分比"
-     }
-    ],
-    "grammar": [
-     "用分數片語 three quarters 表四分之三，例如 Three quarters of the stress comes from schoolwork and further studies.",
-     "用分數或比例片語如 one in three / nearly half 讓敘述更生動",
-     "用 whereas/on the contrary 銜接兩種相反的數據結果"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-011",
-   "category": "圖表數據題",
-   "title": "午餐選擇調查",
-   "prompt_zh": "某調查詢問高中生「平常午餐怎麼解決」，結果為：學校營養午餐占35%，自備便當占20%，訂購外食占30%，到校外餐廳吃占15%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-011.png",
-   "image_alt": "午餐選擇調查：學校營養午餐 35%、自備便當 20%、訂購外食 30%、到校外餐廳吃 15%",
-   "guide": {
-    "structure_p1": "描述圖表數據：說明各項午餐選擇所占的比例。",
-    "structure_p2": "說明你自己平常午餐怎麼解決，以及你對學生午餐選擇這件事的看法。",
-    "ideas": [
-     "外食（訂購與外出）合計占45%，反映飲食選擇多元",
-     "可討論營養午餐與外食在健康與價格上的差異",
-     "可提出自備便當的優點與挑戰",
-     "也可反思如何在忙碌課業中兼顧健康飲食"
-    ],
-    "phrases": [
-     {
-      "en": "order takeout",
-      "zh": "叫外送"
-     },
-     {
-      "en": "pack a lunch",
-      "zh": "帶便當"
-     },
-     {
-      "en": "a well-balanced meal",
-      "zh": "均衡的一餐"
-     },
-     {
-      "en": "on a tight schedule",
-      "zh": "時間緊湊"
-     },
-     {
-      "en": "vary from...to...",
-      "zh": "從...到...不等"
-     },
-     {
-      "en": "according to the chart",
-      "zh": "根據這張圖表"
-     },
-     {
-      "en": "account for",
-      "zh": "占（比例）"
-     },
-     {
-      "en": "the majority of",
-      "zh": "大多數的"
-     }
-    ],
-    "words": [
-     {
-      "en": "cafeteria",
-      "pos": "n.",
-      "zh": "自助餐廳；學校餐廳"
-     },
-     {
-      "en": "takeout",
-      "pos": "n.",
-      "zh": "外帶食物"
-     },
-     {
-      "en": "nutrition",
-      "pos": "n.",
-      "zh": "營養"
-     },
-     {
-      "en": "preference",
-      "pos": "n.",
-      "zh": "偏好"
-     },
-     {
-      "en": "overall",
-      "pos": "adj.",
-      "zh": "整體的"
-     },
-     {
-      "en": "decline",
-      "pos": "v.",
-      "zh": "下降"
-     },
-     {
-      "en": "noticeable",
-      "pos": "adj.",
-      "zh": "明顯的"
-     },
-     {
-      "en": "reveal",
-      "pos": "v.",
-      "zh": "顯示；揭露"
-     },
-     {
-      "en": "percentage",
-      "pos": "n.",
-      "zh": "百分比"
-     },
-     {
-      "en": "survey",
-      "pos": "n.",
-      "zh": "調查"
-     }
-    ],
-    "grammar": [
-     "用 nearly half 表接近一半，例如 Nearly half of the students choose to eat out for lunch.",
-     "用 whereas/on the contrary 銜接兩種相反的數據結果",
-     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-012",
-   "category": "圖表數據題",
-   "title": "社群媒體使用比例圖",
-   "prompt_zh": "下圖圓餅圖為高中生最常使用的社群媒體平台：Instagram占38%，抖音（TikTok）占30%，YouTube占20%，Facebook占7%，其他占5%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-012.png",
-   "image_alt": "社群媒體使用比例圖：Instagram 38%、抖音（TikTok） 30%、YouTube 20%、Facebook 7%、其他 5%",
-   "guide": {
-    "structure_p1": "描述圓餅圖數據：說明各平台使用比例，並指出最受歡迎與最少使用的平台。",
-    "structure_p2": "說明你自己最常使用哪個社群平台，以及你對社群媒體使用這件事的看法。",
-    "ideas": [
-     "Instagram與抖音合計占近七成，短影音當道",
-     "Facebook使用比例低，反映世代差異",
-     "可討論社群媒體對自我形象與比較心理的影響",
-     "也可提出適度使用、避免過度比較的建議"
-    ],
-    "phrases": [
-     {
-      "en": "scroll through social media",
-      "zh": "滑社群媒體"
-     },
-     {
-      "en": "keep up with trends",
-      "zh": "跟上潮流"
-     },
-     {
-      "en": "compare oneself to others",
-      "zh": "拿自己與他人比較"
-     },
-     {
-      "en": "set boundaries",
-      "zh": "設立界線"
-     },
-     {
-      "en": "according to the chart",
-      "zh": "根據這張圖表"
-     },
-     {
-      "en": "account for",
-      "zh": "占（比例）"
-     },
-     {
-      "en": "the majority of",
-      "zh": "大多數的"
-     },
-     {
-      "en": "as shown in the table",
-      "zh": "如表格所示"
-     }
-    ],
-    "words": [
-     {
-      "en": "platform",
-      "pos": "n.",
-      "zh": "平台"
-     },
-     {
-      "en": "influencer",
-      "pos": "n.",
-      "zh": "網紅；意見領袖"
-     },
-     {
-      "en": "algorithm",
-      "pos": "n.",
-      "zh": "演算法"
-     },
-     {
-      "en": "self-esteem",
-      "pos": "n.",
-      "zh": "自尊；自我價值感"
-     },
-     {
-      "en": "decline",
-      "pos": "v.",
-      "zh": "下降"
-     },
-     {
-      "en": "noticeable",
-      "pos": "adj.",
-      "zh": "明顯的"
-     },
-     {
-      "en": "reveal",
-      "pos": "v.",
-      "zh": "顯示；揭露"
-     },
-     {
-      "en": "percentage",
-      "pos": "n.",
-      "zh": "百分比"
-     },
-     {
-      "en": "survey",
-      "pos": "n.",
-      "zh": "調查"
-     },
-     {
-      "en": "respondent",
-      "pos": "n.",
-      "zh": "受訪者"
-     }
-    ],
-    "grammar": [
-     "用最高級加分數片語，例如 Instagram, the most popular platform, is used by nearly two in five students.",
-     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast.",
-     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-013",
-   "category": "圖表數據題",
-   "title": "學生打工調查",
-   "prompt_zh": "某調查詢問高中生「是否有打工經驗」，結果為：目前有打工占18%，曾經打工過占25%，從未打工但有興趣占32%，完全沒興趣占25%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-013.png",
-   "image_alt": "學生打工調查：目前有打工 18%、曾經打工過 25%、從未打工但有興趣 32%、完全沒興趣 25%",
-   "guide": {
-    "structure_p1": "描述圖表數據：說明各項打工經驗所占的比例。",
-    "structure_p2": "說明你自己對打工的想法，以及你對高中生打工這件事的看法。",
-    "ideas": [
-     "有打工經驗（現在加曾經）合計超過四成",
-     "可討論打工對時間管理與課業的影響",
-     "可提出打工能培養責任感與經濟獨立的好處",
-     "也可反思打工與升學準備如何取得平衡"
-    ],
-    "phrases": [
-     {
-      "en": "take on a part-time job",
-      "zh": "從事兼職工作"
-     },
-     {
-      "en": "earn one's own money",
-      "zh": "賺自己的錢"
-     },
-     {
-      "en": "gain work experience",
-      "zh": "獲得工作經驗"
-     },
-     {
-      "en": "juggle work and study",
-      "zh": "兼顧工作與課業"
-     },
-     {
-      "en": "account for",
-      "zh": "占（比例）"
-     },
-     {
-      "en": "the majority of",
-      "zh": "大多數的"
-     },
-     {
-      "en": "as shown in the table",
-      "zh": "如表格所示"
-     },
-     {
-      "en": "in contrast to",
-      "zh": "與...相對比"
-     }
-    ],
-    "words": [
-     {
-      "en": "part-time job",
-      "pos": "n.",
-      "zh": "兼職工作"
-     },
-     {
-      "en": "independence",
-      "pos": "n.",
-      "zh": "獨立"
-     },
-     {
-      "en": "priority",
-      "pos": "n.",
-      "zh": "優先事項"
-     },
-     {
-      "en": "minimum wage",
-      "pos": "n.",
-      "zh": "最低薪資"
-     },
-     {
-      "en": "noticeable",
-      "pos": "adj.",
-      "zh": "明顯的"
-     },
-     {
-      "en": "reveal",
-      "pos": "v.",
-      "zh": "顯示；揭露"
-     },
-     {
-      "en": "percentage",
-      "pos": "n.",
-      "zh": "百分比"
-     },
-     {
-      "en": "survey",
-      "pos": "n.",
-      "zh": "調查"
-     },
-     {
-      "en": "respondent",
-      "pos": "n.",
-      "zh": "受訪者"
-     },
-     {
-      "en": "trend",
-      "pos": "n.",
-      "zh": "趨勢"
-     }
-    ],
-    "grammar": [
-     "用 more than 表超過，例如 More than 40% of the students have some work experience.",
-     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B.",
-     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-014",
-   "category": "圖表數據題",
-   "title": "視力不良比例趨勢圖",
-   "prompt_zh": "下圖長條圖顯示近三次調查高中生視力不良比例：五年前為65%，三年前上升至72%，去年最新數據已達到80%，呈現持續上升的趨勢。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-014.png",
-   "image_alt": "視力不良比例趨勢圖：五年前 65%、三年前 72%、去年最新數據 80%",
-   "guide": {
-    "structure_p1": "描述長條圖數據：說明近幾年視力不良比例的變化趨勢。",
-    "structure_p2": "說明你自己的視力狀況，以及你對「學生視力不良比例持續上升」這個現象的看法。",
-    "ideas": [
-     "視力不良比例逐年攀升，情況值得重視",
-     "可討論長時間使用3C產品是主要原因之一",
-     "可提出定時讓眼睛休息、增加戶外活動的建議",
-     "也可提及學校視力保健宣導的重要性"
-    ],
-    "phrases": [
-     {
-      "en": "strain one's eyes",
-      "zh": "讓眼睛過度疲勞"
-     },
-     {
-      "en": "take a break from screens",
-      "zh": "暫時遠離螢幕"
-     },
-     {
-      "en": "spend time outdoors",
-      "zh": "花時間在戶外"
-     },
-     {
-      "en": "be on the rise",
-      "zh": "持續上升"
-     },
-     {
-      "en": "the majority of",
-      "zh": "大多數的"
-     },
-     {
-      "en": "as shown in the table",
-      "zh": "如表格所示"
-     },
-     {
-      "en": "in contrast to",
-      "zh": "與...相對比"
-     },
-     {
-      "en": "a slight increase",
-      "zh": "些微上升"
-     }
-    ],
-    "words": [
-     {
-      "en": "eyesight",
-      "pos": "n.",
-      "zh": "視力"
-     },
-     {
-      "en": "myopia",
-      "pos": "n.",
-      "zh": "近視"
-     },
-     {
-      "en": "deteriorate",
-      "pos": "v.",
-      "zh": "惡化"
-     },
-     {
-      "en": "prevention",
-      "pos": "n.",
-      "zh": "預防"
-     },
-     {
-      "en": "reveal",
-      "pos": "v.",
-      "zh": "顯示；揭露"
-     },
-     {
-      "en": "percentage",
-      "pos": "n.",
-      "zh": "百分比"
-     },
-     {
-      "en": "survey",
-      "pos": "n.",
-      "zh": "調查"
-     },
-     {
-      "en": "respondent",
-      "pos": "n.",
-      "zh": "受訪者"
-     },
-     {
-      "en": "trend",
-      "pos": "n.",
-      "zh": "趨勢"
-     },
-     {
-      "en": "significant",
-      "pos": "adj.",
-      "zh": "顯著的"
-     }
-    ],
-    "grammar": [
-     "用 rise from...to... 描述數據變化，例如 The rate rose from 65% to 80% over five years.",
-     "先總後分：先給整體趨勢句，再列出細節數字，讓段落更有條理",
-     "用最高級描述之最，例如 Using the phone is the most common way students spend free time."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-015",
-   "category": "圖表數據題",
-   "title": "寵物飼養種類圓餅圖",
-   "prompt_zh": "下圖圓餅圖為高中生家庭飼養寵物種類：狗占42%，貓占33%，魚類或烏龜占12%，沒有養寵物占13%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-015.png",
-   "image_alt": "寵物飼養種類圓餅圖：狗 42%、貓 33%、魚類或烏龜 12%、沒有養寵物 13%",
-   "guide": {
-    "structure_p1": "描述圓餅圖數據：說明各類寵物飼養比例，並指出最普遍飼養的寵物。",
-    "structure_p2": "說明你自己家裡有沒有養寵物，以及你對「飼養寵物」這件事的看法。",
-    "ideas": [
-     "狗與貓合計占了七成五，是最受歡迎的寵物",
-     "可討論飼養寵物需要負起的責任與花費",
-     "可提出領養代替購買的觀念",
-     "也可分享寵物對家庭情感支持的價值"
-    ],
-    "phrases": [
-     {
-      "en": "take care of a pet",
-      "zh": "照顧寵物"
-     },
-     {
-      "en": "adopt instead of buy",
-      "zh": "以領養代替購買"
-     },
-     {
-      "en": "be responsible for",
-      "zh": "對...負責"
-     },
-     {
-      "en": "provide companionship",
-      "zh": "提供陪伴"
-     },
-     {
-      "en": "as shown in the table",
-      "zh": "如表格所示"
-     },
-     {
-      "en": "in contrast to",
-      "zh": "與...相對比"
-     },
-     {
-      "en": "a slight increase",
-      "zh": "些微上升"
-     },
-     {
-      "en": "make up X percent",
-      "zh": "占百分之X"
-     }
-    ],
-    "words": [
-     {
-      "en": "companion animal",
-      "pos": "n.",
-      "zh": "陪伴動物"
-     },
-     {
-      "en": "adoption",
-      "pos": "n.",
-      "zh": "領養"
-     },
-     {
-      "en": "commitment",
-      "pos": "n.",
-      "zh": "承諾；投入"
-     },
-     {
-      "en": "bond",
-      "pos": "n.",
-      "zh": "情感連結"
-     },
-     {
-      "en": "percentage",
-      "pos": "n.",
-      "zh": "百分比"
-     },
-     {
-      "en": "survey",
-      "pos": "n.",
-      "zh": "調查"
-     },
-     {
-      "en": "respondent",
-      "pos": "n.",
-      "zh": "受訪者"
-     },
-     {
-      "en": "trend",
-      "pos": "n.",
-      "zh": "趨勢"
-     },
-     {
-      "en": "significant",
-      "pos": "adj.",
-      "zh": "顯著的"
-     },
-     {
-      "en": "proportion",
-      "pos": "n.",
-      "zh": "比例"
-     }
-    ],
-    "grammar": [
-     "用 three out of four 表四分之三，例如 Three out of four families keep a dog or a cat.",
-     "用最高級描述之最，例如 Using the phone is the most common way students spend free time.",
-     "用分數或比例片語如 one in three / nearly half 讓敘述更生動"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-016",
-   "category": "圖表數據題",
-   "title": "課後補習時數長條圖",
-   "prompt_zh": "下圖長條圖顯示高中生每週課後補習時數：完全不補習占15%，1到5小時占30%，6到10小時占33%，10小時以上占22%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-016.png",
-   "image_alt": "課後補習時數長條圖：完全不補習 15%、1到5小時 30%、6到10小時 33%、10小時以上 22%",
-   "guide": {
-    "structure_p1": "描述長條圖數據：說明各補習時數區間所占的百分比。",
-    "structure_p2": "說明你自己補習的情形，以及你對「高中生花大量時間補習」這個現象的看法。",
-    "ideas": [
-     "超過五成學生每週補習超過6小時，負擔不小",
-     "可討論補習對睡眠與自由時間的排擠效應",
-     "可提出提升課堂效率、減少額外補習需求的想法",
-     "也可承認補習在準備考試上確實有其效果"
-    ],
-    "phrases": [
-     {
-      "en": "take cram school classes",
-      "zh": "上補習班"
-     },
-     {
-      "en": "squeeze out free time",
-      "zh": "擠壓自由時間"
-     },
-     {
-      "en": "be under academic pressure",
-      "zh": "承受學業壓力"
-     },
-     {
-      "en": "make the most of class time",
-      "zh": "善用上課時間"
-     },
-     {
-      "en": "in contrast to",
-      "zh": "與...相對比"
-     },
-     {
-      "en": "a slight increase",
-      "zh": "些微上升"
-     },
-     {
-      "en": "make up X percent",
-      "zh": "占百分之X"
-     },
-     {
-      "en": "compared with",
-      "zh": "與...相比"
-     }
-    ],
-    "words": [
-     {
-      "en": "cram school",
-      "pos": "n.",
-      "zh": "補習班"
-     },
-     {
-      "en": "workload",
-      "pos": "n.",
-      "zh": "工作量；課業量"
-     },
-     {
-      "en": "burnout",
-      "pos": "n.",
-      "zh": "倦怠；過勞"
-     },
-     {
-      "en": "self-study",
-      "pos": "n.",
-      "zh": "自習"
-     },
-     {
-      "en": "survey",
-      "pos": "n.",
-      "zh": "調查"
-     },
-     {
-      "en": "respondent",
-      "pos": "n.",
-      "zh": "受訪者"
-     },
-     {
-      "en": "trend",
-      "pos": "n.",
-      "zh": "趨勢"
-     },
-     {
-      "en": "significant",
-      "pos": "adj.",
-      "zh": "顯著的"
-     },
-     {
-      "en": "proportion",
-      "pos": "n.",
-      "zh": "比例"
-     },
-     {
-      "en": "category",
-      "pos": "n.",
-      "zh": "類別"
-     }
-    ],
-    "grammar": [
-     "用 over half 描述超過一半，例如 Over half of the students spend more than six hours on cram school every week.",
-     "用分數或比例片語如 one in three / nearly half 讓敘述更生動",
-     "用 whereas/on the contrary 銜接兩種相反的數據結果"
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-017",
-   "category": "圖表數據題",
-   "title": "垃圾分類習慣調查",
-   "prompt_zh": "某調查詢問高中生「在家是否確實做垃圾分類」，結果為：每次都確實分類占40%，偶爾才分類占35%，很少分類占15%，從不分類占10%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-017.png",
-   "image_alt": "垃圾分類習慣調查：每次都確實分類 40%、偶爾才分類 35%、很少分類 15%、從不分類 10%",
-   "guide": {
-    "structure_p1": "描述圖表數據：說明各項垃圾分類習慣所占的比例。",
-    "structure_p2": "說明你自己在家垃圾分類的習慣，以及你對環保與垃圾分類這個議題的看法。",
-    "ideas": [
-     "六成學生無法每次都確實分類，仍有進步空間",
-     "可討論垃圾分類對環境永續的重要性",
-     "可提出從小地方做起，例如隨手清洗回收容器",
-     "也可反思學校是否該加強環保教育宣導"
-    ],
-    "phrases": [
-     {
-      "en": "sort recyclables",
-      "zh": "將回收物分類"
-     },
-     {
-      "en": "raise environmental awareness",
-      "zh": "提升環保意識"
-     },
-     {
-      "en": "reduce, reuse, recycle",
-      "zh": "減量、再利用、回收"
-     },
-     {
-      "en": "take small steps toward",
-      "zh": "朝...邁出小小的一步"
-     },
-     {
-      "en": "a slight increase",
-      "zh": "些微上升"
-     },
-     {
-      "en": "make up X percent",
-      "zh": "占百分之X"
-     },
-     {
-      "en": "compared with",
-      "zh": "與...相比"
-     },
-     {
-      "en": "rank first",
-      "zh": "排名第一"
-     }
-    ],
-    "words": [
-     {
-      "en": "recycling",
-      "pos": "n.",
-      "zh": "回收"
-     },
-     {
-      "en": "sustainability",
-      "pos": "n.",
-      "zh": "永續性"
-     },
-     {
-      "en": "landfill",
-      "pos": "n.",
-      "zh": "垃圾掩埋場"
-     },
-     {
-      "en": "consistently",
-      "pos": "adv.",
-      "zh": "一貫地；持續地"
-     },
-     {
-      "en": "respondent",
-      "pos": "n.",
-      "zh": "受訪者"
-     },
-     {
-      "en": "trend",
-      "pos": "n.",
-      "zh": "趨勢"
-     },
-     {
-      "en": "significant",
-      "pos": "adj.",
-      "zh": "顯著的"
-     },
-     {
-      "en": "proportion",
-      "pos": "n.",
-      "zh": "比例"
-     },
-     {
-      "en": "category",
-      "pos": "n.",
-      "zh": "類別"
-     },
-     {
-      "en": "fluctuate",
-      "pos": "v.",
-      "zh": "波動"
-     }
-    ],
-    "grammar": [
-     "用 not always 表並非總是，例如 Students do not always sort their trash correctly.",
-     "用 whereas/on the contrary 銜接兩種相反的數據結果",
-     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast."
-    ]
-   },
-   "models": []
-  },
-  {
-   "id": "bank-c-018",
-   "category": "圖表數據題",
-   "title": "畢業旅行偏好調查",
-   "prompt_zh": "下圖圓餅圖為高中生對旅遊方式的偏好調查：跟團的畢業旅行占28%，家庭旅遊占35%，與朋友自助旅行占25%，很少或不旅遊占12%。 請根據上述數據寫一篇文章，文分兩段：第一段描述圖表數據內容，指出重要的比較與趨勢；第二段說明你自己的情況，或對這個現象發表看法。文長至少120個單詞。",
-   "prompt_en": "",
-   "origin": "bot 出題",
-   "origin_label": "bot 出題",
-   "exam": "",
-   "year_roc": null,
-   "source_url": "",
-   "image": "img/bank-c-018.png",
-   "image_alt": "畢業旅行偏好調查：跟團的畢業旅行 28%、家庭旅遊 35%、與朋友自助旅行 25%、很少或不旅遊 12%",
-   "guide": {
-    "structure_p1": "描述圓餅圖數據：說明各種旅遊方式所占的比例，並指出最受歡迎的選項。",
-    "structure_p2": "說明你自己偏好哪一種旅遊方式，以及你對高中生旅遊經驗的看法。",
-    "ideas": [
-     "家庭旅遊比例最高，反映家人共遊仍是主流",
-     "自助旅行比例不低，顯示學生渴望獨立探索",
-     "可討論旅遊對開拓視野、增進見聞的價值",
-     "也可提及旅遊經費與時間安排的現實考量"
-    ],
-    "phrases": [
-     {
-      "en": "broaden one's horizons",
-      "zh": "拓展視野"
-     },
-     {
-      "en": "plan an itinerary",
-      "zh": "規劃行程"
-     },
-     {
-      "en": "travel on a budget",
-      "zh": "用有限預算旅遊"
-     },
-     {
-      "en": "gain independence",
-      "zh": "獲得獨立自主的能力"
-     },
-     {
-      "en": "make up X percent",
-      "zh": "占百分之X"
-     },
-     {
-      "en": "compared with",
-      "zh": "與...相比"
-     },
-     {
-      "en": "rank first",
-      "zh": "排名第一"
-     },
-     {
-      "en": "remain steady",
-      "zh": "保持穩定"
-     }
-    ],
-    "words": [
-     {
-      "en": "itinerary",
-      "pos": "n.",
-      "zh": "行程"
-     },
-     {
-      "en": "independent travel",
-      "pos": "n.",
-      "zh": "自助旅行"
-     },
-     {
-      "en": "budget",
-      "pos": "n.",
-      "zh": "預算"
-     },
-     {
-      "en": "exposure",
-      "pos": "n.",
-      "zh": "見聞；接觸經驗"
-     },
-     {
-      "en": "trend",
-      "pos": "n.",
-      "zh": "趨勢"
-     },
-     {
-      "en": "significant",
-      "pos": "adj.",
-      "zh": "顯著的"
-     },
-     {
-      "en": "proportion",
-      "pos": "n.",
-      "zh": "比例"
-     },
-     {
-      "en": "category",
-      "pos": "n.",
-      "zh": "類別"
-     },
-     {
-      "en": "fluctuate",
-      "pos": "v.",
-      "zh": "波動"
-     },
-     {
-      "en": "represent",
-      "pos": "v.",
-      "zh": "代表"
-     }
-    ],
-    "grammar": [
-     "用 slightly more than 描述略多於，例如 Slightly more than a third of the students prefer traveling with their families.",
-     "描述數據常用現在式，例如 The chart shows that most students spend less than an hour on breakfast.",
-     "用 while/whereas 對比兩組數據，例如 While 40% chose A, only 15% chose B."
     ]
    },
    "models": []
