@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>英文寫作練習</title>
+<style>
+:root{
+  --bg:#f7f5f2; --card:#fff; --ink:#1f2328; --ink2:#5b6470; --line:#e3ded7;
+  --accent:#c2603a; --accent-soft:#fbeee8; --ok:#2f7d55; --ok-soft:#e8f4ed;
+  --warn:#8a6d1f; --warn-soft:#fdf5e0;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:16px; line-height:1.7; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:760px;margin:0 auto;padding:16px 16px 80px}
+h1{font-size:20px;margin:4px 0 2px}
+h2{font-size:17px;margin:0 0 10px}
+.sub{color:var(--ink2);font-size:13px;margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.big{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px;margin-bottom:12px;cursor:pointer;font:inherit;color:inherit}
+.big:active{transform:scale(.995)}
+.big .t{font-size:18px;font-weight:700;margin-bottom:4px}
+.big .d{font-size:13px;color:var(--ink2)}
+button{font:inherit}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:11px 16px;cursor:pointer;font-weight:600}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn.grey{background:#eceae6;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 10px;margin-bottom:4px}
+.back{background:none;border:0;color:var(--accent);cursor:pointer;padding:4px 0;font-weight:600}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer}
+.chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.item{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:13px 14px;margin-bottom:8px;cursor:pointer;font:inherit;color:inherit}
+.item .m{font-size:12px;color:var(--ink2);margin-bottom:3px}
+.item .q{font-size:14.5px;line-height:1.55}
+.tag{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);margin-right:6px}
+.tag.g{background:var(--ok-soft);color:var(--ok)}
+.tag.y{background:var(--warn-soft);color:var(--warn)}
+.prompt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:10px;padding:14px;margin-bottom:14px;white-space:pre-wrap}
+details{border:1px solid var(--line);background:var(--card);border-radius:12px;margin-bottom:8px;overflow:hidden}
+details>summary{padding:12px 14px;cursor:pointer;font-weight:600;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"▸ ";color:var(--accent)}
+details[open]>summary::before{content:"▾ "}
+.dbody{padding:0 14px 14px;font-size:14.5px}
+ul.clean{margin:6px 0;padding-left:18px}
+ul.clean li{margin-bottom:5px}
+.kv{margin:5px 0}
+.kv b{color:var(--accent)}
+textarea{width:100%;min-height:240px;padding:13px;border:1px solid var(--line);border-radius:12px;
+  font:inherit;line-height:1.75;resize:vertical;background:var(--card);color:var(--ink)}
+textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.meta{display:flex;gap:14px;font-size:13px;color:var(--ink2);margin:8px 2px 12px;flex-wrap:wrap}
+.meta b{color:var(--ink)}
+.warnbox{background:var(--warn-soft);border:1px solid #ecdca8;border-radius:10px;padding:11px 13px;font-size:13.5px;margin-bottom:12px}
+.okbox{background:var(--ok-soft);border:1px solid #bfe0cd;border-radius:10px;padding:11px 13px;font-size:13.5px;margin-bottom:12px}
+.essay{white-space:pre-wrap;font-size:15px;line-height:1.8}
+.zh{font-size:18px;line-height:1.8;margin:10px 0 14px}
+.ansbox{background:var(--ok-soft);border:1px solid #bfe0cd;border-radius:10px;padding:12px 14px;margin:10px 0}
+.ansbox .lab{font-size:12px;color:var(--ok);font-weight:700;margin-bottom:4px}
+.count{font-size:13px;color:var(--ink2)}
+.hide{display:none}
+.foot{text-align:center;color:var(--ink2);font-size:12px;margin-top:26px}
+mark{background:#fdf0b8;padding:0 2px;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+const S = {
+  prompts:null, trans:null, essays:null, guides:null,
+  view:'home', filt:{cat:'全部',exam:'全部'}, cur:null, mode:null, revealed:false,
+  tStart:null, tTick:null,
+  tr:{pool:[],idx:0,shown:false,src:'全部'}
+};
+const $ = h => { document.getElementById('app').innerHTML = h; window.scrollTo(0,0); };
+const esc = s => (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const words = s => (s||'').trim().split(/\s+/).filter(Boolean).length;
+const LS = {
+  get(k,d){ try{ return JSON.parse(localStorage.getItem(k)) ?? d }catch(e){ return d } },
+  set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)) }catch(e){} }
+};
+
+async function boot(){
+  $('<div class="card">載入題庫中…</div>');
+  const j = async p => { try{ const r = await fetch(p,{cache:'no-store'}); return r.ok ? await r.json() : null }catch(e){ return null } };
+  [S.prompts,S.trans,S.essays,S.guides] = await Promise.all([
+    j('data/english_prompts.json'), j('data/english_translations.json'),
+    j('data/english_model_essays.json'), j('data/english_guides.json')
+  ]);
+  home();
+}
+
+/* ---------- 首頁 ---------- */
+function home(){
+  const ne = (S.prompts?.items||[]).filter(i=>i.type==='essay').length;
+  const nt = (S.trans?.items||[]).length + (S.prompts?.items||[]).filter(i=>i.type==='translation').length;
+  $(`<h1>英文寫作練習</h1>
+  <p class="sub">歷年作文與中譯英題庫・寫完可以傳給 bot 批改</p>
+  <button class="big" onclick="essayList()">
+    <div class="t">✍️ 作文</div>
+    <div class="d">${ne} 題・可以先看引導再寫，也可以直接裸寫</div></button>
+  <button class="big" onclick="transStart()">
+    <div class="t">🔤 中譯英</div>
+    <div class="d">${nt} 題・寫完立刻對參考答案</div></button>
+  <button class="big" onclick="records()">
+    <div class="t">📒 我的紀錄</div>
+    <div class="d">寫過的草稿都存在這台裝置裡</div></button>
+  <p class="foot">題庫來自歷年公開試題，範文標示出處</p>`);
+}
+
+/* ---------- 作文列表 ---------- */
+function essays(){ return (S.prompts?.items||[]).filter(i=>i.type==='essay'); }
+function guideOf(id){ return (S.guides?.items||[]).find(g=>g.prompt_id===id) || null; }
+function modelsOf(id){ return (S.essays?.items||[]).filter(e=>e.prompt_id===id); }
+
+function essayList(){
+  S.view='list';
+  const all = essays();
+  const cats = ['全部', ...[...new Set(all.map(p=>guideOf(p.id)?.category).filter(Boolean))]];
+  const exams = ['全部', ...[...new Set(all.map(p=>p.exam))]];
+  const list = all.filter(p=>{
+    const g = guideOf(p.id);
+    return (S.filt.cat==='全部' || g?.category===S.filt.cat)
+        && (S.filt.exam==='全部' || p.exam===S.filt.exam);
+  }).sort((a,b)=> b.year_roc-a.year_roc || a.exam.localeCompare(b.exam));
+
+  $(`<div class="bar"><button class="back" onclick="home()">← 回首頁</button></div>
+  <h1>作文</h1><p class="sub">共 ${list.length} 題</p>
+  ${cats.length>1?`<div class="chips">${cats.map(c=>`<span class="chip ${S.filt.cat===c?'on':''}" onclick="setF('cat','${esc(c)}')">${esc(c)}</span>`).join('')}</div>`:''}
+  <div class="chips">${exams.map(c=>`<span class="chip ${S.filt.exam===c?'on':''}" onclick="setF('exam','${esc(c)}')">${esc(c)}</span>`).join('')}</div>
+  ${list.map(p=>{
+    const g=guideOf(p.id), m=modelsOf(p.id).length;
+    return `<button class="item" onclick="openEssay('${p.id}')">
+      <div class="m">${esc(p.exam)} ${p.year_roc} 年
+        ${g?`<span class="tag">${esc(g.category)}</span>`:'<span class="tag y">引導包製作中</span>'}
+        ${m?`<span class="tag g">有範文</span>`:''}</div>
+      <div class="q">${esc((p.prompt_zh||'').slice(0,72))}${(p.prompt_zh||'').length>72?'…':''}</div>
+    </button>`;
+  }).join('') || '<div class="card">這個篩選沒有題目</div>'}`);
+}
+function setF(k,v){ S.filt[k]=v; essayList(); }
+
+/* ---------- 單題：選模式 ---------- */
+function openEssay(id){
+  S.cur = essays().find(p=>p.id===id); S.mode=null; S.revealed=false;
+  const p = S.cur, g = guideOf(id);
+  $(`<div class="bar"><button class="back" onclick="essayList()">← 回題目列表</button></div>
+  <h1>${esc(p.exam)} ${p.year_roc} 年</h1>
+  <p class="sub">${g?esc(g.category):'引導包製作中'}</p>
+  <div class="prompt">${esc(p.prompt_zh)}${p.prompt_en?'\n\n'+esc(p.prompt_en):''}</div>
+  <h2>要怎麼練這題？</h2>
+  <button class="big" onclick="startEssay('guide')">
+    <div class="t">📖 先看引導再寫</div>
+    <div class="d">架構、點子、片語、單字、文法、範文都先給你，看完再動筆</div></button>
+  <button class="big" onclick="startEssay('blind')">
+    <div class="t">✏️ 直接裸寫</div>
+    <div class="d">先自己寫，寫完才放引導和範文，比較接近考場</div></button>
+  <p class="foot">出處：${esc(p.source_url||'')}</p>`);
+}
+
+/* ---------- 寫作頁 ---------- */
+function startEssay(mode){
+  S.mode=mode; S.revealed = (mode==='guide');
+  S.tStart = Date.now();
+  renderWrite();
+  clearInterval(S.tTick);
+  S.tTick = setInterval(()=>{ const el=document.getElementById('timer'); if(el) el.textContent=elapsed(); },1000);
+}
+function elapsed(){
+  const s = Math.floor((Date.now()-S.tStart)/1000);
+  return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+}
+function key(){ return 'w_essay_'+S.cur.id; }
+
+function renderWrite(){
+  const p=S.cur, g=guideOf(p.id);
+  const saved = LS.get(key(),{text:''});
+  $(`<div class="bar"><button class="back" onclick="clearInterval(S.tTick);openEssay('${p.id}')">← 換一種練法</button></div>
+  <h1>${esc(p.exam)} ${p.year_roc} 年</h1>
+  <div class="prompt">${esc(p.prompt_zh)}${p.prompt_en?'\n\n'+esc(p.prompt_en):''}</div>
+  <div id="guidezone">${S.revealed?guideHTML(g,p):`
+    <div class="warnbox">✏️ <b>裸寫模式</b>：先自己寫。寫完按下面的按鈕，引導和範文才會放出來。</div>`}</div>
+  <h2>我的作文</h2>
+  <textarea id="ta" placeholder="Start writing here…">${esc(saved.text)}</textarea>
+  <div class="meta">
+    <span>字數 <b id="wc">0</b> / 建議 120 到 150</span>
+    <span>計時 <b id="timer">00:00</b></span>
+    <span id="savedhint"></span>
+  </div>
+  <div class="row">
+    ${S.revealed?'':'<button class="btn" onclick="reveal()">我寫完了，放出引導和範文</button>'}
+    <button class="btn ${S.revealed?'':'ghost'}" onclick="sendToBot()">📤 傳給 bot 批改</button>
+    <button class="btn grey" onclick="copyText()">複製</button>
+  </div>
+  <p class="foot">草稿自動存在這台裝置，換裝置看不到</p>`);
+  const ta=document.getElementById('ta');
+  const upd=()=>{ document.getElementById('wc').textContent=words(ta.value);
+    LS.set(key(),{text:ta.value,at:Date.now(),exam:p.exam,year:p.year_roc,id:p.id});
+    const h=document.getElementById('savedhint'); if(h){h.textContent='已存草稿'; setTimeout(()=>h.textContent='',1200);} };
+  ta.addEventListener('input',upd); document.getElementById('wc').textContent=words(ta.value);
+}
+function reveal(){
+  S.revealed=true;
+  const ta=document.getElementById('ta').value;
+  renderWrite();
+  document.getElementById('ta').value=ta;
+  document.getElementById('wc').textContent=words(ta);
+  document.getElementById('guidezone').scrollIntoView({behavior:'smooth'});
+}
+
+/* ---------- 引導包 ---------- */
+function guideHTML(g,p){
+  const ms = modelsOf(p.id);
+  if(!g && !ms.length) return `<div class="warnbox">這題的引導包還在做，範文也還沒有。可以先寫，寫完傳給 bot 批改。</div>`;
+  let h = '';
+  if(g){
+    h += `<details open><summary>🧱 兩段各寫什麼</summary><div class="dbody">
+      <div class="kv"><b>第一段</b>：${esc(g.structure_p1)}</div>
+      <div class="kv"><b>第二段</b>：${esc(g.structure_p2)}</div></div></details>`;
+    if(g.ideas?.length) h += `<details><summary>💡 可以用的點子</summary><div class="dbody">
+      <ul class="clean">${g.ideas.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div></details>`;
+    if(g.from_bank?.length) h += `<details><summary>⭐ 從你自己的素材庫挑的句子</summary><div class="dbody">
+      ${g.from_bank.map(b=>`<div class="kv"><b>${esc(b.sentence)}</b><br><span style="color:var(--ink2)">${esc(b.why)}</span></div>`).join('')}</div></details>`;
+    if(g.phrases?.length) h += `<details><summary>🔗 片語</summary><div class="dbody">
+      <ul class="clean">${g.phrases.map(x=>`<li><b>${esc(x.en)}</b> — ${esc(x.zh)}</li>`).join('')}</ul></div></details>`;
+    if(g.words?.length) h += `<details><summary>🔤 單字</summary><div class="dbody">
+      <ul class="clean">${g.words.map(x=>`<li><b>${esc(x.en)}</b> <span style="color:var(--ink2)">${esc(x.pos||'')}</span> ${esc(x.zh)}</li>`).join('')}</ul></div></details>`;
+    if(g.grammar?.length) h += `<details><summary>📐 文法提醒</summary><div class="dbody">
+      <ul class="clean">${g.grammar.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></details>`;
+    if(g.common_mistakes?.length) h += `<details><summary>🚫 這題你最容易犯的錯</summary><div class="dbody">
+      <ul class="clean">${g.common_mistakes.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></details>`;
+    if(g.model_essay) h += `<details><summary>📝 範文（bot 寫的・${g.model_essay_words||words(g.model_essay)} 字）</summary><div class="dbody">
+      <div class="okbox">這篇是 <b>bot 寫的</b>，長度抓大考標準 120 到 150 字。</div>
+      <div class="essay">${esc(g.model_essay)}</div>
+      ${g.model_essay_used?.length?`<div class="kv" style="margin-top:10px"><b>用到你素材庫的句型</b><ul class="clean">${g.model_essay_used.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:''}
+      </div></details>`;
+  }
+  ms.forEach((m,i)=>{
+    const lab = m.origin==='official' ? '大考中心官方佳作' : '補習班版';
+    h += `<details><summary>📄 範文・${esc(lab)}（${words(m.essay_en)} 字）</summary><div class="dbody">
+      ${m.origin!=='official'?`<div class="warnbox">這篇有 ${words(m.essay_en)} 字，比大考要求的 120 到 150 字長很多。<b>拿來學句型可以，不要當成你要寫到的長度。</b></div>`:''}
+      <div class="essay">${esc(m.essay_en)}</div>
+      <p class="foot">${esc(m.note||'')}<br>${esc(m.source_url||'')}</p></div></details>`;
+  });
+  return h;
+}
+
+/* ---------- 傳給 bot ---------- */
+function sendToBot(){
+  const t = document.getElementById('ta').value.trim();
+  if(!t){ alert('還沒寫東西喔'); return; }
+  const p=S.cur;
+  const head = `【英文作文批改】${p.exam} ${p.year_roc} 年\n題目：${(p.prompt_zh||'').slice(0,60)}\n字數：${words(t)}・用時：${elapsed()}\n\n`;
+  const full = head + t;
+  copyToClipboard(full);
+  const share = 'https://t.me/share/url?url=' + encodeURIComponent(location.href)
+              + '&text=' + encodeURIComponent(full);
+  window.open(share, '_blank');
+  setTimeout(()=>alert('作文已經複製起來了。\n\n如果 Telegram 沒有自動帶入，直接開跟 bot 的對話貼上送出就行。'), 600);
+}
+function copyText(){
+  const t=document.getElementById('ta').value; copyToClipboard(t);
+  alert('複製好了，貼到 Telegram 傳給 bot 就行');
+}
+function copyToClipboard(t){
+  try{ navigator.clipboard.writeText(t); }
+  catch(e){ const a=document.createElement('textarea'); a.value=t; document.body.appendChild(a); a.select(); document.execCommand('copy'); a.remove(); }
+}
+
+/* ---------- 中譯英 ---------- */
+function allTrans(){
+  const a = (S.trans?.items||[]).map(i=>({zh:i.zh,en:i.ref_en,src:i.source_type,year:i.year_roc,url:i.source_url}));
+  const b = [];
+  (S.prompts?.items||[]).filter(i=>i.type==='translation').forEach(i=>{
+    (i.sentences||[]).forEach(s=>b.push({zh:s,en:'',src:i.exam,year:i.year_roc,url:i.source_url}));
+  });
+  return a.concat(b);
+}
+function transStart(){
+  const all = allTrans();
+  const srcs = ['全部', ...[...new Set(all.map(i=>i.src))]];
+  $(`<div class="bar"><button class="back" onclick="home()">← 回首頁</button></div>
+  <h1>中譯英</h1><p class="sub">共 ${all.length} 題・挑來源，然後開始</p>
+  <div class="chips">${srcs.map(s=>`<span class="chip ${S.tr.src===s?'on':''}" onclick="S.tr.src='${esc(s)}';transStart()">${esc(s)}</span>`).join('')}</div>
+  <div class="card">
+    <div class="count">符合的題目：<b>${all.filter(i=>S.tr.src==='全部'||i.src===S.tr.src).length}</b> 題</div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn" onclick="transGo(true)">🔀 隨機開始</button>
+      <button class="btn ghost" onclick="transGo(false)">📅 從新到舊</button>
+    </div>
+  </div>
+  <div class="warnbox">民國 100 年以前的舊聯考題句子偏舊派，想練近年的就選「學測」或「指考」。</div>`);
+}
+function transGo(shuffle){
+  let pool = allTrans().filter(i=>S.tr.src==='全部'||i.src===S.tr.src);
+  if(shuffle){ for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; } }
+  else pool.sort((a,b)=>(b.year||0)-(a.year||0));
+  S.tr.pool=pool; S.tr.idx=0; S.tr.shown=false; transRender();
+}
+function transRender(){
+  const q=S.tr.pool[S.tr.idx];
+  if(!q){ $(`<div class="card">練完了 🎉 <button class="btn" onclick="transStart()">再來一輪</button></div>`); return; }
+  const saved = LS.get('w_tr_'+S.tr.idx+'_'+(q.zh||'').slice(0,12),{text:''});
+  $(`<div class="bar"><button class="back" onclick="transStart()">← 換一批</button></div>
+  <p class="sub">第 ${S.tr.idx+1} 題 / 共 ${S.tr.pool.length} 題　<span class="tag">${esc(q.src)}${q.year?' '+q.year:''}</span></p>
+  <div class="card"><div class="zh">${esc(q.zh)}</div></div>
+  <textarea id="tta" style="min-height:110px" placeholder="Type your translation…">${esc(saved.text)}</textarea>
+  <div class="row" style="margin-top:10px">
+    ${S.tr.shown?'':'<button class="btn" onclick="transShow()">對答案</button>'}
+    <button class="btn ${S.tr.shown?'':'grey'}" onclick="transNext()">下一題 →</button>
+  </div>
+  <div id="ans">${S.tr.shown?ansHTML(q):''}</div>`);
+  const ta=document.getElementById('tta');
+  ta.addEventListener('input',()=>LS.set('w_tr_'+S.tr.idx+'_'+(q.zh||'').slice(0,12),{text:ta.value}));
+}
+function ansHTML(q){
+  if(!q.en) return `<div class="warnbox">這題沒有附參考答案，寫完可以傳給 bot 幫你看。</div>`;
+  return `<div class="ansbox"><div class="lab">參考答案</div><div class="essay">${esc(q.en)}</div></div>
+  <p class="foot">${esc(q.url||'')}</p>`;
+}
+function transShow(){
+  const v = document.getElementById('tta').value;
+  S.tr.shown=true; transRender();
+  document.getElementById('tta').value = v;
+  document.getElementById('ans').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function transNext(){ S.tr.idx++; S.tr.shown=false; transRender(); }
+
+/* ---------- 紀錄 ---------- */
+function records(){
+  const keys = Object.keys(localStorage).filter(k=>k.startsWith('w_essay_'));
+  const rows = keys.map(k=>LS.get(k,null)).filter(r=>r&&r.text&&r.text.trim());
+  rows.sort((a,b)=>(b.at||0)-(a.at||0));
+  $(`<div class="bar"><button class="back" onclick="home()">← 回首頁</button></div>
+  <h1>我的紀錄</h1><p class="sub">${rows.length} 篇草稿・只存在這台裝置</p>
+  ${rows.map(r=>`<button class="item" onclick="openEssay('${r.id}')">
+    <div class="m">${esc(r.exam||'')} ${r.year||''} ・ ${new Date(r.at).toLocaleString('zh-TW')} ・ ${words(r.text)} 字</div>
+    <div class="q">${esc(r.text.slice(0,80))}…</div></button>`).join('') || '<div class="card">還沒有草稿</div>'}`);
+}
+
+boot();
+</script>
+</body>
+</html>
