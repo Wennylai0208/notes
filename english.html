@@ -106,7 +106,7 @@ async function boot(){
 /* ---------- 首頁 ---------- */
 function home(){
   const ne = (S.prompts?.items||[]).filter(i=>i.type==='essay').length;
-  const nt = (S.trans?.items||[]).length + (S.prompts?.items||[]).filter(i=>i.type==='translation').length;
+  const nt = allTrans().length;
   $(`<h1>英文寫作練習</h1>
   <p class="sub">歷年作文與中譯英題庫・寫完可以傳給 bot 批改</p>
   <button class="big" onclick="essayList()">
