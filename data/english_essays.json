@@ -5401,7 +5401,12 @@
    "source_url": "",
    "image": "",
    "image_alt": "",
-   "panels": [],
+   "panels": [
+    "img/bank-a-007-p1.png",
+    "img/bank-a-007-p2.png",
+    "img/bank-a-007-p3.png",
+    "img/bank-a-007-p4.png"
+   ],
    "guide": {
     "structure_p1": "描述小威脫隊的原因，以及發現自己迷路後的慌張心情。",
     "structure_p2": "描述他如何鼓起勇氣求助、最終平安與大家會合的過程與感想。",
@@ -5518,7 +5523,12 @@
    "source_url": "",
    "image": "",
    "image_alt": "",
-   "panels": [],
+   "panels": [
+    "img/bank-a-008-p1.png",
+    "img/bank-a-008-p2.png",
+    "img/bank-a-008-p3.png",
+    "img/bank-a-008-p4.png"
+   ],
    "guide": {
     "structure_p1": "描述阿凱遲到的原因與他當下著急奔波的過程。",
     "structure_p2": "描述他如何處理這個危機、店長的反應，以及他學到的教訓。",
@@ -5635,7 +5645,12 @@
    "source_url": "",
    "image": "",
    "image_alt": "",
-   "panels": [],
+   "panels": [
+    "img/bank-a-009-p1.png",
+    "img/bank-a-009-p2.png",
+    "img/bank-a-009-p3.png",
+    "img/bank-a-009-p4.png"
+   ],
    "guide": {
     "structure_p1": "描述朋友們籌備驚喜派對的過程與遇到的小插曲。",
     "structure_p2": "描述驚喜揭曉當下的畫面與小雯的反應和感想。",
@@ -5752,7 +5767,12 @@
    "source_url": "",
    "image": "",
    "image_alt": "",
-   "panels": [],
+   "panels": [
+    "img/bank-a-010-p1.png",
+    "img/bank-a-010-p2.png",
+    "img/bank-a-010-p3.png",
+    "img/bank-a-010-p4.png"
+   ],
    "guide": {
     "structure_p1": "描述阿豪發現商品過期後回去理論的經過。",
     "structure_p2": "描述店長出面處理的方式與最終的結果和阿豪的感想。",
@@ -5869,7 +5889,12 @@
    "source_url": "",
    "image": "",
    "image_alt": "",
-   "panels": [],
+   "panels": [
+    "img/bank-a-011-p1.png",
+    "img/bank-a-011-p2.png",
+    "img/bank-a-011-p3.png",
+    "img/bank-a-011-p4.png"
+   ],
    "guide": {
     "structure_p1": "描述小恩收到錯誤餐點時的疑惑，以及釐清問題的過程。",
     "structure_p2": "描述外送員處理問題的態度，以及小恩最後的反應與感想。",
@@ -5986,7 +6011,12 @@
    "source_url": "",
    "image": "",
    "image_alt": "",
-   "panels": [],
+   "panels": [
+    "img/bank-a-012-p1.png",
+    "img/bank-a-012-p2.png",
+    "img/bank-a-012-p3.png",
+    "img/bank-a-012-p4.png"
+   ],
    "guide": {
     "structure_p1": "描述班上籌備擺攤的過程，以及烤箱故障帶來的危機。",
     "structure_p2": "描述大家如何解決問題、擺攤當天的盛況與最終感想。",
@@ -6103,7 +6133,9 @@
    "source_url": "",
    "image": "",
    "image_alt": "",
-   "panels": [],
+   "panels": [
+    "img/bank-a-013-p1.png"
+   ],
    "guide": {
     "structure_p1": "描述停電發生的經過與一家人一開始的慌亂。",
     "structure_p2": "描述家人如何應對停電、共度的時光，以及事後的感想。",
