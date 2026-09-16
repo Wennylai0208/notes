@@ -4,94 +4,530 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<title>單字小考</title>
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232f7de1'/%3E%3Ctext x='50' y='68' font-size='54' text-anchor='middle' fill='white'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
+<title>GSAT 單字 P124-128</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
 <style>
-:root{--bg:#f6f7f9;--panel:#fff;--ink:#16181d;--dim:#6b7280;--line:#e5e7eb;--accent:#2f7de1;--bad:#d84a4a}
+:root{
+ --bg:#f6f7f9; --card:#fff; --tx:#16181d; --tx2:#3f4652; --tx3:#6b7280;
+ --line:#e5e7eb; --accent:#2f7de1; --accent2:#e8f1fd; --ok:#1a9c62; --okbg:#e7f6ee;
+ --bad:#d84a4a; --badbg:#fdecec; --warn:#b8860b;
+ --shadow:0 1px 2px rgba(16,24,40,.04),0 6px 20px rgba(16,24,40,.06);
+}
 @media (prefers-color-scheme:dark){
-:root{--bg:#0f1115;--panel:#171a21;--ink:#e8eaed;--dim:#9aa1ac;--line:#262b35;--accent:#5aa2ff;--bad:#ff7b7b}}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;padding:22px;
-font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
--webkit-text-size-adjust:100%}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px 24px;width:100%;max-width:370px;text-align:center;
-box-shadow:0 10px 34px rgba(0,0,0,.07)}
-.lock{font-size:42px;line-height:1;margin-bottom:12px}
-h1{margin:0 0 6px;font-size:19px;font-weight:700}
-p.sub{margin:0 0 20px;font-size:13.5px;color:var(--dim)}
-input{width:100%;padding:13px 14px;font-size:17px;border-radius:12px;border:1px solid var(--line);
-background:var(--bg);color:var(--ink);text-align:center;letter-spacing:.4px}
-input:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
-button{width:100%;margin-top:11px;padding:13px;font-size:16px;font-weight:650;border:0;border-radius:12px;
-background:var(--accent);color:#fff;cursor:pointer;font-family:inherit}
-button:disabled{opacity:.55;cursor:default}
-.msg{margin-top:13px;font-size:13.5px;min-height:20px;color:var(--dim)}
-.msg.err{color:var(--bad);font-weight:600}
-.hint{margin-top:18px;font-size:11.5px;color:var(--dim);line-height:1.7}
-.spin{display:inline-block;width:13px;height:13px;border:2px solid var(--dim);border-top-color:transparent;
-border-radius:50%;animation:s .7s linear infinite;vertical-align:-2px;margin-right:6px}
-@keyframes s{to{transform:rotate(360deg)}}
+ :root{--bg:#0f1115;--card:#171a21;--tx:#e8eaed;--tx2:#c7ccd4;--tx3:#9aa1ac;
+  --line:#262b35;--accent:#5aa2ff;--accent2:#1b2637;--ok:#4bd39a;--okbg:#15291f;
+  --bad:#ff7b7b;--badbg:#2c1a1a;--warn:#e0b558;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.35)}
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);
+ font:16.5px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+ -webkit-text-size-adjust:100%;padding:0 0 50px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px 0}
+h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
+.sub{color:var(--tx3);font-size:.8em;margin:10px 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+ padding:15px 15px;margin-bottom:11px;box-shadow:var(--shadow)}
+
+/* ---- top bar / menu ---- */
+.topbar{position:sticky;top:0;z-index:20;background:var(--bg);display:flex;align-items:center;
+ justify-content:space-between;gap:8px;padding:12px 0 10px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.topbar .ttl{font-size:1.02em;font-weight:750}
+.menuwrap{position:relative}
+.menubtn{min-width:44px;min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);
+ color:var(--tx);font-size:1.3em;font-weight:700;cursor:pointer;line-height:1}
+.menudrop{position:absolute;right:0;top:50px;background:var(--card);border:1px solid var(--line);
+ border-radius:14px;box-shadow:var(--shadow);min-width:206px;padding:6px;display:flex;flex-direction:column;gap:2px}
+.menudrop[hidden]{display:none}
+.mitem{display:block;width:100%;text-align:left;padding:12px 12px;min-height:44px;border:0;background:transparent;
+ color:var(--tx);font:inherit;font-size:.92em;font-weight:650;border-radius:10px;cursor:pointer}
+.mitem:active{background:var(--accent2)}
+
+/* ---- list screen ---- */
+.searchbox{width:100%;padding:12px 14px;font-size:1em;border-radius:12px;border:1px solid var(--line);
+ background:var(--card);color:var(--tx);margin-bottom:10px}
+.searchbox:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.chiprow{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.chip{padding:8px 13px;min-height:36px;border-radius:99px;border:1px solid var(--line);background:var(--card);
+ color:var(--tx2);font:inherit;font-size:.85em;font-weight:650;cursor:pointer}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.lab{font-size:.79em;color:var(--tx3);font-weight:650;margin:4px 0 8px;letter-spacing:.4px}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wcell{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 10px 10px;min-width:0}
+.wcell b{font-weight:750;font-size:1em;word-break:break-word}
+.wcell .pg{color:var(--tx3);font-size:.68em;font-weight:700;background:var(--accent2);color:var(--accent);
+ border-radius:6px;padding:1px 6px;margin-left:5px;vertical-align:1px}
+.wcell .ipa{color:var(--tx3);font-size:.72em;display:block;margin-top:1px}
+.wcell .pos{color:var(--tx3);font-size:.72em;font-weight:600}
+.wcell .zh{font-size:.85em;line-height:1.42;color:var(--tx2);margin-top:2px;overflow-wrap:break-word;word-break:break-word;font-weight:650}
+.wcell .sub{font-size:.72em;color:var(--tx3);margin:4px 0 0;padding-left:8px;border-left:2px solid var(--line);line-height:1.55}
+.wcell .sub b{font-weight:700;color:var(--tx2);font-size:1em}
+.empty{color:var(--tx3);font-size:.9em;text-align:center;padding:24px 8px}
+
+/* ---- quiz ---- */
+.btn{width:100%;padding:14px;border:0;border-radius:13px;background:var(--accent);color:#fff;
+ font:inherit;font-weight:700;font-size:1em;cursor:pointer;margin-top:12px}
+.btn:active{opacity:.85}
+.btn.ghost{background:transparent;color:var(--tx3);border:1px solid var(--line);font-weight:600}
+.btn:disabled{opacity:.45}
+.back{background:none;border:0;color:var(--accent);font:inherit;font-size:.88em;cursor:pointer;
+ padding:6px 0;margin-bottom:8px;font-weight:600}
+.pbar{height:7px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:7px}
+.pbar>i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .25s}
+.pmeta{display:flex;justify-content:space-between;font-size:.76em;color:var(--tx3);margin-bottom:14px}
+.qtag{display:inline-block;font-size:.72em;font-weight:700;color:var(--accent);
+ background:var(--accent2);border-radius:99px;padding:3px 10px;margin-bottom:11px}
+.qmain{font-size:1.32em;font-weight:750;line-height:1.5;word-break:break-word;margin-bottom:5px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.opt{flex:1 1 42%;min-width:110px;padding:12px 8px;border-radius:12px;border:1.5px solid var(--line);
+ background:var(--card);color:var(--tx2);font:inherit;font-size:.9em;cursor:pointer;text-align:center}
+.opt.good{border-color:var(--ok);background:var(--okbg);color:var(--ok);font-weight:700}
+.opt.bad{border-color:var(--bad);background:var(--badbg);color:var(--bad);font-weight:700}
+.opt:disabled{cursor:default}
+.fb{border-radius:14px;padding:13px 14px;margin-top:14px;font-size:.9em;line-height:1.75}
+.fb.good{background:var(--okbg);border:1px solid var(--ok);color:var(--ok)}
+.fb.bad{background:var(--badbg);border:1px solid var(--bad);color:var(--bad)}
+.fb .hd{font-weight:750;font-size:1.02em;margin-bottom:5px}
+.ansbox{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 12px;margin-top:8px;color:var(--tx)}
+.answ{font-size:1.05em;font-weight:750}
+.ipa2{color:var(--tx3);font-size:.83em;margin-left:6px;font-weight:400}
+.zh2{margin-top:3px;color:var(--tx2);font-size:.92em}
+.exsent{margin-top:8px;font-size:.88em;color:var(--tx2);line-height:1.65}
+.exsent b{color:var(--accent);text-decoration:underline;font-weight:800}
+.score{text-align:center;padding:10px 0 4px}
+.score .n{font-size:2.6em;font-weight:800;line-height:1.15}
+.score .d{color:var(--tx3);font-size:.85em}
+
+/* ---- flashcards ---- */
+.cardbox{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 18px;
+ box-shadow:var(--shadow);min-height:220px;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;text-align:center;cursor:pointer}
+.cf-word{font-size:1.7em;font-weight:800}
+.cf-ipa{color:var(--tx3);font-size:.9em;margin-top:6px}
+.cf-pos{color:var(--tx3);font-size:.85em;font-weight:650;margin-bottom:6px}
+.cf-zh{font-size:1.08em;color:var(--tx);margin-bottom:10px}
+.cf-col{margin-top:10px;text-align:left;width:100%;border-top:1px solid var(--line);padding-top:10px}
+.cf-colitem{font-size:.85em;margin-bottom:5px;color:var(--tx2)}
+.cf-colitem b{color:var(--tx);font-weight:700}
+.cf-ex{font-size:.83em;color:var(--tx2);line-height:1.6;text-align:left;width:100%;margin-top:8px}
+.cf-hint{font-size:.74em;color:var(--tx3);margin-top:10px}
+.fcrow{display:flex;gap:8px;margin-top:12px}
+.fcrow .btn{margin-top:0}
+.navrow{display:flex;gap:8px;margin-top:9px}
+.navrow .btn{margin-top:0}
+.toprow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.chk{display:flex;align-items:center;gap:6px;font-size:.8em;color:var(--tx2)}
+.chk input{width:15px;height:15px}
+.foot{text-align:center;color:var(--tx3);font-size:.72em;padding:20px 0 10px;line-height:1.7}
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="lock">🔒</div>
-  <h1>單字小考</h1>
-  <p class="sub">跟你的筆記站同一組密碼<br>輸入就可以開始考</p>
-  <form id="f">
-    <input id="pw" type="password" placeholder="密碼" autocomplete="current-password" autofocus>
-    <button id="go" type="submit">打開</button>
-  </form>
-  <div class="msg" id="msg"></div>
-  <div class="hint">🔐 內容用 AES-256 加密<br>沒有密碼的人下載原始碼也只會看到亂碼</div>
-</div>
-<script id="payload" type="application/json">{"v": 1, "iter": 250000, "salt": "CcLM83MwEdt7OmQwTPGgmw==", "iv": "5ihjtYy9jjP265Uw", "ct": "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"}</script>
+<div class="wrap"><div id="app"></div>
+<div class="foot">📝 GSAT/AST GLOSSARY 2015-2026 PART II・p124-128<br>資料全部離線內建・紀錄只存在你自己的手機裡</div></div>
 <script>
-const KEY='wenny_rec_pw';
-const $=id=>document.getElementById(id);
-const msg=$('msg'), pw=$('pw'), go=$('go');
-const P=JSON.parse($('payload').textContent);
-const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
-
-function say(t,err){ msg.textContent=t; msg.className='msg'+(err?' err':''); }
-function busy(t){ msg.innerHTML='<span class="spin"></span>'+t; msg.className='msg'; }
-
-async function open_(password, silent){
-  go.disabled=true; busy('解開中…');
-  try{
-    const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveKey']);
-    const key=await crypto.subtle.deriveKey(
-      {name:'PBKDF2',salt:b64(P.salt),iterations:P.iter,hash:'SHA-256'},
-      base,{name:'AES-GCM',length:256},false,['decrypt']);
-    const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(P.iv)},key,b64(P.ct));
-    let html;
-    if(typeof DecompressionStream!=='undefined'){
-      const ds=new DecompressionStream('gzip');
-      html=await new Response(new Blob([plain]).stream().pipeThrough(ds)).text();
-    }else{ throw new Error('NOGZIP'); }
-    localStorage.setItem(KEY,password);
-    document.open(); document.write(html); document.close();
-  }catch(e){
-    go.disabled=false;
-    if(e && e.message==='NOGZIP'){ say('這個瀏覽器太舊了，換 Safari 或 Chrome 開',1); return; }
-    localStorage.removeItem(KEY);
-    if(silent){ say(''); pw.focus(); }
-    else { say('密碼不對 😐 再試一次',1); pw.value=''; pw.focus(); }
-  }
-}
-$('f').onsubmit=e=>{ e.preventDefault(); const v=pw.value.trim(); if(v) open_(v,false); };
-const saved=localStorage.getItem(KEY);
-if(saved) open_(saved,true);
+var DATA = {"words": [{"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "escalate", "phonetic": "[ˈɛskəˌlet]", "pos": "v.", "zh": "升級；惡化", "collocations": [{"en": "escalate into", "zh": "升級為…"}], "examples": [{"en": "A minor argument can easily escalate into a physical fight if tempers are not controlled.", "answer": "escalate into"}], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "distort", "phonetic": "[dɪsˈtɔrt]", "pos": "v.", "zh": "扭曲", "collocations": [{"en": "distort the truth", "zh": "扭曲事實"}], "examples": [{"en": "Media outlets sometimes distort the truth to sensationalize stories and attract viewers.", "answer": "distort"}], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "subside", "phonetic": "[səbˈsaɪd]", "pos": "v.", "zh": "平息；消退", "collocations": [{"en": "anger subsided", "zh": "怒氣消退"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "redefine", "phonetic": "[ˌridɪˈfaɪn]", "pos": "v.", "zh": "重新定義", "collocations": [{"en": "redefine success", "zh": "重新定義成功"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "covet", "phonetic": "[ˈkʌvɪt]", "pos": "v.", "zh": "覬覦；貪求", "collocations": [{"en": "coveted award", "zh": "夢寐以求的獎項"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "formalize", "phonetic": "[ˈfɔrmḷˌaɪz]", "pos": "v.", "zh": "使正式化", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "categorize", "phonetic": "[ˈkætəgəˌraɪz]", "pos": "v.", "zh": "分類", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "theorize", "phonetic": "[ˈθiəˌraɪz]", "pos": "v.", "zh": "推理；建立理論", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "standardize", "phonetic": "[ˈstændədˌaɪz]", "pos": "v.", "zh": "標準化", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "retract", "phonetic": "[rɪˈtrækt]", "pos": "v.", "zh": "收回；撤銷", "collocations": [{"en": "retract a statement", "zh": "收回聲明"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "counteract", "phonetic": "[ˌkaʊntəˈækt]", "pos": "v.", "zh": "抵銷；對抗", "collocations": [{"en": "counteract the effects", "zh": "抵銷影響"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "repel", "phonetic": "[rɪˈpɛl]", "pos": "v.", "zh": "擊退；排斥", "collocations": [{"en": "repel insects", "zh": "驅蟲"}], "examples": [], "note": "不規則變化：repel-repelled-repelled"}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "reinvent", "phonetic": "[ˌriɪnˈvɛnt]", "pos": "v.", "zh": "改造；重塑", "collocations": [{"en": "reinvent the wheel", "zh": "徒勞無功地重複做"}, {"en": "reinvent oneself", "zh": "自我重塑"}], "examples": [{"en": "After losing his job, he decided to reinvent himself as a digital artist.", "answer": "reinvent himself as"}], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "situate", "phonetic": "[ˈsɪtʃuˌet]", "pos": "v.", "zh": "使位於", "collocations": [{"en": "be situated in", "zh": "位於…"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "aggravate", "phonetic": "[ˈægrəˌvet]", "pos": "v.", "zh": "加重；激怒", "collocations": [{"en": "aggravate the problem", "zh": "加重問題"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "eschew", "phonetic": "[ɛsˈtʃu]", "pos": "v.", "zh": "避開；戒除", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "lurk", "phonetic": "[lɜrk]", "pos": "v.", "zh": "潛伏", "collocations": [{"en": "lurk in the shadows", "zh": "潛伏在陰影中"}], "examples": [{"en": "Danger often lurks in the most unexpected places.", "answer": "lurks"}], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "culminate", "phonetic": "[ˈkʌlməˌnet]", "pos": "v.", "zh": "告終；達到頂點", "collocations": [{"en": "culminate in", "zh": "以…告終；達到高潮"}], "examples": [{"en": "Years of rigorous training culminated in her winning the Olympic gold medal.", "answer": "culminated in"}], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "darken", "phonetic": "[ˈdɑrkən]", "pos": "v.", "zh": "變暗", "collocations": [{"en": "darken the mood", "zh": "使氣氛凝重"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "reestablish", "phonetic": "[ˌriəˈstæblɪʃ]", "pos": "v.", "zh": "重建；恢復", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "customize", "phonetic": "[ˈkʌstəmˌaɪz]", "pos": "v.", "zh": "客製化", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "wield", "phonetic": "[wild]", "pos": "v.", "zh": "揮舞；行使", "collocations": [{"en": "wield power", "zh": "行使權力"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "crave", "phonetic": "[krev]", "pos": "v.", "zh": "渴望", "collocations": [{"en": "crave attention", "zh": "渴望關注"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "jeopardize", "phonetic": "[ˈdʒɛpɚˌdaɪz]", "pos": "v.", "zh": "危及", "collocations": [{"en": "jeopardize one's career", "zh": "危及職涯"}], "examples": [{"en": "One foolish mistake could jeopardize everything we have worked so hard to achieve.", "answer": "jeopardize"}], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "coexist", "phonetic": "[ˌkoɪgˈzɪst]", "pos": "v.", "zh": "共存", "collocations": [{"en": "coexist peacefully", "zh": "和平共存"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "intersect", "phonetic": "[ˌɪntɚˈsɛkt]", "pos": "v.", "zh": "交叉", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "underlie", "phonetic": "[ˌʌndɚˈlaɪ]", "pos": "v.", "zh": "構成…的基礎", "collocations": [{"en": "underlying cause", "zh": "根本原因"}], "examples": [], "note": "不規則變化：underlie-underlay-underlain"}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "disperse", "phonetic": "[dɪˈspɜrs]", "pos": "v.", "zh": "驅散；散開", "collocations": [{"en": "disperse the crowd", "zh": "驅散群眾"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "decompose", "phonetic": "[ˌdikəmˈpoz]", "pos": "v.", "zh": "分解；腐爛", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "disintegrate", "phonetic": "[dɪsˈɪntəˌgret]", "pos": "v.", "zh": "瓦解；碎裂", "collocations": [], "examples": [{"en": "The family began to disintegrate after the sudden death of the father.", "answer": "disintegrate"}], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "upbeat", "phonetic": "[ˈʌpˌbit]", "pos": "adj.", "zh": "樂觀的", "collocations": [{"en": "keep an upbeat attitude", "zh": "保持樂觀態度"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "craze", "phonetic": "[krez]", "pos": "n.", "zh": "狂熱；風行一時的事物", "collocations": [{"en": "fitness craze", "zh": "健身熱潮"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "curative", "phonetic": "[ˈkjʊrətɪv]", "pos": "adj.", "zh": "有療效的", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "thermoplastic", "phonetic": "[ˌθɜrmoˈplæstɪk]", "pos": "adj.", "zh": "熱塑性的", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "pacific", "phonetic": "[pəˈsɪfɪk]", "pos": "adj./n.", "zh": "和平的；太平洋", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "lyric", "phonetic": "[ˈlɪrɪk]", "pos": "n.", "zh": "歌詞（恆用複數 lyrics）", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "collide", "phonetic": "[kəˈlaɪd]", "pos": "v.", "zh": "碰撞；衝突", "collocations": [{"en": "collide with", "zh": "與…相撞"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "southwestern", "phonetic": "[ˌsaʊθˈwɛstɚn]", "pos": "adj.", "zh": "西南的", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "tremendously", "phonetic": "[trɪˈmɛndəslɪ]", "pos": "adv.", "zh": "極大地", "collocations": [{"en": "tremendously popular", "zh": "極受歡迎"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "hugely", "phonetic": "[ˈhjudʒlɪ]", "pos": "adv.", "zh": "極其", "collocations": [{"en": "hugely successful", "zh": "非常成功"}], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "recreate", "phonetic": "[ˌrikrɪˈet]", "pos": "v.", "zh": "再創造；重現", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "regenerate", "phonetic": "[rɪˈdʒɛnəˌret]", "pos": "v.", "zh": "再生；革新", "collocations": [], "examples": [], "note": null}, {"page": 124, "file": "1789566200992-AQAD9hFrG5fHWFV-.jpg", "word": "immerse", "phonetic": "[ɪˈmɜrs]", "pos": "v.", "zh": "浸泡；使沉浸", "collocations": [{"en": "immerse oneself in", "zh": "沉浸於…"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "substantiate", "phonetic": "[səbˈstænʃiˌet]", "pos": "v.", "zh": "證實", "collocations": [{"en": "substantiate a claim", "zh": "證實說法"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "brisk", "phonetic": "[brɪsk]", "pos": "adj.", "zh": "輕快的；興隆的", "collocations": [{"en": "brisk walk", "zh": "快走"}, {"en": "brisk business", "zh": "生意興隆"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "meaty", "phonetic": "[ˈmitɪ]", "pos": "adj.", "zh": "多肉的；內容豐富的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "staid", "phonetic": "[sted]", "pos": "adj.", "zh": "古板的；穩重的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "itchy", "phonetic": "[ˈɪtʃɪ]", "pos": "adj.", "zh": "發癢的", "collocations": [{"en": "itchy feet", "zh": "渴望旅行/流浪"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "distantly", "phonetic": "[ˈdɪstəntlɪ]", "pos": "adv.", "zh": "遠遠地", "collocations": [{"en": "stare distantly", "zh": "茫然注視遠方"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "frugal", "phonetic": "[ˈfrugḷ]", "pos": "adj.", "zh": "節儉的", "collocations": [{"en": "frugal lifestyle", "zh": "節儉的生活方式"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "hysterically", "phonetic": "[hɪˈstɛrɪklɪ]", "pos": "adv.", "zh": "歇斯底里地", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "tasteful", "phonetic": "[ˈtestfəl]", "pos": "adj.", "zh": "有品味的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "optionally", "phonetic": "[ˈɑpʃənlɪ]", "pos": "adv.", "zh": "可選擇地", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "southernmost", "phonetic": "[ˈsʌðərnˌmost]", "pos": "adj.", "zh": "最南端的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "multicolored", "phonetic": "[ˌmʌltɪˈkʌlərd]", "pos": "adj.", "zh": "多彩的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "greyish", "phonetic": "[ˈgreɪʃ]", "pos": "adj.", "zh": "略帶灰色的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "unusable", "phonetic": "[ʌnˈjuzəbḷ]", "pos": "adj.", "zh": "無法使用的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "forceful", "phonetic": "[ˈfɔrsfəl]", "pos": "adj.", "zh": "強有力的", "collocations": [{"en": "forceful argument", "zh": "強有力的論點"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "manageable", "phonetic": "[ˈmænɪdʒəbḷ]", "pos": "adj.", "zh": "易管理的；可應付的", "collocations": [{"en": "manageable tasks", "zh": "可應付的任務"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "peacefully", "phonetic": "[ˈpisfəlɪ]", "pos": "adv.", "zh": "和平地", "collocations": [{"en": "resolve peacefully", "zh": "和平解決"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "psychologically", "phonetic": "[ˌsaɪkəˈlɑdʒɪklɪ]", "pos": "adv.", "zh": "心理上", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "dangerously", "phonetic": "[ˈdendʒərəslɪ]", "pos": "adv.", "zh": "危險地", "collocations": [{"en": "dangerously close", "zh": "危險地接近"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "humane", "phonetic": "[hjuˈmen]", "pos": "adj.", "zh": "人道的", "collocations": [{"en": "humane treatment", "zh": "人道待遇"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "homemade", "phonetic": "[ˈhomˈmed]", "pos": "adj.", "zh": "自製的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "additionally", "phonetic": "[əˈdɪʃənlɪ]", "pos": "adv.", "zh": "此外", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "iconic", "phonetic": "[aɪˈkɑnɪk]", "pos": "adj.", "zh": "指標性的；偶像的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "insightful", "phonetic": "[ˈɪnˌsaɪtfəl]", "pos": "adj.", "zh": "有洞察力的", "collocations": [{"en": "insightful comment", "zh": "精闢的評論"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "outdated", "phonetic": "[ˈaʊtˈdetɪd]", "pos": "adj.", "zh": "過時的", "collocations": [{"en": "outdated idea", "zh": "過時的觀念"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "respectfully", "phonetic": "[rɪˈspɛktfəlɪ]", "pos": "adv.", "zh": "尊敬地", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "northeastern", "phonetic": "[ˌnɔrθˈistərn]", "pos": "adj.", "zh": "東北的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "rudely", "phonetic": "[ˈrudlɪ]", "pos": "adv.", "zh": "無禮地", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "constructively", "phonetic": "[kənˈstrʌktɪvlɪ]", "pos": "adv.", "zh": "有建設性地", "collocations": [{"en": "think constructively", "zh": "建設性思考"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "individualistic", "phonetic": "[ˌɪndəˌvɪdʒuəˈlɪstɪk]", "pos": "adj.", "zh": "個人主義的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "famed", "phonetic": "[femd]", "pos": "adj.", "zh": "著名的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "long-standing", "phonetic": "[ˈlɔŋˈstændɪŋ]", "pos": "adj.", "zh": "長期存在的", "collocations": [{"en": "long-standing tradition", "zh": "悠久的傳統"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "yellowish", "phonetic": "[ˈjɛloɪʃ]", "pos": "adj.", "zh": "微黃的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "adjustable", "phonetic": "[əˈdʒʌstəbḷ]", "pos": "adj.", "zh": "可調整的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "adventurous", "phonetic": "[ædˈvɛntʃərəs]", "pos": "adj.", "zh": "愛冒險的", "collocations": [{"en": "adventurous spirit", "zh": "冒險精神"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "culinary", "phonetic": "[ˈkʌlɪˌnɛrɪ]", "pos": "adj.", "zh": "烹飪的", "collocations": [{"en": "culinary arts", "zh": "烹飪藝術"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "unforeseen", "phonetic": "[ˌʌnfɔrˈsin]", "pos": "adj.", "zh": "始料未及的", "collocations": [{"en": "unforeseen circumstances", "zh": "不可預見的情況"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "suspiciously", "phonetic": "[səˈspɪʃəslɪ]", "pos": "adv.", "zh": "可疑地", "collocations": [{"en": "behave suspiciously", "zh": "舉止可疑"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "unbiased", "phonetic": "[ʌnˈbaɪəst]", "pos": "adj.", "zh": "無偏見的", "collocations": [{"en": "unbiased opinion", "zh": "客觀的意見"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "anonymously", "phonetic": "[əˈnɑnəməslɪ]", "pos": "adv.", "zh": "匿名地", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "puffy", "phonetic": "[ˈpʌfɪ]", "pos": "adj.", "zh": "腫脹的；蓬鬆的", "collocations": [{"en": "puffy eyes", "zh": "浮腫的眼睛"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "unattended", "phonetic": "[ˌʌnəˈtɛndɪd]", "pos": "adj.", "zh": "無人看管的", "collocations": [{"en": "leave unattended", "zh": "留置無人看管"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "sensibly", "phonetic": "[ˈsɛnsəblɪ]", "pos": "adv.", "zh": "明智地", "collocations": [{"en": "eat sensibly", "zh": "健康飲食"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "whitish", "phonetic": "[ˈhwaɪtɪʃ]", "pos": "adj.", "zh": "發白的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "illogical", "phonetic": "[ɪˈlɑdʒɪkḷ]", "pos": "adj.", "zh": "不合邏輯的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "prickly", "phonetic": "[ˈprɪklɪ]", "pos": "adj.", "zh": "多刺的；易怒的", "collocations": [{"en": "prickly pear", "zh": "仙人掌果"}, {"en": "prickly personality", "zh": "易怒的個性"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "aerodynamic", "phonetic": "[ˌɛrodaɪˈnæmɪk]", "pos": "adj.", "zh": "空氣動力學的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "massively", "phonetic": "[ˈmæsɪvlɪ]", "pos": "adv.", "zh": "大規模地", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "navigational", "phonetic": "[ˌnævəˈgeʃənḷ]", "pos": "adj.", "zh": "導航的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "debatable", "phonetic": "[dɪˈbetəbḷ]", "pos": "adj.", "zh": "有爭議的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "orchestral", "phonetic": "[ɔrˈkɛstrəl]", "pos": "adj.", "zh": "管弦樂的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "vitally", "phonetic": "[ˈvaɪtḷɪ]", "pos": "adv.", "zh": "極其", "collocations": [{"en": "vitally important", "zh": "至關重要"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "unfriendly", "phonetic": "[ʌnˈfrɛndlɪ]", "pos": "adj.", "zh": "不友善的", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "unsuspecting", "phonetic": "[ˌʌnsəˈspɛktɪŋ]", "pos": "adj.", "zh": "不疑有他的", "collocations": [{"en": "unsuspecting victims", "zh": "毫無戒心的受害者"}], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "cheaply", "phonetic": "[ˈtʃiplɪ]", "pos": "adv.", "zh": "廉價地", "collocations": [], "examples": [], "note": null}, {"page": 125, "file": "1789566201955-AQAD9xFrG5fHWFV-.jpg", "word": "unchecked", "phonetic": "[ʌnˈtʃɛkt]", "pos": "adj.", "zh": "不受控制的", "collocations": [{"en": "go unchecked", "zh": "不受約束"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "distinctively", "phonetic": "[dɪˈstɪŋktɪvlɪ]", "pos": "adv.", "zh": "獨特地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "reputable", "phonetic": "[ˈrɛpjətəbḷ]", "pos": "adj.", "zh": "聲譽好的", "collocations": [{"en": "reputable company", "zh": "信譽良好的公司"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "removable", "phonetic": "[rɪˈmuvəbḷ]", "pos": "adj.", "zh": "可移動的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "cruelly", "phonetic": "[ˈkruəlɪ]", "pos": "adv.", "zh": "殘酷地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "hotly", "phonetic": "[ˈhɑtlɪ]", "pos": "adv.", "zh": "激烈地", "collocations": [{"en": "hotly debated", "zh": "激烈辯論的"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "unattractive", "phonetic": "[ˌʌnəˈtræktɪv]", "pos": "adj.", "zh": "不吸引人的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "laborious", "phonetic": "[ləˈboriəs]", "pos": "adj.", "zh": "費力的", "collocations": [{"en": "laborious task", "zh": "費力的工作"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "flammable", "phonetic": "[ˈflæməbḷ]", "pos": "adj.", "zh": "易燃的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "mediocre", "phonetic": "[ˌmidɪˈokɚ]", "pos": "adj.", "zh": "平庸的", "collocations": [{"en": "mediocre performance", "zh": "平庸的表現"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "unimaginable", "phonetic": "[ʌnɪˈmædʒɪnəbḷ]", "pos": "adj.", "zh": "無法想像的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "solidly", "phonetic": "[ˈsɑlɪdlɪ]", "pos": "adv.", "zh": "堅固地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "liberally", "phonetic": "[ˈlɪbərəlɪ]", "pos": "adv.", "zh": "慷慨地；隨意地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "pungent", "phonetic": "[ˈpʌndʒənt]", "pos": "adj.", "zh": "刺鼻的", "collocations": [{"en": "pungent smell", "zh": "刺鼻的氣味"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "innocently", "phonetic": "[ˈɪnəsəntlɪ]", "pos": "adv.", "zh": "天真地；無辜地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "effortlessly", "phonetic": "[ˈɛfɚtlɪslɪ]", "pos": "adv.", "zh": "毫不費力地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "interestingly", "phonetic": "[ˈɪntrɪstɪŋlɪ]", "pos": "adv.", "zh": "有趣地是", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "meaningfully", "phonetic": "[ˈminɪŋfəlɪ]", "pos": "adv.", "zh": "意味深長地；有意義地", "collocations": [{"en": "contribute meaningfully", "zh": "做出有意義的貢獻"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "counterproductive", "phonetic": "[ˌkaʊntərprəˈdʌktɪv]", "pos": "adj.", "zh": "產生反效果的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "inspirational", "phonetic": "[ˌɪnspəˈreʃənḷ]", "pos": "adj.", "zh": "鼓舞人心的", "collocations": [{"en": "inspirational speech", "zh": "鼓舞人心的演講"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "commemorate", "phonetic": "[kəˈmɛməˌret]", "pos": "v.", "zh": "紀念", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "sedentary", "phonetic": "[ˈsɛdn̩ˌtɛrɪ]", "pos": "adj.", "zh": "久坐的", "collocations": [{"en": "sedentary lifestyle", "zh": "久坐的生活方式"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "delicately", "phonetic": "[ˈdɛlɪkətlɪ]", "pos": "adv.", "zh": "精緻地；微妙地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "mysteriously", "phonetic": "[mɪsˈtɪrɪəslɪ]", "pos": "adv.", "zh": "神祕地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "lucid", "phonetic": "[ˈlusɪd]", "pos": "adj.", "zh": "清晰的；頭腦清楚的", "collocations": [{"en": "lucid dream", "zh": "清醒夢"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "handheld", "phonetic": "[ˈhændˌhɛld]", "pos": "adj.", "zh": "手持的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "fateful", "phonetic": "[ˈfetfəl]", "pos": "adj.", "zh": "決定命運的", "collocations": [{"en": "fateful decision", "zh": "重大的決定"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "oily", "phonetic": "[ˈɔɪlɪ]", "pos": "adj.", "zh": "油膩的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "unlucky", "phonetic": "[ʌnˈlʌkɪ]", "pos": "adj.", "zh": "不幸的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "popularly", "phonetic": "[ˈpɑpjəlɚlɪ]", "pos": "adv.", "zh": "普遍地", "collocations": [{"en": "popularly known as", "zh": "通稱為…"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "fearless", "phonetic": "[ˈfɪrlɪs]", "pos": "adj.", "zh": "無畏的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "inanimate", "phonetic": "[ɪnˈænəmɪt]", "pos": "adj.", "zh": "無生命的", "collocations": [{"en": "inanimate object", "zh": "無生命物體"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "noticeably", "phonetic": "[ˈnotɪsəblɪ]", "pos": "adv.", "zh": "顯著地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "unethical", "phonetic": "[ʌnˈɛθɪkḷ]", "pos": "adj.", "zh": "不道德的", "collocations": [{"en": "unethical behavior", "zh": "不道德行為"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "displace", "phonetic": "[dɪsˈples]", "pos": "v.", "zh": "取代；迫使…離開", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "festive", "phonetic": "[ˈfɛstɪv]", "pos": "adj.", "zh": "節慶的", "collocations": [{"en": "festive atmosphere", "zh": "節慶氣氛"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "undocumented", "phonetic": "[ʌnˈdɑkjəˌmɛntɪd]", "pos": "adj.", "zh": "無正式文件的；未記錄的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "mythological", "phonetic": "[ˌmɪθəˈlɑdʒɪkḷ]", "pos": "adj.", "zh": "神話的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "robotic", "phonetic": "[roˈbɑtɪk]", "pos": "adj.", "zh": "機器人的；呆板的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "persistently", "phonetic": "[pɚˈsɪstəntlɪ]", "pos": "adv.", "zh": "持續地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "chronically", "phonetic": "[ˈkrɑnɪklɪ]", "pos": "adv.", "zh": "長期地；慢性地", "collocations": [{"en": "chronically ill", "zh": "久病的"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "intuitively", "phonetic": "[ɪnˈtjuɪtɪvlɪ]", "pos": "adv.", "zh": "直覺地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "suitably", "phonetic": "[ˈsutəblɪ]", "pos": "adv.", "zh": "適當地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "lifeless", "phonetic": "[ˈlaɪflɪs]", "pos": "adj.", "zh": "無生命的；死氣沉沉的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "fortunately", "phonetic": "[ˈfɔrtʃənɪtlɪ]", "pos": "adv.", "zh": "幸運地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "verbally", "phonetic": "[ˈvɜbḷɪ]", "pos": "adv.", "zh": "口頭地", "collocations": [{"en": "verbally abusive", "zh": "言語暴力的"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "favorably", "phonetic": "[ˈfevərəblɪ]", "pos": "adv.", "zh": "有利地；贊同地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "shrill", "phonetic": "[ʃrɪl]", "pos": "adj.", "zh": "尖銳的", "collocations": [{"en": "shrill voice", "zh": "尖銳的聲音"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "tenderly", "phonetic": "[ˈtɛndɚlɪ]", "pos": "adv.", "zh": "溫柔地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "unconventional", "phonetic": "[ˌʌnkənˈvɛnʃənḷ]", "pos": "adj.", "zh": "非傳統的", "collocations": [{"en": "unconventional approach", "zh": "非傳統的方法"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "understandably", "phonetic": "[ʌndɚˈstændəblɪ]", "pos": "adv.", "zh": "可理解地", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "impractical", "phonetic": "[ɪmˈpræktɪkḷ]", "pos": "adj.", "zh": "不切實際的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "unwelcome", "phonetic": "[ʌnˈwɛlkəm]", "pos": "adj.", "zh": "不受歡迎的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "nostalgic", "phonetic": "[nɑˈstældʒɪk]", "pos": "adj.", "zh": "懷舊的", "collocations": [{"en": "feel nostalgic", "zh": "感到懷舊"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "inventive", "phonetic": "[ɪnˈvɛntɪv]", "pos": "adj.", "zh": "有創意的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "secondhand", "phonetic": "[ˈsɛkəndˌhænd]", "pos": "adj.", "zh": "二手的", "collocations": [{"en": "secondhand smoke", "zh": "二手菸"}], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "outermost", "phonetic": "[ˈaʊtɚˌmost]", "pos": "adj.", "zh": "最外層的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "biodegradable", "phonetic": "[ˌbaɪodɪˈgredəbḷ]", "pos": "adj.", "zh": "可生物分解的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "bidirectional", "phonetic": "[ˌbaɪdəˈrɛkʃənḷ]", "pos": "adj.", "zh": "雙向的", "collocations": [], "examples": [], "note": null}, {"page": 126, "file": "1789566202894-AQAD-BFrG5fHWFV-.jpg", "word": "unidirectional", "phonetic": "[ˌjunɪdəˈrɛkʃənḷ]", "pos": "adj.", "zh": "單向的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "masterful", "phonetic": "[ˋmæstɚfəl]", "pos": "adj.", "zh": "精湛的", "collocations": [{"en": "masterful performance", "zh": "精湛的演出"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "subconsciously", "phonetic": "[ˏsʌbˋkɑnʃəslɪ]", "pos": "adv.", "zh": "下意識地", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "obediently", "phonetic": "[əˋbidjəntlɪ]", "pos": "adv.", "zh": "順從地", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "merrily", "phonetic": "[ˋmɛrəlɪ]", "pos": "adv.", "zh": "快樂地", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "impressively", "phonetic": "[ɪmˋprɛsɪvlɪ]", "pos": "adv.", "zh": "令人印象深刻地", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "operatic", "phonetic": "[ˏɑpəˋrætɪk]", "pos": "adj.", "zh": "歌劇的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "unforgiving", "phonetic": "[ˏʌnfɚˋgɪvɪŋ]", "pos": "adj.", "zh": "無情的；惡劣的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "hellish", "phonetic": "[ˋhɛlɪʃ]", "pos": "adj.", "zh": "地獄般的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "inborn", "phonetic": "[ˋɪnˏbɔrn]", "pos": "adj.", "zh": "天生的", "collocations": [{"en": "inborn ability", "zh": "天賦"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "flowery", "phonetic": "[ˋflaʊərɪ]", "pos": "adj.", "zh": "華麗的；多花的", "collocations": [{"en": "flowery language", "zh": "詞藻華麗的語言"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "uncivilized", "phonetic": "[ʌnˋsɪvḷˏaɪzd]", "pos": "adj.", "zh": "不文明的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "mockingly", "phonetic": "[ˋmɑkɪŋlɪ]", "pos": "adv.", "zh": "嘲弄地", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "bossy", "phonetic": "[ˋbɔsɪ]", "pos": "adj.", "zh": "愛指揮人的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "equidistant", "phonetic": "[ˏikwəˋdɪstənt]", "pos": "adj.", "zh": "等距的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "swampy", "phonetic": "[ˋswɑmpɪ]", "pos": "adj.", "zh": "沼澤的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "aground", "phonetic": "[əˋgraʊnd]", "pos": "adv.", "zh": "擱淺地", "collocations": [{"en": "run aground", "zh": "擱淺"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "decently", "phonetic": "[ˋdisn̩tlɪ]", "pos": "adv.", "zh": "體面地", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "lighthearted", "phonetic": "[ˋlaɪtˏhɑrtɪd]", "pos": "adj.", "zh": "輕鬆愉快的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "movable", "phonetic": "[ˋmuvəbḷ]", "pos": "adj.", "zh": "可移動的", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "brood", "phonetic": "[brud]", "pos": "v.", "zh": "（鳥類）孵蛋；沉思；憂慮；耿耿於懷（常接 over）", "collocations": [{"en": "brooding hen", "zh": "孵蛋的母雞"}, {"en": "brood over mistakes", "zh": "對錯誤耿耿於懷"}], "examples": [{"en": "The eagle sat quietly on its nest, brooding its eggs.", "answer": "brooding"}, {"en": "Don't spend your entire weekend brooding over the minor mistake you made at work.", "answer": "brooding over"}], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "exemplify", "phonetic": "[ɪgˋzɛmpləˏfaɪ]", "pos": "v.", "zh": "舉例證明；是…的典範", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "streamline", "phonetic": "[ˋstrimˏlaɪn]", "pos": "v./adj.", "zh": "簡化（以提高效率）（多益必背核心動詞）；流線型的（常寫作 streamlined）", "collocations": [{"en": "streamline the process", "zh": "簡化流程"}, {"en": "streamlined design", "zh": "流線型設計"}], "examples": [{"en": "The company decided to streamline its application process to save time and reduce costs.", "answer": "streamline"}, {"en": "The modern sports car features a sleek, streamlined design to reduce wind resistance.", "answer": "streamlined design"}], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "aquaculture", "phonetic": "[ˋækwəˏkʌltʃɚ]", "pos": "n.", "zh": "水產養殖", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "renaissance", "phonetic": "[ˏrɛnəˋsɑns]", "pos": "n.", "zh": "文藝復興", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "bonfire", "phonetic": "[ˋbɑnˏfaɪr]", "pos": "n.", "zh": "營火", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "tsunami", "phonetic": "[tsuˋnɑmɪ]", "pos": "n.", "zh": "海嘯", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "airflow", "phonetic": "[ˋɛrˏflo]", "pos": "n.", "zh": "氣流", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "startup", "phonetic": "[ˋstɑrtˏʌp]", "pos": "n.", "zh": "新創公司", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "inauguration", "phonetic": "[ɪnˏɔgjəˋreʃən]", "pos": "n.", "zh": "就職典禮", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "hoax", "phonetic": "[hoks]", "pos": "n.", "zh": "騙局", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "trickery", "phonetic": "[ˋtrɪkərɪ]", "pos": "n.", "zh": "欺騙", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "teamwork", "phonetic": "[ˋtimˏwɜk]", "pos": "n.", "zh": "團隊合作", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "encroachment", "phonetic": "[ɪnˋkrotʃmənt]", "pos": "n.", "zh": "侵蝕；侵犯", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "circumcision", "phonetic": "[ˏsɜkəmˋsɪʒən]", "pos": "n.", "zh": "割禮", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "exertion", "phonetic": "[ɪgˋzɜʃən]", "pos": "n.", "zh": "費力", "collocations": [{"en": "physical exertion", "zh": "體力消耗"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "consultancy", "phonetic": "[kənˋsʌltənsɪ]", "pos": "n.", "zh": "諮詢公司", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "rugby", "phonetic": "[ˋrʌgbɪ]", "pos": "n.", "zh": "橄欖球", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "renovation", "phonetic": "[ˏrɛnəˋveʃən]", "pos": "n.", "zh": "整修", "collocations": [{"en": "undergo renovation", "zh": "進行整修"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "upheaval", "phonetic": "[ʌpˋhivl]", "pos": "n.", "zh": "動盪；劇變", "collocations": [{"en": "political upheaval", "zh": "政治動盪"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "cleanliness", "phonetic": "[ˋklɛnlɪnɪs]", "pos": "n.", "zh": "整潔", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "shrinkage", "phonetic": "[ˋʃrɪŋkɪdʒ]", "pos": "n.", "zh": "收縮", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "glorification", "phonetic": "[ˏglɔrəfəˋkeʃən]", "pos": "n.", "zh": "美化；讚頌", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "ridicule", "phonetic": "[ˋrɪdɪˏkjul]", "pos": "n.", "zh": "嘲笑", "collocations": [{"en": "object of ridicule", "zh": "嘲笑的對象"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "breakage", "phonetic": "[ˋbrekɪdʒ]", "pos": "n.", "zh": "破損", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "craftsmanship", "phonetic": "[ˋkræftsmənˏʃɪp]", "pos": "n.", "zh": "工藝", "collocations": [{"en": "exquisite craftsmanship", "zh": "精湛的工藝"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "unicorn", "phonetic": "[ˋjunɪˏkɔrn]", "pos": "n.", "zh": "獨角獸", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "downside", "phonetic": "[ˋdaʊnˏsaɪd]", "pos": "n.", "zh": "缺點", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "fad", "phonetic": "[fæd]", "pos": "n.", "zh": "一時的流行", "collocations": [{"en": "passing fad", "zh": "曇花一現的流行"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "understatement", "phonetic": "[ˋʌndɚˏstetmənt]", "pos": "n.", "zh": "保守的陳述", "collocations": [{"en": "be an understatement", "zh": "說得還不夠/輕描淡寫"}], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "meteorology", "phonetic": "[ˏmitɪəˋrɑlədʒɪ]", "pos": "n.", "zh": "氣象學", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "ballad", "phonetic": "[ˋbæləd]", "pos": "n.", "zh": "民謠", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "webpage", "phonetic": "[ˋwɛbˏpedʒ]", "pos": "n.", "zh": "網頁", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "philanthropy", "phonetic": "[fɪˋlænθrəpɪ]", "pos": "n.", "zh": "慈善事業", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "afterlife", "phonetic": "[ˋæftɚˏlaɪf]", "pos": "n.", "zh": "來世", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "droplet", "phonetic": "[ˋdrɑplɪt]", "pos": "n.", "zh": "小水滴", "collocations": [], "examples": [], "note": null}, {"page": 127, "file": "1789566203810-AQAD-RFrG5fHWFV-.jpg", "word": "specie", "phonetic": "[ˋspiʃi]", "pos": "n.", "zh": "硬幣", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "posse", "phonetic": "[ˋpɑsɪ]", "pos": "n.", "zh": "隊；搜捕隊", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "academia", "phonetic": "[ˏækəˋdimɪə]", "pos": "n.", "zh": "學術界", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "rainforest", "phonetic": "[ˋrenˏfɔrɪst]", "pos": "n.", "zh": "雨林", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "dehydration", "phonetic": "[ˏdihaɪˋdreʃən]", "pos": "n.", "zh": "脫水", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "calmness", "phonetic": "[ˋkɑmnɪs]", "pos": "n.", "zh": "平靜", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "freshness", "phonetic": "[ˋfrɛʃnɪs]", "pos": "n.", "zh": "新鮮", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "ingenuity", "phonetic": "[ˏɪndʒəˋnjuətɪ]", "pos": "n.", "zh": "獨創性；巧思", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "undertone", "phonetic": "[ˋʌndɚˏton]", "pos": "n.", "zh": "弦外之音；潛在含義", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "enigma", "phonetic": "[ɪˋnɪgmə]", "pos": "n.", "zh": "謎", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "soreness", "phonetic": "[ˋsɔrnɪs]", "pos": "n.", "zh": "痠痛", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "shyness", "phonetic": "[ˋʃaɪnɪs]", "pos": "n.", "zh": "害羞", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "serenity", "phonetic": "[səˋrɛnətɪ]", "pos": "n.", "zh": "寧靜", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "heartbreak", "phonetic": "[ˋhɑrtˏbrek]", "pos": "n.", "zh": "心碎", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "footprint", "phonetic": "[ˋfʊtˏprɪnt]", "pos": "n.", "zh": "足跡", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "drawback", "phonetic": "[ˋdrɔˏbæk]", "pos": "n.", "zh": "缺點", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "durability", "phonetic": "[ˏdjʊrəˋbɪlətɪ]", "pos": "n.", "zh": "耐用性", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "suitability", "phonetic": "[ˏsutəˋbɪlətɪ]", "pos": "n.", "zh": "適合性", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "attractiveness", "phonetic": "[əˋtræktɪvnɪs]", "pos": "n.", "zh": "吸引力", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "appropriateness", "phonetic": "[əˋproprɪɪtnɪs]", "pos": "n.", "zh": "適當性", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "ineffectiveness", "phonetic": "[ˏɪnəˋfɛktɪvnɪs]", "pos": "n.", "zh": "無效", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "acidity", "phonetic": "[əˋsɪdətɪ]", "pos": "n.", "zh": "酸度", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "unison", "phonetic": "[ˋjunəsn]", "pos": "n.", "zh": "齊唱；一致", "collocations": [{"en": "in unison", "zh": "一致地/齊聲地"}], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "timeliness", "phonetic": "[ˋtaɪmlɪnɪs]", "pos": "n.", "zh": "及時", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "toughness", "phonetic": "[ˋtʌfnɪs]", "pos": "n.", "zh": "堅韌", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "loudness", "phonetic": "[ˋlaʊdnɪs]", "pos": "n.", "zh": "響度", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "inferiority", "phonetic": "[ɪnˏfɪrɪˋɔrətɪ]", "pos": "n.", "zh": "劣勢；自卑", "collocations": [{"en": "sense of inferiority", "zh": "自卑感"}], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "hypnosis", "phonetic": "[hɪpˋnosɪs]", "pos": "n.", "zh": "催眠", "collocations": [{"en": "under hypnosis", "zh": "在催眠狀態下"}], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "inaction", "phonetic": "[ɪnˋækʃən]", "pos": "n.", "zh": "不作為", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "sleepiness", "phonetic": "[ˋslipɪnɪs]", "pos": "n.", "zh": "睡意", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "wallpaper", "phonetic": "[ˋwɔlˏpepɚ]", "pos": "n.", "zh": "壁紙", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "dimple", "phonetic": "[ˋdɪmpl]", "pos": "n.", "zh": "酒窩", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "mash", "phonetic": "[mæʃ]", "pos": "v./n.", "zh": "搗碎；糊狀物", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "brine", "phonetic": "[braɪn]", "pos": "n.", "zh": "鹽水", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "lard", "phonetic": "[lɑrd]", "pos": "n.", "zh": "豬油", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "impurity", "phonetic": "[ɪmˋpjʊrətɪ]", "pos": "n.", "zh": "雜質", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "turquoise", "phonetic": "[ˋtɜkɔɪz]", "pos": "n.", "zh": "綠松石色", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "adrenaline", "phonetic": "[əˋdrɛnəlɪn]", "pos": "n.", "zh": "腎上腺素", "collocations": [{"en": "adrenaline rush", "zh": "腎上腺素飆升"}], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "detritus", "phonetic": "[dɪˋtraɪtəs]", "pos": "n.", "zh": "碎屑；殘骸", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "pollutant", "phonetic": "[pəˋlutənt]", "pos": "n.", "zh": "污染物", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "feces", "phonetic": "[ˋfisiz]", "pos": "n.", "zh": "糞便", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "reactant", "phonetic": "[rɪˋæktənt]", "pos": "n.", "zh": "反應物", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "insecticide", "phonetic": "[ɪnˋsɛktəˏsaɪd]", "pos": "n.", "zh": "殺蟲劑", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "lactose", "phonetic": "[ˋlæktos]", "pos": "n.", "zh": "乳糖", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "lava", "phonetic": "[ˋlɑvə]", "pos": "n.", "zh": "岩漿", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "seawater", "phonetic": "[ˋsiˏwɔtɚ]", "pos": "n.", "zh": "海水", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "rainwater", "phonetic": "[ˋrenˏwɔtɚ]", "pos": "n.", "zh": "雨水", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "neurotransmitter", "phonetic": "[ˏnjʊrotrænsˋmɪtɚ]", "pos": "n.", "zh": "神經傳導物質", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "galactose", "phonetic": "[gəˋlæktos]", "pos": "n.", "zh": "半乳糖", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "perspiration", "phonetic": "[ˏpɜspəˋreʃən]", "pos": "n.", "zh": "汗水", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "cadmium", "phonetic": "[ˋkædmɪəm]", "pos": "n.", "zh": "鎘", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "pheromone", "phonetic": "[ˋfɛrəˏmon]", "pos": "n.", "zh": "費洛蒙", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "delicacy", "phonetic": "[ˋdɛləkəsɪ]", "pos": "n.", "zh": "美味佳餚；珍饈（可數）；精緻；脆弱；微妙（不可數）", "collocations": [{"en": "local delicacy", "zh": "當地美食"}, {"en": "matter of great delicacy", "zh": "需要極度小心處理的事情"}], "examples": [{"en": "Trying the local delicacies is always the highlight of my travels.", "answer": "local delicacies"}, {"en": "Because the peace negotiation is a matter of great delicacy, it must be handled with caution.", "answer": "matter of great delicacy"}], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "sustenance", "phonetic": "[ˋsʌstənəns]", "pos": "n.", "zh": "食物；生計", "collocations": [], "examples": [], "note": null}, {"page": 128, "file": "1789566204539-AQAD-hFrG5fHWFV-.jpg", "word": "Caliphate", "phonetic": "[ˋkælɪˏfet]", "pos": "n.", "zh": "哈里發國", "collocations": [], "examples": [], "note": null}]};
 </script>
 <script>
-/* 靜默開啟計數（不顯示任何數字）。?r=<tag> 時另記一筆該人的專屬計數。 */
+(function(){
+"use strict";
+var WORDS = (DATA && DATA.words) ? DATA.words : [];
+var PAGES = Array.from(new Set(WORDS.map(function(w){return w.page;}).filter(function(p){return p!=null;}))).sort(function(a,b){return a-b;});
+
+var state = { screen:'list', page:'all', search:'' };
+
+function $(sel,root){ return (root||document).querySelector(sel); }
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function keyOf(w){ return (w.word||'').trim().toLowerCase()+'||'+(w.pos||'').trim().toLowerCase(); }
+
+function pageMatch(w, page){ return page==='all' || String(w.page)===String(page); }
+function filteredByPage(page){ return WORDS.filter(function(w){ return w.word && pageMatch(w,page); }); }
+
+/* ---------- localStorage helpers ---------- */
+function lsGet(key, fallback){
+  try{ var v=localStorage.getItem(key); return v?JSON.parse(v):fallback; }catch(e){ return fallback; }
+}
+function lsSet(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
+
+function wrongKey(){ return 'quiz5_wrong'; }
+function loadWrong(){ return lsGet(wrongKey(), []); }
+function addWrong(w){ var a=loadWrong(); var k=keyOf(w); if(a.indexOf(k)<0){ a.push(k); lsSet(wrongKey(),a);} }
+function removeWrong(w){ var a=loadWrong(); var k=keyOf(w); var i=a.indexOf(k); if(i>=0){ a.splice(i,1); lsSet(wrongKey(),a);} }
+function isWrong(w){ return loadWrong().indexOf(keyOf(w))>=0; }
+function anyWrong(){ return loadWrong().length>0; }
+
+function fcKey(){ return 'quiz5_fc_status'; }
+function loadFc(){ return lsGet(fcKey(), {}); }
+function setFc(w,status){ var o=loadFc(); o[keyOf(w)]=status; lsSet(fcKey(),o); }
+function getFc(w){ var o=loadFc(); return o[keyOf(w)]||null; }
+
+/* ---------- global distractor pools (built once, from the real dataset) ---------- */
+var ALL_COLS = []; /* {en, zh} unique */
+(function(){
+  var seen={};
+  WORDS.forEach(function(w){
+    (w.collocations||[]).forEach(function(c){
+      if(!c || !c.en) return;
+      var k=c.en.trim().toLowerCase();
+      if(seen[k]) return; seen[k]=1;
+      ALL_COLS.push({en:c.en, zh:c.zh||''});
+    });
+  });
+})();
+var ALL_PHRASES = []; /* union of example answers + collocation ens, for cloze distractors */
+(function(){
+  var seen={};
+  function add(s){ if(!s) return; var k=s.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; ALL_PHRASES.push(s); }
+  WORDS.forEach(function(w){
+    (w.examples||[]).forEach(function(e){ if(e && e.answer) add(e.answer); });
+    (w.collocations||[]).forEach(function(c){ if(c && c.en) add(c.en); });
+  });
+})();
+
+function pickDistinct(pool, excludeVal, count, textOf){
+  var seen={}; seen[(excludeVal||'').trim().toLowerCase()]=1;
+  var cands = shuffle(pool.slice());
+  var out=[];
+  for(var i=0;i<cands.length && out.length<count;i++){
+    var t = textOf(cands[i]);
+    if(!t) continue;
+    var k=t.trim().toLowerCase();
+    if(seen[k]) continue;
+    seen[k]=1; out.push(cands[i]);
+  }
+  return out;
+}
+
+function makeOptions(correctText, distractorTexts){
+  var opts = [correctText].concat(distractorTexts);
+  shuffle(opts);
+  return opts;
+}
+
+/* ---------- quiz building ---------- */
+function buildQuestions(wrongOnly){
+  var pool = filteredByPage(state.page);
+  var qs = [];
+  pool.forEach(function(w){
+    if(wrongOnly && !isWrong(w)) return;
+    if(w.zh){
+      qs.push({ type:'meaning2word', word:w });
+      qs.push({ type:'word2meaning', word:w });
+    }
+    (w.collocations||[]).forEach(function(c){
+      if(c && c.en && c.zh) qs.push({ type:'colloc', word:w, col:c });
+    });
+    (w.examples||[]).forEach(function(e){
+      if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'cloze', word:w, ex:e });
+    });
+  });
+  shuffle(qs);
+  qs.forEach(function(q){
+    if(q.type==='meaning2word'){
+      var d1 = pickDistinct(WORDS, q.word.word, 3, function(x){ return x.word; });
+      q.options = makeOptions(q.word.word, d1.map(function(x){return x.word;}));
+    } else if(q.type==='word2meaning'){
+      var d2 = pickDistinct(WORDS, q.word.zh, 3, function(x){ return x.zh; });
+      q.options = makeOptions(q.word.zh, d2.map(function(x){return x.zh;}));
+    } else if(q.type==='colloc'){
+      var d3 = pickDistinct(ALL_COLS, q.col.en, 3, function(x){ return x.en; });
+      q.options = makeOptions(q.col.en, d3.map(function(x){return x.en;}));
+    } else if(q.type==='cloze'){
+      var d4 = pickDistinct(ALL_PHRASES, q.ex.answer, 3, function(x){ return x; });
+      q.options = makeOptions(q.ex.answer, d4);
+    }
+  });
+  return qs.filter(function(q){ return q.options && q.options.length>=2; });
+}
+
+/* ---------- flashcard building ---------- */
+function buildDeck(unsureOnly){
+  var list = filteredByPage(state.page);
+  if(unsureOnly){ list = list.filter(function(w){ return getFc(w)==='unsure'; }); }
+  return list;
+}
+
+/* ---------- shared topbar ---------- */
+function renderTopbar(){
+  return '<div class="topbar"><div class="ttl">GSAT 單字 P124-128</div>'+
+    '<div class="menuwrap"><button class="menubtn" id="menuBtn" aria-label="選單">⋯</button>'+
+    '<div class="menudrop" id="menuDrop" hidden>'+
+      '<button class="mitem" data-act="start-quiz" data-mode="all">📝 選擇題（全部）</button>'+
+      '<button class="mitem" data-act="start-quiz" data-mode="wrong">🔁 選擇題（只練錯的）</button>'+
+      '<button class="mitem" data-act="start-cards">🃏 字卡</button>'+
+      '<button class="mitem" data-act="home">📋 回單字清單</button>'+
+    '</div></div></div>';
+}
+
+/* ---------- render: router ---------- */
+function render(){
+  var app = $('#app');
+  if(state.screen==='quiz') app.innerHTML = renderTopbar()+renderQuiz();
+  else if(state.screen==='result') app.innerHTML = renderTopbar()+renderResult();
+  else if(state.screen==='cards') app.innerHTML = renderTopbar()+renderCards();
+  else app.innerHTML = renderTopbar()+renderList();
+  bind();
+}
+
+function collocLine(c){
+  return '<div class="sub">▸ <b>'+esc(c.en)+'</b>　'+esc(c.zh||'')+'</div>';
+}
+function exampleLine(e){
+  var en=e.en||'', ans=e.answer||'';
+  var i = ans ? en.indexOf(ans) : -1;
+  var html;
+  if(i>=0){ html = esc(en.slice(0,i))+'<b>'+esc(ans)+'</b>'+esc(en.slice(i+ans.length)); }
+  else { html = esc(en); }
+  return '<div class="sub">e.g. '+html+'</div>';
+}
+
+function renderList(){
+  var chips = ['<button class="chip'+(state.page==='all'?' on':'')+'" data-act="setpage" data-page="all">全部</button>'].concat(
+    PAGES.map(function(p){
+      return '<button class="chip'+(String(state.page)===String(p)?' on':'')+'" data-act="setpage" data-page="'+p+'">'+p+'</button>';
+    })
+  ).join('');
+  var list = filteredByPage(state.page);
+  var cells = list.map(function(w){
+    var hay = ((w.word||'')+' '+(w.zh||'')).toLowerCase();
+    var subs = (w.collocations||[]).map(collocLine).join('') + (w.examples||[]).map(exampleLine).join('') +
+      (w.note ? '<div class="sub">'+esc(w.note)+'</div>' : '');
+    return '<div class="wcell" data-hay="'+esc(hay)+'">'+
+      '<b>'+esc(w.word)+'</b><span class="pg">p.'+esc(w.page)+'</span>'+
+      '<span class="ipa">'+esc(w.phonetic||'')+' <span class="pos">'+esc(w.pos||'')+'</span></span>'+
+      '<div class="zh">'+esc(w.zh||'')+'</div>'+ subs +
+      '</div>';
+  }).join('');
+  return ''+
+  '<p class="sub" style="margin-top:0">共 '+WORDS.length+' 個單字・GSAT/AST GLOSSARY 2015-2026 PART II p124-128</p>'+
+  '<input class="searchbox" id="searchBox" type="search" placeholder="搜尋單字或中文意思…" value="'+esc(state.search)+'">'+
+  '<div class="chiprow">'+chips+'</div>'+
+  '<div class="lab">單字清單（'+list.length+'）</div>'+
+  '<div class="wgrid" id="wgrid">'+(cells||'<div class="empty">目前沒有資料</div>')+'</div>';
+}
+
+var TYPE_TAG = { meaning2word:'中文 → 英文', word2meaning:'英文 → 中文', colloc:'搭配詞', cloze:'例句挖空' };
+
+function questionPrompt(cur){
+  if(cur.type==='meaning2word'){
+    return esc(cur.word.zh) + (cur.word.pos ? '（'+esc(cur.word.pos)+'）' : '');
+  }
+  if(cur.type==='word2meaning'){
+    return esc(cur.word.word) + (cur.word.phonetic ? '<span class="ipa2">'+esc(cur.word.phonetic)+'</span>' : '');
+  }
+  if(cur.type==='colloc'){
+    return esc(cur.col.zh);
+  }
+  if(cur.type==='cloze'){
+    var en=cur.ex.en, ans=cur.ex.answer, i=en.indexOf(ans);
+    return esc(en.slice(0,i)) + '<u>_____</u>' + esc(en.slice(i+ans.length));
+  }
+  return '';
+}
+function correctAnswer(cur){
+  if(cur.type==='meaning2word') return cur.word.word;
+  if(cur.type==='word2meaning') return cur.word.zh;
+  if(cur.type==='colloc') return cur.col.en;
+  if(cur.type==='cloze') return cur.ex.answer;
+  return '';
+}
+
+function renderQuiz(){
+  var q = state.quiz;
+  if(!q) return renderList();
+  if(q.qs.length===0){
+    return '<button class="back" data-act="home">← 回單字清單</button>'+
+      '<div class="card empty">目前沒有可以出的題目'+(q.wrongOnly?'（沒有錯題了，太厲害了）':'')+'</div>';
+  }
+  if(q.idx>=q.qs.length){ state.screen='result'; return renderResult(); }
+  var cur = q.qs[q.idx];
+  var pct = Math.round(q.idx/q.qs.length*100);
+  var correct = correctAnswer(cur);
+  var answered = !!cur.answered;
+  var optsHtml = cur.options.map(function(opt){
+    var cls = 'opt';
+    if(answered){
+      if(opt===correct) cls += ' good';
+      else if(opt===cur.selected) cls += ' bad';
+    }
+    return '<button class="'+cls+'" data-act="pick" data-opt="'+esc(opt)+'"'+(answered?' disabled':'')+'>'+esc(opt)+'</button>';
+  }).join('');
+  var fb = '';
+  if(answered){
+    var ok = cur.selected===correct;
+    var w = cur.word;
+    var extra = '';
+    if(cur.type==='colloc'){
+      extra = '<div class="exsent"><b>'+esc(cur.col.en)+'</b>　'+esc(cur.col.zh||'')+'</div>';
+    } else if(cur.type==='cloze'){
+      var en2=cur.ex.en, ans2=cur.ex.answer, i2=en2.indexOf(ans2);
+      extra = '<div class="exsent">'+esc(en2.slice(0,i2))+'<b>'+esc(ans2)+'</b>'+esc(en2.slice(i2+ans2.length))+'</div>';
+    }
+    fb = '<div class="fb '+(ok?'good':'bad')+'">'+
+      '<div class="hd">'+(ok?'答對了 🎉':'答錯了')+'</div>'+
+      '<div class="ansbox"><span class="answ">'+esc(w.word)+'</span><span class="ipa2">'+esc(w.phonetic||'')+'</span>'+
+      '<div class="zh2">'+esc(w.zh||'')+'</div>'+ extra +
+      '</div></div>'+
+      '<button class="btn" data-act="next">'+(q.idx+1>=q.qs.length?'看結果':'下一題')+'</button>';
+  }
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="pbar"><i style="width:'+pct+'%"></i></div>'+
+  '<div class="pmeta"><span>第 '+(q.idx+1)+' / '+q.qs.length+' 題</span><span>答對 '+q.score+'</span></div>'+
+  '<div class="card">'+
+    '<div class="qtag">'+esc(TYPE_TAG[cur.type]||'')+'</div>'+
+    '<div class="qmain">'+questionPrompt(cur)+'</div>'+
+    '<div class="opts">'+optsHtml+'</div>'+
+  '</div>'+
+  fb;
+}
+
+function renderResult(){
+  var q = state.quiz;
+  if(!q) return renderList();
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="card score"><div class="n">'+q.score+' / '+q.qs.length+'</div><div class="d">答對題數</div></div>'+
+  '<button class="btn" data-act="start-quiz" data-mode="'+(q.wrongOnly?'wrong':'all')+'">再玩一次</button>'+
+  '<button class="btn ghost" data-act="home">回單字清單</button>';
+}
+
+function renderCards(){
+  var c = state.cards;
+  if(!c) return renderList();
+  var list = c.list;
+  var head = '<button class="back" data-act="home">← 回單字清單</button>'+
+    '<div class="toprow"><h1 style="margin:0;font-size:1.05em">字卡</h1>'+
+    '<label class="chk"><input type="checkbox" id="unsureOnly"'+(c.unsureOnly?' checked':'')+'> 只看還不熟</label></div>';
+  if(list.length===0){
+    return head+'<div class="card empty">沒有卡片可以看</div>';
+  }
+  if(c.idx>=list.length) c.idx=0;
+  var w = list[c.idx];
+  var status = getFc(w);
+  var body;
+  if(!c.flipped){
+    body = '<div class="cf-word">'+esc(w.word)+'</div><div class="cf-ipa">'+esc(w.phonetic||'')+'</div>'+
+      '<div class="cf-hint">點卡片看解釋</div>';
+  } else {
+    var colHtml = '';
+    if((w.collocations||[]).length){
+      colHtml = '<div class="cf-col">'+w.collocations.map(function(c2){
+        return '<div class="cf-colitem"><b>'+esc(c2.en)+'</b>　'+esc(c2.zh||'')+'</div>';
+      }).join('')+'</div>';
+    }
+    var exHtml = '';
+    if((w.examples||[]).length){
+      exHtml = '<div class="cf-ex">'+w.examples.map(exampleLine).join('')+'</div>';
+    }
+    body = '<div class="cf-pos">'+esc(w.pos||'')+'</div>'+
+      '<div class="cf-word" style="font-size:1.25em">'+esc(w.word)+'<span class="cf-ipa" style="display:inline">'+esc(w.phonetic||'')+'</span></div>'+
+      '<div class="cf-zh">'+esc(w.zh||'')+'</div>'+ colHtml + exHtml;
+  }
+  return head+
+  '<div class="pmeta"><span>'+(c.idx+1)+' / '+list.length+'</span><span>'+(status==='know'?'✅ 我會了':(status==='unsure'?'🟡 還不熟':''))+'</span></div>'+
+  '<div class="cardbox" data-act="flip">'+body+'</div>'+
+  '<div class="fcrow">'+
+    '<button class="btn ghost" data-act="mark" data-status="unsure">還不熟</button>'+
+    '<button class="btn" data-act="mark" data-status="know">我會了</button>'+
+  '</div>'+
+  '<div class="navrow">'+
+    '<button class="btn ghost" data-act="prev">◀ 上一張</button>'+
+    '<button class="btn ghost" data-act="shuffle">🔀 洗牌</button>'+
+    '<button class="btn ghost" data-act="nextcard">下一張 ▶</button>'+
+  '</div>';
+}
+
+/* ---------- actions ---------- */
+function startQuiz(mode){
+  var wrongOnly = mode==='wrong' && anyWrong();
+  state.quiz = { qs:buildQuestions(wrongOnly), idx:0, score:0, wrongOnly:wrongOnly };
+  state.screen = 'quiz';
+}
+function startCards(){
+  state.cards = { list: buildDeck(false), idx:0, flipped:false, unsureOnly:false };
+  state.screen = 'cards';
+}
+
+function closeMenu(){ var d=document.getElementById('menuDrop'); if(d) d.hidden=true; }
+
+function bind(){
+  var app = $('#app');
+  app.onclick = function(e){
+    var t = e.target.closest('[data-act]');
+    if(!t) return;
+    var act = t.getAttribute('data-act');
+    if(act==='home'){ closeMenu(); state.screen='list'; render(); }
+    else if(act==='start-quiz'){ closeMenu(); startQuiz(t.getAttribute('data-mode')); render(); }
+    else if(act==='start-cards'){ closeMenu(); startCards(); render(); }
+    else if(act==='setpage'){ state.page = t.getAttribute('data-page'); render(); }
+    else if(act==='pick'){
+      var q = state.quiz; var cur = q.qs[q.idx];
+      if(cur.answered) return;
+      var opt = t.getAttribute('data-opt');
+      cur.answered = true; cur.selected = opt;
+      var correct = correctAnswer(cur);
+      var ok = opt===correct;
+      if(ok){ q.score++; removeWrong(cur.word); }
+      else { addWrong(cur.word); }
+      render();
+    }
+    else if(act==='next'){ state.quiz.idx++; render(); }
+    else if(act==='flip'){ state.cards.flipped = !state.cards.flipped; render(); }
+    else if(act==='mark'){
+      var c = state.cards; var w = c.list[c.idx];
+      var status = t.getAttribute('data-status');
+      setFc(w, status);
+      if(status==='unsure'){ addWrong(w); } else { removeWrong(w); }
+      c.flipped = false;
+      c.idx = Math.min(c.idx+1, Math.max(0,c.list.length-1));
+      render();
+    }
+    else if(act==='prev'){ var c2=state.cards; c2.idx=Math.max(0,c2.idx-1); c2.flipped=false; render(); }
+    else if(act==='nextcard'){ var c3=state.cards; c3.idx=Math.min(c3.list.length-1,c3.idx+1); c3.flipped=false; render(); }
+    else if(act==='shuffle'){ shuffle(state.cards.list); state.cards.idx=0; state.cards.flipped=false; render(); }
+  };
+  var menuBtn = $('#menuBtn', app);
+  if(menuBtn){ menuBtn.onclick = function(e){ e.stopPropagation(); var d=$('#menuDrop',app); d.hidden = !d.hidden; }; }
+  var searchBox = $('#searchBox', app);
+  if(searchBox){
+    searchBox.oninput = function(){
+      state.search = searchBox.value;
+      var q = state.search.trim().toLowerCase();
+      var grid = $('#wgrid', app);
+      if(!grid) return;
+      var cells = grid.querySelectorAll('.wcell');
+      for(var i=0;i<cells.length;i++){
+        var hay = cells[i].getAttribute('data-hay')||'';
+        cells[i].hidden = !!q && hay.indexOf(q)<0;
+      }
+    };
+  }
+  var unsureChk = $('#unsureOnly', app);
+  if(unsureChk){ unsureChk.onchange = function(){
+    var c = state.cards; c.unsureOnly = unsureChk.checked;
+    c.list = buildDeck(c.unsureOnly); c.idx=0; c.flipped=false; render();
+  }; }
+}
+
+document.addEventListener('click', function(e){
+  var d = document.getElementById('menuDrop');
+  if(d && !d.hidden){
+    if(!d.contains(e.target) && e.target.id!=='menuBtn'){ d.hidden = true; }
+  }
+});
+
+render();
+})();
+</script>
+<script>
+/* 靜默開啟計數（不顯示任何數字）。?v=<tag> 時另記一筆該人的專屬計數。 */
 (function(){try{
   var q=location.search;
   var b='https://hits.sh/wennylai0208.github.io/notes/q5-r8kt';
   new Image().src=b+'.svg?x='+Math.random();
-  var m=q.match(/[?&]r=([A-Za-z0-9]{1,12})/);
+  var m=q.match(/[?&]v=([A-Za-z0-9]{1,12})/);
   if(m){ new Image().src=b+'-r-'+m[1]+'.svg?x='+Math.random(); }
 }catch(e){}})();
 </script>
