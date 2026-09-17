@@ -80,11 +80,13 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
  background:var(--accent2);border-radius:99px;padding:3px 10px;margin-bottom:11px}
 .qmain{font-size:1.32em;font-weight:750;line-height:1.5;word-break:break-word;margin-bottom:5px}
 .opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.opt{flex:1 1 42%;min-width:110px;padding:12px 8px;border-radius:12px;border:1.5px solid var(--line);
+.optwrap{flex:1 1 42%;min-width:110px;display:flex;flex-direction:column;gap:3px}
+.opt{width:100%;padding:12px 8px;border-radius:12px;border:1.5px solid var(--line);
  background:var(--card);color:var(--tx2);font:inherit;font-size:.9em;cursor:pointer;text-align:center}
 .opt.good{border-color:var(--ok);background:var(--okbg);color:var(--ok);font-weight:700}
 .opt.bad{border-color:var(--bad);background:var(--badbg);color:var(--bad);font-weight:700}
 .opt:disabled{cursor:default}
+.optcp{font-size:.72em;color:var(--tx3);text-align:center;padding:0 4px;line-height:1.35;word-break:break-word}
 .fb{border-radius:14px;padding:13px 14px;margin-top:14px;font-size:.9em;line-height:1.75}
 .fb.good{background:var(--okbg);border:1px solid var(--ok);color:var(--ok)}
 .fb.bad{background:var(--badbg);border:1px solid var(--bad);color:var(--bad)}
@@ -184,6 +186,17 @@ function loadFc(){ return lsGet(fcKey(), {}); }
 function setFc(w,status){ var o=loadFc(); o[keyOf(w)]=status; lsSet(fcKey(),o); }
 function getFc(w){ var o=loadFc(); return o[keyOf(w)]||null; }
 
+/* ---------- counterpart lookup helpers (每個選項的「對應語言」小字) ---------- */
+function matchCollocZh(item, answer){
+  var a=(answer||'').trim().toLowerCase();
+  var cols=(item&&item.collocations)||[];
+  for(var i=0;i<cols.length;i++){
+    if(cols[i].en && cols[i].en.trim().toLowerCase()===a) return cols[i].zh||'';
+  }
+  return '';
+}
+function clozeZh(item, answer){ return matchCollocZh(item, answer) || (item&&item.zh) || ''; }
+
 /* ---------- global distractor pools (built once, from the real dataset; scoped per category) ---------- */
 var ALL_COLS = []; /* {en, zh} unique, from WORDS */
 (function(){
@@ -197,37 +210,37 @@ var ALL_COLS = []; /* {en, zh} unique, from WORDS */
     });
   });
 })();
-var ALL_PHRASES = []; /* union of WORDS example answers + collocation ens, for cloze distractors */
+var ALL_PHRASES = []; /* {text, zh} pool from WORDS example answers + collocation ens, for cloze distractors */
 (function(){
   var seen={};
-  function add(s){ if(!s) return; var k=s.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; ALL_PHRASES.push(s); }
+  function add(text, zh){ if(!text) return; var k=text.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; ALL_PHRASES.push({text:text, zh:zh||''}); }
   WORDS.forEach(function(w){
-    (w.examples||[]).forEach(function(e){ if(e && e.answer) add(e.answer); });
-    (w.collocations||[]).forEach(function(c){ if(c && c.en) add(c.en); });
+    (w.examples||[]).forEach(function(e){ if(e && e.answer) add(e.answer, clozeZh(w, e.answer)); });
+    (w.collocations||[]).forEach(function(c){ if(c && c.en) add(c.en, c.zh||''); });
   });
 })();
-var PHRASE_SYN_POOL = []; /* unique synonym strings across PHRASES */
+var PHRASE_SYN_POOL = []; /* {text, zh} unique synonym strings across PHRASES, zh = owning phrase's meaning */
 (function(){
   var seen={};
   PHRASES.forEach(function(p){
     (p.synonyms||[]).forEach(function(s){
       if(!s) return; var k=s.trim().toLowerCase(); if(seen[k]) return; seen[k]=1;
-      PHRASE_SYN_POOL.push(s);
+      PHRASE_SYN_POOL.push({text:s, zh:p.zh||''});
     });
   });
 })();
-var PHRASE_EX_POOL = []; /* unique example answer strings across PHRASES */
+var PHRASE_EX_POOL = []; /* {text, zh} unique example answer strings across PHRASES */
 (function(){
   var seen={};
   PHRASES.forEach(function(p){
-    (p.examples||[]).forEach(function(e){ if(!e || !e.answer) return; var k=e.answer.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; PHRASE_EX_POOL.push(e.answer); });
+    (p.examples||[]).forEach(function(e){ if(!e || !e.answer) return; var k=e.answer.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; PHRASE_EX_POOL.push({text:e.answer, zh:p.zh||''}); });
   });
 })();
-var ROOT_EX_POOL = []; /* unique example answer strings across ROOT_WORDS */
+var ROOT_EX_POOL = []; /* {text, zh} unique example answer strings across ROOT_WORDS */
 (function(){
   var seen={};
   ROOT_WORDS.forEach(function(rw){
-    (rw.examples||[]).forEach(function(e){ if(!e || !e.answer) return; var k=e.answer.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; ROOT_EX_POOL.push(e.answer); });
+    (rw.examples||[]).forEach(function(e){ if(!e || !e.answer) return; var k=e.answer.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; ROOT_EX_POOL.push({text:e.answer, zh:rw.zh||''}); });
   });
 })();
 
@@ -243,12 +256,6 @@ function pickDistinct(pool, excludeVal, count, textOf){
     seen[k]=1; out.push(cands[i]);
   }
   return out;
-}
-
-function makeOptions(correctText, distractorTexts){
-  var opts = [correctText].concat(distractorTexts);
-  shuffle(opts);
-  return opts;
 }
 
 /* ---------- quiz building ---------- */
@@ -278,39 +285,45 @@ function buildQuestions(wrongOnly){
   }
   shuffle(qs);
   qs.forEach(function(q){
+    var pairs; /* [{text, cp}] cp = 該選項對應的另一種語言（英選項配中文、中選項配英文），沒有就空字串 */
     if(q.type==='meaning2word'){
       var d1 = pickDistinct(WORDS, q.item.word, 3, function(x){ return x.word; });
-      q.options = makeOptions(q.item.word, d1.map(function(x){return x.word;}));
+      pairs = [{text:q.item.word, cp:q.item.zh||''}].concat(d1.map(function(x){ return {text:x.word, cp:x.zh||''}; }));
     } else if(q.type==='word2meaning'){
       var d2 = pickDistinct(WORDS, q.item.zh, 3, function(x){ return x.zh; });
-      q.options = makeOptions(q.item.zh, d2.map(function(x){return x.zh;}));
+      pairs = [{text:q.item.zh, cp:q.item.word||''}].concat(d2.map(function(x){ return {text:x.zh, cp:x.word||''}; }));
     } else if(q.type==='colloc'){
       var d3 = pickDistinct(ALL_COLS, q.col.en, 3, function(x){ return x.en; });
-      q.options = makeOptions(q.col.en, d3.map(function(x){return x.en;}));
+      pairs = [{text:q.col.en, cp:q.col.zh||''}].concat(d3.map(function(x){ return {text:x.en, cp:x.zh||''}; }));
     } else if(q.type==='cloze'){
-      var d4 = pickDistinct(ALL_PHRASES, q.ex.answer, 3, function(x){ return x; });
-      q.options = makeOptions(q.ex.answer, d4);
+      var d4 = pickDistinct(ALL_PHRASES, q.ex.answer, 3, function(x){ return x.text; });
+      pairs = [{text:q.ex.answer, cp:clozeZh(q.item, q.ex.answer)}].concat(d4.map(function(x){ return {text:x.text, cp:x.zh||''}; }));
     } else if(q.type==='p_m2w'){
       var d5 = pickDistinct(PHRASES, q.item.word, 3, function(x){ return x.word; });
-      q.options = makeOptions(q.item.word, d5.map(function(x){return x.word;}));
+      pairs = [{text:q.item.word, cp:q.item.zh||''}].concat(d5.map(function(x){ return {text:x.word, cp:x.zh||''}; }));
     } else if(q.type==='p_w2m'){
       var d6 = pickDistinct(PHRASES, q.item.zh, 3, function(x){ return x.zh; });
-      q.options = makeOptions(q.item.zh, d6.map(function(x){return x.zh;}));
+      pairs = [{text:q.item.zh, cp:q.item.word||''}].concat(d6.map(function(x){ return {text:x.zh, cp:x.word||''}; }));
     } else if(q.type==='p_syn'){
-      var d7 = pickDistinct(PHRASE_SYN_POOL, q.syn, 3, function(x){ return x; });
-      q.options = makeOptions(q.syn, d7);
+      var d7 = pickDistinct(PHRASE_SYN_POOL, q.syn, 3, function(x){ return x.text; });
+      pairs = [{text:q.syn, cp:q.item.zh||''}].concat(d7.map(function(x){ return {text:x.text, cp:x.zh||''}; }));
     } else if(q.type==='p_cloze'){
-      var d8 = pickDistinct(PHRASE_EX_POOL, q.ex.answer, 3, function(x){ return x; });
-      q.options = makeOptions(q.ex.answer, d8);
+      var d8 = pickDistinct(PHRASE_EX_POOL, q.ex.answer, 3, function(x){ return x.text; });
+      pairs = [{text:q.ex.answer, cp:q.item.zh||''}].concat(d8.map(function(x){ return {text:x.text, cp:x.zh||''}; }));
     } else if(q.type==='r_m2w'){
       var d9 = pickDistinct(ROOT_WORDS, q.item.word, 3, function(x){ return x.word; });
-      q.options = makeOptions(q.item.word, d9.map(function(x){return x.word;}));
+      pairs = [{text:q.item.word, cp:q.item.zh||''}].concat(d9.map(function(x){ return {text:x.word, cp:x.zh||''}; }));
     } else if(q.type==='r_w2m'){
       var d10 = pickDistinct(ROOT_WORDS, q.item.zh, 3, function(x){ return x.zh; });
-      q.options = makeOptions(q.item.zh, d10.map(function(x){return x.zh;}));
+      pairs = [{text:q.item.zh, cp:q.item.word||''}].concat(d10.map(function(x){ return {text:x.zh, cp:x.word||''}; }));
     } else if(q.type==='r_cloze'){
-      var d11 = pickDistinct(ROOT_EX_POOL, q.ex.answer, 3, function(x){ return x; });
-      q.options = makeOptions(q.ex.answer, d11);
+      var d11 = pickDistinct(ROOT_EX_POOL, q.ex.answer, 3, function(x){ return x.text; });
+      pairs = [{text:q.ex.answer, cp:q.item.zh||''}].concat(d11.map(function(x){ return {text:x.text, cp:x.zh||''}; }));
+    }
+    if(pairs){
+      shuffle(pairs);
+      q.options = pairs.map(function(p){ return p.text; });
+      q.optionCp = pairs.map(function(p){ return p.cp||''; });
     }
   });
   return qs.filter(function(q){ return q.options && q.options.length>=2; });
@@ -475,13 +488,15 @@ function renderQuiz(){
   var pct = Math.round(q.idx/q.qs.length*100);
   var correct = correctAnswer(cur);
   var answered = !!cur.answered;
-  var optsHtml = cur.options.map(function(opt){
+  var optsHtml = cur.options.map(function(opt,oi){
     var cls = 'opt';
     if(answered){
       if(opt===correct) cls += ' good';
       else if(opt===cur.selected) cls += ' bad';
     }
-    return '<button class="'+cls+'" data-act="pick" data-opt="'+esc(opt)+'"'+(answered?' disabled':'')+'>'+esc(opt)+'</button>';
+    var cpTxt = (cur.optionCp && cur.optionCp[oi]) ? cur.optionCp[oi] : '';
+    var cpHtml = (answered && cpTxt) ? '<div class="optcp">'+esc(cpTxt)+'</div>' : '';
+    return '<div class="optwrap"><button class="'+cls+'" data-act="pick" data-opt="'+esc(opt)+'"'+(answered?' disabled':'')+'>'+esc(opt)+'</button>'+cpHtml+'</div>';
   }).join('');
   var fb = '';
   if(answered){
