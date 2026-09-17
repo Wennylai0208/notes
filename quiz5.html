@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="build-id" content="20260917211550">
 <title>GSAT 單字 P124-128</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
 <style>
@@ -141,6 +145,78 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
 .chk input{width:15px;height:15px}
 .foot{text-align:center;color:var(--tx3);font-size:.72em;padding:20px 0 10px;line-height:1.7}
 </style>
+<script>
+/* ---------- 自動偵測新版本並重整（2026-09-17）----------
+   每次開啟/切回前景/從 bfcache 返回時，去問一次伺服器最新的 BUILD_ID；
+   跟目前這頁不一樣才 reload，且最多每 60 秒查一次、同一個目標只重整一次（避免 loop）。
+   若使用者正在輸入答案（文字輸入框有內容），先不重整，等下一次檢查再試。 */
+(function(){
+try{
+  var BUILD_ID = "20260917211550";
+  var CHECK_INTERVAL_MS = 60000;
+  var RELOAD_TARGET_KEY = 'q5_reload_target';
+  var SKIP_HIT_KEY = 'q5_skip_hit_once';
+  var lastCheck = 0;
+  var checking = false;
+
+  function pageUrlNoQuery(){
+    return location.origin + location.pathname;
+  }
+
+  function hasTypingInProgress(){
+    try{
+      var inputs = document.querySelectorAll('input[type="text"], input[type="search"]');
+      for(var i=0;i<inputs.length;i++){
+        if(inputs[i].value && inputs[i].value.length>0) return true;
+      }
+    }catch(e){}
+    return false;
+  }
+
+  function doReload(targetId){
+    try{
+      sessionStorage.setItem(RELOAD_TARGET_KEY, targetId);
+      sessionStorage.setItem(SKIP_HIT_KEY, '1');
+    }catch(e){}
+    location.reload();
+  }
+
+  function checkForUpdate(){
+    if(checking) return;
+    var now = Date.now();
+    if(now - lastCheck < CHECK_INTERVAL_MS) return;
+    lastCheck = now;
+    checking = true;
+    try{
+      var bust = pageUrlNoQuery() + '?_cb=' + now;
+      fetch(bust, {cache:'no-store'}).then(function(resp){
+        if(!resp.ok) throw new Error('bad status');
+        return resp.text();
+      }).then(function(text){
+        checking = false;
+        var m = text.match(/<meta name="build-id" content="([^"]+)"/);
+        if(!m) return;
+        var latest = m[1];
+        if(!latest || latest === BUILD_ID) return;
+        var attempted = null;
+        try{ attempted = sessionStorage.getItem(RELOAD_TARGET_KEY); }catch(e){}
+        if(attempted === latest) return; // 同一個目標已經試過，避免無限 reload
+        if(hasTypingInProgress()) return; // 使用者正在作答，先不重整，下次再檢查
+        doReload(latest);
+      }).catch(function(){ checking = false; });
+    }catch(e){ checking = false; }
+  }
+
+  window.addEventListener('load', checkForUpdate);
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible') checkForUpdate();
+  });
+  window.addEventListener('pageshow', function(e){
+    if(e.persisted) checkForUpdate();
+  });
+}catch(e){}
+})();
+</script>
 </head>
 <body>
 <div class="wrap"><div id="app"></div>
@@ -1110,8 +1186,17 @@ render();
 })();
 </script>
 <script>
-/* 靜默開啟計數（不顯示任何數字）。?v=<tag> 時另記一筆該人的專屬計數。 */
+/* 靜默開啟計數（不顯示任何數字）。?v=<tag> 時另記一筆該人的專屬計數。
+   自動重整（偵測到新版本）不重複計數：sessionStorage 旗標命中就跳過這一次並清除旗標。 */
 (function(){try{
+  var skip=false;
+  try{
+    if(sessionStorage.getItem('q5_skip_hit_once')==='1'){
+      skip=true;
+      sessionStorage.removeItem('q5_skip_hit_once');
+    }
+  }catch(e){}
+  if(skip) return;
   var q=location.search;
   var b='https://hits.sh/wennylai0208.github.io/notes/q5-r8kt';
   new Image().src=b+'.svg?x='+Math.random();
