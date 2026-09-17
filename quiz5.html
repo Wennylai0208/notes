@@ -102,6 +102,13 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
 .typein{width:100%;padding:12px 14px;font-size:1.05em;border-radius:12px;border:1px solid var(--line);
  background:var(--card);color:var(--tx);margin-top:10px}
 .typein:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
+.hintline{color:var(--tx3);font-size:.82em;margin:10px 0 2px;letter-spacing:1.5px;
+ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.rootrow{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:10px;background:var(--bg)}
+.rootrow.good{border-color:var(--ok);background:var(--okbg)}
+.rootrow.bad{border-color:var(--bad);background:var(--badbg)}
+.rr-zh{font-size:.95em;color:var(--tx2);font-weight:650;margin-bottom:2px}
+.rootin{margin-top:6px}
 .dif{color:var(--tx2)}
 .dif b{color:var(--bad);font-weight:800}
 .wrote{font-size:.9em;color:var(--tx2);margin-top:2px}
@@ -158,7 +165,7 @@ ROOT_GROUPS.forEach(function(rg){
 var ROOT_NAMES = ROOT_GROUPS.map(function(r){ return r.root; });
 var PAGES = Array.from(new Set(WORDS.map(function(w){return w.page;}).filter(function(p){return p!=null;}))).sort(function(a,b){return a-b;});
 
-var state = { screen:'list', cat:'word', page:'all', root:'all', search:'', menuOpen:false, menuSub:null };
+var state = { screen:'list', cat:'word', page:'all', root:'all', search:'', menuOpen:false, menuSub:null, menuTypingDir:null };
 
 function $(sel,root){ return (root||document).querySelector(sel); }
 function esc(s){ return (s==null?'':String(s)).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
@@ -185,13 +192,27 @@ function lsGet(key, fallback){
 }
 function lsSet(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
 
-/* mode 省略＝選擇題（舊 key 'quiz5_wrong' 原封不動）；mode='typing'＝中翻英專用另開 key */
-function wrongKey(mode){ return mode==='typing' ? 'quiz5_typing_wrong' : 'quiz5_wrong'; }
+/* mode 省略＝選擇題（舊 key 'quiz5_wrong' 原封不動）；
+   mode='typing_zh2en'＝中翻英（舊 key 'quiz5_typing_wrong' 原封不動，沿用她既有資料）；
+   mode='typing_en2zh'＝英翻中，另開新 key，不動舊資料 */
+function wrongKey(mode){
+  if(mode==='typing_zh2en') return 'quiz5_typing_wrong';
+  if(mode==='typing_en2zh') return 'quiz5_typing_wrong_en2zh';
+  return 'quiz5_wrong';
+}
 function loadWrong(mode){ return lsGet(wrongKey(mode), []); }
 function addWrong(w,mode){ var a=loadWrong(mode); var k=keyOf(w); if(a.indexOf(k)<0){ a.push(k); lsSet(wrongKey(mode),a);} }
 function removeWrong(w,mode){ var a=loadWrong(mode); var k=keyOf(w); var i=a.indexOf(k); if(i>=0){ a.splice(i,1); lsSet(wrongKey(mode),a);} }
 function isWrong(w,mode){ return loadWrong(mode).indexOf(keyOf(w))>=0; }
 function anyWrong(mode){ return loadWrong(mode).length>0; }
+
+/* 字根打字＝整組一起考，錯題本以「字根」為單位（不是逐字），另開 key */
+function rootWrongKey(){ return 'quiz5_typing_wrong_root'; }
+function loadWrongRoot(){ return lsGet(rootWrongKey(), []); }
+function addWrongRoot(rootName){ var a=loadWrongRoot(); var k=String(rootName||'').trim().toLowerCase(); if(a.indexOf(k)<0){ a.push(k); lsSet(rootWrongKey(),a);} }
+function removeWrongRoot(rootName){ var a=loadWrongRoot(); var k=String(rootName||'').trim().toLowerCase(); var i=a.indexOf(k); if(i>=0){ a.splice(i,1); lsSet(rootWrongKey(),a);} }
+function isWrongRoot(rootName){ return loadWrongRoot().indexOf(String(rootName||'').trim().toLowerCase())>=0; }
+function anyWrongRoot(){ return loadWrongRoot().length>0; }
 
 function fcKey(){ return 'quiz5_fc_status'; }
 function loadFc(){ return lsGet(fcKey(), {}); }
@@ -217,14 +238,20 @@ function saveFcSession(){
 function loadFcSession(){ return lsGet(fcSessKey(), null); }
 function clearFcSession(){ try{ localStorage.removeItem(fcSessKey()); }catch(e){} }
 
-function typingSessKey(){ return 'quiz5_typing_session'; }
+/* 打字模式的進度分三條線各自存：dir='zh2en'（舊 key，沿用）／'en2zh'／'root' */
+function typingSessKey(dir){
+  if(dir==='en2zh') return 'quiz5_typing_session_en2zh';
+  if(dir==='root') return 'quiz5_typing_session_root';
+  return 'quiz5_typing_session';
+}
 function saveTypingSession(){
-  if(state.typing && state.typing.qs && state.typing.qs.length){
-    lsSet(typingSessKey(), { cat:state.cat, page:state.page, root:state.root, typing:state.typing });
+  var q = state.typing;
+  if(q && q.qs && q.qs.length){
+    lsSet(typingSessKey(q.dir), { cat:state.cat, page:state.page, root:state.root, typing:q });
   }
 }
-function loadTypingSession(){ return lsGet(typingSessKey(), null); }
-function clearTypingSession(){ try{ localStorage.removeItem(typingSessKey()); }catch(e){} }
+function loadTypingSession(dir){ return lsGet(typingSessKey(dir), null); }
+function clearTypingSession(dir){ try{ localStorage.removeItem(typingSessKey(dir)); }catch(e){} }
 
 /* ---------- counterpart lookup helpers (每個選項的「對應語言」小字) ---------- */
 function matchCollocZh(item, answer){
@@ -257,6 +284,55 @@ function checkTypingAnswer(userVal, correct){
   var c2 = normTyped(stripPlaceholders(correct));
   return !!u2 && u2===c2;
 }
+/* ---------- 英翻中（打字）寬鬆判分：拆解中文定義成關鍵字片段，命中任一段就算對 ---------- */
+function normZh(s){ return String(s==null?'':s).replace(/\s+/g,'').replace(/[，,。.；;、！!？?]/g,''); }
+function zhKeys(zh){
+  var t = String(zh==null?'':zh)
+    .replace(/[（(][^）)]*[）)]/g,'')   /* 去括號內容 */
+    .replace(/…+/g,'').replace(/\.{2,}/g,''); /* 去刪節號 */
+  var arr = t.split(/[；;，,、／\/]+/);
+  var out = [];
+  arr.forEach(function(x){
+    x = x.replace(/\s+/g,'').replace(/^的+|的+$/g,'');
+    if(x.length>0) out.push(x);
+  });
+  var full = t.replace(/\s+/g,'');
+  if(full && out.indexOf(full)<0) out.push(full);
+  return out;
+}
+function judgeZhLenient(ans, keys){
+  var a = normZh(ans); if(a.length===0) return false;
+  for(var i=0;i<keys.length;i++){
+    var k = normZh(keys[i]); if(!k) continue;
+    if(a.indexOf(k)>=0) return true;
+    if(k.indexOf(a)>=0 && a.length>=2) return true;
+  }
+  return false;
+}
+
+/* ---------- 打字提示：片語＝字首＋其餘底線；單字＝字首＋字尾＋中間底線 ---------- */
+var HINT_PLACEHOLDERS = {"sb":1,"sth":1,"ving":1,"bev":1,"one's":1,"oneself":1};
+function isHintPlaceholder(tok){ return !!HINT_PLACEHOLDERS[String(tok||'').toLowerCase()]; }
+function hintBlankWord(word){
+  if(word.length<=1) return word;
+  return word[0] + new Array(word.length).join('_');
+}
+function hintPhrase(text){
+  return String(text==null?'':text).replace(/[A-Za-z']+/g, function(tok){
+    return isHintPlaceholder(tok) ? tok : hintBlankWord(tok);
+  });
+}
+function hintWordToken(word){
+  if(word.length<=1) return word;
+  if(word.length<=2) return word[0];
+  return word[0] + new Array(word.length-1).join('_') + word[word.length-1];
+}
+function hintWordEntry(text){
+  return String(text==null?'':text).replace(/[A-Za-z']+/g, function(tok){
+    return hintWordToken(tok);
+  });
+}
+
 /* 拼字差異標示（LCS，紅字＝答案裡使用者漏掉／拼錯的部分）*/
 function diffHtml(user,ans){
   var u=String(user==null?'':user).toLowerCase(), a=String(ans==null?'':ans).toLowerCase(), A=String(ans==null?'':ans);
@@ -402,13 +478,32 @@ function buildQuestions(wrongOnly){
   return qs.filter(function(q){ return q.options && q.options.length>=2; });
 }
 
-/* ---------- 中翻英（打字）題庫：每個項目一題，看中文寫英文 ---------- */
-function buildTypingQuestions(wrongOnly){
+/* ---------- 打字（單字／片語）題庫：每個項目一題；modeKey 決定用哪本錯題本 ---------- */
+function buildTypingQuestions(wrongOnly, modeKey){
   var pool = filteredList();
   var qs = [];
   pool.forEach(function(it){
-    if(wrongOnly && !isWrong(it,'typing')) return;
+    if(wrongOnly && !isWrong(it, modeKey)) return;
     if(it.word && it.zh) qs.push({ item:it, answered:false });
+  });
+  shuffle(qs);
+  return qs;
+}
+
+/* ---------- 字根打字題庫：一組字根＝一題，底下每個字各一列，一次送出整組 ---------- */
+function buildRootTypingGroups(wrongOnly){
+  var groups = ROOT_GROUPS.filter(function(rg){ return (rg.words||[]).length>0; });
+  if(state.root!=='all'){ groups = groups.filter(function(rg){ return rg.root===state.root; }); }
+  if(wrongOnly){ groups = groups.filter(function(rg){ return isWrongRoot(rg.root); }); }
+  var qs = groups.map(function(rg){
+    return {
+      root: rg.root,
+      meaning: rg.meaning||'',
+      answered: false,
+      rows: (rg.words||[]).map(function(w){
+        return { word:w.word, pos:w.pos||'', zh:w.zh||'', examples:w.examples||[], userVal:'', answered:false, ok:false };
+      })
+    };
   });
   shuffle(qs);
   return qs;
@@ -431,15 +526,27 @@ function renderTopbar(){
       '<button class="mitem" data-act="start-quiz" data-mode="all">📝 全部</button>'+
       '<button class="mitem" data-act="start-quiz" data-mode="wrong"'+(nWrongMc===0?' disabled':'')+'>🔁 只練錯的（'+nWrongMc+' 題）</button>';
   } else if(state.menuSub==='typing'){
-    var nWrongTy = loadWrong('typing').length;
-    dropInner =
-      '<button class="mitem" data-act="back-menu">‹ 返回</button>'+
-      '<button class="mitem" data-act="start-typing" data-mode="all">✍️ 全部</button>'+
-      '<button class="mitem" data-act="start-typing" data-mode="wrong"'+(nWrongTy===0?' disabled':'')+'>🔁 只練錯的（'+nWrongTy+' 題）</button>';
+    if(state.cat==='word' && !state.menuTypingDir){
+      /* 單字：先選方向 */
+      dropInner =
+        '<button class="mitem" data-act="back-menu">‹ 返回</button>'+
+        '<button class="mitem" data-act="pick-typing-dir" data-dir="zh2en">✍️ 中翻英</button>'+
+        '<button class="mitem" data-act="pick-typing-dir" data-dir="en2zh">✍️ 英翻中</button>';
+    } else {
+      var tyDir = state.cat==='root' ? 'root' : (state.cat==='word' ? state.menuTypingDir : 'zh2en');
+      var tyModeKey = tyDir==='en2zh' ? 'typing_en2zh' : 'typing_zh2en';
+      var nWrongTy = tyDir==='root' ? loadWrongRoot().length : loadWrong(tyModeKey).length;
+      var tyBackAct = state.cat==='word' ? 'back-typing-dir' : 'back-menu';
+      var tyUnit = tyDir==='root' ? '組' : '題';
+      dropInner =
+        '<button class="mitem" data-act="'+tyBackAct+'">‹ 返回</button>'+
+        '<button class="mitem" data-act="start-typing" data-mode="all" data-dir="'+tyDir+'">✍️ 全部</button>'+
+        '<button class="mitem" data-act="start-typing" data-mode="wrong" data-dir="'+tyDir+'"'+(nWrongTy===0?' disabled':'')+'>🔁 只練錯的（'+nWrongTy+' '+tyUnit+'）</button>';
+    }
   } else {
     dropInner =
       '<button class="mitem" data-act="open-mc-sub">📝 選擇題</button>'+
-      '<button class="mitem" data-act="open-typing-sub">✍️ 中翻英（打字）</button>'+
+      '<button class="mitem" data-act="open-typing-sub">✍️ 打字</button>'+
       '<button class="mitem" data-act="start-cards">🃏 字卡</button>'+
       '<button class="mitem" data-act="home">📋 回單字清單</button>';
   }
@@ -536,11 +643,15 @@ function renderList(){
     resumeHtml += '<div class="card resume"><div class="resumetxt">📝 選擇題做到一半・第 '+(mcS.quiz.idx+1)+' / '+mcS.quiz.qs.length+' 題（目前答對 '+mcS.quiz.score+'）</div>'+
       '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-mc">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-mc">重新開始</button></div></div>';
   }
-  var tyS = loadTypingSession();
-  if(tyS && tyS.typing && tyS.typing.qs && tyS.typing.qs.length && tyS.typing.idx < tyS.typing.qs.length){
-    resumeHtml += '<div class="card resume"><div class="resumetxt">✍️ 繼續上次的中翻英（第 '+(tyS.typing.idx+1)+' / '+tyS.typing.qs.length+' 題・目前答對 '+tyS.typing.score+'）</div>'+
-      '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-typing">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-typing">重新開始</button></div></div>';
-  }
+  ['zh2en','en2zh','root'].forEach(function(tyDirR){
+    var tyS = loadTypingSession(tyDirR);
+    if(tyS && tyS.typing && tyS.typing.qs && tyS.typing.qs.length && tyS.typing.idx < tyS.typing.qs.length){
+      var tyLabel = tyDirR==='en2zh' ? '英翻中' : (tyDirR==='root' ? '字根' : '中翻英');
+      var tyUnitR = tyDirR==='root' ? '組' : '題';
+      resumeHtml += '<div class="card resume"><div class="resumetxt">✍️ 繼續上次的'+tyLabel+'（第 '+(tyS.typing.idx+1)+' / '+tyS.typing.qs.length+' '+tyUnitR+'・目前答對 '+tyS.typing.score+'）</div>'+
+        '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-typing" data-dir="'+tyDirR+'">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-typing" data-dir="'+tyDirR+'">重新開始</button></div></div>';
+    }
+  });
   var fcS = loadFcSession();
   if(fcS && fcS.list && fcS.list.length){
     resumeHtml += '<div class="card resume"><div class="resumetxt">🃏 字卡看到一半・第 '+(fcS.idx+1)+' / '+fcS.list.length+' 張</div>'+
@@ -662,20 +773,34 @@ function renderResult(){
 function renderTyping(){
   var q = state.typing;
   if(!q) return renderList();
+  if(q.dir==='root') return renderTypingRoot();
   if(q.qs.length===0){
     return '<button class="back" data-act="home">← 回單字清單</button>'+
       '<div class="card empty">目前沒有可以出的題目'+(q.wrongOnly?'（沒有錯題了，太厲害了）':'')+'</div>';
   }
-  if(q.idx>=q.qs.length){ state.screen='typingResult'; clearTypingSession(); return renderTypingResult(); }
+  if(q.idx>=q.qs.length){ state.screen='typingResult'; clearTypingSession(q.dir); return renderTypingResult(); }
   var cur = q.qs[q.idx];
   var pct = Math.round(q.idx/q.qs.length*100);
   var it = cur.item;
   var correct = it.word;
   var answered = !!cur.answered;
-  var qtagTxt = '中翻英・'+catLabel(it.cat)+(it.pos?'・'+it.pos:'');
+  var isEn2zh = q.dir==='en2zh';
+  var qtagTxt = (isEn2zh?'英翻中':'中翻英')+'・'+catLabel(it.cat)+(it.pos?'・'+it.pos:'');
+  var qmainHtml;
+  if(isEn2zh){
+    var ipaPos = [it.phonetic||'', it.pos||''].filter(function(s){return s;}).join('　');
+    qmainHtml = esc(it.word) + (ipaPos ? '<span class="ipa2">'+esc(ipaPos)+'</span>' : '') + itemBadge(it);
+  } else {
+    qmainHtml = esc(it.zh) + itemBadge(it);
+  }
   var bodyHtml;
   if(!answered){
-    bodyHtml = '<input type="text" class="typein" id="typeIn" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="輸入英文…">'+
+    var hintHtml = '';
+    if(!isEn2zh){
+      var hintTxt = it.cat==='phrase' ? hintPhrase(it.word) : hintWordEntry(it.word);
+      hintHtml = '<div class="hintline">提示：'+esc(hintTxt)+'</div>';
+    }
+    bodyHtml = hintHtml+'<input type="text" class="typein" id="typeIn" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="'+(isEn2zh?'輸入中文意思…':'輸入英文…')+'">'+
       '<button class="btn" data-act="typesubmit">送出</button>';
   } else {
     var ok = cur.ok;
@@ -683,11 +808,12 @@ function renderTyping(){
     if((it.examples||[]).length){ extra += it.examples.map(exampleLine).join(''); }
     if(it.cat==='word' && (it.collocations||[]).length){ extra += it.collocations.map(collocLine).join(''); }
     if(it.cat==='phrase' && (it.synonyms||[]).length){ extra += '<div class="sub">＝ '+it.synonyms.map(esc).join('　＝ ')+'</div>'; }
-    if(it.cat==='root' && it.root){ extra += '<div class="sub">字根 <b>'+esc(it.root)+'</b>　'+esc(it.rootMeaning||'')+'</div>'; }
-    bodyHtml = '<div class="wrote">你寫：'+esc(cur.userVal||'')+'</div>'+
-      (ok ? '' : '<div class="wrote">正確：<span class="dif">'+diffHtml(cur.userVal||'', correct)+'</span>（紅色是漏掉／拼錯的地方）</div>');
+    var wroteHtml = '<div class="wrote">你寫：'+esc(cur.userVal||'')+'</div>';
+    if(!isEn2zh && !ok){
+      wroteHtml += '<div class="wrote">正確：<span class="dif">'+diffHtml(cur.userVal||'', correct)+'</span>（紅色是漏掉／拼錯的地方）</div>';
+    }
     bodyHtml = '<div class="fb '+(ok?'good':'bad')+'">'+
-      '<div class="hd">'+(ok?'答對了 🎉':'答錯了')+'</div>'+ bodyHtml +
+      '<div class="hd">'+(ok?'答對了 🎉':'答錯了')+'</div>'+ wroteHtml +
       '<div class="ansbox"><span class="answ">'+esc(it.word)+'</span><span class="ipa2">'+esc(it.phonetic||it.pos||'')+'</span>'+
       '<div class="zh2">'+esc(it.zh||'')+'</div>'+ extra +
       '</div></div>'+
@@ -699,19 +825,63 @@ function renderTyping(){
   '<div class="pmeta"><span>第 '+(q.idx+1)+' / '+q.qs.length+' 題</span><span>答對 '+q.score+'</span></div>'+
   '<div class="card">'+
     '<div class="qtag">'+esc(qtagTxt)+'</div>'+
-    '<div class="qmain">'+esc(it.zh)+itemBadge(it)+'</div>'+
+    '<div class="qmain">'+qmainHtml+'</div>'+
     (answered ? '' : bodyHtml)+
   '</div>'+
   (answered ? bodyHtml : '');
 }
 
+/* 字根：一題＝一整組，每個字一列，一次送出整組 */
+function renderTypingRoot(){
+  var q = state.typing;
+  if(!q) return renderList();
+  if(q.qs.length===0){
+    return '<button class="back" data-act="home">← 回單字清單</button>'+
+      '<div class="card empty">目前沒有可以出的題目'+(q.wrongOnly?'（沒有錯題了，太厲害了）':'')+'</div>';
+  }
+  if(q.idx>=q.qs.length){ state.screen='typingResult'; clearTypingSession('root'); return renderTypingResult(); }
+  var cur = q.qs[q.idx];
+  var pct = Math.round(q.idx/q.qs.length*100);
+  var answered = !!cur.answered;
+  var rowsHtml = cur.rows.map(function(r, ri){
+    if(!answered){
+      var hint = hintWordEntry(r.word);
+      return '<div class="rootrow">'+
+        '<div class="rr-zh">'+esc(r.zh)+(r.pos?'　<span class="ipa2">'+esc(r.pos)+'</span>':'')+'</div>'+
+        '<div class="hintline">提示：'+esc(hint)+'</div>'+
+        '<input type="text" class="typein rootin" data-ri="'+ri+'" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="輸入英文…">'+
+        '</div>';
+    }
+    var rowCls = 'rootrow '+(r.ok?'good':'bad');
+    return '<div class="'+rowCls+'">'+
+      '<div class="rr-zh">'+esc(r.zh)+(r.pos?'　<span class="ipa2">'+esc(r.pos)+'</span>':'')+'</div>'+
+      '<div class="wrote">你寫：'+esc(r.userVal||'（空白）')+'</div>'+
+      (r.ok ? '<div class="wrote">✅ '+esc(r.word)+'</div>' : '<div class="wrote">正確：<span class="dif">'+diffHtml(r.userVal||'', r.word)+'</span></div>')+
+      '</div>';
+  }).join('');
+  var submitHtml = answered
+    ? '<button class="btn" data-act="rootnext">'+(q.idx+1>=q.qs.length?'看結果':'下一組')+'</button>'
+    : '<button class="btn" data-act="rootsubmit">送出整組</button>';
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="pbar"><i style="width:'+pct+'%"></i></div>'+
+  '<div class="pmeta"><span>第 '+(q.idx+1)+' / '+q.qs.length+' 組</span><span>答對 '+q.score+'</span></div>'+
+  '<div class="card">'+
+    '<div class="qtag">字根</div>'+
+    '<div class="qmain">'+esc(cur.root)+'<span class="ipa2">'+esc(cur.meaning||'')+'</span></div>'+
+    rowsHtml+
+    submitHtml+
+  '</div>';
+}
+
 function renderTypingResult(){
   var q = state.typing;
   if(!q) return renderList();
+  var unitLabel = q.dir==='root' ? '組數' : '題數';
   return ''+
   '<button class="back" data-act="home">← 回單字清單</button>'+
-  '<div class="card score"><div class="n">'+q.score+' / '+q.qs.length+'</div><div class="d">答對題數</div></div>'+
-  '<button class="btn" data-act="start-typing" data-mode="'+(q.wrongOnly?'wrong':'all')+'">再玩一次</button>'+
+  '<div class="card score"><div class="n">'+q.score+' / '+q.qs.length+'</div><div class="d">答對'+unitLabel+'</div></div>'+
+  '<button class="btn" data-act="start-typing" data-mode="'+(q.wrongOnly?'wrong':'all')+'" data-dir="'+q.dir+'">再玩一次</button>'+
   '<button class="btn ghost" data-act="home">回單字清單</button>';
 }
 
@@ -779,10 +949,17 @@ function startCards(){
   state.cards = { list: buildDeck(false), idx:0, flipped:false, unsureOnly:false };
   state.screen = 'cards';
 }
-function startTyping(mode){
-  clearTypingSession();
-  var wrongOnly = mode==='wrong' && anyWrong('typing');
-  state.typing = { qs:buildTypingQuestions(wrongOnly), idx:0, score:0, wrongOnly:wrongOnly };
+/* navMode:'all'|'wrong'　dir:'zh2en'|'en2zh'|'root' */
+function startTyping(navMode, dir){
+  clearTypingSession(dir);
+  if(dir==='root'){
+    var wrongOnlyR = navMode==='wrong' && anyWrongRoot();
+    state.typing = { qs:buildRootTypingGroups(wrongOnlyR), idx:0, score:0, wrongOnly:wrongOnlyR, dir:'root' };
+  } else {
+    var modeKey = dir==='en2zh' ? 'typing_en2zh' : 'typing_zh2en';
+    var wrongOnly = navMode==='wrong' && anyWrong(modeKey);
+    state.typing = { qs:buildTypingQuestions(wrongOnly, modeKey), idx:0, score:0, wrongOnly:wrongOnly, dir:dir };
+  }
   state.screen = 'typing';
 }
 function typeSubmit(){
@@ -792,15 +969,36 @@ function typeSubmit(){
   if(!val.trim()){ inp.focus(); return; }
   var q = state.typing; var cur = q.qs[q.idx];
   if(!cur || cur.answered) return;
-  var ok = checkTypingAnswer(val, cur.item.word);
+  var isEn2zh = q.dir==='en2zh';
+  var modeKey = isEn2zh ? 'typing_en2zh' : 'typing_zh2en';
+  var ok = isEn2zh ? judgeZhLenient(val, zhKeys(cur.item.zh)) : checkTypingAnswer(val, cur.item.word);
   cur.answered = true; cur.userVal = val; cur.ok = ok;
-  if(ok){ q.score++; removeWrong(cur.item,'typing'); }
-  else { addWrong(cur.item,'typing'); }
+  if(ok){ q.score++; removeWrong(cur.item, modeKey); }
+  else { addWrong(cur.item, modeKey); }
+  saveTypingSession();
+  render();
+}
+function rootSubmit(){
+  var q = state.typing; var cur = q.qs[q.idx];
+  if(!cur || cur.answered) return;
+  var app = $('#app');
+  var inputs = app.querySelectorAll('.rootin');
+  var valByRi = {};
+  Array.prototype.forEach.call(inputs, function(el){ valByRi[el.getAttribute('data-ri')] = el.value; });
+  var allOk = true;
+  cur.rows.forEach(function(r, ri){
+    var val = valByRi[String(ri)] || '';
+    var ok = checkTypingAnswer(val, r.word);
+    r.userVal = val; r.ok = ok; r.answered = true;
+    if(!ok) allOk = false;
+  });
+  cur.answered = true;
+  if(allOk){ q.score++; removeWrongRoot(cur.root); } else { addWrongRoot(cur.root); }
   saveTypingSession();
   render();
 }
 
-function closeMenu(){ state.menuOpen=false; state.menuSub=null; }
+function closeMenu(){ state.menuOpen=false; state.menuSub=null; state.menuTypingDir=null; }
 
 function bind(){
   var app = $('#app');
@@ -810,19 +1008,24 @@ function bind(){
     var act = t.getAttribute('data-act');
     if(act==='home'){ closeMenu(); state.screen='list'; render(); }
     else if(act==='open-mc-sub'){ state.menuSub='mc'; render(); }
-    else if(act==='open-typing-sub'){ state.menuSub='typing'; render(); }
-    else if(act==='back-menu'){ state.menuSub=null; render(); }
+    else if(act==='open-typing-sub'){ state.menuSub='typing'; state.menuTypingDir=null; render(); }
+    else if(act==='back-menu'){ state.menuSub=null; state.menuTypingDir=null; render(); }
+    else if(act==='pick-typing-dir'){ state.menuTypingDir=t.getAttribute('data-dir'); render(); }
+    else if(act==='back-typing-dir'){ state.menuTypingDir=null; render(); }
     else if(act==='start-quiz'){ closeMenu(); startQuiz(t.getAttribute('data-mode')); render(); }
-    else if(act==='start-typing'){ closeMenu(); startTyping(t.getAttribute('data-mode')); render(); }
+    else if(act==='start-typing'){ closeMenu(); startTyping(t.getAttribute('data-mode'), t.getAttribute('data-dir')); render(); }
     else if(act==='start-cards'){ closeMenu(); startCards(); render(); }
     else if(act==='typesubmit'){ typeSubmit(); }
     else if(act==='typenext'){ state.typing.idx++; saveTypingSession(); render(); }
+    else if(act==='rootsubmit'){ rootSubmit(); }
+    else if(act==='rootnext'){ state.typing.idx++; saveTypingSession(); render(); }
     else if(act==='resume-typing'){
-      var sTy = loadTypingSession();
+      var rDir = t.getAttribute('data-dir');
+      var sTy = loadTypingSession(rDir);
       if(sTy && sTy.typing){ state.cat=sTy.cat; state.page=sTy.page; state.root=sTy.root; state.typing=sTy.typing; state.screen='typing'; }
       render();
     }
-    else if(act==='discard-typing'){ clearTypingSession(); render(); }
+    else if(act==='discard-typing'){ clearTypingSession(t.getAttribute('data-dir')); render(); }
     else if(act==='setcat'){ state.cat = t.getAttribute('data-cat'); render(); }
     else if(act==='setpage'){ state.page = t.getAttribute('data-page'); render(); }
     else if(act==='setroot'){ state.root = t.getAttribute('data-root'); render(); }
