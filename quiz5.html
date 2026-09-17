@@ -20,6 +20,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.35)}
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
 html,body{margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);
  font:16.5px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
@@ -43,6 +44,8 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
 .mitem{display:block;width:100%;text-align:left;padding:12px 12px;min-height:44px;border:0;background:transparent;
  color:var(--tx);font:inherit;font-size:.92em;font-weight:650;border-radius:10px;cursor:pointer}
 .mitem:active{background:var(--accent2)}
+.mitem:disabled{opacity:.4;cursor:default}
+.mitem:disabled:active{background:transparent}
 
 /* ---- list screen ---- */
 .searchbox{width:100%;padding:12px 14px;font-size:1em;border-radius:12px;border:1px solid var(--line);
@@ -96,6 +99,12 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
 .ansbox{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 12px;margin-top:8px;color:var(--tx)}
 .answ{font-size:1.05em;font-weight:750}
 .ipa2{color:var(--tx3);font-size:.83em;margin-left:6px;font-weight:400}
+.typein{width:100%;padding:12px 14px;font-size:1.05em;border-radius:12px;border:1px solid var(--line);
+ background:var(--card);color:var(--tx);margin-top:10px}
+.typein:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
+.dif{color:var(--tx2)}
+.dif b{color:var(--bad);font-weight:800}
+.wrote{font-size:.9em;color:var(--tx2);margin-top:2px}
 .zh2{margin-top:3px;color:var(--tx2);font-size:.92em}
 .exsent{margin-top:8px;font-size:.88em;color:var(--tx2);line-height:1.65}
 .exsent b{color:var(--accent);text-decoration:underline;font-weight:800}
@@ -149,7 +158,7 @@ ROOT_GROUPS.forEach(function(rg){
 var ROOT_NAMES = ROOT_GROUPS.map(function(r){ return r.root; });
 var PAGES = Array.from(new Set(WORDS.map(function(w){return w.page;}).filter(function(p){return p!=null;}))).sort(function(a,b){return a-b;});
 
-var state = { screen:'list', cat:'word', page:'all', root:'all', search:'' };
+var state = { screen:'list', cat:'word', page:'all', root:'all', search:'', menuOpen:false, menuSub:null };
 
 function $(sel,root){ return (root||document).querySelector(sel); }
 function esc(s){ return (s==null?'':String(s)).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
@@ -176,12 +185,13 @@ function lsGet(key, fallback){
 }
 function lsSet(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
 
-function wrongKey(){ return 'quiz5_wrong'; }
-function loadWrong(){ return lsGet(wrongKey(), []); }
-function addWrong(w){ var a=loadWrong(); var k=keyOf(w); if(a.indexOf(k)<0){ a.push(k); lsSet(wrongKey(),a);} }
-function removeWrong(w){ var a=loadWrong(); var k=keyOf(w); var i=a.indexOf(k); if(i>=0){ a.splice(i,1); lsSet(wrongKey(),a);} }
-function isWrong(w){ return loadWrong().indexOf(keyOf(w))>=0; }
-function anyWrong(){ return loadWrong().length>0; }
+/* mode 省略＝選擇題（舊 key 'quiz5_wrong' 原封不動）；mode='typing'＝中翻英專用另開 key */
+function wrongKey(mode){ return mode==='typing' ? 'quiz5_typing_wrong' : 'quiz5_wrong'; }
+function loadWrong(mode){ return lsGet(wrongKey(mode), []); }
+function addWrong(w,mode){ var a=loadWrong(mode); var k=keyOf(w); if(a.indexOf(k)<0){ a.push(k); lsSet(wrongKey(mode),a);} }
+function removeWrong(w,mode){ var a=loadWrong(mode); var k=keyOf(w); var i=a.indexOf(k); if(i>=0){ a.splice(i,1); lsSet(wrongKey(mode),a);} }
+function isWrong(w,mode){ return loadWrong(mode).indexOf(keyOf(w))>=0; }
+function anyWrong(mode){ return loadWrong(mode).length>0; }
 
 function fcKey(){ return 'quiz5_fc_status'; }
 function loadFc(){ return lsGet(fcKey(), {}); }
@@ -207,6 +217,15 @@ function saveFcSession(){
 function loadFcSession(){ return lsGet(fcSessKey(), null); }
 function clearFcSession(){ try{ localStorage.removeItem(fcSessKey()); }catch(e){} }
 
+function typingSessKey(){ return 'quiz5_typing_session'; }
+function saveTypingSession(){
+  if(state.typing && state.typing.qs && state.typing.qs.length){
+    lsSet(typingSessKey(), { cat:state.cat, page:state.page, root:state.root, typing:state.typing });
+  }
+}
+function loadTypingSession(){ return lsGet(typingSessKey(), null); }
+function clearTypingSession(){ try{ localStorage.removeItem(typingSessKey()); }catch(e){} }
+
 /* ---------- counterpart lookup helpers (每個選項的「對應語言」小字) ---------- */
 function matchCollocZh(item, answer){
   var a=(answer||'').trim().toLowerCase();
@@ -217,6 +236,39 @@ function matchCollocZh(item, answer){
   return '';
 }
 function clozeZh(item, answer){ return matchCollocZh(item, answer) || (item&&item.zh) || ''; }
+
+/* ---------- 中翻英（打字）判分：大小寫不分／去頭尾空白／空白摺疊／尾端標點忽略／片語佔位詞可省略 ---------- */
+function normTyped(s){
+  return String(s==null?'':s).trim().toLowerCase().replace(/\s+/g,' ').replace(/[.,!?;:'"、。！？，；：]+$/,'').trim();
+}
+function stripPlaceholders(s){
+  return String(s==null?'':s)
+    .replace(/\bone'?s\b/gi,' ').replace(/\boneself\b/gi,' ')
+    .replace(/\bsb\.?\b/gi,' ').replace(/\bsth\.?\b/gi,' ')
+    .replace(/\bsomeone\b/gi,' ').replace(/\bsomething\b/gi,' ')
+    .replace(/\bv-?ing\b/gi,' ').replace(/\bbev\b/gi,' ').replace(/\bdoing\b/gi,' ')
+    .replace(/\s+/g,' ').trim();
+}
+function checkTypingAnswer(userVal, correct){
+  var u = normTyped(userVal);
+  if(!u) return false;
+  if(u===normTyped(correct)) return true;
+  var u2 = normTyped(stripPlaceholders(userVal));
+  var c2 = normTyped(stripPlaceholders(correct));
+  return !!u2 && u2===c2;
+}
+/* 拼字差異標示（LCS，紅字＝答案裡使用者漏掉／拼錯的部分）*/
+function diffHtml(user,ans){
+  var u=String(user==null?'':user).toLowerCase(), a=String(ans==null?'':ans).toLowerCase(), A=String(ans==null?'':ans);
+  var m=u.length,n=a.length,i,j;
+  var dp=[]; for(i=0;i<=m;i++){dp.push(new Array(n+1)); for(j=0;j<=n;j++)dp[i][j]=0;}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++)dp[i][j]= u[i-1]===a[j-1] ? dp[i-1][j-1]+1 : Math.max(dp[i-1][j],dp[i][j-1]);
+  var keep={}; i=m;j=n;
+  while(i>0&&j>0){ if(u[i-1]===a[j-1]){keep[j-1]=1;i--;j--;} else if(dp[i-1][j]>=dp[i][j-1]) i--; else j--; }
+  var out='';
+  for(j=0;j<n;j++){ out += keep[j] ? esc(A[j]) : '<b>'+esc(A[j])+'</b>'; }
+  return out;
+}
 
 /* ---------- global distractor pools (built once, from the real dataset; scoped per category) ---------- */
 var ALL_COLS = []; /* {en, zh} unique, from WORDS */
@@ -350,6 +402,18 @@ function buildQuestions(wrongOnly){
   return qs.filter(function(q){ return q.options && q.options.length>=2; });
 }
 
+/* ---------- 中翻英（打字）題庫：每個項目一題，看中文寫英文 ---------- */
+function buildTypingQuestions(wrongOnly){
+  var pool = filteredList();
+  var qs = [];
+  pool.forEach(function(it){
+    if(wrongOnly && !isWrong(it,'typing')) return;
+    if(it.word && it.zh) qs.push({ item:it, answered:false });
+  });
+  shuffle(qs);
+  return qs;
+}
+
 /* ---------- flashcard building ---------- */
 function buildDeck(unsureOnly){
   var list = filteredList();
@@ -359,14 +423,29 @@ function buildDeck(unsureOnly){
 
 /* ---------- shared topbar ---------- */
 function renderTopbar(){
+  var dropInner;
+  if(state.menuSub==='mc'){
+    var nWrongMc = loadWrong('mc').length;
+    dropInner =
+      '<button class="mitem" data-act="back-menu">‹ 返回</button>'+
+      '<button class="mitem" data-act="start-quiz" data-mode="all">📝 全部</button>'+
+      '<button class="mitem" data-act="start-quiz" data-mode="wrong"'+(nWrongMc===0?' disabled':'')+'>🔁 只練錯的（'+nWrongMc+' 題）</button>';
+  } else if(state.menuSub==='typing'){
+    var nWrongTy = loadWrong('typing').length;
+    dropInner =
+      '<button class="mitem" data-act="back-menu">‹ 返回</button>'+
+      '<button class="mitem" data-act="start-typing" data-mode="all">✍️ 全部</button>'+
+      '<button class="mitem" data-act="start-typing" data-mode="wrong"'+(nWrongTy===0?' disabled':'')+'>🔁 只練錯的（'+nWrongTy+' 題）</button>';
+  } else {
+    dropInner =
+      '<button class="mitem" data-act="open-mc-sub">📝 選擇題</button>'+
+      '<button class="mitem" data-act="open-typing-sub">✍️ 中翻英（打字）</button>'+
+      '<button class="mitem" data-act="start-cards">🃏 字卡</button>'+
+      '<button class="mitem" data-act="home">📋 回單字清單</button>';
+  }
   return '<div class="topbar"><div class="ttl">GSAT 單字 P124-128</div>'+
     '<div class="menuwrap"><button class="menubtn" id="menuBtn" aria-label="選單">⋯</button>'+
-    '<div class="menudrop" id="menuDrop" hidden>'+
-      '<button class="mitem" data-act="start-quiz" data-mode="all">📝 選擇題（全部）</button>'+
-      '<button class="mitem" data-act="start-quiz" data-mode="wrong">🔁 選擇題（只練錯的）</button>'+
-      '<button class="mitem" data-act="start-cards">🃏 字卡</button>'+
-      '<button class="mitem" data-act="home">📋 回單字清單</button>'+
-    '</div></div></div>';
+    '<div class="menudrop" id="menuDrop"'+(state.menuOpen?'':' hidden')+'>'+dropInner+'</div></div></div>';
 }
 
 /* ---------- render: router ---------- */
@@ -374,6 +453,8 @@ function render(){
   var app = $('#app');
   if(state.screen==='quiz') app.innerHTML = renderTopbar()+renderQuiz();
   else if(state.screen==='result') app.innerHTML = renderTopbar()+renderResult();
+  else if(state.screen==='typing') app.innerHTML = renderTopbar()+renderTyping();
+  else if(state.screen==='typingResult') app.innerHTML = renderTopbar()+renderTypingResult();
   else if(state.screen==='cards') app.innerHTML = renderTopbar()+renderCards();
   else app.innerHTML = renderTopbar()+renderList();
   bind();
@@ -454,6 +535,11 @@ function renderList(){
   if(mcS && mcS.quiz && mcS.quiz.qs && mcS.quiz.qs.length && mcS.quiz.idx < mcS.quiz.qs.length){
     resumeHtml += '<div class="card resume"><div class="resumetxt">📝 選擇題做到一半・第 '+(mcS.quiz.idx+1)+' / '+mcS.quiz.qs.length+' 題（目前答對 '+mcS.quiz.score+'）</div>'+
       '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-mc">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-mc">重新開始</button></div></div>';
+  }
+  var tyS = loadTypingSession();
+  if(tyS && tyS.typing && tyS.typing.qs && tyS.typing.qs.length && tyS.typing.idx < tyS.typing.qs.length){
+    resumeHtml += '<div class="card resume"><div class="resumetxt">✍️ 繼續上次的中翻英（第 '+(tyS.typing.idx+1)+' / '+tyS.typing.qs.length+' 題・目前答對 '+tyS.typing.score+'）</div>'+
+      '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-typing">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-typing">重新開始</button></div></div>';
   }
   var fcS = loadFcSession();
   if(fcS && fcS.list && fcS.list.length){
@@ -573,6 +659,62 @@ function renderResult(){
   '<button class="btn ghost" data-act="home">回單字清單</button>';
 }
 
+function renderTyping(){
+  var q = state.typing;
+  if(!q) return renderList();
+  if(q.qs.length===0){
+    return '<button class="back" data-act="home">← 回單字清單</button>'+
+      '<div class="card empty">目前沒有可以出的題目'+(q.wrongOnly?'（沒有錯題了，太厲害了）':'')+'</div>';
+  }
+  if(q.idx>=q.qs.length){ state.screen='typingResult'; clearTypingSession(); return renderTypingResult(); }
+  var cur = q.qs[q.idx];
+  var pct = Math.round(q.idx/q.qs.length*100);
+  var it = cur.item;
+  var correct = it.word;
+  var answered = !!cur.answered;
+  var qtagTxt = '中翻英・'+catLabel(it.cat)+(it.pos?'・'+it.pos:'');
+  var bodyHtml;
+  if(!answered){
+    bodyHtml = '<input type="text" class="typein" id="typeIn" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="輸入英文…">'+
+      '<button class="btn" data-act="typesubmit">送出</button>';
+  } else {
+    var ok = cur.ok;
+    var extra = '';
+    if((it.examples||[]).length){ extra += it.examples.map(exampleLine).join(''); }
+    if(it.cat==='word' && (it.collocations||[]).length){ extra += it.collocations.map(collocLine).join(''); }
+    if(it.cat==='phrase' && (it.synonyms||[]).length){ extra += '<div class="sub">＝ '+it.synonyms.map(esc).join('　＝ ')+'</div>'; }
+    if(it.cat==='root' && it.root){ extra += '<div class="sub">字根 <b>'+esc(it.root)+'</b>　'+esc(it.rootMeaning||'')+'</div>'; }
+    bodyHtml = '<div class="wrote">你寫：'+esc(cur.userVal||'')+'</div>'+
+      (ok ? '' : '<div class="wrote">正確：<span class="dif">'+diffHtml(cur.userVal||'', correct)+'</span>（紅色是漏掉／拼錯的地方）</div>');
+    bodyHtml = '<div class="fb '+(ok?'good':'bad')+'">'+
+      '<div class="hd">'+(ok?'答對了 🎉':'答錯了')+'</div>'+ bodyHtml +
+      '<div class="ansbox"><span class="answ">'+esc(it.word)+'</span><span class="ipa2">'+esc(it.phonetic||it.pos||'')+'</span>'+
+      '<div class="zh2">'+esc(it.zh||'')+'</div>'+ extra +
+      '</div></div>'+
+      '<button class="btn" data-act="typenext">'+(q.idx+1>=q.qs.length?'看結果':'下一題')+'</button>';
+  }
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="pbar"><i style="width:'+pct+'%"></i></div>'+
+  '<div class="pmeta"><span>第 '+(q.idx+1)+' / '+q.qs.length+' 題</span><span>答對 '+q.score+'</span></div>'+
+  '<div class="card">'+
+    '<div class="qtag">'+esc(qtagTxt)+'</div>'+
+    '<div class="qmain">'+esc(it.zh)+itemBadge(it)+'</div>'+
+    (answered ? '' : bodyHtml)+
+  '</div>'+
+  (answered ? bodyHtml : '');
+}
+
+function renderTypingResult(){
+  var q = state.typing;
+  if(!q) return renderList();
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="card score"><div class="n">'+q.score+' / '+q.qs.length+'</div><div class="d">答對題數</div></div>'+
+  '<button class="btn" data-act="start-typing" data-mode="'+(q.wrongOnly?'wrong':'all')+'">再玩一次</button>'+
+  '<button class="btn ghost" data-act="home">回單字清單</button>';
+}
+
 function renderCards(){
   var c = state.cards;
   if(!c) return renderList();
@@ -637,8 +779,28 @@ function startCards(){
   state.cards = { list: buildDeck(false), idx:0, flipped:false, unsureOnly:false };
   state.screen = 'cards';
 }
+function startTyping(mode){
+  clearTypingSession();
+  var wrongOnly = mode==='wrong' && anyWrong('typing');
+  state.typing = { qs:buildTypingQuestions(wrongOnly), idx:0, score:0, wrongOnly:wrongOnly };
+  state.screen = 'typing';
+}
+function typeSubmit(){
+  var inp = document.getElementById('typeIn');
+  if(!inp) return;
+  var val = inp.value;
+  if(!val.trim()){ inp.focus(); return; }
+  var q = state.typing; var cur = q.qs[q.idx];
+  if(!cur || cur.answered) return;
+  var ok = checkTypingAnswer(val, cur.item.word);
+  cur.answered = true; cur.userVal = val; cur.ok = ok;
+  if(ok){ q.score++; removeWrong(cur.item,'typing'); }
+  else { addWrong(cur.item,'typing'); }
+  saveTypingSession();
+  render();
+}
 
-function closeMenu(){ var d=document.getElementById('menuDrop'); if(d) d.hidden=true; }
+function closeMenu(){ state.menuOpen=false; state.menuSub=null; }
 
 function bind(){
   var app = $('#app');
@@ -647,8 +809,20 @@ function bind(){
     if(!t) return;
     var act = t.getAttribute('data-act');
     if(act==='home'){ closeMenu(); state.screen='list'; render(); }
+    else if(act==='open-mc-sub'){ state.menuSub='mc'; render(); }
+    else if(act==='open-typing-sub'){ state.menuSub='typing'; render(); }
+    else if(act==='back-menu'){ state.menuSub=null; render(); }
     else if(act==='start-quiz'){ closeMenu(); startQuiz(t.getAttribute('data-mode')); render(); }
+    else if(act==='start-typing'){ closeMenu(); startTyping(t.getAttribute('data-mode')); render(); }
     else if(act==='start-cards'){ closeMenu(); startCards(); render(); }
+    else if(act==='typesubmit'){ typeSubmit(); }
+    else if(act==='typenext'){ state.typing.idx++; saveTypingSession(); render(); }
+    else if(act==='resume-typing'){
+      var sTy = loadTypingSession();
+      if(sTy && sTy.typing){ state.cat=sTy.cat; state.page=sTy.page; state.root=sTy.root; state.typing=sTy.typing; state.screen='typing'; }
+      render();
+    }
+    else if(act==='discard-typing'){ clearTypingSession(); render(); }
     else if(act==='setcat'){ state.cat = t.getAttribute('data-cat'); render(); }
     else if(act==='setpage'){ state.page = t.getAttribute('data-page'); render(); }
     else if(act==='setroot'){ state.root = t.getAttribute('data-root'); render(); }
@@ -693,7 +867,12 @@ function bind(){
     else if(act==='shuffle'){ shuffle(state.cards.list); state.cards.idx=0; state.cards.flipped=false; saveFcSession(); render(); }
   };
   var menuBtn = $('#menuBtn', app);
-  if(menuBtn){ menuBtn.onclick = function(e){ e.stopPropagation(); var d=$('#menuDrop',app); d.hidden = !d.hidden; }; }
+  if(menuBtn){ menuBtn.onclick = function(e){ e.stopPropagation(); state.menuOpen = !state.menuOpen; if(!state.menuOpen) state.menuSub=null; render(); }; }
+  var typeIn = $('#typeIn', app);
+  if(typeIn){
+    typeIn.focus();
+    typeIn.onkeydown = function(e){ if(e.key==='Enter'||e.keyCode===13){ e.preventDefault(); typeSubmit(); } };
+  }
   var searchBox = $('#searchBox', app);
   if(searchBox){
     searchBox.oninput = function(){
@@ -715,12 +894,14 @@ function bind(){
   }; }
 }
 
+/* capture phase：一定要在 app.onclick 觸發整個 innerHTML 重繪之前先判斷，
+   否則 e.target 在重繪後會變成已脫離文件的舊節點，containment 判斷會失準 */
 document.addEventListener('click', function(e){
-  var d = document.getElementById('menuDrop');
-  if(d && !d.hidden){
-    if(!d.contains(e.target) && e.target.id!=='menuBtn'){ d.hidden = true; }
+  if(state.menuOpen){
+    var d = document.getElementById('menuDrop');
+    if(d && !d.contains(e.target) && e.target.id!=='menuBtn'){ state.menuOpen=false; state.menuSub=null; render(); }
   }
-});
+}, true);
 
 render();
 })();
