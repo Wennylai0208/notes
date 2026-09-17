@@ -64,6 +64,8 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
 .wcell .sub{font-size:.72em;color:var(--tx3);margin:4px 0 0;padding-left:8px;border-left:2px solid var(--line);line-height:1.55}
 .wcell .sub b{font-weight:700;color:var(--tx2);font-size:1em}
 .empty{color:var(--tx3);font-size:.9em;text-align:center;padding:24px 8px}
+.resume{border-color:var(--accent);background:var(--accent2)}
+.resumetxt{font-size:.9em;color:var(--tx2);font-weight:650}
 
 /* ---- quiz ---- */
 .btn{width:100%;padding:14px;border:0;border-radius:13px;background:var(--accent);color:#fff;
@@ -185,6 +187,25 @@ function fcKey(){ return 'quiz5_fc_status'; }
 function loadFc(){ return lsGet(fcKey(), {}); }
 function setFc(w,status){ var o=loadFc(); o[keyOf(w)]=status; lsSet(fcKey(),o); }
 function getFc(w){ var o=loadFc(); return o[keyOf(w)]||null; }
+
+/* ---------- 選擇題／字卡「做到一半」進度：換頁、關掉再打開都能接著做 ---------- */
+function mcSessKey(){ return 'quiz5_mc_session'; }
+function saveMcSession(){
+  if(state.quiz && state.quiz.qs && state.quiz.qs.length){
+    lsSet(mcSessKey(), { cat:state.cat, page:state.page, root:state.root, quiz:state.quiz });
+  }
+}
+function loadMcSession(){ return lsGet(mcSessKey(), null); }
+function clearMcSession(){ try{ localStorage.removeItem(mcSessKey()); }catch(e){} }
+
+function fcSessKey(){ return 'quiz5_fc_session'; }
+function saveFcSession(){
+  if(state.cards && state.cards.list && state.cards.list.length){
+    lsSet(fcSessKey(), { cat:state.cat, list:state.cards.list, idx:state.cards.idx, flipped:state.cards.flipped, unsureOnly:state.cards.unsureOnly });
+  }
+}
+function loadFcSession(){ return lsGet(fcSessKey(), null); }
+function clearFcSession(){ try{ localStorage.removeItem(fcSessKey()); }catch(e){} }
 
 /* ---------- counterpart lookup helpers (每個選項的「對應語言」小字) ---------- */
 function matchCollocZh(item, answer){
@@ -428,7 +449,19 @@ function renderList(){
       '<div class="zh">'+esc(w.zh||'')+'</div>'+ itemSubLines(w) +
       '</div>';
   }).join('');
+  var resumeHtml = '';
+  var mcS = loadMcSession();
+  if(mcS && mcS.quiz && mcS.quiz.qs && mcS.quiz.qs.length && mcS.quiz.idx < mcS.quiz.qs.length){
+    resumeHtml += '<div class="card resume"><div class="resumetxt">📝 選擇題做到一半・第 '+(mcS.quiz.idx+1)+' / '+mcS.quiz.qs.length+' 題（目前答對 '+mcS.quiz.score+'）</div>'+
+      '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-mc">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-mc">重新開始</button></div></div>';
+  }
+  var fcS = loadFcSession();
+  if(fcS && fcS.list && fcS.list.length){
+    resumeHtml += '<div class="card resume"><div class="resumetxt">🃏 字卡看到一半・第 '+(fcS.idx+1)+' / '+fcS.list.length+' 張</div>'+
+      '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-fc">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-fc">重新開始</button></div></div>';
+  }
   return ''+
+  resumeHtml+
   '<p class="sub" style="margin-top:0">'+subtitleText()+'</p>'+
   '<input class="searchbox" id="searchBox" type="search" placeholder="搜尋…" value="'+esc(state.search)+'">'+
   '<div class="chiprow">'+catChips+'</div>'+
@@ -483,7 +516,7 @@ function renderQuiz(){
     return '<button class="back" data-act="home">← 回單字清單</button>'+
       '<div class="card empty">目前沒有可以出的題目'+(q.wrongOnly?'（沒有錯題了，太厲害了）':'')+'</div>';
   }
-  if(q.idx>=q.qs.length){ state.screen='result'; return renderResult(); }
+  if(q.idx>=q.qs.length){ state.screen='result'; clearMcSession(); return renderResult(); }
   var cur = q.qs[q.idx];
   var pct = Math.round(q.idx/q.qs.length*100);
   var correct = correctAnswer(cur);
@@ -594,11 +627,13 @@ function renderCards(){
 
 /* ---------- actions ---------- */
 function startQuiz(mode){
+  clearMcSession();
   var wrongOnly = mode==='wrong' && anyWrong();
   state.quiz = { qs:buildQuestions(wrongOnly), idx:0, score:0, wrongOnly:wrongOnly };
   state.screen = 'quiz';
 }
 function startCards(){
+  clearFcSession();
   state.cards = { list: buildDeck(false), idx:0, flipped:false, unsureOnly:false };
   state.screen = 'cards';
 }
@@ -626,10 +661,23 @@ function bind(){
       var ok = opt===correct;
       if(ok){ q.score++; removeWrong(cur.item); }
       else { addWrong(cur.item); }
+      saveMcSession();
       render();
     }
-    else if(act==='next'){ state.quiz.idx++; render(); }
-    else if(act==='flip'){ state.cards.flipped = !state.cards.flipped; render(); }
+    else if(act==='next'){ state.quiz.idx++; saveMcSession(); render(); }
+    else if(act==='resume-mc'){
+      var sMc = loadMcSession();
+      if(sMc && sMc.quiz){ state.cat=sMc.cat; state.page=sMc.page; state.root=sMc.root; state.quiz=sMc.quiz; state.screen='quiz'; }
+      render();
+    }
+    else if(act==='discard-mc'){ clearMcSession(); render(); }
+    else if(act==='resume-fc'){
+      var sFc = loadFcSession();
+      if(sFc && sFc.list && sFc.list.length){ state.cat=sFc.cat; state.cards={list:sFc.list, idx:sFc.idx, flipped:sFc.flipped, unsureOnly:sFc.unsureOnly}; state.screen='cards'; }
+      render();
+    }
+    else if(act==='discard-fc'){ clearFcSession(); render(); }
+    else if(act==='flip'){ state.cards.flipped = !state.cards.flipped; saveFcSession(); render(); }
     else if(act==='mark'){
       var c = state.cards; var w = c.list[c.idx];
       var status = t.getAttribute('data-status');
@@ -637,11 +685,12 @@ function bind(){
       if(status==='unsure'){ addWrong(w); } else { removeWrong(w); }
       c.flipped = false;
       c.idx = Math.min(c.idx+1, Math.max(0,c.list.length-1));
+      saveFcSession();
       render();
     }
-    else if(act==='prev'){ var c2=state.cards; c2.idx=Math.max(0,c2.idx-1); c2.flipped=false; render(); }
-    else if(act==='nextcard'){ var c3=state.cards; c3.idx=Math.min(c3.list.length-1,c3.idx+1); c3.flipped=false; render(); }
-    else if(act==='shuffle'){ shuffle(state.cards.list); state.cards.idx=0; state.cards.flipped=false; render(); }
+    else if(act==='prev'){ var c2=state.cards; c2.idx=Math.max(0,c2.idx-1); c2.flipped=false; saveFcSession(); render(); }
+    else if(act==='nextcard'){ var c3=state.cards; c3.idx=Math.min(c3.list.length-1,c3.idx+1); c3.flipped=false; saveFcSession(); render(); }
+    else if(act==='shuffle'){ shuffle(state.cards.list); state.cards.idx=0; state.cards.flipped=false; saveFcSession(); render(); }
   };
   var menuBtn = $('#menuBtn', app);
   if(menuBtn){ menuBtn.onclick = function(e){ e.stopPropagation(); var d=$('#menuDrop',app); d.hidden = !d.hidden; }; }
@@ -662,7 +711,7 @@ function bind(){
   var unsureChk = $('#unsureOnly', app);
   if(unsureChk){ unsureChk.onchange = function(){
     var c = state.cards; c.unsureOnly = unsureChk.checked;
-    c.list = buildDeck(c.unsureOnly); c.idx=0; c.flipped=false; render();
+    c.list = buildDeck(c.unsureOnly); c.idx=0; c.flipped=false; saveFcSession(); render();
   }; }
 }
 
