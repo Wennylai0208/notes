@@ -1,0 +1,1213 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="build-id" content="20260920191534">
+<title>GSAT 單字 UNIT 3</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+ --bg:#f6f7f9; --card:#fff; --tx:#16181d; --tx2:#3f4652; --tx3:#6b7280;
+ --line:#e5e7eb; --accent:#2f7de1; --accent2:#e8f1fd; --ok:#1a9c62; --okbg:#e7f6ee;
+ --bad:#d84a4a; --badbg:#fdecec; --warn:#b8860b;
+ --shadow:0 1px 2px rgba(16,24,40,.04),0 6px 20px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme:dark){
+ :root{--bg:#0f1115;--card:#171a21;--tx:#e8eaed;--tx2:#c7ccd4;--tx3:#9aa1ac;
+  --line:#262b35;--accent:#5aa2ff;--accent2:#1b2637;--ok:#4bd39a;--okbg:#15291f;
+  --bad:#ff7b7b;--badbg:#2c1a1a;--warn:#e0b558;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.35)}
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);
+ font:16.5px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+ -webkit-text-size-adjust:100%;padding:0 0 50px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px 0}
+h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
+.sub{color:var(--tx3);font-size:.8em;margin:10px 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+ padding:15px 15px;margin-bottom:11px;box-shadow:var(--shadow)}
+
+/* ---- top bar / menu ---- */
+.topbar{position:sticky;top:0;z-index:20;background:var(--bg);display:flex;align-items:center;
+ justify-content:space-between;gap:8px;padding:12px 0 10px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.topbar .ttl{font-size:1.02em;font-weight:750}
+.menuwrap{position:relative}
+.menubtn{min-width:44px;min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);
+ color:var(--tx);font-size:1.3em;font-weight:700;cursor:pointer;line-height:1}
+.menudrop{position:absolute;right:0;top:50px;background:var(--card);border:1px solid var(--line);
+ border-radius:14px;box-shadow:var(--shadow);min-width:206px;padding:6px;display:flex;flex-direction:column;gap:2px}
+.menudrop[hidden]{display:none}
+.mitem{display:block;width:100%;text-align:left;padding:12px 12px;min-height:44px;border:0;background:transparent;
+ color:var(--tx);font:inherit;font-size:.92em;font-weight:650;border-radius:10px;cursor:pointer}
+.mitem:active{background:var(--accent2)}
+.mitem:disabled{opacity:.4;cursor:default}
+.mitem:disabled:active{background:transparent}
+
+/* ---- list screen ---- */
+.searchbox{width:100%;padding:12px 14px;font-size:1em;border-radius:12px;border:1px solid var(--line);
+ background:var(--card);color:var(--tx);margin-bottom:10px}
+.searchbox:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.chiprow{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.chip{padding:8px 13px;min-height:36px;border-radius:99px;border:1px solid var(--line);background:var(--card);
+ color:var(--tx2);font:inherit;font-size:.85em;font-weight:650;cursor:pointer}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.lab{font-size:.79em;color:var(--tx3);font-weight:650;margin:4px 0 8px;letter-spacing:.4px}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wcell{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 10px 10px;min-width:0}
+.wcell b{font-weight:750;font-size:1em;word-break:break-word}
+.wcell .pg{color:var(--tx3);font-size:.68em;font-weight:700;background:var(--accent2);color:var(--accent);
+ border-radius:6px;padding:1px 6px;margin-left:5px;vertical-align:1px}
+.wcell .ipa{color:var(--tx3);font-size:.72em;display:block;margin-top:1px}
+.wcell .pos{color:var(--tx3);font-size:.72em;font-weight:600}
+.wcell .zh{font-size:.85em;line-height:1.42;color:var(--tx2);margin-top:2px;overflow-wrap:break-word;word-break:break-word;font-weight:650}
+.wcell .sub{font-size:.72em;color:var(--tx3);margin:4px 0 0;padding-left:8px;border-left:2px solid var(--line);line-height:1.55}
+.wcell .sub b{font-weight:700;color:var(--tx2);font-size:1em}
+.empty{color:var(--tx3);font-size:.9em;text-align:center;padding:24px 8px}
+.resume{border-color:var(--accent);background:var(--accent2)}
+.resumetxt{font-size:.9em;color:var(--tx2);font-weight:650}
+
+/* ---- quiz ---- */
+.btn{width:100%;padding:14px;border:0;border-radius:13px;background:var(--accent);color:#fff;
+ font:inherit;font-weight:700;font-size:1em;cursor:pointer;margin-top:12px}
+.btn:active{opacity:.85}
+.btn.ghost{background:transparent;color:var(--tx3);border:1px solid var(--line);font-weight:600}
+.btn:disabled{opacity:.45}
+.back{background:none;border:0;color:var(--accent);font:inherit;font-size:.88em;cursor:pointer;
+ padding:6px 0;margin-bottom:8px;font-weight:600}
+.pbar{height:7px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:7px}
+.pbar>i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .25s}
+.pmeta{display:flex;justify-content:space-between;font-size:.76em;color:var(--tx3);margin-bottom:14px}
+.qtag{display:inline-block;font-size:.72em;font-weight:700;color:var(--accent);
+ background:var(--accent2);border-radius:99px;padding:3px 10px;margin-bottom:11px}
+.qmain{font-size:1.32em;font-weight:750;line-height:1.5;word-break:break-word;margin-bottom:5px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.optwrap{flex:1 1 42%;min-width:110px;display:flex;flex-direction:column;gap:3px}
+.opt{width:100%;padding:12px 8px;border-radius:12px;border:1.5px solid var(--line);
+ background:var(--card);color:var(--tx2);font:inherit;font-size:.9em;cursor:pointer;text-align:center}
+.opt.good{border-color:var(--ok);background:var(--okbg);color:var(--ok);font-weight:700}
+.opt.bad{border-color:var(--bad);background:var(--badbg);color:var(--bad);font-weight:700}
+.opt:disabled{cursor:default}
+.optcp{font-size:.72em;color:var(--tx3);text-align:center;padding:0 4px;line-height:1.35;word-break:break-word}
+.fb{border-radius:14px;padding:13px 14px;margin-top:14px;font-size:.9em;line-height:1.75}
+.fb.good{background:var(--okbg);border:1px solid var(--ok);color:var(--ok)}
+.fb.bad{background:var(--badbg);border:1px solid var(--bad);color:var(--bad)}
+.fb .hd{font-weight:750;font-size:1.02em;margin-bottom:5px}
+.ansbox{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 12px;margin-top:8px;color:var(--tx)}
+.answ{font-size:1.05em;font-weight:750}
+.ipa2{color:var(--tx3);font-size:.83em;margin-left:6px;font-weight:400}
+.typein{width:100%;padding:12px 14px;font-size:1.05em;border-radius:12px;border:1px solid var(--line);
+ background:var(--card);color:var(--tx);margin-top:10px}
+.typein:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:transparent}
+.hintline{color:var(--tx3);font-size:.82em;margin:10px 0 2px;letter-spacing:1.5px;
+ font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.rootrow{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-top:10px;background:var(--bg)}
+.rootrow.good{border-color:var(--ok);background:var(--okbg)}
+.rootrow.bad{border-color:var(--bad);background:var(--badbg)}
+.rr-zh{font-size:.95em;color:var(--tx2);font-weight:650;margin-bottom:2px}
+.rootin{margin-top:6px}
+.dif{color:var(--tx2)}
+.dif b{color:var(--bad);font-weight:800}
+.wrote{font-size:.9em;color:var(--tx2);margin-top:2px}
+.zh2{margin-top:3px;color:var(--tx2);font-size:.92em}
+.exsent{margin-top:8px;font-size:.88em;color:var(--tx2);line-height:1.65}
+.exsent b{color:var(--accent);text-decoration:underline;font-weight:800}
+.score{text-align:center;padding:10px 0 4px}
+.score .n{font-size:2.6em;font-weight:800;line-height:1.15}
+.score .d{color:var(--tx3);font-size:.85em}
+
+/* ---- flashcards ---- */
+.cardbox{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 18px;
+ box-shadow:var(--shadow);min-height:220px;display:flex;flex-direction:column;align-items:center;
+ justify-content:center;text-align:center;cursor:pointer}
+.cf-word{font-size:1.7em;font-weight:800}
+.cf-ipa{color:var(--tx3);font-size:.9em;margin-top:6px}
+.cf-pos{color:var(--tx3);font-size:.85em;font-weight:650;margin-bottom:6px}
+.cf-zh{font-size:1.08em;color:var(--tx);margin-bottom:10px}
+.cf-col{margin-top:10px;text-align:left;width:100%;border-top:1px solid var(--line);padding-top:10px}
+.cf-colitem{font-size:.85em;margin-bottom:5px;color:var(--tx2)}
+.cf-colitem b{color:var(--tx);font-weight:700}
+.cf-ex{font-size:.83em;color:var(--tx2);line-height:1.6;text-align:left;width:100%;margin-top:8px}
+.cf-hint{font-size:.74em;color:var(--tx3);margin-top:10px}
+.fcrow{display:flex;gap:8px;margin-top:12px}
+.fcrow .btn{margin-top:0}
+.navrow{display:flex;gap:8px;margin-top:9px}
+.navrow .btn{margin-top:0}
+.toprow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.chk{display:flex;align-items:center;gap:6px;font-size:.8em;color:var(--tx2)}
+.chk input{width:15px;height:15px}
+.foot{text-align:center;color:var(--tx3);font-size:.72em;padding:20px 0 10px;line-height:1.7}
+</style>
+<script>
+/* ---------- 自動偵測新版本並重整（2026-09-17）----------
+   每次開啟/切回前景/從 bfcache 返回時，去問一次伺服器最新的 BUILD_ID；
+   跟目前這頁不一樣才 reload，且最多每 60 秒查一次、同一個目標只重整一次（避免 loop）。
+   若使用者正在輸入答案（文字輸入框有內容），先不重整，等下一次檢查再試。 */
+(function(){
+try{
+  var BUILD_ID = "20260920191534";
+  var CHECK_INTERVAL_MS = 60000;
+  var RELOAD_TARGET_KEY = 'q6_reload_target';
+  var SKIP_HIT_KEY = 'q6_skip_hit_once';
+  var lastCheck = 0;
+  var checking = false;
+
+  function pageUrlNoQuery(){
+    return location.origin + location.pathname;
+  }
+
+  function hasTypingInProgress(){
+    try{
+      var inputs = document.querySelectorAll('input[type="text"], input[type="search"]');
+      for(var i=0;i<inputs.length;i++){
+        if(inputs[i].value && inputs[i].value.length>0) return true;
+      }
+    }catch(e){}
+    return false;
+  }
+
+  function doReload(targetId){
+    try{
+      sessionStorage.setItem(RELOAD_TARGET_KEY, targetId);
+      sessionStorage.setItem(SKIP_HIT_KEY, '1');
+    }catch(e){}
+    location.reload();
+  }
+
+  function checkForUpdate(){
+    if(checking) return;
+    var now = Date.now();
+    if(now - lastCheck < CHECK_INTERVAL_MS) return;
+    lastCheck = now;
+    checking = true;
+    try{
+      var bust = pageUrlNoQuery() + '?_cb=' + now;
+      fetch(bust, {cache:'no-store'}).then(function(resp){
+        if(!resp.ok) throw new Error('bad status');
+        return resp.text();
+      }).then(function(text){
+        checking = false;
+        var m = text.match(/<meta name="build-id" content="([^"]+)"/);
+        if(!m) return;
+        var latest = m[1];
+        if(!latest || latest === BUILD_ID) return;
+        var attempted = null;
+        try{ attempted = sessionStorage.getItem(RELOAD_TARGET_KEY); }catch(e){}
+        if(attempted === latest) return; // 同一個目標已經試過，避免無限 reload
+        if(hasTypingInProgress()) return; // 使用者正在作答，先不重整，下次再檢查
+        doReload(latest);
+      }).catch(function(){ checking = false; });
+    }catch(e){ checking = false; }
+  }
+
+  window.addEventListener('load', checkForUpdate);
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible') checkForUpdate();
+  });
+  window.addEventListener('pageshow', function(e){
+    if(e.persisted) checkForUpdate();
+  });
+}catch(e){}
+})();
+</script>
+</head>
+<body>
+<div class="wrap"><div id="app"></div>
+<div class="foot">📝 GSAT/AST CORE LEXICON UNIT 3・p44-48<br>資料全部離線內建・紀錄只存在你自己的手機裡</div></div>
+<script>
+var DATA = {"words": [{"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "versus", "phonetic": "[ˈvɝsəs]", "pos": "prep.", "zh": "與…對抗；與…相比(縮寫vs.)", "collocations": [{"en": "Lakers versus Celtics", "zh": "湖人隊對上塞爾提克隊"}], "examples": [{"en": "The debate focused on the benefits of digital learning versus traditional classroom education.", "answer": "versus"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "pillar", "phonetic": "[ˈpɪlɚ]", "pos": "n.", "zh": "柱子；棟樑", "collocations": [{"en": "a pillar of society", "zh": "社會棟樑"}], "examples": [{"en": "Trust is the pillar of any healthy relationship; without it, everything crumbles.", "answer": "pillar"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "souvenir", "phonetic": "[ˌsuvəˈnɪr]", "pos": "n.", "zh": "紀念品", "collocations": [{"en": "buy a souvenir", "zh": "買紀念品"}], "examples": [], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "counterpart", "phonetic": "[ˈkaʊntɚˌpɑrt]", "pos": "n.", "zh": "對應的人(或事物)", "collocations": [], "examples": [{"en": "The foreign minister met with his counterpart to discuss the trade agreement.", "answer": "counterpart"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "framework", "phonetic": "[ˈfrɛmˌwɝk]", "pos": "n.", "zh": "架構；體制", "collocations": [{"en": "legal framework", "zh": "法律架構"}], "examples": [{"en": "We need a solid framework to solve this complex problem systematically.", "answer": "framework"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "notion", "phonetic": "[ˈnoʃən]", "pos": "n.", "zh": "概念；想法", "collocations": [{"en": "vague notion", "zh": "模糊的概念"}], "examples": [{"en": "The notion that money buys happiness is a common misconception in modern society.", "answer": "notion"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "reminder", "phonetic": "[rɪˈmaɪndɚ]", "pos": "n.", "zh": "提醒物", "collocations": [{"en": "serve as a reminder", "zh": "作為提醒"}], "examples": [{"en": "The old photograph served as a poignant reminder of the happy days we spent together.", "answer": "reminder"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "casualty", "phonetic": "[ˈkæʒuəltɪ]", "pos": "n.", "zh": "傷亡人員", "collocations": [{"en": "heavy casualties", "zh": "慘重的傷亡"}], "examples": [{"en": "The massive earthquake caused heavy casualties and severe damage to the city.", "answer": "heavy casualties"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "casualty", "phonetic": "[ˈkæʒuəltɪ]", "pos": "n.", "zh": "受害者；犧牲品", "collocations": [{"en": "a casualty of war", "zh": "戰爭的犧牲品"}], "examples": [{"en": "It is often said that truth is the first casualty of war.", "answer": "casualty of war"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "villain", "phonetic": "[ˈvɪlən]", "pos": "n.", "zh": "反派角色", "collocations": [{"en": "the villain of the story", "zh": "故事中的反派"}], "examples": [], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "anchor", "phonetic": "[ˈæŋkɚ]", "pos": "n.", "zh": "錨；精神支柱", "collocations": [{"en": "serve as an anchor", "zh": "作為精神支柱"}], "examples": [{"en": "During the storm of life, my mother was my anchor, keeping me grounded and safe.", "answer": "anchor"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "anchor", "phonetic": "[ˈæŋkɚ]", "pos": "n./v.", "zh": "新聞主播；主持", "collocations": [{"en": "news anchor", "zh": "新聞主播"}], "examples": [{"en": "The famous news anchor has been hosting the evening broadcast for over a decade.", "answer": "anchor"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "intellect", "phonetic": "[ˈɪntəˌlɛkt]", "pos": "n.", "zh": "智力", "collocations": [{"en": "man of intellect", "zh": "有才智的人"}], "examples": [{"en": "His intellect was sharp, but he lacked the empathy to truly understand others.", "answer": "intellect"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "dwarf", "phonetic": "[dwɔrf]", "pos": "n./v.", "zh": "侏儒；使相形見絀", "collocations": [], "examples": [{"en": "The massive skyscraper dwarfs the surrounding buildings.", "answer": "dwarfs"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "skeleton", "phonetic": "[ˈskɛlətn]", "pos": "n.", "zh": "骨骼；架構", "collocations": [{"en": "skeleton in the closet", "zh": "不可告人的秘密"}], "examples": [], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "chapel", "phonetic": "[ˈtʃæpḷ]", "pos": "n.", "zh": "小教堂", "collocations": [], "examples": [{"en": "The small chapel stood silent on the hill, offering a sanctuary for weary travelers.", "answer": "chapel"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "masterpiece", "phonetic": "[ˈmæstɚˌpis]", "pos": "n.", "zh": "傑作", "collocations": [{"en": "artistic masterpiece", "zh": "藝術傑作"}], "examples": [{"en": "The sunset was a masterpiece painted by nature, with hues of orange and purple.", "answer": "masterpiece"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "suspension", "phonetic": "[səˈspɛnʃən]", "pos": "n.", "zh": "暫停；懸吊", "collocations": [{"en": "suspension bridge", "zh": "吊橋"}], "examples": [], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "extension", "phonetic": "[ɪkˈstɛnʃən]", "pos": "n.", "zh": "延伸；分機", "collocations": [{"en": "deadline extension", "zh": "延長截止期限"}], "examples": [], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "span", "phonetic": "[spæn]", "pos": "n.", "zh": "期間；跨度", "collocations": [{"en": "attention span", "zh": "注意力持續時間"}], "examples": [{"en": "The attention span of modern teenagers seems to be decreasing due to short videos.", "answer": "attention span"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "span", "phonetic": "[spæn]", "pos": "v.", "zh": "橫跨；跨越", "collocations": [{"en": "span across", "zh": "橫跨…"}], "examples": [{"en": "His remarkable acting career spanned across five decades, earning him numerous awards.", "answer": "spanned across"}], "note": null}, {"page": 44, "file": "1789902296158-AQADEhlrG_BpgFV-.jpg", "word": "closure", "phonetic": "[ˈkloʒɚ]", "pos": "n.", "zh": "關閉；倒閉", "collocations": [{"en": "factory closure", "zh": "工廠倒閉"}], "examples": [{"en": "The sudden factory closure left hundreds of workers out of a job just before Christmas.", "answer": "closure"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "closure", "phonetic": "[ˈkloʒɚ]", "pos": "n.", "zh": "(心理上的)解脫；慰藉(續)", "collocations": [{"en": "bring closure to", "zh": "為…畫下句點/帶來解脫"}], "examples": [{"en": "Writing this letter finally gave me the closure I needed to move on from the past.", "answer": "closure"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "probe", "phonetic": "[prob]", "pos": "v./n.", "zh": "探查", "collocations": [{"en": "probe into", "zh": "調查…"}], "examples": [{"en": "Journalists must probe deeper into the story to uncover the hidden truth.", "answer": "probe deeper into"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "discard", "phonetic": "[dɪsˈkɑrd]", "pos": "v.", "zh": "丟棄", "collocations": [{"en": "discard old clothes", "zh": "丟棄舊衣物"}], "examples": [{"en": "He decided to discard his fears and take a leap into the unknown.", "answer": "discard"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "rip", "phonetic": "[rɪp]", "pos": "v.", "zh": "撕裂(rip-ripped-ripped)", "collocations": [{"en": "rip off", "zh": "敲竹槓；撕掉"}], "examples": [{"en": "The heartbreaking news ripped through me, leaving me feeling empty and cold.", "answer": "ripped through"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "blast", "phonetic": "[blæst]", "pos": "n.", "zh": "爆炸", "collocations": [{"en": "bomb blast", "zh": "炸彈爆炸"}], "examples": [{"en": "The loud bomb blast shattered the windows of all the surrounding buildings.", "answer": "bomb blast"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "blast", "phonetic": "[blæst]", "pos": "n.", "zh": "強風；(口語)狂歡", "collocations": [{"en": "a blast of wind", "zh": "一陣強風"}], "examples": [{"en": "A sudden blast of cold air greeted me as I opened the door.", "answer": "blast"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "blast", "phonetic": "[blæst]", "pos": "v.", "zh": "嚴厲批評；炸毀", "collocations": [{"en": "blast the government", "zh": "抨擊政府"}], "examples": [{"en": "The mayor was heavily blasted by the media for his irresponsible remarks.", "answer": "blasted"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "glare", "phonetic": "[glɛr]", "pos": "v.", "zh": "怒視；n. 刺眼的強光", "collocations": [{"en": "glare at", "zh": "怒視…"}], "examples": [{"en": "She glared at him in silence, her eyes burning with unspoken anger.", "answer": "glared at"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "thrill", "phonetic": "[θrɪl]", "pos": "n./v.", "zh": "興奮；使興奮", "collocations": [{"en": "cheap thrill", "zh": "低級趣味/短暫的刺激"}], "examples": [{"en": "The thrill of standing on the mountain peak made the difficult climb worth every step.", "answer": "thrill"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "riot", "phonetic": "[ˈraɪət]", "pos": "n.", "zh": "暴動", "collocations": [{"en": "run riot", "zh": "撒野/失控"}, {"en": "riot police", "zh": "鎮暴警察"}], "examples": [], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "toll", "phonetic": "[tol]", "pos": "n.", "zh": "傷亡人數；慘重代價", "collocations": [{"en": "take a heavy toll on", "zh": "(對…造成慘重損失/傷害)"}], "examples": [{"en": "Years of overworking and lack of sleep finally took a heavy toll on his health.", "answer": "took a heavy toll on"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "toll", "phonetic": "[tol]", "pos": "n./v.", "zh": "通行費；敲鐘", "collocations": [{"en": "pay the toll", "zh": "繳交通行費"}], "examples": [{"en": "Drivers must pay a toll before crossing the newly built suspension bridge.", "answer": "pay a toll"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "doom", "phonetic": "[dum]", "pos": "n./v.", "zh": "厄運；注定失敗", "collocations": [{"en": "be doomed to failure", "zh": "注定失敗"}], "examples": [{"en": "Without cooperation, the project is doomed to fail from the start.", "answer": "doomed to fail"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "ripple", "phonetic": "[ˈrɪpḷ]", "pos": "n.", "zh": "漣漪", "collocations": [{"en": "ripple effect", "zh": "漣漪效應"}], "examples": [{"en": "One small act of kindness can create a ripple effect that touches many lives.", "answer": "ripple effect"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "stride", "phonetic": "[straɪd]", "pos": "v.", "zh": "大步走(stride-strode-stridden)", "collocations": [{"en": "stride into", "zh": "大步走進"}], "examples": [{"en": "He strode into the room with confidence, demanding everyone's attention.", "answer": "strode into"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "stride", "phonetic": "[straɪd]", "pos": "n.", "zh": "步伐；進展", "collocations": [{"en": "make great strides", "zh": "取得長足進步"}], "examples": [{"en": "Medical science has made great strides in the treatment of cancer over the past ten years.", "answer": "made great strides"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "ballot", "phonetic": "[ˈbælət]", "pos": "n.", "zh": "選票", "collocations": [{"en": "cast a ballot", "zh": "投票"}], "examples": [], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "endeavor", "phonetic": "[ɪnˈdɛvɚ]", "pos": "v./n.", "zh": "努力", "collocations": [{"en": "endeavor to V", "zh": "努力去…"}], "examples": [{"en": "We must endeavor to preserve our cultural heritage for future generations.", "answer": "endeavor to"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "soar", "phonetic": "[sor]", "pos": "v.", "zh": "翱翔；高飛", "collocations": [{"en": "spirits soar", "zh": "情緒高昂"}], "examples": [{"en": "My spirits soared as I watched the colorful kite dancing in the sky.", "answer": "soared"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "soar", "phonetic": "[sor]", "pos": "v.", "zh": "(物價、數量)暴漲；急升", "collocations": [{"en": "prices soar", "zh": "物價飛漲"}], "examples": [{"en": "As the war broke out, the price of oil soared to a historic high.", "answer": "soared"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "surge", "phonetic": "[sɝdʒ]", "pos": "v./n.", "zh": "激增；湧現", "collocations": [{"en": "a sudden surge of anger", "zh": "突然湧現的怒氣"}], "examples": [{"en": "A surge of adrenaline rushed through his veins as the race began.", "answer": "surge"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "soak", "phonetic": "[sok]", "pos": "v.", "zh": "浸泡；吸收", "collocations": [{"en": "soak up the sun", "zh": "享受陽光"}], "examples": [{"en": "We sat on the grass, soaking up the warm sunshine and the peaceful atmosphere.", "answer": "soaking up"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "transplant", "phonetic": "[trænsˈplænt]", "pos": "v./n.", "zh": "移植", "collocations": [{"en": "heart transplant", "zh": "心臟移植"}], "examples": [], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "whine", "phonetic": "[hwaɪn]", "pos": "v.", "zh": "發牢騷；哀鳴", "collocations": [{"en": "stop whining", "zh": "別再發牢騷了"}], "examples": [{"en": "Instead of whining about the problem, we should focus on finding a solution.", "answer": "whining"}], "note": null}, {"page": 45, "file": "1789902295390-AQADERlrG_BpgFV-.jpg", "word": "gaze", "phonetic": "[gez]", "pos": "v./n.", "zh": "凝視", "collocations": [{"en": "gaze at the stars", "zh": "凝視星空"}], "examples": [{"en": "He gazed into her eyes, searching for the truth hidden behind her silence.", "answer": "gazed into"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "commute", "phonetic": "[kəˈmjut]", "pos": "v./n.", "zh": "通勤", "collocations": [{"en": "commute to work", "zh": "通勤上班"}], "examples": [{"en": "The long daily commute gave me time to listen to podcasts and reflect on my day.", "answer": "commute"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "commute", "phonetic": "[kəˈmjut]", "pos": "v.", "zh": "減刑(法律用語/大考偏義字)", "collocations": [{"en": "commute a sentence", "zh": "減刑"}], "examples": [{"en": "The governor decided to commute the prisoner's death sentence to life imprisonment.", "answer": "commute"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "overturn", "phonetic": "[ˌovɚˈtɝn]", "pos": "v.", "zh": "推翻；翻倒", "collocations": [{"en": "overturn the decision", "zh": "推翻決定"}], "examples": [], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "debut", "phonetic": "[deˈbju]", "pos": "n./v.", "zh": "初次登場", "collocations": [{"en": "make one's debut", "zh": "初次登台"}], "examples": [], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "stumble", "phonetic": "[ˈstʌmbḷ]", "pos": "v.", "zh": "絆倒；結巴", "collocations": [{"en": "stumble upon", "zh": "偶然發現"}], "examples": [{"en": "I stumbled through my speech, my face burning with embarrassment.", "answer": "stumbled"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "scramble", "phonetic": "[ˈskræmbḷ]", "pos": "v.", "zh": "爭奪；炒(蛋)", "collocations": [{"en": "scramble for", "zh": "爭奪…"}, {"en": "scrambled eggs", "zh": "炒蛋"}], "examples": [], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "discharge", "phonetic": "[dɪsˈtʃɑrdʒ]", "pos": "v.", "zh": "排出(液體、氣體)", "collocations": [{"en": "discharge toxic waste", "zh": "排放有毒廢棄物"}], "examples": [{"en": "The factory was heavily fined for secretly discharging toxic waste into the river.", "answer": "discharging toxic waste"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "discharge", "phonetic": "[dɪsˈtʃɑrdʒ]", "pos": "v.", "zh": "允許出院；退伍", "collocations": [{"en": "discharge from the hospital", "zh": "出院"}], "examples": [{"en": "After a week of intensive care, he was finally discharged from the hospital.", "answer": "discharged"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "flip", "phonetic": "[flɪp]", "pos": "v.", "zh": "翻轉；擲(硬幣)(flip-flipped-flipped)", "collocations": [{"en": "flip a coin", "zh": "擲硬幣"}], "examples": [{"en": "Let's flip a coin to decide who gets to play the video game first.", "answer": "flip a coin"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "flip", "phonetic": "[flɪp]", "pos": "v.", "zh": "(情緒)突然發脾氣", "collocations": [{"en": "flip out", "zh": "勃然大怒/情緒失控"}], "examples": [{"en": "My mom completely flipped out when she saw the messy living room.", "answer": "flipped out"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "slap", "phonetic": "[slæp]", "pos": "v.", "zh": "打耳光(slap-slapped-slapped)", "collocations": [{"en": "a slap in the face", "zh": "公然侮辱/打臉"}], "examples": [{"en": "His betrayal felt like a slap in the face after all I had done for him.", "answer": "a slap in the face"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "foul", "phonetic": "[faʊl]", "pos": "adj.", "zh": "惡劣的；難聞的", "collocations": [{"en": "foul language", "zh": "髒話"}], "examples": [{"en": "The referee warned the player not to use foul language on the basketball court.", "answer": "foul language"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "foul", "phonetic": "[faʊl]", "pos": "n./v.", "zh": "犯規；不法行為", "collocations": [{"en": "foul play", "zh": "不法行為/謀殺嫌疑"}], "examples": [{"en": "The police found his body in the river and suspected foul play.", "answer": "foul play"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "mock", "phonetic": "[mɑk]", "pos": "v.", "zh": "嘲弄；嘲笑", "collocations": [{"en": "mock sb.", "zh": "嘲笑某人"}], "examples": [{"en": "It is cruel and ignorant to mock those who are less fortunate than us.", "answer": "mock"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "mock", "phonetic": "[mɑk]", "pos": "adj.", "zh": "模擬的；假裝的", "collocations": [{"en": "mock exam", "zh": "模擬考"}], "examples": [{"en": "Students are required to take a mock exam to prepare for the final university entrance test.", "answer": "mock exam"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "spectacular", "phonetic": "[spɛkˈtækjələ]", "pos": "adj.", "zh": "壯觀的", "collocations": [{"en": "spectacular view", "zh": "壯觀的景色"}], "examples": [], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "imperative", "phonetic": "[ɪmˈpɛrətɪv]", "pos": "adj.", "zh": "極重要的；必要的", "collocations": [{"en": "It is imperative that...", "zh": "……是當務之急"}], "examples": [{"en": "It is imperative that we take immediate action to address climate change.", "answer": "imperative"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "excess", "phonetic": "[ɪkˈsɛs] (n.) / [ˈɛksɛs] (adj.)", "pos": "n.", "zh": "過量；過度", "collocations": [{"en": "in excess of", "zh": "超過…"}], "examples": [{"en": "The company reported profits in excess of five million dollars this quarter.", "answer": "in excess of"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "excess", "phonetic": "[ɪkˈsɛs] (n.) / [ˈɛksɛs] (adj.)", "pos": "adj.", "zh": "多餘的；過剩的(注意形容詞重音在前)", "collocations": [{"en": "excess baggage", "zh": "超重行李"}], "examples": [{"en": "You will have to pay an additional fee if you have excess baggage at the airport.", "answer": "excess baggage"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "nurture", "phonetic": "[ˈnɝtʃɚ]", "pos": "v.", "zh": "培育；養育", "collocations": [{"en": "nature vs. nurture", "zh": "先天與後天"}], "examples": [{"en": "Parents should nurture their children's curiosity rather than stifle it.", "answer": "nurture"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "offering", "phonetic": "[ˈɔfərɪŋ]", "pos": "n.", "zh": "祭品；供品", "collocations": [], "examples": [], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "bound", "phonetic": "[baʊnd]", "pos": "adj.", "zh": "肯定會的；極有可能的", "collocations": [{"en": "be bound to V", "zh": "肯定會…"}], "examples": [{"en": "With all the hard work she has put in, she is bound to pass the exam.", "answer": "bound to"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "bound", "phonetic": "[baʊnd]", "pos": "adj.", "zh": "前往…的", "collocations": [{"en": "homeward bound", "zh": "踏上歸途"}, {"en": "a train bound for London", "zh": "開往倫敦的火車"}], "examples": [{"en": "After months of traveling, I was finally homeward bound, eager to see my family.", "answer": "homeward bound"}], "note": null}, {"page": 46, "file": "1789902294480-AQADEBlrG_BpgFV-.jpg", "word": "boom", "phonetic": "[bum]", "pos": "n.", "zh": "繁榮；激增", "collocations": [{"en": "economic boom", "zh": "經濟繁榮"}], "examples": [{"en": "The discovery of oil brought a sudden economic boom to the small desert town.", "answer": "economic boom"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "boom", "phonetic": "[bum]", "pos": "v.", "zh": "發出隆隆聲", "collocations": [{"en": "booming voice", "zh": "洪亮的聲音"}], "examples": [{"en": "His booming voice echoed through the empty hall, startling everyone inside.", "answer": "booming voice"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "attendant", "phonetic": "[əˈtɛndənt]", "pos": "n.", "zh": "服務員；隨從", "collocations": [{"en": "flight attendant", "zh": "空服員"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "bolt", "phonetic": "[bolt]", "pos": "n.", "zh": "閃電；螺栓", "collocations": [{"en": "a bolt from the blue", "zh": "晴天霹靂"}], "examples": [{"en": "The news of his sudden resignation came as a bolt from the blue for the entire company.", "answer": "a bolt from the blue"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "bolt", "phonetic": "[bolt]", "pos": "v.", "zh": "衝出；逃跑", "collocations": [{"en": "bolt for the door", "zh": "衝向門口"}], "examples": [{"en": "As soon as the dog heard the fireworks, it bolted under the sofa in fear.", "answer": "bolted"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "snatch", "phonetic": "[snætʃ]", "pos": "v.", "zh": "搶奪", "collocations": [{"en": "snatch victory from the jaws of defeat", "zh": "反敗為勝"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "resolution", "phonetic": "[ˌrɛzəˈluʃən]", "pos": "n.", "zh": "決心；決定", "collocations": [{"en": "New Year's resolution", "zh": "新年新希望/決心"}], "examples": [{"en": "With grim resolution, he decided to confront his fears once and for all.", "answer": "resolution"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "resolution", "phonetic": "[ˌrɛzəˈluʃən]", "pos": "n.", "zh": "解析度；(爭議的)解決", "collocations": [{"en": "high resolution", "zh": "高解析度"}], "examples": [{"en": "This digital camera can take photos with incredibly high resolution.", "answer": "high resolution"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "intersection", "phonetic": "[ˌɪntɚˈsɛkʃən]", "pos": "n.", "zh": "十字路口；交集", "collocations": [{"en": "busy intersection", "zh": "繁忙的路口"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "compensation", "phonetic": "[ˌkɑmpənˈseʃən]", "pos": "n.", "zh": "補償；賠償金", "collocations": [{"en": "workers' compensation", "zh": "勞工賠償金"}], "examples": [{"en": "No amount of money can offer enough compensation for the loss of a loved one.", "answer": "compensation"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "accumulation", "phonetic": "[əˌkjumjəˈleʃən]", "pos": "n.", "zh": "累積", "collocations": [{"en": "accumulation of wealth", "zh": "財富累積"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "procession", "phonetic": "[prəˈsɛʃən]", "pos": "n.", "zh": "遊行隊伍", "collocations": [{"en": "funeral procession", "zh": "送葬隊伍"}], "examples": [{"en": "The long funeral procession moved slowly through the rainy streets, a somber river of black umbrellas.", "answer": "procession"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "aviation", "phonetic": "[ˌevɪˈeʃən]", "pos": "n.", "zh": "航空", "collocations": [{"en": "civil aviation", "zh": "民航"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "discourse", "phonetic": "[ˈdɪskors]", "pos": "n.", "zh": "論述；談話", "collocations": [{"en": "public discourse", "zh": "公眾論述"}], "examples": [{"en": "Civil discourse is essential for a functioning democracy.", "answer": "discourse"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "catastrophe", "phonetic": "[kəˈtæstrəfi]", "pos": "n.", "zh": "大災難", "collocations": [{"en": "environmental catastrophe", "zh": "環境浩劫"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "friction", "phonetic": "[ˈfrɪkʃən]", "pos": "n.", "zh": "摩擦；不合", "collocations": [{"en": "cause friction", "zh": "造成摩擦/不合"}], "examples": [{"en": "Constant arguments caused friction between the two roommates.", "answer": "friction"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "imprisonment", "phonetic": "[ɪmˈprɪznmənt]", "pos": "n.", "zh": "監禁", "collocations": [{"en": "life imprisonment", "zh": "無期徒刑"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "harassment", "phonetic": "[həˈræsmənt]", "pos": "n.", "zh": "騷擾", "collocations": [{"en": "sexual harassment", "zh": "性騷擾"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "consolation", "phonetic": "[ˌkɑnsəˈleʃən]", "pos": "n.", "zh": "安慰", "collocations": [{"en": "consolation prize", "zh": "安慰獎"}], "examples": [{"en": "Music was my only consolation during those lonely nights.", "answer": "consolation"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "addiction", "phonetic": "[əˈdɪkʃən]", "pos": "n.", "zh": "成癮", "collocations": [{"en": "drug addiction", "zh": "毒癮"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "sanitation", "phonetic": "[ˌsænəˈteʃən]", "pos": "n.", "zh": "公共衛生", "collocations": [{"en": "poor sanitation", "zh": "衛生條件差"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "disturbance", "phonetic": "[dɪˈstɝbəns]", "pos": "n.", "zh": "干擾；騷動", "collocations": [{"en": "cause a disturbance", "zh": "引起騷動"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "determination", "phonetic": "[dɪˌtɝməˈneʃən]", "pos": "n.", "zh": "決心", "collocations": [{"en": "with determination", "zh": "下定決心地"}], "examples": [{"en": "She studied late into the night with determination, fueled by her dream of becoming a doctor.", "answer": "determination"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "involvement", "phonetic": "[ɪnˈvɑlvmənt]", "pos": "n.", "zh": "參與；涉入", "collocations": [{"en": "active involvement", "zh": "積極參與"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "exclusion", "phonetic": "[ɪkˈskluʒən]", "pos": "n.", "zh": "排斥；排除", "collocations": [{"en": "social exclusion", "zh": "社會排斥"}], "examples": [{"en": "The feeling of exclusion at the party was painful; I stood in the corner, invisible to everyone.", "answer": "exclusion"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "identification", "phonetic": "[aɪˌdɛntəfəˈkeʃən]", "pos": "n.", "zh": "身分證明(ID)；認同", "collocations": [{"en": "identification card", "zh": "身分證"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "confession", "phonetic": "[kənˈfɛʃən]", "pos": "n.", "zh": "招認；告解", "collocations": [{"en": "make a confession", "zh": "招認"}], "examples": [{"en": "His confession lifted a heavy weight off his chest, allowing him to finally breathe freely.", "answer": "confession"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "commitment", "phonetic": "[kəˈmɪtmənt]", "pos": "n.", "zh": "承諾；投入", "collocations": [{"en": "make a commitment", "zh": "做出承諾"}], "examples": [{"en": "Marriage is a lifelong commitment that requires patience and understanding.", "answer": "commitment"}], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "qualification", "phonetic": "[ˌkwɑləfəˈkeʃən]", "pos": "n.", "zh": "資格", "collocations": [{"en": "academic qualifications", "zh": "學歷"}], "examples": [], "note": null}, {"page": 47, "file": "1789902293563-AQADDxlrG_BpgFV-.jpg", "word": "lullaby", "phonetic": "[ˈlʌləˌbaɪ]", "pos": "n.", "zh": "搖籃曲", "collocations": [{"en": "sing a lullaby", "zh": "唱搖籃曲"}], "examples": [{"en": "The mother softly sang a lullaby, soothing her crying baby to sleep.", "answer": "lullaby"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "exaggeration", "phonetic": "[ɪgˌzædʒəˈreʃən]", "pos": "n.", "zh": "誇張", "collocations": [{"en": "It is no exaggeration to say that...", "zh": "說…一點也不誇張"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "tribute", "phonetic": "[ˈtrɪbjut]", "pos": "n.", "zh": "致敬；貢品", "collocations": [{"en": "pay tribute to", "zh": "向…致敬"}], "examples": [{"en": "The concert was held to pay tribute to the legendary musician.", "answer": "pay tribute to"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "plea", "phonetic": "[pli]", "pos": "n.", "zh": "懇求；抗辯", "collocations": [{"en": "a plea for help", "zh": "求救"}], "examples": [{"en": "Her eyes were filled with a silent plea for forgiveness.", "answer": "plea"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "oath", "phonetic": "[oθ]", "pos": "n.", "zh": "誓言", "collocations": [{"en": "take an oath", "zh": "宣誓"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "theft", "phonetic": "[θɛft]", "pos": "n.", "zh": "偷竊", "collocations": [{"en": "identity theft", "zh": "身分盜竊"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "errand", "phonetic": "[ˈɛrənd]", "pos": "n.", "zh": "差事", "collocations": [{"en": "run errands", "zh": "跑腿/辦雜事"}], "examples": [{"en": "I spent the whole afternoon running errands for my grandmother.", "answer": "running errands"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "precaution", "phonetic": "[prɪˈkoʃən]", "pos": "n.", "zh": "預防措施", "collocations": [{"en": "take precautions", "zh": "採取預防措施"}], "examples": [{"en": "We must take necessary precautions to prevent the spread of the virus.", "answer": "precautions"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "outlook", "phonetic": "[ˈaʊtˌlʊk]", "pos": "n.", "zh": "前景；觀點", "collocations": [{"en": "economic outlook", "zh": "經濟前景"}], "examples": [{"en": "Despite the setbacks, he maintained a positive outlook on life.", "answer": "outlook"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "yoga", "phonetic": "[ˈjogə]", "pos": "n.", "zh": "瑜珈", "collocations": [{"en": "do yoga", "zh": "做瑜珈"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "breakdown", "phonetic": "[ˈbrekˌdaʊn]", "pos": "n.", "zh": "(機器)故障；(精神)崩潰", "collocations": [{"en": "nervous breakdown", "zh": "精神崩潰"}], "examples": [{"en": "The stress of the scandal eventually caused the politician to suffer a nervous breakdown.", "answer": "nervous breakdown"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "breakdown", "phonetic": "[ˈbrekˌdaʊn]", "pos": "n.", "zh": "詳細分析；分類明細(多益考大常考)", "collocations": [{"en": "a breakdown of the costs", "zh": "費用明細"}], "examples": [{"en": "Please provide a detailed breakdown of the travel expenses for the business trip.", "answer": "breakdown"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "transformation", "phonetic": "[ˌtrænsfɚˈmeʃən]", "pos": "n.", "zh": "轉變", "collocations": [{"en": "undergo a transformation", "zh": "經歷轉變"}], "examples": [{"en": "The caterpillar's transformation into a butterfly is a miracle of nature.", "answer": "transformation"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "donation", "phonetic": "[doˈneʃən]", "pos": "n.", "zh": "捐贈", "collocations": [{"en": "make a donation", "zh": "捐款"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "enrichment", "phonetic": "[ɪnˈrɪtʃmənt]", "pos": "n.", "zh": "豐富；充實", "collocations": [{"en": "self-enrichment", "zh": "自我充實"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "milestone", "phonetic": "[ˈmaɪlˌston]", "pos": "n.", "zh": "里程碑", "collocations": [{"en": "reach a milestone", "zh": "達到里程碑"}], "examples": [{"en": "Graduating from college was a major milestone in my life.", "answer": "milestone"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "outbreak", "phonetic": "[ˈaʊtˌbrek]", "pos": "n.", "zh": "(疾病、戰爭)爆發", "collocations": [{"en": "the outbreak of war", "zh": "戰爭爆發"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "scandal", "phonetic": "[ˈskændḷ]", "pos": "n.", "zh": "醜聞", "collocations": [{"en": "political scandal", "zh": "政治醜聞"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "collision", "phonetic": "[kəˈlɪʒən]", "pos": "n.", "zh": "碰撞；衝突", "collocations": [{"en": "in collision with", "zh": "與…相撞"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "presidency", "phonetic": "[ˈprɛzədənsɪ]", "pos": "n.", "zh": "總統任期", "collocations": [], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "conquest", "phonetic": "[ˈkɑŋkwɛst]", "pos": "n.", "zh": "征服", "collocations": [], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "confrontation", "phonetic": "[ˌkɑnfrənˈteʃən]", "pos": "n.", "zh": "對抗；衝突", "collocations": [{"en": "avoid confrontation", "zh": "避免衝突"}], "examples": [{"en": "He tried to avoid confrontation, but eventually, he had to stand up for himself.", "answer": "confrontation"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "accordance", "phonetic": "[əˈkɔrdəns]", "pos": "n.", "zh": "一致", "collocations": [{"en": "in accordance with", "zh": "按照/依據"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "integration", "phonetic": "[ˌɪntəˈgreʃən]", "pos": "n.", "zh": "整合", "collocations": [{"en": "cultural integration", "zh": "文化融合"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "breakthrough", "phonetic": "[ˈbrekˌθru]", "pos": "n.", "zh": "突破", "collocations": [{"en": "make a breakthrough", "zh": "取得突破"}], "examples": [{"en": "Scientists have made a major breakthrough in cancer research.", "answer": "breakthrough"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "intervention", "phonetic": "[ˌɪntɚˈvɛnʃən]", "pos": "n.", "zh": "干預", "collocations": [{"en": "military intervention", "zh": "軍事干預"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "diversion", "phonetic": "[daɪˈvɝʒən]", "pos": "n.", "zh": "轉移注意力；消遣", "collocations": [{"en": "create a diversion", "zh": "製造聲東擊西的機會"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "revival", "phonetic": "[rɪˈvaɪvḷ]", "pos": "n.", "zh": "復甦；復興", "collocations": [{"en": "cultural revival", "zh": "文化復興"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "patrol", "phonetic": "[pəˈtrol]", "pos": "n./v.", "zh": "巡邏", "collocations": [{"en": "on patrol", "zh": "巡邏中"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "parliament", "phonetic": "[ˈpɑrləmənt]", "pos": "n.", "zh": "國會(英國等)", "collocations": [], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "diabetes", "phonetic": "[ˌdaɪəˈbitiz]", "pos": "n.", "zh": "糖尿病", "collocations": [], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "pneumonia", "phonetic": "[njuˈmonjə]", "pos": "n.", "zh": "肺炎", "collocations": [], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "allergy", "phonetic": "[ˈælɚdʒɪ]", "pos": "n.", "zh": "過敏", "collocations": [{"en": "food allergy", "zh": "食物過敏"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "boredom", "phonetic": "[ˈbordəm]", "pos": "n.", "zh": "無聊", "collocations": [{"en": "die of boredom", "zh": "無聊得要死"}], "examples": [{"en": "The long summer afternoon stretched out before us, filled with nothing but boredom.", "answer": "boredom"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "resentment", "phonetic": "[rɪˈzɛntmənt]", "pos": "n.", "zh": "怨恨", "collocations": [{"en": "feel resentment", "zh": "感到怨恨"}], "examples": [{"en": "Over time, her silence turned into resentment, building a wall between them.", "answer": "resentment"}], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "realism", "phonetic": "[ˈriəˌlɪzəm]", "pos": "n.", "zh": "現實主義；務實", "collocations": [{"en": "magical realism", "zh": "魔幻寫實主義"}], "examples": [], "note": null}, {"page": 48, "file": "1789902292601-AQADDhlrG_BpgFV-.jpg", "word": "nationalism", "phonetic": "[ˈnæʃənəˌlɪzəm]", "pos": "n.", "zh": "民族主義", "collocations": [], "examples": [], "note": null}], "phrases": [], "roots": []};
+</script>
+<script>
+(function(){
+"use strict";
+var WORDS = (DATA && DATA.words) ? DATA.words : [];
+var PHRASES = (DATA && DATA.phrases) ? DATA.phrases : [];
+var ROOT_GROUPS = (DATA && DATA.roots) ? DATA.roots : [];
+WORDS.forEach(function(w){ w.cat='word'; });
+PHRASES.forEach(function(p){ p.cat='phrase'; });
+var ROOT_WORDS = [];
+ROOT_GROUPS.forEach(function(rg){
+  (rg.words||[]).forEach(function(w){
+    ROOT_WORDS.push({ cat:'root', root:rg.root, rootMeaning:rg.meaning, word:w.word, pos:w.pos||'', zh:w.zh||'', examples:w.examples||[] });
+  });
+});
+var ROOT_NAMES = ROOT_GROUPS.map(function(r){ return r.root; });
+var PAGES = Array.from(new Set(WORDS.map(function(w){return w.page;}).filter(function(p){return p!=null;}))).sort(function(a,b){return a-b;});
+
+var state = { screen:'list', cat:'word', page:'all', root:'all', search:'', menuOpen:false, menuSub:null, menuTypingDir:null };
+
+function $(sel,root){ return (root||document).querySelector(sel); }
+function esc(s){ return (s==null?'':String(s)).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function keyOf(it){
+  var cat = it.cat || 'word';
+  var base = (it.word||'').trim().toLowerCase()+'||'+(it.pos||'').trim().toLowerCase()+'||'+(it.zh||'').trim();
+  if(cat==='word') return base;
+  if(cat==='root') return 'root||'+base+'||'+(it.root||'').toLowerCase();
+  return 'phrase||'+base;
+}
+
+function pageMatch(w, page){ return page==='all' || String(w.page)===String(page); }
+function catLabel(cat){ return cat==='word' ? '單字' : (cat==='phrase' ? '片語' : '字根'); }
+function filteredList(){
+  if(state.cat==='phrase') return PHRASES.filter(function(p){ return p.word; });
+  if(state.cat==='root') return ROOT_WORDS.filter(function(rw){ return rw.word && (state.root==='all' || rw.root===state.root); });
+  return WORDS.filter(function(w){ return w.word && pageMatch(w, state.page); });
+}
+
+/* ---------- localStorage helpers ---------- */
+function lsGet(key, fallback){
+  try{ var v=localStorage.getItem(key); return v?JSON.parse(v):fallback; }catch(e){ return fallback; }
+}
+function lsSet(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
+
+/* mode 省略＝選擇題（舊 key 'quiz6_wrong' 原封不動）；
+   mode='typing_zh2en'＝中翻英（舊 key 'quiz6_typing_wrong' 原封不動，沿用她既有資料）；
+   mode='typing_en2zh'＝英翻中，另開新 key，不動舊資料 */
+function wrongKey(mode){
+  if(mode==='typing_zh2en') return 'quiz6_typing_wrong';
+  if(mode==='typing_en2zh') return 'quiz6_typing_wrong_en2zh';
+  return 'quiz6_wrong';
+}
+function loadWrong(mode){ return lsGet(wrongKey(mode), []); }
+function addWrong(w,mode){ var a=loadWrong(mode); var k=keyOf(w); if(a.indexOf(k)<0){ a.push(k); lsSet(wrongKey(mode),a);} }
+function removeWrong(w,mode){ var a=loadWrong(mode); var k=keyOf(w); var i=a.indexOf(k); if(i>=0){ a.splice(i,1); lsSet(wrongKey(mode),a);} }
+function isWrong(w,mode){ return loadWrong(mode).indexOf(keyOf(w))>=0; }
+function anyWrong(mode){ return loadWrong(mode).length>0; }
+
+/* 字根打字＝整組一起考，錯題本以「字根」為單位（不是逐字），另開 key */
+function rootWrongKey(){ return 'quiz6_typing_wrong_root'; }
+function loadWrongRoot(){ return lsGet(rootWrongKey(), []); }
+function addWrongRoot(rootName){ var a=loadWrongRoot(); var k=String(rootName||'').trim().toLowerCase(); if(a.indexOf(k)<0){ a.push(k); lsSet(rootWrongKey(),a);} }
+function removeWrongRoot(rootName){ var a=loadWrongRoot(); var k=String(rootName||'').trim().toLowerCase(); var i=a.indexOf(k); if(i>=0){ a.splice(i,1); lsSet(rootWrongKey(),a);} }
+function isWrongRoot(rootName){ return loadWrongRoot().indexOf(String(rootName||'').trim().toLowerCase())>=0; }
+function anyWrongRoot(){ return loadWrongRoot().length>0; }
+
+function fcKey(){ return 'quiz6_fc_status'; }
+function loadFc(){ return lsGet(fcKey(), {}); }
+function setFc(w,status){ var o=loadFc(); o[keyOf(w)]=status; lsSet(fcKey(),o); }
+function getFc(w){ var o=loadFc(); return o[keyOf(w)]||null; }
+
+/* ---------- 選擇題／字卡「做到一半」進度：換頁、關掉再打開都能接著做 ---------- */
+function mcSessKey(){ return 'quiz6_mc_session'; }
+function saveMcSession(){
+  if(state.quiz && state.quiz.qs && state.quiz.qs.length){
+    lsSet(mcSessKey(), { cat:state.cat, page:state.page, root:state.root, quiz:state.quiz });
+  }
+}
+function loadMcSession(){ return lsGet(mcSessKey(), null); }
+function clearMcSession(){ try{ localStorage.removeItem(mcSessKey()); }catch(e){} }
+
+function fcSessKey(){ return 'quiz6_fc_session'; }
+function saveFcSession(){
+  if(state.cards && state.cards.list && state.cards.list.length){
+    lsSet(fcSessKey(), { cat:state.cat, list:state.cards.list, idx:state.cards.idx, flipped:state.cards.flipped, unsureOnly:state.cards.unsureOnly });
+  }
+}
+function loadFcSession(){ return lsGet(fcSessKey(), null); }
+function clearFcSession(){ try{ localStorage.removeItem(fcSessKey()); }catch(e){} }
+
+/* 打字模式的進度分三條線各自存：dir='zh2en'（舊 key，沿用）／'en2zh'／'root' */
+function typingSessKey(dir){
+  if(dir==='en2zh') return 'quiz6_typing_session_en2zh';
+  if(dir==='root') return 'quiz6_typing_session_root';
+  return 'quiz6_typing_session';
+}
+function saveTypingSession(){
+  var q = state.typing;
+  if(q && q.qs && q.qs.length){
+    lsSet(typingSessKey(q.dir), { cat:state.cat, page:state.page, root:state.root, typing:q });
+  }
+}
+function loadTypingSession(dir){ return lsGet(typingSessKey(dir), null); }
+function clearTypingSession(dir){ try{ localStorage.removeItem(typingSessKey(dir)); }catch(e){} }
+
+/* ---------- counterpart lookup helpers (每個選項的「對應語言」小字) ---------- */
+function matchCollocZh(item, answer){
+  var a=(answer||'').trim().toLowerCase();
+  var cols=(item&&item.collocations)||[];
+  for(var i=0;i<cols.length;i++){
+    if(cols[i].en && cols[i].en.trim().toLowerCase()===a) return cols[i].zh||'';
+  }
+  return '';
+}
+function clozeZh(item, answer){ return matchCollocZh(item, answer) || (item&&item.zh) || ''; }
+
+/* ---------- 中翻英（打字）判分：大小寫不分／去頭尾空白／空白摺疊／尾端標點忽略／片語佔位詞可省略 ---------- */
+function normTyped(s){
+  return String(s==null?'':s).trim().toLowerCase().replace(/\s+/g,' ').replace(/[.,!?;:'"、。！？，；：]+$/,'').trim();
+}
+function stripPlaceholders(s){
+  return String(s==null?'':s)
+    .replace(/\bone'?s\b/gi,' ').replace(/\boneself\b/gi,' ')
+    .replace(/\bsb\.?\b/gi,' ').replace(/\bsth\.?\b/gi,' ')
+    .replace(/\bsomeone\b/gi,' ').replace(/\bsomething\b/gi,' ')
+    .replace(/\bv-?ing\b/gi,' ').replace(/\bbev\b/gi,' ').replace(/\bdoing\b/gi,' ')
+    .replace(/\s+/g,' ').trim();
+}
+function checkTypingAnswer(userVal, correct){
+  var u = normTyped(userVal);
+  if(!u) return false;
+  if(u===normTyped(correct)) return true;
+  var u2 = normTyped(stripPlaceholders(userVal));
+  var c2 = normTyped(stripPlaceholders(correct));
+  return !!u2 && u2===c2;
+}
+/* ---------- 英翻中（打字）寬鬆判分：拆解中文定義成關鍵字片段，命中任一段就算對 ---------- */
+function normZh(s){ return String(s==null?'':s).replace(/\s+/g,'').replace(/[，,。.；;、！!？?]/g,''); }
+function zhKeys(zh){
+  var t = String(zh==null?'':zh)
+    .replace(/[（(][^）)]*[）)]/g,'')   /* 去括號內容 */
+    .replace(/…+/g,'').replace(/\.{2,}/g,''); /* 去刪節號 */
+  var arr = t.split(/[；;，,、／\/]+/);
+  var out = [];
+  arr.forEach(function(x){
+    x = x.replace(/\s+/g,'').replace(/^的+|的+$/g,'');
+    if(x.length>0) out.push(x);
+  });
+  var full = t.replace(/\s+/g,'');
+  if(full && out.indexOf(full)<0) out.push(full);
+  return out;
+}
+function judgeZhLenient(ans, keys){
+  var a = normZh(ans); if(a.length===0) return false;
+  for(var i=0;i<keys.length;i++){
+    var k = normZh(keys[i]); if(!k) continue;
+    if(a.indexOf(k)>=0) return true;
+    if(k.indexOf(a)>=0 && a.length>=2) return true;
+  }
+  return false;
+}
+
+/* ---------- 打字提示：片語＝字首＋其餘底線；單字＝字首＋字尾＋中間底線 ---------- */
+var HINT_PLACEHOLDERS = {"sb":1,"sth":1,"ving":1,"bev":1,"one's":1,"oneself":1};
+function isHintPlaceholder(tok){ return !!HINT_PLACEHOLDERS[String(tok||'').toLowerCase()]; }
+function hintBlankWord(word){
+  if(word.length<=1) return word;
+  return word[0] + new Array(word.length).join('_');
+}
+function hintPhrase(text){
+  return String(text==null?'':text).replace(/[A-Za-z']+/g, function(tok){
+    return isHintPlaceholder(tok) ? tok : hintBlankWord(tok);
+  });
+}
+function hintWordToken(word){
+  if(word.length<=1) return word;
+  if(word.length<=2) return word[0];
+  return word[0] + new Array(word.length-1).join('_') + word[word.length-1];
+}
+function hintWordEntry(text){
+  return String(text==null?'':text).replace(/[A-Za-z']+/g, function(tok){
+    return hintWordToken(tok);
+  });
+}
+
+/* 拼字差異標示（LCS，紅字＝答案裡使用者漏掉／拼錯的部分）*/
+function diffHtml(user,ans){
+  var u=String(user==null?'':user).toLowerCase(), a=String(ans==null?'':ans).toLowerCase(), A=String(ans==null?'':ans);
+  var m=u.length,n=a.length,i,j;
+  var dp=[]; for(i=0;i<=m;i++){dp.push(new Array(n+1)); for(j=0;j<=n;j++)dp[i][j]=0;}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++)dp[i][j]= u[i-1]===a[j-1] ? dp[i-1][j-1]+1 : Math.max(dp[i-1][j],dp[i][j-1]);
+  var keep={}; i=m;j=n;
+  while(i>0&&j>0){ if(u[i-1]===a[j-1]){keep[j-1]=1;i--;j--;} else if(dp[i-1][j]>=dp[i][j-1]) i--; else j--; }
+  var out='';
+  for(j=0;j<n;j++){ out += keep[j] ? esc(A[j]) : '<b>'+esc(A[j])+'</b>'; }
+  return out;
+}
+
+/* ---------- global distractor pools (built once, from the real dataset; scoped per category) ---------- */
+var ALL_COLS = []; /* {en, zh} unique, from WORDS */
+(function(){
+  var seen={};
+  WORDS.forEach(function(w){
+    (w.collocations||[]).forEach(function(c){
+      if(!c || !c.en) return;
+      var k=c.en.trim().toLowerCase();
+      if(seen[k]) return; seen[k]=1;
+      ALL_COLS.push({en:c.en, zh:c.zh||''});
+    });
+  });
+})();
+var ALL_PHRASES = []; /* {text, zh} pool from WORDS example answers + collocation ens, for cloze distractors */
+(function(){
+  var seen={};
+  function add(text, zh){ if(!text) return; var k=text.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; ALL_PHRASES.push({text:text, zh:zh||''}); }
+  WORDS.forEach(function(w){
+    (w.examples||[]).forEach(function(e){ if(e && e.answer) add(e.answer, clozeZh(w, e.answer)); });
+    (w.collocations||[]).forEach(function(c){ if(c && c.en) add(c.en, c.zh||''); });
+  });
+})();
+var PHRASE_SYN_POOL = []; /* {text, zh} unique synonym strings across PHRASES, zh = owning phrase's meaning */
+(function(){
+  var seen={};
+  PHRASES.forEach(function(p){
+    (p.synonyms||[]).forEach(function(s){
+      if(!s) return; var k=s.trim().toLowerCase(); if(seen[k]) return; seen[k]=1;
+      PHRASE_SYN_POOL.push({text:s, zh:p.zh||''});
+    });
+  });
+})();
+var PHRASE_EX_POOL = []; /* {text, zh} unique example answer strings across PHRASES */
+(function(){
+  var seen={};
+  PHRASES.forEach(function(p){
+    (p.examples||[]).forEach(function(e){ if(!e || !e.answer) return; var k=e.answer.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; PHRASE_EX_POOL.push({text:e.answer, zh:p.zh||''}); });
+  });
+})();
+var ROOT_EX_POOL = []; /* {text, zh} unique example answer strings across ROOT_WORDS */
+(function(){
+  var seen={};
+  ROOT_WORDS.forEach(function(rw){
+    (rw.examples||[]).forEach(function(e){ if(!e || !e.answer) return; var k=e.answer.trim().toLowerCase(); if(seen[k]) return; seen[k]=1; ROOT_EX_POOL.push({text:e.answer, zh:rw.zh||''}); });
+  });
+})();
+
+function pickDistinct(pool, excludeVal, count, textOf){
+  var seen={}; seen[(excludeVal||'').trim().toLowerCase()]=1;
+  var cands = shuffle(pool.slice());
+  var out=[];
+  for(var i=0;i<cands.length && out.length<count;i++){
+    var t = textOf(cands[i]);
+    if(!t) continue;
+    var k=t.trim().toLowerCase();
+    if(seen[k]) continue;
+    seen[k]=1; out.push(cands[i]);
+  }
+  return out;
+}
+
+/* ---------- quiz building ---------- */
+function buildQuestions(wrongOnly){
+  var pool = filteredList();
+  var qs = [];
+  if(state.cat==='word'){
+    pool.forEach(function(w){
+      if(wrongOnly && !isWrong(w)) return;
+      if(w.zh){ qs.push({ type:'meaning2word', item:w }); qs.push({ type:'word2meaning', item:w }); }
+      (w.collocations||[]).forEach(function(c){ if(c && c.en && c.zh) qs.push({ type:'colloc', item:w, col:c }); });
+      (w.examples||[]).forEach(function(e){ if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'cloze', item:w, ex:e }); });
+    });
+  } else if(state.cat==='phrase'){
+    pool.forEach(function(p){
+      if(wrongOnly && !isWrong(p)) return;
+      if(p.zh){ qs.push({ type:'p_m2w', item:p }); qs.push({ type:'p_w2m', item:p }); }
+      if((p.synonyms||[]).length){ qs.push({ type:'p_syn', item:p, syn:p.synonyms[Math.floor(Math.random()*p.synonyms.length)] }); }
+      (p.examples||[]).forEach(function(e){ if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'p_cloze', item:p, ex:e }); });
+    });
+  } else if(state.cat==='root'){
+    pool.forEach(function(rw){
+      if(wrongOnly && !isWrong(rw)) return;
+      if(rw.zh){ qs.push({ type:'r_m2w', item:rw }); qs.push({ type:'r_w2m', item:rw }); }
+      (rw.examples||[]).forEach(function(e){ if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'r_cloze', item:rw, ex:e }); });
+    });
+  }
+  shuffle(qs);
+  qs.forEach(function(q){
+    var pairs; /* [{text, cp}] cp = 該選項對應的另一種語言（英選項配中文、中選項配英文），沒有就空字串 */
+    if(q.type==='meaning2word'){
+      var d1 = pickDistinct(WORDS, q.item.word, 3, function(x){ return x.word; });
+      pairs = [{text:q.item.word, cp:q.item.zh||''}].concat(d1.map(function(x){ return {text:x.word, cp:x.zh||''}; }));
+    } else if(q.type==='word2meaning'){
+      var d2 = pickDistinct(WORDS, q.item.zh, 3, function(x){ return x.zh; });
+      pairs = [{text:q.item.zh, cp:q.item.word||''}].concat(d2.map(function(x){ return {text:x.zh, cp:x.word||''}; }));
+    } else if(q.type==='colloc'){
+      var d3 = pickDistinct(ALL_COLS, q.col.en, 3, function(x){ return x.en; });
+      pairs = [{text:q.col.en, cp:q.col.zh||''}].concat(d3.map(function(x){ return {text:x.en, cp:x.zh||''}; }));
+    } else if(q.type==='cloze'){
+      var d4 = pickDistinct(ALL_PHRASES, q.ex.answer, 3, function(x){ return x.text; });
+      pairs = [{text:q.ex.answer, cp:clozeZh(q.item, q.ex.answer)}].concat(d4.map(function(x){ return {text:x.text, cp:x.zh||''}; }));
+    } else if(q.type==='p_m2w'){
+      var d5 = pickDistinct(PHRASES, q.item.word, 3, function(x){ return x.word; });
+      pairs = [{text:q.item.word, cp:q.item.zh||''}].concat(d5.map(function(x){ return {text:x.word, cp:x.zh||''}; }));
+    } else if(q.type==='p_w2m'){
+      var d6 = pickDistinct(PHRASES, q.item.zh, 3, function(x){ return x.zh; });
+      pairs = [{text:q.item.zh, cp:q.item.word||''}].concat(d6.map(function(x){ return {text:x.zh, cp:x.word||''}; }));
+    } else if(q.type==='p_syn'){
+      var d7 = pickDistinct(PHRASE_SYN_POOL, q.syn, 3, function(x){ return x.text; });
+      pairs = [{text:q.syn, cp:q.item.zh||''}].concat(d7.map(function(x){ return {text:x.text, cp:x.zh||''}; }));
+    } else if(q.type==='p_cloze'){
+      var d8 = pickDistinct(PHRASE_EX_POOL, q.ex.answer, 3, function(x){ return x.text; });
+      pairs = [{text:q.ex.answer, cp:q.item.zh||''}].concat(d8.map(function(x){ return {text:x.text, cp:x.zh||''}; }));
+    } else if(q.type==='r_m2w'){
+      var d9 = pickDistinct(ROOT_WORDS, q.item.word, 3, function(x){ return x.word; });
+      pairs = [{text:q.item.word, cp:q.item.zh||''}].concat(d9.map(function(x){ return {text:x.word, cp:x.zh||''}; }));
+    } else if(q.type==='r_w2m'){
+      var d10 = pickDistinct(ROOT_WORDS, q.item.zh, 3, function(x){ return x.zh; });
+      pairs = [{text:q.item.zh, cp:q.item.word||''}].concat(d10.map(function(x){ return {text:x.zh, cp:x.word||''}; }));
+    } else if(q.type==='r_cloze'){
+      var d11 = pickDistinct(ROOT_EX_POOL, q.ex.answer, 3, function(x){ return x.text; });
+      pairs = [{text:q.ex.answer, cp:q.item.zh||''}].concat(d11.map(function(x){ return {text:x.text, cp:x.zh||''}; }));
+    }
+    if(pairs){
+      shuffle(pairs);
+      q.options = pairs.map(function(p){ return p.text; });
+      q.optionCp = pairs.map(function(p){ return p.cp||''; });
+    }
+  });
+  return qs.filter(function(q){ return q.options && q.options.length>=2; });
+}
+
+/* ---------- 打字（單字／片語）題庫：每個項目一題；modeKey 決定用哪本錯題本 ---------- */
+function buildTypingQuestions(wrongOnly, modeKey){
+  var pool = filteredList();
+  var qs = [];
+  pool.forEach(function(it){
+    if(wrongOnly && !isWrong(it, modeKey)) return;
+    if(it.word && it.zh) qs.push({ item:it, answered:false });
+  });
+  shuffle(qs);
+  return qs;
+}
+
+/* ---------- 字根打字題庫：一組字根＝一題，底下每個字各一列，一次送出整組 ---------- */
+function buildRootTypingGroups(wrongOnly){
+  var groups = ROOT_GROUPS.filter(function(rg){ return (rg.words||[]).length>0; });
+  if(state.root!=='all'){ groups = groups.filter(function(rg){ return rg.root===state.root; }); }
+  if(wrongOnly){ groups = groups.filter(function(rg){ return isWrongRoot(rg.root); }); }
+  var qs = groups.map(function(rg){
+    return {
+      root: rg.root,
+      meaning: rg.meaning||'',
+      answered: false,
+      rows: (rg.words||[]).map(function(w){
+        return { word:w.word, pos:w.pos||'', zh:w.zh||'', examples:w.examples||[], userVal:'', answered:false, ok:false };
+      })
+    };
+  });
+  shuffle(qs);
+  return qs;
+}
+
+/* ---------- flashcard building ---------- */
+function buildDeck(unsureOnly){
+  var list = filteredList();
+  if(unsureOnly){ list = list.filter(function(w){ return getFc(w)==='unsure'; }); }
+  return list;
+}
+
+/* ---------- shared topbar ---------- */
+function renderTopbar(){
+  var dropInner;
+  if(state.menuSub==='mc'){
+    var nWrongMc = loadWrong('mc').length;
+    dropInner =
+      '<button class="mitem" data-act="back-menu">‹ 返回</button>'+
+      '<button class="mitem" data-act="start-quiz" data-mode="all">📝 全部</button>'+
+      '<button class="mitem" data-act="start-quiz" data-mode="wrong"'+(nWrongMc===0?' disabled':'')+'>🔁 只練錯的（'+nWrongMc+' 題）</button>';
+  } else if(state.menuSub==='typing'){
+    if(state.cat==='word' && !state.menuTypingDir){
+      /* 單字：先選方向 */
+      dropInner =
+        '<button class="mitem" data-act="back-menu">‹ 返回</button>'+
+        '<button class="mitem" data-act="pick-typing-dir" data-dir="zh2en">✍️ 中翻英</button>'+
+        '<button class="mitem" data-act="pick-typing-dir" data-dir="en2zh">✍️ 英翻中</button>';
+    } else {
+      var tyDir = state.cat==='root' ? 'root' : (state.cat==='word' ? state.menuTypingDir : 'zh2en');
+      var tyModeKey = tyDir==='en2zh' ? 'typing_en2zh' : 'typing_zh2en';
+      var nWrongTy = tyDir==='root' ? loadWrongRoot().length : loadWrong(tyModeKey).length;
+      var tyBackAct = state.cat==='word' ? 'back-typing-dir' : 'back-menu';
+      var tyUnit = tyDir==='root' ? '組' : '題';
+      dropInner =
+        '<button class="mitem" data-act="'+tyBackAct+'">‹ 返回</button>'+
+        '<button class="mitem" data-act="start-typing" data-mode="all" data-dir="'+tyDir+'">✍️ 全部</button>'+
+        '<button class="mitem" data-act="start-typing" data-mode="wrong" data-dir="'+tyDir+'"'+(nWrongTy===0?' disabled':'')+'>🔁 只練錯的（'+nWrongTy+' '+tyUnit+'）</button>';
+    }
+  } else {
+    dropInner =
+      '<button class="mitem" data-act="open-mc-sub">📝 選擇題</button>'+
+      '<button class="mitem" data-act="open-typing-sub">✍️ 打字</button>'+
+      '<button class="mitem" data-act="start-cards">🃏 字卡</button>'+
+      '<button class="mitem" data-act="home">📋 回單字清單</button>';
+  }
+  return '<div class="topbar"><div class="ttl">GSAT 單字 UNIT 3</div>'+
+    '<div class="menuwrap"><button class="menubtn" id="menuBtn" aria-label="選單">⋯</button>'+
+    '<div class="menudrop" id="menuDrop"'+(state.menuOpen?'':' hidden')+'>'+dropInner+'</div></div></div>';
+}
+
+/* ---------- render: router ---------- */
+function render(){
+  var app = $('#app');
+  if(state.screen==='quiz') app.innerHTML = renderTopbar()+renderQuiz();
+  else if(state.screen==='result') app.innerHTML = renderTopbar()+renderResult();
+  else if(state.screen==='typing') app.innerHTML = renderTopbar()+renderTyping();
+  else if(state.screen==='typingResult') app.innerHTML = renderTopbar()+renderTypingResult();
+  else if(state.screen==='cards') app.innerHTML = renderTopbar()+renderCards();
+  else app.innerHTML = renderTopbar()+renderList();
+  bind();
+}
+
+function collocLine(c){
+  return '<div class="sub">▸ <b>'+esc(c.en)+'</b>　'+esc(c.zh||'')+'</div>';
+}
+function exampleLine(e){
+  var en=e.en||'', ans=e.answer||'';
+  var i = ans ? en.indexOf(ans) : -1;
+  var html;
+  if(i>=0){ html = esc(en.slice(0,i))+'<b>'+esc(ans)+'</b>'+esc(en.slice(i+ans.length)); }
+  else { html = esc(en); }
+  return '<div class="sub">e.g. '+html+'</div>';
+}
+
+function itemHay(it){
+  var parts = [it.word||'', it.zh||''];
+  if(it.cat==='phrase') parts.push((it.synonyms||[]).join(' '));
+  if(it.cat==='root') parts.push(it.root||'');
+  return parts.join(' ').toLowerCase();
+}
+function itemBadge(it){
+  if(it.cat==='word') return '<span class="pg">p.'+esc(it.page)+'</span>';
+  if(it.cat==='phrase') return '<span class="pg">No.'+esc(it.no)+'</span>';
+  if(it.cat==='root') return '<span class="pg">'+esc(it.root)+'</span>';
+  return '';
+}
+function itemSubLines(it){
+  var subs = '';
+  if(it.cat==='word'){ subs += (it.collocations||[]).map(collocLine).join(''); }
+  if(it.cat==='phrase' && (it.synonyms||[]).length){
+    subs += '<div class="sub">＝ '+it.synonyms.map(esc).join('　＝ ')+'</div>';
+  }
+  subs += (it.examples||[]).map(exampleLine).join('');
+  if(it.note) subs += '<div class="sub">'+esc(it.note)+'</div>';
+  return subs;
+}
+function subtitleText(){
+  if(state.cat==='word') return '共 '+WORDS.length+' 個單字・GSAT/AST CORE LEXICON UNIT 3';
+  if(state.cat==='phrase') return '共 '+PHRASES.length+' 個片語・DORRIS ENGLISH PHRASES A（1-33）';
+  return '共 '+ROOT_WORDS.length+' 個字根單字・'+ROOT_NAMES.length+' 個字根（'+ROOT_NAMES.join('/')+'）';
+}
+
+function renderList(){
+  var availCats = ['word','phrase','root'].filter(function(c){
+    if(c==='word') return WORDS.length>0;
+    if(c==='phrase') return PHRASES.length>0;
+    return ROOT_WORDS.length>0;
+  });
+  var catChips = availCats.length>1 ? availCats.map(function(c){
+    return '<button class="chip'+(state.cat===c?' on':'')+'" data-act="setcat" data-cat="'+c+'">'+catLabel(c)+'</button>';
+  }).join('') : '';
+  var secondaryHtml = '';
+  if(state.cat==='word'){
+    var pageChips = ['<button class="chip'+(state.page==='all'?' on':'')+'" data-act="setpage" data-page="all">全部</button>'].concat(
+      PAGES.map(function(p){
+        return '<button class="chip'+(String(state.page)===String(p)?' on':'')+'" data-act="setpage" data-page="'+p+'">'+p+'</button>';
+      })
+    ).join('');
+    secondaryHtml = PAGES.length ? ('<div class="chiprow">'+pageChips+'</div>') : '';
+  } else if(state.cat==='root'){
+    var rootChips = ['<button class="chip'+(state.root==='all'?' on':'')+'" data-act="setroot" data-root="all">全部</button>'].concat(
+      ROOT_NAMES.map(function(r){
+        return '<button class="chip'+(state.root===r?' on':'')+'" data-act="setroot" data-root="'+r+'">'+r+'</button>';
+      })
+    ).join('');
+    secondaryHtml = '<div class="chiprow">'+rootChips+'</div>';
+  }
+  var list = filteredList();
+  var cells = list.map(function(w){
+    var hay = itemHay(w);
+    var ipaLine = (w.phonetic || w.pos) ? ('<span class="ipa">'+esc(w.phonetic||'')+' <span class="pos">'+esc(w.pos||'')+'</span></span>') : '';
+    return '<div class="wcell" data-hay="'+esc(hay)+'">'+
+      '<b>'+esc(w.word)+'</b>'+itemBadge(w)+
+      ipaLine+
+      '<div class="zh">'+esc(w.zh||'')+'</div>'+ itemSubLines(w) +
+      '</div>';
+  }).join('');
+  var resumeHtml = '';
+  var mcS = loadMcSession();
+  if(mcS && mcS.quiz && mcS.quiz.qs && mcS.quiz.qs.length && mcS.quiz.idx < mcS.quiz.qs.length){
+    resumeHtml += '<div class="card resume"><div class="resumetxt">📝 選擇題做到一半・第 '+(mcS.quiz.idx+1)+' / '+mcS.quiz.qs.length+' 題（目前答對 '+mcS.quiz.score+'）</div>'+
+      '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-mc">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-mc">重新開始</button></div></div>';
+  }
+  ['zh2en','en2zh','root'].forEach(function(tyDirR){
+    var tyS = loadTypingSession(tyDirR);
+    if(tyS && tyS.typing && tyS.typing.qs && tyS.typing.qs.length && tyS.typing.idx < tyS.typing.qs.length){
+      var tyLabel = tyDirR==='en2zh' ? '英翻中' : (tyDirR==='root' ? '字根' : '中翻英');
+      var tyUnitR = tyDirR==='root' ? '組' : '題';
+      resumeHtml += '<div class="card resume"><div class="resumetxt">✍️ 繼續上次的'+tyLabel+'（第 '+(tyS.typing.idx+1)+' / '+tyS.typing.qs.length+' '+tyUnitR+'・目前答對 '+tyS.typing.score+'）</div>'+
+        '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-typing" data-dir="'+tyDirR+'">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-typing" data-dir="'+tyDirR+'">重新開始</button></div></div>';
+    }
+  });
+  var fcS = loadFcSession();
+  if(fcS && fcS.list && fcS.list.length){
+    resumeHtml += '<div class="card resume"><div class="resumetxt">🃏 字卡看到一半・第 '+(fcS.idx+1)+' / '+fcS.list.length+' 張</div>'+
+      '<div class="fcrow" style="margin-top:0"><button class="btn" data-act="resume-fc">▶️ 繼續上次</button><button class="btn ghost" data-act="discard-fc">重新開始</button></div></div>';
+  }
+  return ''+
+  resumeHtml+
+  '<p class="sub" style="margin-top:0">'+subtitleText()+'</p>'+
+  '<input class="searchbox" id="searchBox" type="search" placeholder="搜尋…" value="'+esc(state.search)+'">'+
+  '<div class="chiprow">'+catChips+'</div>'+
+  secondaryHtml+
+  '<div class="lab">'+catLabel(state.cat)+'清單（'+list.length+'）</div>'+
+  '<div class="wgrid" id="wgrid">'+(cells||'<div class="empty">目前沒有資料</div>')+'</div>';
+}
+
+var TYPE_TAG = {
+  meaning2word:'中翻英', word2meaning:'英翻中', colloc:'搭配詞', cloze:'例句挖空',
+  p_m2w:'中翻英', p_w2m:'英翻中', p_syn:'同義替換', p_cloze:'例句挖空',
+  r_m2w:'中翻英', r_w2m:'英翻中', r_cloze:'例句挖空'
+};
+
+function questionPrompt(cur){
+  var it = cur.item;
+  if(cur.type==='meaning2word' || cur.type==='p_m2w' || cur.type==='r_m2w'){
+    return esc(it.zh) + (it.pos ? '（'+esc(it.pos)+'）' : '');
+  }
+  if(cur.type==='word2meaning'){
+    return esc(it.word) + (it.phonetic ? '<span class="ipa2">'+esc(it.phonetic)+'</span>' : '');
+  }
+  if(cur.type==='p_w2m' || cur.type==='r_w2m'){
+    return esc(it.word) + (it.pos ? '<span class="ipa2">'+esc(it.pos)+'</span>' : '');
+  }
+  if(cur.type==='colloc'){
+    return esc(cur.col.zh);
+  }
+  if(cur.type==='p_syn'){
+    return esc(it.word) + (it.zh ? '<span class="ipa2">'+esc(it.zh)+'</span>' : '');
+  }
+  if(cur.type==='cloze' || cur.type==='p_cloze' || cur.type==='r_cloze'){
+    var en=cur.ex.en, ans=cur.ex.answer, i=en.indexOf(ans);
+    return esc(en.slice(0,i)) + '<u>_____</u>' + esc(en.slice(i+ans.length));
+  }
+  return '';
+}
+function correctAnswer(cur){
+  var it = cur.item;
+  if(cur.type==='meaning2word' || cur.type==='p_m2w' || cur.type==='r_m2w') return it.word;
+  if(cur.type==='word2meaning' || cur.type==='p_w2m' || cur.type==='r_w2m') return it.zh;
+  if(cur.type==='colloc') return cur.col.en;
+  if(cur.type==='p_syn') return cur.syn;
+  if(cur.type==='cloze' || cur.type==='p_cloze' || cur.type==='r_cloze') return cur.ex.answer;
+  return '';
+}
+
+function renderQuiz(){
+  var q = state.quiz;
+  if(!q) return renderList();
+  if(q.qs.length===0){
+    return '<button class="back" data-act="home">← 回單字清單</button>'+
+      '<div class="card empty">目前沒有可以出的題目'+(q.wrongOnly?'（沒有錯題了，太厲害了）':'')+'</div>';
+  }
+  if(q.idx>=q.qs.length){ state.screen='result'; clearMcSession(); return renderResult(); }
+  var cur = q.qs[q.idx];
+  var pct = Math.round(q.idx/q.qs.length*100);
+  var correct = correctAnswer(cur);
+  var answered = !!cur.answered;
+  var optsHtml = cur.options.map(function(opt,oi){
+    var cls = 'opt';
+    if(answered){
+      if(opt===correct) cls += ' good';
+      else if(opt===cur.selected) cls += ' bad';
+    }
+    var cpTxt = (cur.optionCp && cur.optionCp[oi]) ? cur.optionCp[oi] : '';
+    var cpHtml = (answered && cpTxt) ? '<div class="optcp">'+esc(cpTxt)+'</div>' : '';
+    return '<div class="optwrap"><button class="'+cls+'" data-act="pick" data-opt="'+esc(opt)+'"'+(answered?' disabled':'')+'>'+esc(opt)+'</button>'+cpHtml+'</div>';
+  }).join('');
+  var fb = '';
+  if(answered){
+    var ok = cur.selected===correct;
+    var w = cur.item;
+    var extra = '';
+    if(cur.type==='colloc'){
+      extra = '<div class="exsent"><b>'+esc(cur.col.en)+'</b>　'+esc(cur.col.zh||'')+'</div>';
+    } else if(cur.type==='cloze' || cur.type==='p_cloze' || cur.type==='r_cloze'){
+      var en2=cur.ex.en, ans2=cur.ex.answer, i2=en2.indexOf(ans2);
+      extra = '<div class="exsent">'+esc(en2.slice(0,i2))+'<b>'+esc(ans2)+'</b>'+esc(en2.slice(i2+ans2.length))+'</div>';
+    } else if(cur.type==='p_syn' && (w.synonyms||[]).length){
+      extra = '<div class="exsent">同義：'+w.synonyms.map(esc).join('　＝ ')+'</div>';
+    }
+    fb = '<div class="fb '+(ok?'good':'bad')+'">'+
+      '<div class="hd">'+(ok?'答對了 🎉':'答錯了')+'</div>'+
+      '<div class="ansbox"><span class="answ">'+esc(w.word)+'</span><span class="ipa2">'+esc(w.phonetic||w.pos||'')+'</span>'+
+      '<div class="zh2">'+esc(w.zh||'')+'</div>'+ extra +
+      '</div></div>'+
+      '<button class="btn" data-act="next">'+(q.idx+1>=q.qs.length?'看結果':'下一題')+'</button>';
+  }
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="pbar"><i style="width:'+pct+'%"></i></div>'+
+  '<div class="pmeta"><span>第 '+(q.idx+1)+' / '+q.qs.length+' 題</span><span>答對 '+q.score+'</span></div>'+
+  '<div class="card">'+
+    '<div class="qtag">'+esc(TYPE_TAG[cur.type]||'')+'</div>'+
+    '<div class="qmain">'+questionPrompt(cur)+'</div>'+
+    '<div class="opts">'+optsHtml+'</div>'+
+  '</div>'+
+  fb;
+}
+
+function renderResult(){
+  var q = state.quiz;
+  if(!q) return renderList();
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="card score"><div class="n">'+q.score+' / '+q.qs.length+'</div><div class="d">答對題數</div></div>'+
+  '<button class="btn" data-act="start-quiz" data-mode="'+(q.wrongOnly?'wrong':'all')+'">再玩一次</button>'+
+  '<button class="btn ghost" data-act="home">回單字清單</button>';
+}
+
+function renderTyping(){
+  var q = state.typing;
+  if(!q) return renderList();
+  if(q.dir==='root') return renderTypingRoot();
+  if(q.qs.length===0){
+    return '<button class="back" data-act="home">← 回單字清單</button>'+
+      '<div class="card empty">目前沒有可以出的題目'+(q.wrongOnly?'（沒有錯題了，太厲害了）':'')+'</div>';
+  }
+  if(q.idx>=q.qs.length){ state.screen='typingResult'; clearTypingSession(q.dir); return renderTypingResult(); }
+  var cur = q.qs[q.idx];
+  var pct = Math.round(q.idx/q.qs.length*100);
+  var it = cur.item;
+  var correct = it.word;
+  var answered = !!cur.answered;
+  var isEn2zh = q.dir==='en2zh';
+  var qtagTxt = (isEn2zh?'英翻中':'中翻英')+'・'+catLabel(it.cat)+(it.pos?'・'+it.pos:'');
+  var qmainHtml;
+  if(isEn2zh){
+    var ipaPos = [it.phonetic||'', it.pos||''].filter(function(s){return s;}).join('　');
+    qmainHtml = esc(it.word) + (ipaPos ? '<span class="ipa2">'+esc(ipaPos)+'</span>' : '') + itemBadge(it);
+  } else {
+    qmainHtml = esc(it.zh) + itemBadge(it);
+  }
+  var bodyHtml;
+  if(!answered){
+    var hintHtml = '';
+    if(!isEn2zh){
+      var hintTxt = it.cat==='phrase' ? hintPhrase(it.word) : hintWordEntry(it.word);
+      hintHtml = '<div class="hintline">提示：'+esc(hintTxt)+'</div>';
+    }
+    bodyHtml = hintHtml+'<input type="text" class="typein" id="typeIn" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="'+(isEn2zh?'輸入中文意思…':'輸入英文…')+'">'+
+      '<button class="btn" data-act="typesubmit">送出</button>';
+  } else {
+    var ok = cur.ok;
+    var extra = '';
+    if((it.examples||[]).length){ extra += it.examples.map(exampleLine).join(''); }
+    if(it.cat==='word' && (it.collocations||[]).length){ extra += it.collocations.map(collocLine).join(''); }
+    if(it.cat==='phrase' && (it.synonyms||[]).length){ extra += '<div class="sub">＝ '+it.synonyms.map(esc).join('　＝ ')+'</div>'; }
+    var wroteHtml = '<div class="wrote">你寫：'+esc(cur.userVal||'')+'</div>';
+    if(!isEn2zh && !ok){
+      wroteHtml += '<div class="wrote">正確：<span class="dif">'+diffHtml(cur.userVal||'', correct)+'</span>（紅色是漏掉／拼錯的地方）</div>';
+    }
+    bodyHtml = '<div class="fb '+(ok?'good':'bad')+'">'+
+      '<div class="hd">'+(ok?'答對了 🎉':'答錯了')+'</div>'+ wroteHtml +
+      '<div class="ansbox"><span class="answ">'+esc(it.word)+'</span><span class="ipa2">'+esc(it.phonetic||it.pos||'')+'</span>'+
+      '<div class="zh2">'+esc(it.zh||'')+'</div>'+ extra +
+      '</div></div>'+
+      '<button class="btn" data-act="typenext">'+(q.idx+1>=q.qs.length?'看結果':'下一題')+'</button>';
+  }
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="pbar"><i style="width:'+pct+'%"></i></div>'+
+  '<div class="pmeta"><span>第 '+(q.idx+1)+' / '+q.qs.length+' 題</span><span>答對 '+q.score+'</span></div>'+
+  '<div class="card">'+
+    '<div class="qtag">'+esc(qtagTxt)+'</div>'+
+    '<div class="qmain">'+qmainHtml+'</div>'+
+    (answered ? '' : bodyHtml)+
+  '</div>'+
+  (answered ? bodyHtml : '');
+}
+
+/* 字根：一題＝一整組，每個字一列，一次送出整組 */
+function renderTypingRoot(){
+  var q = state.typing;
+  if(!q) return renderList();
+  if(q.qs.length===0){
+    return '<button class="back" data-act="home">← 回單字清單</button>'+
+      '<div class="card empty">目前沒有可以出的題目'+(q.wrongOnly?'（沒有錯題了，太厲害了）':'')+'</div>';
+  }
+  if(q.idx>=q.qs.length){ state.screen='typingResult'; clearTypingSession('root'); return renderTypingResult(); }
+  var cur = q.qs[q.idx];
+  var pct = Math.round(q.idx/q.qs.length*100);
+  var answered = !!cur.answered;
+  var rowsHtml = cur.rows.map(function(r, ri){
+    if(!answered){
+      var hint = hintWordEntry(r.word);
+      return '<div class="rootrow">'+
+        '<div class="rr-zh">'+esc(r.zh)+(r.pos?'　<span class="ipa2">'+esc(r.pos)+'</span>':'')+'</div>'+
+        '<div class="hintline">提示：'+esc(hint)+'</div>'+
+        '<input type="text" class="typein rootin" data-ri="'+ri+'" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="輸入英文…">'+
+        '</div>';
+    }
+    var rowCls = 'rootrow '+(r.ok?'good':'bad');
+    return '<div class="'+rowCls+'">'+
+      '<div class="rr-zh">'+esc(r.zh)+(r.pos?'　<span class="ipa2">'+esc(r.pos)+'</span>':'')+'</div>'+
+      '<div class="wrote">你寫：'+esc(r.userVal||'（空白）')+'</div>'+
+      (r.ok ? '<div class="wrote">✅ '+esc(r.word)+'</div>' : '<div class="wrote">正確：<span class="dif">'+diffHtml(r.userVal||'', r.word)+'</span></div>')+
+      '</div>';
+  }).join('');
+  var submitHtml = answered
+    ? '<button class="btn" data-act="rootnext">'+(q.idx+1>=q.qs.length?'看結果':'下一組')+'</button>'
+    : '<button class="btn" data-act="rootsubmit">送出整組</button>';
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="pbar"><i style="width:'+pct+'%"></i></div>'+
+  '<div class="pmeta"><span>第 '+(q.idx+1)+' / '+q.qs.length+' 組</span><span>答對 '+q.score+'</span></div>'+
+  '<div class="card">'+
+    '<div class="qtag">字根</div>'+
+    '<div class="qmain">'+esc(cur.root)+'<span class="ipa2">'+esc(cur.meaning||'')+'</span></div>'+
+    rowsHtml+
+    submitHtml+
+  '</div>';
+}
+
+function renderTypingResult(){
+  var q = state.typing;
+  if(!q) return renderList();
+  var unitLabel = q.dir==='root' ? '組數' : '題數';
+  return ''+
+  '<button class="back" data-act="home">← 回單字清單</button>'+
+  '<div class="card score"><div class="n">'+q.score+' / '+q.qs.length+'</div><div class="d">答對'+unitLabel+'</div></div>'+
+  '<button class="btn" data-act="start-typing" data-mode="'+(q.wrongOnly?'wrong':'all')+'" data-dir="'+q.dir+'">再玩一次</button>'+
+  '<button class="btn ghost" data-act="home">回單字清單</button>';
+}
+
+function renderCards(){
+  var c = state.cards;
+  if(!c) return renderList();
+  var list = c.list;
+  var head = '<button class="back" data-act="home">← 回單字清單</button>'+
+    '<div class="toprow"><h1 style="margin:0;font-size:1.05em">字卡（'+catLabel(state.cat)+'）</h1>'+
+    '<label class="chk"><input type="checkbox" id="unsureOnly"'+(c.unsureOnly?' checked':'')+'> 只看還不熟</label></div>';
+  if(list.length===0){
+    return head+'<div class="card empty">沒有卡片可以看</div>';
+  }
+  if(c.idx>=list.length) c.idx=0;
+  var w = list[c.idx];
+  var status = getFc(w);
+  var body;
+  if(!c.flipped){
+    body = '<div class="cf-word">'+esc(w.word)+'</div><div class="cf-ipa">'+esc(w.phonetic||'')+'</div>'+
+      '<div class="cf-hint">點卡片看解釋</div>';
+  } else {
+    var colHtml = '';
+    if(w.cat==='word' && (w.collocations||[]).length){
+      colHtml = '<div class="cf-col">'+w.collocations.map(function(c2){
+        return '<div class="cf-colitem"><b>'+esc(c2.en)+'</b>　'+esc(c2.zh||'')+'</div>';
+      }).join('')+'</div>';
+    } else if(w.cat==='phrase' && (w.synonyms||[]).length){
+      colHtml = '<div class="cf-col">'+w.synonyms.map(function(s){
+        return '<div class="cf-colitem">＝ '+esc(s)+'</div>';
+      }).join('')+'</div>';
+    } else if(w.cat==='root'){
+      colHtml = '<div class="cf-col"><div class="cf-colitem">字根 <b>'+esc(w.root)+'</b>　'+esc(w.rootMeaning||'')+'</div></div>';
+    }
+    var exHtml = '';
+    if((w.examples||[]).length){
+      exHtml = '<div class="cf-ex">'+w.examples.map(exampleLine).join('')+'</div>';
+    }
+    body = '<div class="cf-pos">'+esc(w.pos||'')+'</div>'+
+      '<div class="cf-word" style="font-size:1.25em">'+esc(w.word)+'<span class="cf-ipa" style="display:inline">'+esc(w.phonetic||'')+'</span></div>'+
+      '<div class="cf-zh">'+esc(w.zh||'')+'</div>'+ colHtml + exHtml;
+  }
+  return head+
+  '<div class="pmeta"><span>'+(c.idx+1)+' / '+list.length+'</span><span>'+(status==='know'?'✅ 我會了':(status==='unsure'?'🟡 還不熟':''))+'</span></div>'+
+  '<div class="cardbox" data-act="flip">'+body+'</div>'+
+  '<div class="fcrow">'+
+    '<button class="btn ghost" data-act="mark" data-status="unsure">還不熟</button>'+
+    '<button class="btn" data-act="mark" data-status="know">我會了</button>'+
+  '</div>'+
+  '<div class="navrow">'+
+    '<button class="btn ghost" data-act="prev">◀ 上一張</button>'+
+    '<button class="btn ghost" data-act="shuffle">🔀 洗牌</button>'+
+    '<button class="btn ghost" data-act="nextcard">下一張 ▶</button>'+
+  '</div>';
+}
+
+/* ---------- actions ---------- */
+function startQuiz(mode){
+  clearMcSession();
+  var wrongOnly = mode==='wrong' && anyWrong();
+  state.quiz = { qs:buildQuestions(wrongOnly), idx:0, score:0, wrongOnly:wrongOnly };
+  state.screen = 'quiz';
+}
+function startCards(){
+  clearFcSession();
+  state.cards = { list: buildDeck(false), idx:0, flipped:false, unsureOnly:false };
+  state.screen = 'cards';
+}
+/* navMode:'all'|'wrong'　dir:'zh2en'|'en2zh'|'root' */
+function startTyping(navMode, dir){
+  clearTypingSession(dir);
+  if(dir==='root'){
+    var wrongOnlyR = navMode==='wrong' && anyWrongRoot();
+    state.typing = { qs:buildRootTypingGroups(wrongOnlyR), idx:0, score:0, wrongOnly:wrongOnlyR, dir:'root' };
+  } else {
+    var modeKey = dir==='en2zh' ? 'typing_en2zh' : 'typing_zh2en';
+    var wrongOnly = navMode==='wrong' && anyWrong(modeKey);
+    state.typing = { qs:buildTypingQuestions(wrongOnly, modeKey), idx:0, score:0, wrongOnly:wrongOnly, dir:dir };
+  }
+  state.screen = 'typing';
+}
+function typeSubmit(){
+  var inp = document.getElementById('typeIn');
+  if(!inp) return;
+  var val = inp.value;
+  if(!val.trim()){ inp.focus(); return; }
+  var q = state.typing; var cur = q.qs[q.idx];
+  if(!cur || cur.answered) return;
+  var isEn2zh = q.dir==='en2zh';
+  var modeKey = isEn2zh ? 'typing_en2zh' : 'typing_zh2en';
+  var ok = isEn2zh ? judgeZhLenient(val, zhKeys(cur.item.zh)) : checkTypingAnswer(val, cur.item.word);
+  cur.answered = true; cur.userVal = val; cur.ok = ok;
+  if(ok){ q.score++; removeWrong(cur.item, modeKey); }
+  else { addWrong(cur.item, modeKey); }
+  saveTypingSession();
+  render();
+}
+function rootSubmit(){
+  var q = state.typing; var cur = q.qs[q.idx];
+  if(!cur || cur.answered) return;
+  var app = $('#app');
+  var inputs = app.querySelectorAll('.rootin');
+  var valByRi = {};
+  Array.prototype.forEach.call(inputs, function(el){ valByRi[el.getAttribute('data-ri')] = el.value; });
+  var allOk = true;
+  cur.rows.forEach(function(r, ri){
+    var val = valByRi[String(ri)] || '';
+    var ok = checkTypingAnswer(val, r.word);
+    r.userVal = val; r.ok = ok; r.answered = true;
+    if(!ok) allOk = false;
+  });
+  cur.answered = true;
+  if(allOk){ q.score++; removeWrongRoot(cur.root); } else { addWrongRoot(cur.root); }
+  saveTypingSession();
+  render();
+}
+
+function closeMenu(){ state.menuOpen=false; state.menuSub=null; state.menuTypingDir=null; }
+
+function bind(){
+  var app = $('#app');
+  app.onclick = function(e){
+    var t = e.target.closest('[data-act]');
+    if(!t) return;
+    var act = t.getAttribute('data-act');
+    if(act==='home'){ closeMenu(); state.screen='list'; render(); }
+    else if(act==='open-mc-sub'){ state.menuSub='mc'; render(); }
+    else if(act==='open-typing-sub'){ state.menuSub='typing'; state.menuTypingDir=null; render(); }
+    else if(act==='back-menu'){ state.menuSub=null; state.menuTypingDir=null; render(); }
+    else if(act==='pick-typing-dir'){ state.menuTypingDir=t.getAttribute('data-dir'); render(); }
+    else if(act==='back-typing-dir'){ state.menuTypingDir=null; render(); }
+    else if(act==='start-quiz'){ closeMenu(); startQuiz(t.getAttribute('data-mode')); render(); }
+    else if(act==='start-typing'){ closeMenu(); startTyping(t.getAttribute('data-mode'), t.getAttribute('data-dir')); render(); }
+    else if(act==='start-cards'){ closeMenu(); startCards(); render(); }
+    else if(act==='typesubmit'){ typeSubmit(); }
+    else if(act==='typenext'){ state.typing.idx++; saveTypingSession(); render(); }
+    else if(act==='rootsubmit'){ rootSubmit(); }
+    else if(act==='rootnext'){ state.typing.idx++; saveTypingSession(); render(); }
+    else if(act==='resume-typing'){
+      var rDir = t.getAttribute('data-dir');
+      var sTy = loadTypingSession(rDir);
+      if(sTy && sTy.typing){ state.cat=sTy.cat; state.page=sTy.page; state.root=sTy.root; state.typing=sTy.typing; state.screen='typing'; }
+      render();
+    }
+    else if(act==='discard-typing'){ clearTypingSession(t.getAttribute('data-dir')); render(); }
+    else if(act==='setcat'){ state.cat = t.getAttribute('data-cat'); render(); }
+    else if(act==='setpage'){ state.page = t.getAttribute('data-page'); render(); }
+    else if(act==='setroot'){ state.root = t.getAttribute('data-root'); render(); }
+    else if(act==='pick'){
+      var q = state.quiz; var cur = q.qs[q.idx];
+      if(cur.answered) return;
+      var opt = t.getAttribute('data-opt');
+      cur.answered = true; cur.selected = opt;
+      var correct = correctAnswer(cur);
+      var ok = opt===correct;
+      if(ok){ q.score++; removeWrong(cur.item); }
+      else { addWrong(cur.item); }
+      saveMcSession();
+      render();
+    }
+    else if(act==='next'){ state.quiz.idx++; saveMcSession(); render(); }
+    else if(act==='resume-mc'){
+      var sMc = loadMcSession();
+      if(sMc && sMc.quiz){ state.cat=sMc.cat; state.page=sMc.page; state.root=sMc.root; state.quiz=sMc.quiz; state.screen='quiz'; }
+      render();
+    }
+    else if(act==='discard-mc'){ clearMcSession(); render(); }
+    else if(act==='resume-fc'){
+      var sFc = loadFcSession();
+      if(sFc && sFc.list && sFc.list.length){ state.cat=sFc.cat; state.cards={list:sFc.list, idx:sFc.idx, flipped:sFc.flipped, unsureOnly:sFc.unsureOnly}; state.screen='cards'; }
+      render();
+    }
+    else if(act==='discard-fc'){ clearFcSession(); render(); }
+    else if(act==='flip'){ state.cards.flipped = !state.cards.flipped; saveFcSession(); render(); }
+    else if(act==='mark'){
+      var c = state.cards; var w = c.list[c.idx];
+      var status = t.getAttribute('data-status');
+      setFc(w, status);
+      if(status==='unsure'){ addWrong(w); } else { removeWrong(w); }
+      c.flipped = false;
+      c.idx = Math.min(c.idx+1, Math.max(0,c.list.length-1));
+      saveFcSession();
+      render();
+    }
+    else if(act==='prev'){ var c2=state.cards; c2.idx=Math.max(0,c2.idx-1); c2.flipped=false; saveFcSession(); render(); }
+    else if(act==='nextcard'){ var c3=state.cards; c3.idx=Math.min(c3.list.length-1,c3.idx+1); c3.flipped=false; saveFcSession(); render(); }
+    else if(act==='shuffle'){ shuffle(state.cards.list); state.cards.idx=0; state.cards.flipped=false; saveFcSession(); render(); }
+  };
+  var menuBtn = $('#menuBtn', app);
+  if(menuBtn){ menuBtn.onclick = function(e){ e.stopPropagation(); state.menuOpen = !state.menuOpen; if(!state.menuOpen) state.menuSub=null; render(); }; }
+  var typeIn = $('#typeIn', app);
+  if(typeIn){
+    typeIn.focus();
+    typeIn.onkeydown = function(e){ if(e.key==='Enter'||e.keyCode===13){ e.preventDefault(); typeSubmit(); } };
+  }
+  var searchBox = $('#searchBox', app);
+  if(searchBox){
+    searchBox.oninput = function(){
+      state.search = searchBox.value;
+      var q = state.search.trim().toLowerCase();
+      var grid = $('#wgrid', app);
+      if(!grid) return;
+      var cells = grid.querySelectorAll('.wcell');
+      for(var i=0;i<cells.length;i++){
+        var hay = cells[i].getAttribute('data-hay')||'';
+        cells[i].hidden = !!q && hay.indexOf(q)<0;
+      }
+    };
+  }
+  var unsureChk = $('#unsureOnly', app);
+  if(unsureChk){ unsureChk.onchange = function(){
+    var c = state.cards; c.unsureOnly = unsureChk.checked;
+    c.list = buildDeck(c.unsureOnly); c.idx=0; c.flipped=false; saveFcSession(); render();
+  }; }
+}
+
+/* capture phase：一定要在 app.onclick 觸發整個 innerHTML 重繪之前先判斷，
+   否則 e.target 在重繪後會變成已脫離文件的舊節點，containment 判斷會失準 */
+document.addEventListener('click', function(e){
+  if(state.menuOpen){
+    var d = document.getElementById('menuDrop');
+    if(d && !d.contains(e.target) && e.target.id!=='menuBtn'){ state.menuOpen=false; state.menuSub=null; render(); }
+  }
+}, true);
+
+render();
+})();
+</script>
+<script>
+/* 靜默開啟計數（不顯示任何數字）。?v=<tag> 時另記一筆該人的專屬計數。
+   自動重整（偵測到新版本）不重複計數：sessionStorage 旗標命中就跳過這一次並清除旗標。 */
+(function(){try{
+  var skip=false;
+  try{
+    if(sessionStorage.getItem('q6_skip_hit_once')==='1'){
+      skip=true;
+      sessionStorage.removeItem('q6_skip_hit_once');
+    }
+  }catch(e){}
+  if(skip) return;
+  var q=location.search;
+  var b='https://hits.sh/wennylai0208.github.io/notes/q6-7qxn';
+  new Image().src=b+'.svg?x='+Math.random();
+  var m=q.match(/[?&]v=([A-Za-z0-9]{1,12})/);
+  if(m){ new Image().src=b+'-r-'+m[1]+'.svg?x='+Math.random(); }
+}catch(e){}})();
+</script>
+</body>
+</html>
