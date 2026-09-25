@@ -112,6 +112,8 @@ nav.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--pa
 nav.tabbar button{flex:1;background:none;border:none;color:var(--sub);font-size:11px;padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:3px;}
 nav.tabbar button .ic{font-size:19px;}
 nav.tabbar button.active{color:var(--accent);}
+.given .opt{margin-top:7px;padding-left:1.6em;text-indent:-1.6em;}
+.given .stem{margin-bottom:2px;}
 .progress{font-size:12px;color:var(--sub);margin:4px 0 14px;}
 ::-webkit-scrollbar{display:none;}
 </style>
@@ -1185,6 +1187,22 @@ let currentCat = 'all';
 let currentCh = 'all';
 const marks = lsGet('phys15_marks', {});
 
+/* 把 (A)(B)(C)… 或 (1)(2)(3)… 的選項／小題各自斷行，手機上比較好讀 */
+function fmtGiven(t){
+  if(!t) return '';
+  const re = /\(([A-F]|[1-9])\)/g;
+  const marks = [];
+  let m;
+  while((m = re.exec(t)) !== null) marks.push(m.index);
+  if(marks.length < 2) return t;            /* 只有一個標記就不動，避免誤切 */
+  const stem = t.slice(0, marks[0]).trim();
+  let out = stem ? '<div class="stem">' + stem + '</div>' : '';
+  for(let i = 0; i < marks.length; i++){
+    const end = (i + 1 < marks.length) ? marks[i+1] : t.length;
+    out += '<div class="opt">' + t.slice(marks[i], end).trim() + '</div>';
+  }
+  return out;
+}
 function renderExamples(){
   const list = document.getElementById('example-list');
   list.innerHTML = '';
@@ -1209,7 +1227,7 @@ function renderExamples(){
         <div class="arrow">▾</div>
       </div>
       <div class="exbody">
-        <div class="exsec"><div class="lab">題目</div><div class="given">${ex.given}</div></div>
+        <div class="exsec"><div class="lab">題目</div><div class="given">${fmtGiven(ex.given)}</div></div>
         ${svgHtml}
         <div class="exsec"><div class="lab">思考過程</div><div class="think"><ol>${ex.think.map(t=>'<li>'+t+'</li>').join('')}</ol></div></div>
         <div class="exsec"><div class="lab">計算過程</div><div class="calc">${ex.calc.map(c=>'<div class="line">'+c+'</div>').join('')}</div></div>
