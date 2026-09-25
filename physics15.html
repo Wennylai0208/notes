@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>磁效應與電磁感應．第15+16章</title>
+<style>
+:root{
+  --bg:#f6f5f1; --panel:#ffffff; --ink:#1e2430; --sub:#5a6270; --line:#e2e0d8;
+  --accent:#1f5fae; --accent2:#b3541e; --warn:#b3261e; --good:#2e7d4f;
+  --chip:#eef1f6; --think:#eef4fb; --calc:#fff7ec; --pitfall:#fdecec;
+  --radius:14px; --maxw:460px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#14171c; --panel:#1c2027; --ink:#eceef1; --sub:#9aa3b2; --line:#2b303a;
+    --accent:#6fa8e6; --accent2:#e3a06a; --warn:#f0847a; --good:#7bd4a0;
+    --chip:#262b34; --think:#1c2a38; --calc:#2c2416; --pitfall:#331f1f;
+  }
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  line-height:1.7; font-size:16px; padding-bottom:76px; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:16px;}
+header.top{position:sticky;top:0;z-index:20;background:var(--bg);padding:14px 16px 8px;border-bottom:1px solid var(--line);}
+header.top h1{font-size:19px;margin:0 0 2px;letter-spacing:.5px;}
+header.top p{margin:0;color:var(--sub);font-size:13px;}
+section.page{display:none;}
+section.page.active{display:block;}
+h2.sec-title{font-size:17px;margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--accent);}
+h2.sec-title:first-child{margin-top:4px;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;margin-bottom:12px;}
+.muted{color:var(--sub);font-size:13.5px;}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 3px;line-height:1.15;font-size:.95em;}
+.fr>i{border-bottom:1.4px solid currentColor;padding:0 4px;font-style:normal;}
+.fr>b{padding:0 4px;font-weight:400;}
+.formula-eq{font-size:17px;text-align:center;margin:8px 0;}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;background:var(--chip);color:var(--sub);margin-right:6px;}
+.tag.accent{background:var(--accent);color:#fff;}
+.tag.accent2{background:var(--accent2);color:#fff;}
+/* 易混淆對照 */
+.compare{border:1.5px dashed var(--accent2);border-radius:var(--radius);padding:12px;margin-bottom:16px;background:var(--panel);}
+.compare h3{margin:0 0 8px;font-size:15px;color:var(--accent2);}
+.compare .row{display:flex;gap:8px;margin-bottom:8px;}
+.compare .col{flex:1;background:var(--chip);border-radius:10px;padding:9px 10px;font-size:14px;}
+.compare .col b{display:block;font-size:13px;color:var(--sub);margin-bottom:4px;font-weight:600;}
+.compare .diff{background:var(--pitfall);border-radius:10px;padding:8px 10px;font-size:13.5px;margin-top:4px;}
+.diff b{color:var(--warn);}
+/* formula card */
+.fcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;margin-bottom:12px;}
+.fcard h3{margin:0 0 6px;font-size:15px;}
+.fcard .when{font-size:13.5px;color:var(--sub);margin:4px 0;}
+.fcard .err{font-size:13.5px;background:var(--pitfall);border-radius:9px;padding:7px 9px;margin-top:6px;}
+.fcard .err b{color:var(--warn);}
+/* concept map */
+.mapbox{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:10px;margin-bottom:14px;}
+.mapbox svg{width:100%;height:auto;display:block;}
+/* type guide */
+.typecard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;margin-bottom:14px;}
+.typecard h3{margin:0 0 4px;font-size:16px;color:var(--accent);}
+.typecard .keyword{font-size:13.5px;background:var(--chip);border-radius:9px;padding:8px 10px;margin:8px 0;}
+.typecard ol{margin:6px 0 6px 18px;padding:0;font-size:14.5px;}
+.typecard ol li{margin-bottom:4px;}
+/* example cards */
+.excard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px;overflow:hidden;}
+.exhead{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:10px;}
+.exhead .t{font-size:14.5px;font-weight:600;}
+.exhead .meta{font-size:12px;color:var(--sub);margin-top:2px;font-weight:400;}
+.exhead .arrow{font-size:13px;color:var(--sub);transition:transform .2s;flex-shrink:0;}
+.excard.open .arrow{transform:rotate(180deg);}
+.exbody{display:none;padding:0 14px 14px;}
+.excard.open .exbody{display:block;}
+.exsec{margin-top:10px;}
+.exsec .lab{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--sub);text-transform:uppercase;margin-bottom:5px;}
+.given{background:var(--chip);border-radius:10px;padding:10px 11px;font-size:14.5px;}
+.think{background:var(--think);border-radius:10px;padding:10px 11px;}
+.think ol{margin:0;padding-left:18px;font-size:14px;}
+.think ol li{margin-bottom:6px;}
+.calc{background:var(--calc);border-radius:10px;padding:10px 11px;font-size:14.5px;}
+.calc .line{margin-bottom:6px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13.5px;}
+.answer{background:var(--good);color:#fff;border-radius:10px;padding:9px 11px;font-size:15px;font-weight:600;}
+.pitfall{background:var(--pitfall);border-radius:10px;padding:9px 11px;font-size:13.5px;}
+.pitfall b{color:var(--warn);}
+.exdiag{margin:8px 0;text-align:center;}
+.exdiag svg{max-width:360px;width:100%;height:auto;}
+.exdiag .cap{font-size:12.5px;color:var(--sub);margin-top:4px;}
+.exfoot{display:flex;gap:8px;margin-top:10px;}
+.markbtn{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:9px;padding:8px;font-size:13px;}
+.markbtn.on-seen{background:var(--good);color:#fff;border-color:var(--good);}
+.markbtn.on-stuck{background:var(--warn);color:#fff;border-color:var(--warn);}
+.chbar{display:flex;gap:6px;margin-bottom:8px;}
+.chbar button{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:9px 6px;font-size:14px;font-weight:600;white-space:nowrap;}
+.chbar button.active{background:var(--accent2);color:#fff;border-color:var(--accent2);}
+.catbar{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:8px;-webkit-overflow-scrolling:touch;}
+.catbar button{flex-shrink:0;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:99px;padding:7px 13px;font-size:13px;}
+.catbar button.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+/* stuck points (neutral) */
+.stuckcard{border:1.5px solid var(--warn);border-radius:var(--radius);padding:14px 15px;margin-bottom:14px;background:var(--panel);}
+.stuckcard h3{margin:0 0 6px;font-size:15.5px;color:var(--warn);}
+/* quiz */
+.qcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;margin-bottom:12px;}
+.qcard .qtext{font-size:15px;margin-bottom:10px;}
+.qopt{display:block;width:100%;text-align:left;background:var(--chip);border:1px solid transparent;border-radius:9px;padding:9px 11px;margin-bottom:7px;font-size:14px;color:var(--ink);}
+.qopt.correct{background:rgba(46,125,79,.18);border-color:var(--good);}
+.qopt.wrong{background:rgba(179,38,30,.18);border-color:var(--warn);}
+.qexp{display:none;font-size:13.5px;color:var(--sub);background:var(--chip);border-radius:9px;padding:9px 11px;margin-top:6px;}
+.qexp.show{display:block;}
+nav.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--panel);border-top:1px solid var(--line);display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom));}
+nav.tabbar button{flex:1;background:none;border:none;color:var(--sub);font-size:11px;padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:3px;}
+nav.tabbar button .ic{font-size:19px;}
+nav.tabbar button.active{color:var(--accent);}
+.progress{font-size:12px;color:var(--sub);margin:4px 0 14px;}
+::-webkit-scrollbar{display:none;}
+</style>
+</head>
+<body>
+<header class="top">
+<h1>⚡ 磁效應與電磁感應</h1>
+<p>第15章 電流的磁效應　＋　第16章 電磁感應</p>
+</header>
+
+<div class="wrap">
+
+<!-- ===================== 1. 公式卡（含易混淆對照）===================== -->
+<section class="page active" id="page-formula">
+<h2 class="sec-title">第15章：最容易搞混的幾組公式</h2>
+
+<div class="compare">
+<h3>① B 到底除不除 π、除的是誰</h3>
+<div class="row">
+  <div class="col"><b>長直導線（外部一點）</b>
+    <div class="formula-eq">B = <span class="fr"><i>μ₀i</i><b>2πR</b></span></div>
+    R＝導線到該點的垂直距離</div>
+  <div class="col"><b>圓形線圈（圓心）</b>
+    <div class="formula-eq">B = <span class="fr"><i>μ₀i</i><b>2r</b></span></div>
+    r＝線圈半徑，分母沒有 π</div>
+</div>
+<div class="col" style="margin-bottom:8px;"><b>長螺線管（管內）</b>
+  <div class="formula-eq">B = μ₀ni</div>
+  n＝單位長度匝數(匝/公尺)，不是總匝數；也沒有 R 或 r</div>
+<div class="diff"><b>差在哪一個字：</b>直導線是「除以 2πR」，圓形線圈是「除以 2r」（少一個 π），螺線管是「乘以 n」（根本不用除）。三個公式長得像親戚，代錯分母是這章最常見的失分。</div>
+</div>
+
+<div class="compare">
+<h3>② 安培力 vs 勞侖茲力——誰乘 L、誰乘 v</h3>
+<div class="row">
+  <div class="col"><b>安培力（整段導線）</b>
+    <div class="formula-eq">F = iL·B·sinθ</div>
+    對象是一段「載流導線」，L 是導線長度，θ 是導線與 B 的夾角</div>
+  <div class="col"><b>勞侖茲力（單一電荷）</b>
+    <div class="formula-eq">F = qv·B·sinθ</div>
+    對象是「一個帶電粒子」，v 是粒子速度，θ 是速度與 B 的夾角</div>
+</div>
+<div class="diff"><b>判斷關鍵：</b>題目給的是一段「導線＋電流 i」→ 用 F=iLBsinθ；題目給的是一顆「帶電粒子＋速度 v」→ 用 F=qvBsinθ。兩者形式像雙胞胎，代錯對象（把 L 當 v 代，或反過來）是常見錯誤。</div>
+</div>
+
+<div class="compare">
+<h3>③ 迴旋半徑 r 與週期 T——誰跟速率有關</h3>
+<div class="row">
+  <div class="col"><b>半徑</b>
+    <div class="formula-eq">r = <span class="fr"><i>mv</i><b>qB</b></span></div>
+    跟速率 v 成正比，v 變快、圈就變大</div>
+  <div class="col"><b>週期</b>
+    <div class="formula-eq">T = <span class="fr"><i>2πm</i><b>qB</b></span></div>
+    式子裡沒有 v！</div>
+</div>
+<div class="diff"><b>特別標記：</b>週期 T 與速率無關——粒子跑快跑慢，繞一圈的時間都一樣（只跟質量、電荷、磁場有關）。題目問「多久後第一次通過某軸」，十之八九是在考這個「T 與 v 無關」的性質，不用去解 v。</div>
+</div>
+
+<div class="compare">
+<h3>④ 判方向：右手定則 vs 另一次右手定則</h3>
+<div class="row">
+  <div class="col"><b>安培右手定則（找磁場方向）</b>
+    拇指指電流方向，四指彎曲方向＝磁場繞行方向（環繞導線）</div>
+  <div class="col"><b>右手開掌定則（找受力方向）</b>
+    四指指電流(或速度)方向，再彎向 B，拇指方向＝受力 F 方向（F=IL×B 或 F=qv×B）</div>
+</div>
+<div class="diff"><b>差在哪：</b>第一種是「電流生磁場」，只用拇指＋四指彎曲；第二種是「磁場對電流/電荷施力」，是三個方向做叉積（電流→磁場→力，像 XYZ 三軸）。兩種都叫「右手定則」但動作完全不同，考卷常常故意混著考。</div>
+</div>
+
+<h2 class="sec-title">第15章 公式卡片（附使用時機與常見代錯點）</h2>
+
+<div class="fcard">
+<h3>長直導線的磁場</h3>
+<div class="formula-eq">B = <span class="fr"><i>μ₀i</i><b>2πR</b></span>　（μ₀=4π×10⁻⁷ T·m/A）</div>
+<div class="when">什麼時候用：題目出現「長直導線」＋「距離 R 處的一點」。</div>
+<div class="err"><b>常代錯：</b>R 必須是「垂直距離」，不是斜線距離；多條導線疊加時要先判斷各自方向再向量相加，不能直接把數值加減。</div>
+</div>
+
+<div class="fcard">
+<h3>圓形線圈圓心的磁場</h3>
+<div class="formula-eq">B = <span class="fr"><i>μ₀i</i><b>2r</b></span>　（N 匝則再乘 N）</div>
+<div class="when">什麼時候用：題目出現「圓形線圈」＋「求圓心 O 的磁場」。</div>
+<div class="err"><b>常代錯：</b>分母是 2r 不是 2πr（跟長直導線公式搞混，多除一個 π）；若只有半圈或部分弧，要先乘上「弧所佔比例（弧度/2π）」。</div>
+</div>
+
+<div class="fcard">
+<h3>長螺線管內部的磁場</h3>
+<div class="formula-eq">B = μ₀ni　（n = N/L，單位長度匝數）</div>
+<div class="when">什麼時候用：題目出現「螺線管」「每公分繞幾匝」「單位長度匝數」。</div>
+<div class="err"><b>常代錯：</b>n 要換算成「每公尺」的匝數，題目常給「每公分」要自己乘 100；多層繞線要把各層匝數密度加總。</div>
+</div>
+
+<div class="fcard">
+<h3>安培力（載流導線在磁場中受力）</h3>
+<div class="formula-eq">F = iLB sinθ　（方向：右手四指指電流方向，彎向 B，拇指為 F）</div>
+<div class="when">什麼時候用：題目給一段導線的電流、長度，問它在磁場中「受多少力」。</div>
+<div class="err"><b>常代錯：</b>θ 是電流方向與 B 方向的夾角，不是導線與桌面的夾角；封閉線圈在均勻磁場中「合力恆為零」，但「合力矩不一定為零」，兩者常被搞混。</div>
+</div>
+
+<div class="fcard">
+<h3>勞侖茲力（帶電粒子在磁場中受力）</h3>
+<div class="formula-eq">F = qvB sinθ　（方向：右手四指指 v，彎向 B，拇指為 F；負電荷方向相反）</div>
+<div class="when">什麼時候用：題目給一顆帶電粒子（q、v），問它瞬間受多少磁力，或粒子做圓周/螺旋運動。</div>
+<div class="err"><b>常代錯：</b>負電荷要把方向「反過來」；勞侖茲力恆與 v 垂直，所以「不對電荷做功」——若題目同時有電場 E，電場才會改變粒子速率。</div>
+</div>
+
+<div class="fcard">
+<h3>帶電粒子的圓周／螺旋運動</h3>
+<div class="formula-eq">r = <span class="fr"><i>mv</i><b>qB</b></span>　　T = <span class="fr"><i>2πm</i><b>qB</b></span>　　（螺距 d=v∥T）</div>
+<div class="when">什麼時候用：粒子速度垂直 B → 純圓周運動；速度與 B 有夾角 → 螺旋運動，把 v 分成平行/垂直 B 兩個分量。</div>
+<div class="err"><b>常代錯：</b>只有「垂直 B 的分量」才決定 r 和圓周運動，「平行 B 的分量」不受力、等速前進，決定螺距；把整個 v 拿去算 r 是常見錯誤。</div>
+</div>
+
+<div class="fcard">
+<h3>線圈力矩（電流計、馬達原理）</h3>
+<div class="formula-eq">τ = NiAB sinφ　（N 匝、A 面積、φ 是線圈法線與 B 的夾角）</div>
+<div class="when">什麼時候用：線圈被磁場「轉」的問題（力矩平衡、電流計偏轉角）。</div>
+<div class="err"><b>常代錯：</b>φ 是「線圈平面法向量」與 B 的夾角，不是線圈平面本身與 B 的夾角，兩者恰好差 90°，是最容易顛倒 sin/cos 的地方。</div>
+</div>
+
+
+<h2 class="sec-title">第16章：最容易搞混的幾組公式</h2>
+
+<div class="compare">
+<h3>① Φ=BAcosθ vs ε=−N·ΔΦ/Δt —— 有沒有電動勢看的是「Φ 在不在變」</h3>
+<div class="row">
+  <div class="col"><b>磁通量（當下的量）</b>
+    <div class="formula-eq">Φ = BAcosθ　（單位 Wb）</div>
+    Φ 只是描述「此刻」穿過線圈的磁場總量</div>
+  <div class="col"><b>感應電動勢（變化的量）</b>
+    <div class="formula-eq">ε = −N<span class="fr"><i>ΔΦ</i><b>Δt</b></span></div>
+    ε 是 Φ「隨時間變化的速率」</div>
+</div>
+<div class="diff"><b>差在哪：</b>Φ 很大但保持不變（ΔΦ=0）時，ε=0，完全沒有感應電動勢；線圈靜止放在強磁場中不會發電，一定要讓 Φ 隨時間改變（轉動、移動、磁場強弱變化）才有 ε。題目常故意給一個「Φ 很大」的情境誘導你以為有很大的電動勢，這是本章最常見的失分點。</div>
+</div>
+
+<div class="compare">
+<h3>② ε=BLv vs ε=NABω·sin(ωt) —— 直線運動 vs 轉動</h3>
+<div class="row">
+  <div class="col"><b>動生電動勢（導體棒直線運動）</b>
+    <div class="formula-eq">ε = BLv</div>
+    導體棒在磁場中「平移」，B、L、v 互相垂直</div>
+  <div class="col"><b>交流發電機（線圈轉動）</b>
+    <div class="formula-eq">ε = NABω·sin(ωt)</div>
+    線圈以等角速度 ω 轉動，ε 隨時間呈正弦波變化</div>
+</div>
+<div class="diff"><b>判斷關鍵：</b>題目說「導體棒在軌道上滑動／移動」用 ε=BLv，算出來是定值；題目說「線圈以角速度 ω 轉動」用 ε=NABω·sin(ωt)，是隨時間變化的函數。兩者形式都含 B、L(或A)、v(或ω)，但一個是直線切割磁場線、一個是轉動改變磁通量，不能互用。</div>
+</div>
+
+<div class="compare">
+<h3>③ 自感 ε=−L·ΔI/Δt vs 變壓器 V₁/V₂=N₁/N₂ —— 看電流變化率 vs 看圈數比</h3>
+<div class="row">
+  <div class="col"><b>自感（線圈對自己感應）</b>
+    <div class="formula-eq">ε = −L<span class="fr"><i>ΔI</i><b>Δt</b></span></div>
+    電流「變化得多快」決定 ε 大小，跟圈數比無關</div>
+  <div class="col"><b>變壓器（兩線圈互相感應）</b>
+    <div class="formula-eq">V₁/V₂ = N₁/N₂</div>
+    兩線圈的「圈數比例」決定電壓比例，是靜態關係</div>
+</div>
+<div class="diff"><b>差在哪：</b>自感談的是同一個線圈「電流本身變化的速率」，單位時間變化越快、ε 越大；變壓器談的是兩個線圈之間「圈數的比例」，只要圈數比固定，電壓比就固定，不需要知道電流變化多快。兩個公式都有字母 L 或 N，注意自感的 L 是電感（henry），變壓器的 N 是匝數，符號別搞混。</div>
+</div>
+
+<div class="compare">
+<h3>④ 變壓器的電壓比 vs 電流比 —— 同向 vs 反向</h3>
+<div class="row">
+  <div class="col"><b>電壓比</b>
+    <div class="formula-eq">V₁/V₂ = N₁/N₂</div>
+    電壓跟圈數「同向」，圈數多電壓就高</div>
+  <div class="col"><b>電流比</b>
+    <div class="formula-eq">I₂/I₁ = N₁/N₂</div>
+    電流跟圈數「反向」，圈數多電流反而小</div>
+</div>
+<div class="diff"><b>差在哪：</b>理想變壓器功率守恆 V₁I₁=V₂I₂，把電壓比代進去就能推出電流比恰好是電壓比的倒數——圈數多的一側（高壓側）電壓高、電流小；圈數少的一側（低壓側）電壓低、電流大。常見錯誤是把「電壓比同向」的規則直接套到電流上，方向沒有反過來。</div>
+</div>
+
+<h2 class="sec-title">第16章 公式卡片（附使用時機與常見代錯點）</h2>
+
+<div class="fcard">
+<h3>磁通量</h3>
+<div class="formula-eq">Φ = BAcosθ　（單位 Wb）</div>
+<div class="when">什麼時候用：題目給磁場 B、線圈面積 A、線圈法線與 B 的夾角 θ，求穿過線圈的磁通量。</div>
+<div class="err"><b>常代錯：</b>θ 是「線圈法線」與 B 的夾角，不是線圈平面本身與 B 的夾角（跟力矩公式 τ=NiABsinθ 的 θ 是同一種角）；線圈平面與 B 平行時法線與 B 垂直，θ=90°，cosθ=0，Φ=0，這時磁通量反而是最小、不是最大。</div>
+</div>
+
+<div class="fcard">
+<h3>法拉第電磁感應定律</h3>
+<div class="formula-eq">ε = −N<span class="fr"><i>ΔΦ</i><b>Δt</b></span></div>
+<div class="when">什麼時候用：題目問「線圈的感應電動勢多大」，且給了磁通量隨時間的變化量（或可以自己算出來）。</div>
+<div class="err"><b>常代錯：</b>Φ 很大但「沒有在變」（ΔΦ=0）時 ε=0，光看 Φ 大小判斷有沒有電動勢是錯的；負號代表感應電動勢的方向會對抗磁通量變化（就是楞次定律），計算大小時通常直接取絕對值。</div>
+</div>
+
+<div class="fcard">
+<h3>楞次定律——感應電流方向判斷（三步驟）</h3>
+<div class="formula-eq">感應電流方向　永遠「反抗磁通量的變化」</div>
+<div class="when">什麼時候用：題目要你畫出感應電流的方向（順時針／逆時針），不是只要電動勢大小。</div>
+<div class="err"><b>三步驟：</b><b>①</b> 先判斷原本磁通量的方向，以及它正在「增加還是減少」；<b>②</b> 感應電流的效果永遠是反抗這個變化——磁通量增加就在線圈內生成反方向磁場來抵抗，磁通量減少就生成同方向磁場來補強；<b>③</b> 用右手定則，由剛剛判斷出的感應磁場方向，回推電流的環繞方向。最常犯的錯是只看「原磁場方向」就直接定電流方向，忘記要先問清楚「變化」是增加還是減少。</div>
+</div>
+
+<div class="fcard">
+<h3>動生電動勢與導體棒在軌條上</h3>
+<div class="formula-eq">ε = BLv　　I = <span class="fr"><i>BLv</i><b>R</b></span>　　F = <span class="fr"><i>B²L²v</i><b>R</b></span></div>
+<div class="when">什麼時候用：導體棒在磁場中平移（B、L、v 互相垂直），或導體棒在兩條平行軌條上滑動、接成迴路求電流與受力。</div>
+<div class="err"><b>常代錯：</b>ε=BLv 只在 B、L、v 三者互相垂直時成立，v 若有分量不垂直於 B 要先分解；安培力 F=B²L²v/R 的方向永遠反抗導體棒的運動（楞次定律的具體體現），當外力與安培力平衡（合力為零）時導體棒達到「終端速度」，此後等速前進、電流不再改變，不是加速度最大的時刻。</div>
+</div>
+
+<div class="fcard">
+<h3>交流發電機</h3>
+<div class="formula-eq">ε = NABω·sin(ωt)　　最大值 ε₀ = NABω</div>
+<div class="when">什麼時候用：線圈在均勻磁場中以角速度 ω 等速轉動（交流發電機模型），求瞬時電動勢或最大電動勢。</div>
+<div class="err"><b>常代錯：</b>ε 最大值出現在線圈平面「平行」於 B（磁通量 Φ 剛好為零、變化率最快）的瞬間，不是磁通量 Φ 最大的瞬間——這跟磁通量公式 Φ=NABcos(ωt) 剛好差 90°（sin 與 cos 的關係），是最容易搞混的地方。</div>
+</div>
+
+<div class="fcard">
+<h3>自感與線圈儲能</h3>
+<div class="formula-eq">ε = −L<span class="fr"><i>ΔI</i><b>Δt</b></span>　　U = <span class="fr"><i>1</i><b>2</b></span>LI²</div>
+<div class="when">什麼時候用：線圈自身電流正在變化（開關瞬間、電路變化），求線圈對自己感應出的電動勢，或求線圈當下儲存的磁能。</div>
+<div class="err"><b>常代錯：</b>自感電動勢的負號代表它會「反抗電流的變化」（電流要增大時它阻礙增大，要減小時它阻礙減小），跟外加電源方向無關；U=½LI² 是「瞬時」儲能公式，電流變小時儲能也會跟著變小，不是只增不減。</div>
+</div>
+
+<div class="fcard">
+<h3>理想變壓器</h3>
+<div class="formula-eq"><span class="fr"><i>V₁</i><b>V₂</b></span> = <span class="fr"><i>N₁</i><b>N₂</b></span> = <span class="fr"><i>I₂</i><b>I₁</b></span></div>
+<div class="when">什麼時候用：題目給變壓器兩端線圈的圈數（或電壓、電流其中任兩個量），求另一個未知量。</div>
+<div class="err"><b>常代錯：</b>電壓比跟圈數比「同向」（圈數多電壓高），電流比跟圈數比「反向」（圈數多電流反而小）；理想變壓器功率守恆 V₁I₁=V₂I₂，看到「圈數比」先確認題目問的是電壓還是電流，比例方向抓反是最常見的錯誤。</div>
+</div>
+</section>
+
+<!-- ===================== 2. 觀念地圖 ===================== -->
+<section class="page" id="page-map">
+<h2 class="sec-title">觀念地圖：這章在講什麼</h2>
+<div class="mapbox">
+<svg viewBox="0 0 340 430" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none">
+  <style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style>
+  <rect x="70" y="10" width="200" height="42" rx="10" stroke-width="1.6"/>
+  <text x="170" y="27" font-size="13" text-anchor="middle">電流會產生磁場</text>
+  <text x="170" y="43" font-size="11" text-anchor="middle" opacity=".7">(安培右手定則)</text>
+
+  <line x1="170" y1="52" x2="170" y2="80" stroke-width="1.6"/>
+  <polygon points="170,86 165,76 175,76" fill="currentColor" stroke="none"/>
+
+  <rect x="10" y="90" width="95" height="52" rx="10" stroke-width="1.4"/>
+  <text x="57" y="110" font-size="12" text-anchor="middle">長直導線</text>
+  <text x="57" y="126" font-size="10.5" text-anchor="middle" opacity=".75">B=μ₀i/2πR</text>
+
+  <rect x="122" y="90" width="95" height="52" rx="10" stroke-width="1.4"/>
+  <text x="169" y="110" font-size="12" text-anchor="middle">圓形線圈</text>
+  <text x="169" y="126" font-size="10.5" text-anchor="middle" opacity=".75">B=μ₀i/2r</text>
+
+  <rect x="234" y="90" width="95" height="52" rx="10" stroke-width="1.4"/>
+  <text x="281" y="110" font-size="12" text-anchor="middle">螺線管</text>
+  <text x="281" y="126" font-size="10.5" text-anchor="middle" opacity=".75">B=μ₀ni</text>
+
+  <line x1="170" y1="150" x2="170" y2="178" stroke-width="1.6"/>
+  <polygon points="170,184 165,174 175,174" fill="currentColor" stroke="none"/>
+
+  <rect x="55" y="190" width="230" height="42" rx="10" stroke-width="1.6"/>
+  <text x="170" y="207" font-size="13" text-anchor="middle">磁場對電流／電荷「施力」</text>
+  <text x="170" y="223" font-size="11" text-anchor="middle" opacity=".7">(右手開掌定則，另一種右手定則)</text>
+
+  <line x1="170" y1="232" x2="170" y2="258" stroke-width="1.6"/>
+  <polygon points="170,264 165,254 175,254" fill="currentColor" stroke="none"/>
+
+  <rect x="10" y="272" width="150" height="60" rx="10" stroke-width="1.4"/>
+  <text x="85" y="292" font-size="12" text-anchor="middle">對「一段導線」</text>
+  <text x="85" y="308" font-size="12" text-anchor="middle">安培力 F=iLBsinθ</text>
+  <text x="85" y="323" font-size="10.5" text-anchor="middle" opacity=".75">→ 力矩 τ=NiABsinφ</text>
+
+  <rect x="180" y="272" width="150" height="60" rx="10" stroke-width="1.4"/>
+  <text x="255" y="292" font-size="12" text-anchor="middle">對「一顆電荷」</text>
+  <text x="255" y="308" font-size="12" text-anchor="middle">勞侖茲力 F=qvBsinθ</text>
+  <text x="255" y="323" font-size="10.5" text-anchor="middle" opacity=".75">→ 圓周/螺旋運動</text>
+
+  <line x1="255" y1="332" x2="255" y2="356" stroke-width="1.6"/>
+  <polygon points="255,362 250,352 260,352" fill="currentColor" stroke="none"/>
+
+  <rect x="145" y="372" width="190" height="48" rx="10" stroke-width="1.4"/>
+  <text x="240" y="392" font-size="12" text-anchor="middle">r=mv/qB　T=2πm/qB</text>
+  <text x="240" y="408" font-size="10.5" text-anchor="middle" opacity=".75">v 有分量時 → 螺旋運動</text>
+</svg>
+</div>
+<p class="muted">主幹只有兩件事：電流「產生」磁場（上半部三種常見形狀）；磁場反過來對電流或電荷「施力」（下半部兩條路線）。看到題目先問自己：這題是在算磁場，還是在算力／力矩／運動？</p>
+</section>
+
+<!-- ===================== 3. 題型分類 ===================== -->
+<section class="page" id="page-type">
+<h2 class="sec-title">四大題型，先認出「這題是哪一型」</h2>
+
+<div class="typecard">
+<h3>Ⅰ．磁場疊加型</h3>
+<div class="keyword">關鍵字：「求某點的磁場」「長直導線」「圓形線圈」「螺線管」「合成磁場」「磁場為零的位置」</div>
+<ol>
+<li>先判斷每個電流源在該點各自產生的 B 方向（安培右手定則）。</li>
+<li>選對公式：直線用 2πR、圓心用 2r、螺線管用 ni。</li>
+<li>方向相同用加法、方向相反用減法；不同方向要向量合成（畫圖分解 x、y 分量）。</li>
+<li>若題目問「磁場為零的位置」，代表兩個 B 大小要相等、方向要相反，先列這個等式再解未知數。</li>
+</ol>
+<span class="tag accent">代表範例：磁場範例三、六</span>
+</div>
+
+<div class="typecard">
+<h3>Ⅱ．安培力／力平衡型</h3>
+<div class="keyword">關鍵字：「導線受力」「磁力與重力/彈力/摩擦力平衡」「軌條上滑動」「懸吊導線」</div>
+<ol>
+<li>先求出該處磁場 B（通常要先用題型 Ⅰ 的公式），再用 F=iLBsinθ 求安培力。</li>
+<li>畫受力圖：安培力、重力(mg)、摩擦力/張力/彈力，通常是這幾個力。</li>
+<li>抓住「平衡」或「恰好開始滑動／恰好不轉」這句話 → 代表合力（或合力矩）等於零，直接列平衡方程式。</li>
+<li>封閉線圈在均勻磁場中「合力恆為零」——如果看到這個條件，直接跳過力的計算。</li>
+</ol>
+<span class="tag accent">代表範例：安培力範例九、十一</span>
+</div>
+
+<div class="typecard">
+<h3>Ⅲ．線圈力矩型</h3>
+<div class="keyword">關鍵字：「線圈可轉動」「力矩平衡」「電流計」「線圈面與 B 夾角」「恰好不轉動/恰好平衡」</div>
+<ol>
+<li>先找出線圈的「法向量」方向，量出法向量與 B 的夾角 φ（不是線圈平面本身的夾角）。</li>
+<li>用 τ=NiABsinφ 求磁力矩。</li>
+<li>找出對抗磁力矩的另一個力矩來源（重力矩、彈簧扭力矩…），兩者相等就是平衡方程式。</li>
+<li>畫「側面圖」把立體問題壓成平面幾何，力臂會清楚很多。</li>
+</ol>
+<span class="tag accent">代表範例：力矩範例一、四</span>
+</div>
+
+<div class="typecard">
+<h3>Ⅳ．帶電粒子運動型（勞侖茲力）</h3>
+<div class="keyword">關鍵字：「帶電粒子」「質譜儀」「速度選擇器」「圓周運動」「螺旋運動」「回到原點」</div>
+<ol>
+<li>先看粒子的速度方向和 B 的夾角：垂直 → 純圓周運動；有夾角 → 拆成平行/垂直 B 兩分量，垂直分量繞圈、平行分量直線前進（合成螺旋）。</li>
+<li>用 r=mv/qB 求半徑；問「時間」優先想 T=2πm/qB（跟 v 無關）。</li>
+<li>若同時有電場 E：先確認是「速度選擇器」(qE=qvB 找特定速度) 還是「加速電場」(qV=½mv²找速率)。</li>
+<li>負電荷的旋轉方向與正電荷相反，畫圖時務必先標電荷正負。</li>
+</ol>
+<span class="tag accent">代表範例：勞侖茲範例三、六</span>
+</div>
+
+</section>
+
+<!-- ===================== 4. 範例逐題 ===================== -->
+<section class="page" id="page-example">
+<h2 class="sec-title">範例逐題拆解</h2>
+<p class="progress" id="progress-text"></p>
+<div class="chbar" id="chbar">
+  <button data-ch="all" class="active">全部</button>
+  <button data-ch="15">第15章</button>
+  <button data-ch="16">第16章</button>
+</div>
+<div class="catbar" id="catbar"></div>
+<div id="example-list"></div>
+</section>
+
+<!-- ===================== 5. 高頻卡關題 ===================== -->
+<section class="page" id="page-stuck">
+<h2 class="sec-title">最容易卡住的四題</h2>
+<p class="muted">這四題是整章公認最容易算錯、想錯方向的題目，先搞懂它們卡在哪，比多算十題新題更有效。</p>
+
+<div class="stuckcard">
+<h3>卡點① 兩個螺線管，功率要開多大才能做出一樣的磁場</h3>
+<p>兩根螺線管外型（截面、管長）一樣，但線徑粗細不同、匝數不同，用同一種銅線繞成。這題最容易卡在：一開始會想直接套「B=μ₀ni」去湊功率關係，但漏算了「電阻其實跟線徑平方成反比」這件事——導線越粗，電阻反而越小。</p>
+<p><b>正確路徑：</b>先分別寫出電阻 R=ρL/A（A 跟半徑平方成正比），再寫出磁場公式湊出 N/L 相同時的關係，最後才組合出功率比 P=I²R。三個關係式要串起來，只寫一個公式是解不出來的。</p>
+<p class="muted">→ 對照範例：磁場計算 · 範例八</p>
+</div>
+
+<div class="stuckcard">
+<h3>卡點② 可繞軸轉動的正方形線圈，力臂到底怎麼量</h3>
+<p>導線被折成正方形三邊、可以繞 OO′ 軸轉動的題目，卡點在「力臂」——線圈偏轉 θ 角之後，每一段導線的重心到轉軸的水平距離不再是直接的長度，要用 sinθ 投影，而且不同邊的力臂還不一樣長（因為到轉軸的距離不同）。</p>
+<p><b>正確路徑：</b>先把立體圖轉成「從轉軸方向看過去」的側視圖，再對每一段導線分別標出「重力力臂」和「磁力力臂」，最後列一次力矩平衡方程式，不要想一次到位。</p>
+<p class="muted">→ 對照範例：線圈力矩 · 範例四</p>
+</div>
+
+<div class="stuckcard">
+<h3>卡點③ 電場＋磁場同時作用，套在細棒上的小球滑動</h3>
+<p>小球套在鉛直細棒上，同時受電場力（固定）、磁力（隨速度變化）、重力、摩擦力、細棒的正向力。卡點在於：正向力（棒對球的支撐力）「不是定值」——因為電場力和磁力都會影響小球對棒的側向擠壓，所以摩擦力也跟著不是定值，不能直接套 f=μN 常數處理。</p>
+<p><b>正確路徑：</b>先列出垂直細棒方向的力平衡（找出正向力 N 的表達式，裡面會有 v），再代入沿棒方向的牛頓第二定律；當加速度為零時（v=0）得到最大加速度，當合力為零時得到終端最大速度。</p>
+<p class="muted">→ 對照範例：勞侖茲力 · 範例七</p>
+</div>
+
+<div class="stuckcard">
+<h3>卡點④ 原子核分裂成兩塊，動能怎麼分配</h3>
+<p>靜止的碳原子核分裂成氦原子核和鈹原子核，兩者反方向飛出。卡點在於：質量數（4 和 8）跟半徑、頻率、動能的關係要分別推，很容易把「動量守恆」和「能量分配」混在一起套錯公式，尤其是最後求「轉變成動能」時忘記兩邊都要算、只算了一邊。</p>
+<p><b>正確路徑：</b>先用動量守恆 m₁v₁=m₂v₂ 配合質量比 1:2，求出速度比與半徑比；再用「週期只跟 q/m 有關、與 v 無關」判斷頻率比；最後動能要「兩個粒子的動能相加」才是總轉變動能。</p>
+<p class="muted">→ 對照範例：勞侖茲力 · 範例九</p>
+</div>
+
+</section>
+
+<!-- ===================== 6. 自我檢測 ===================== -->
+<section class="page" id="page-quiz">
+<h2 class="sec-title">自我檢測（10 題，點選項看解析）</h2>
+<div id="quiz-list"></div>
+<button class="markbtn" id="quiz-reset" style="margin-top:6px;">重新作答</button>
+</section>
+
+</div><!-- /wrap -->
+
+<nav class="tabbar">
+<button data-page="page-formula" class="active"><span class="ic">🧩</span>公式</button>
+<button data-page="page-map"><span class="ic">🗺️</span>地圖</button>
+<button data-page="page-type"><span class="ic">🔎</span>題型</button>
+<button data-page="page-example"><span class="ic">📝</span>範例</button>
+<button data-page="page-stuck"><span class="ic">⚠️</span>易錯</button>
+<button data-page="page-quiz"><span class="ic">✅</span>檢測</button>
+</nav>
+
+<script>
+/* ===== 資料：EXAMPLES / QUIZ ===== */
+const EXAMPLES = [
+/*EXAMPLES_INSERT*/
+{id:'fd1',cat:'field',name:'磁場計算．範例一',type:'長直導線磁場＋磁針偏轉角，反推地磁',
+given:'一長直導線鉛直懸掛，在導線正北方距離導線2.0cm處水平放置一磁針。今導線由下往上通以3.0A電流時，量得磁針偏轉角度為37°，求該處地磁的水平分量Be為何？',
+think:['關鍵字「磁針偏轉角度」＋「長直導線」→ 磁針最後指的方向，是地磁水平分量Be與導線磁場Bi兩個向量合成後的方向。','磁針原本指向北方（就是Be的方向），通電後偏轉37°，代表Bi和Be的夾角就是37°，畫出直角三角形：Be在旁邊、Bi在對邊。','所以 tanθ = Bi/Be，只要用長直導線公式先求出Bi，就能反推Be。','R要代入「垂直距離」2.0cm，不是別的距離；這裡剛好題目直接給的就是垂直距離。'],
+calc:['Bi = μ₀i/(2πR) = (4π×10⁻⁷×3.0)/(2π×0.02)','= (4×10⁻⁷×3.0×2)/(0.02×2) 化簡 = 4.0×10⁻⁵ T','tan37° = Bi/Be ⇒ Be = Bi ÷ tan37° = Bi × (4/3)','Be = 4.0×10⁻⁵ × 4/3 ≈ 4.0×10⁻⁵ T（因μ₀常數化簡後剛好接近整數）'],
+ans:'Be ≈ 4.0×10⁻⁵ T',
+pitfall:'tan37°=3/4這個數值要記熟，代反成4/3會使Be整個顛倒；R一定要用垂直距離，不能直接拿題目給的斜線長度代入。',
+svg:'<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><circle cx="70" cy="160" r="9" stroke-width="1.6"/><circle cx="70" cy="160" r="2.5" fill="currentColor" stroke="none"/><text x="40" y="195" font-size="12">導線 i</text><line x1="70" y1="151" x2="70" y2="70" stroke-width="1.3" stroke-dasharray="4 3"/><text x="78" y="115" font-size="11" opacity=".75">R=2.0cm</text><circle cx="70" cy="70" r="3" fill="currentColor" stroke="none"/><line x1="70" y1="70" x2="70" y2="25" stroke-width="1.6" marker-end="url(#ar1)"/><text x="50" y="30" font-size="12">Be(北)</text><line x1="70" y1="70" x2="125" y2="70" stroke-width="1.6" marker-end="url(#ar1)"/><text x="130" y="65" font-size="12">Bi</text><path d="M70,50 A20,20 0 0,1 88,58" stroke-width="1.2"/><text x="88" y="45" font-size="11">37°</text><line x1="70" y1="70" x2="112" y2="34" stroke-width="1.3" stroke-dasharray="2 2"/><text x="110" y="25" font-size="11" opacity=".7">磁針方向</text><defs><marker id="ar1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'導線電流向上，磁針原指北方(Be)，通電後因Bi偏轉37°；R是導線到磁針的垂直距離。'},
+
+{id:'fd2',cat:'field',name:'磁場計算．範例二',type:'長直導線磁場＋磁針偏轉角度隨距離/電流變化',
+given:'一長直導線南北方向水平放置，通以電流後，一原指向南北方向之磁針置於導線上方距導線為d時，磁針偏轉30°。(1)欲使其偏轉45°，應將磁針向導線移近多少？(2)當電流增為原有3倍時，磁針偏轉多少度？',
+think:['同一顆磁針，同一個Be，改變的是Bi（靠近導線或增加電流），所以每一問都是重新列一次tanθ=Bi/Be。','(1)問「移近多少」：距離變成d′，Bi與距離成反比(Bi∝1/R)，用tan45°=1的條件反推新距離d′，再用d－d′求移近量。','(2)問「電流變3倍」：Bi也變3倍，直接用tanθ′=3Bi/Be = 3tan30°去解新角度，不用重新算完整的B值。','兩小題本質相同：都是「改變Bi、Be不變」，先寫出tanθ=Bi/Be這條主公式，再代入變化量。'],
+calc:['原式：tan30° = Bi/Be ⇒ Bi = Be/√3','(1) 設新距離d′，B∝1/R，Bi′ = Be/√3 × (d/d′)；tan45°=1=Bi′/Be ⇒ Bi′=Be ⇒ d/d′=√3 ⇒ d′=d/√3','移近量 = d－d′ = d(1－√3/3) = (1－√3/3)d','(2) 電流3倍 ⇒ Bi″=3Bi=3Be/√3=√3Be ⇒ tanθ″=√3 ⇒ θ″=60°'],
+ans:'(1) 移近 (1－√3/3)d　(2) 偏轉60°',
+pitfall:'B與距離成「反比」不是正比，移近會讓Bi變大這件事很多人會搞反方向；第(2)小題不用重算μ₀i/2πR，直接用比例關係最快。',
+svg:''},
+
+{id:'fd3',cat:'field',name:'磁場計算．範例三',type:'兩條平行長直導線，求多點磁場的向量合成',
+given:'兩長直導線平行排列，相距0.20公尺，各載電流10安培，方向相同，如圖所示。求圖中A、B、C三點的磁場量值與方向？(A在左導線外側0.1m，B在兩線中點，C在右導線外側0.1m，兩線間距0.2m)',
+think:['兩條導線都用長直導線公式分別算對A、B、C的貢獻，再看方向是加是減。','電流方向相同時，兩導線在「兩線中間」產生的磁場方向相反（會抵消或部分抵消），在「兩線外側」產生的磁場方向相同（會相加）。','B點在正中間，兩導線到B的距離相等、電流方向相同 → 兩個磁場大小相等方向相反 → B點磁場為0。','A、C在外側，兩個貢獻方向相同直接相加，但兩導線到A(或C)的距離不同（0.1m和0.3m），要分開算再加總。'],
+calc:['A點：近的導線R=0.1m，遠的導線R=0.1+0.2=0.3m','BA = μ₀×10/(2π×0.1) + μ₀×10/(2π×0.3)','= 2×10⁻⁷×10/0.1 + 2×10⁻⁷×10/0.3 = 2.0×10⁻⁵ + 0.67×10⁻⁵ ≈ 2.67×10⁻⁵ T（出紙面）','B點：兩距離都是0.1m，方向相反 ⇒ BB = 0','C點：與A點對稱，同樣算出2.67×10⁻⁵ T，但方向相反（入紙面）'],
+ans:'BA=2.67×10⁻⁵T(出紙面)、BB=0、BC=2.67×10⁻⁵T(入紙面)',
+pitfall:'A、C兩點雖然數值一樣，方向是相反的，千萬別因為數字相同就以為方向也一樣；算B點時最容易漏看「距離要用各自到該點的距離」，不是統一用0.2m。',
+svg:'<svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="90" y1="10" x2="90" y2="140" stroke-width="2"/><polygon points="90,10 85,22 95,22" fill="currentColor" stroke="none"/><line x1="230" y1="10" x2="230" y2="140" stroke-width="2"/><polygon points="230,10 225,22 235,22" fill="currentColor" stroke="none"/><text x="80" y="8" font-size="11">10A</text><text x="220" y="8" font-size="11">10A</text><circle cx="50" cy="75" r="3" fill="currentColor" stroke="none"/><text x="42" y="95" font-size="12">A</text><circle cx="160" cy="75" r="3" fill="currentColor" stroke="none"/><text x="153" y="95" font-size="12">B</text><circle cx="270" cy="75" r="3" fill="currentColor" stroke="none"/><text x="263" y="95" font-size="12">C</text><text x="60" y="65" font-size="10" opacity=".7">0.1m</text><text x="115" y="65" font-size="10" opacity=".7">0.1m</text><text x="175" y="65" font-size="10" opacity=".7">0.1m</text><text x="240" y="65" font-size="10" opacity=".7">0.1m</text></svg>',
+svgCap:'兩導線電流方向相同，A、B、C在同一直線上，距離如圖所標。'},
+
+{id:'fd4',cat:'field',name:'磁場計算．範例四',type:'圓形線圈＋長直導線共平面，圓心磁場疊加',
+given:'半徑a的圓形線圈與甚長的CD直導線共平面，通電流i後，求圓心O點的磁場大小？',
+think:['兩個磁場源（圓形線圈、長直導線）都對O點有貢獻，且共平面代表兩者產生的磁場方向會是同方向或反方向（不需要向量分解）。','分別用兩條公式算：圓心用μ₀i/2r，直導線上一點用μ₀i/2πR（這裡R剛好也等於a，因為導線與圓心的垂直距離就是半徑）。','看清楚兩個磁場方向是否相同——圖中兩者方向相同，所以是直接相加，不是相減。','最後把兩式提出公因式μ₀i/2a，寫成(1+1/π)的形式，是常見的簡化寫法。'],
+calc:['圓形線圈：B圈 = μ₀i/(2a)','直導線：B線 = μ₀i/(2πa)','方向相同 ⇒ 總磁場 = μ₀i/(2a) + μ₀i/(2πa) = (μ₀i/2a)×(1 + 1/π)'],
+ans:'B = (1 + 1/π) × μ₀i/(2a)',
+pitfall:'直導線的R要看成「等於圓半徑a」，這是圖形給的幾何關係，不是另外一個未知距離；兩個磁場方向要先判斷清楚是加還是減，不能看到兩個公式就直接相加。',
+svg:'<svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><circle cx="150" cy="90" r="55" stroke-width="1.6"/><circle cx="150" cy="90" r="3" fill="currentColor" stroke="none"/><text x="155" y="85" font-size="12">O</text><line x1="20" y1="145" x2="280" y2="145" stroke-width="2"/><polygon points="280,145 268,140 268,150" fill="currentColor" stroke="none"/><text x="20" y="160" font-size="12">C</text><text x="265" y="160" font-size="12">D</text><text x="150" y="130" font-size="11">i</text><line x1="150" y1="90" x2="150" y2="145" stroke-width="1.2" stroke-dasharray="3 3"/><text x="155" y="120" font-size="10" opacity=".75">a</text></svg>',
+svgCap:'圓形線圈與CD直導線共平面，O為圓心，直導線到O的垂直距離恰為半徑a。'},
+
+{id:'fd5',cat:'field',name:'磁場計算．範例五',type:'兩反向平行導線，中垂線上一點磁場最大化',
+given:'兩長直導線互相平行，距離為2a，各載電流I但方向相反，圖中P點到兩導線垂直距離為x，求：(1)P點磁場量值和方向；(2)當x為何值時，P點磁場量值最大？',
+think:['兩導線反向電流，在中垂線上的P點，兩個磁場方向會相同（不會抵消）——這跟範例三方向相同電流在中點抵消剛好相反，要小心分辨。','P到每條導線的距離不是x，是斜邊√(x²+a²)，這是常忘記的一步，要先用畢氏定理算出真正的R。','每條導線的B只有分量會沿著中垂線方向疊加，其餘分量互相抵消，所以要用cosθ把B投影到中垂線方向（θ是斜邊與x軸夾角）。','第(2)小題求極值，把B(x)對x微分或直接判斷x=0時分母最小、值最大，是常見的「不用微分」捷徑。'],
+calc:['每條導線在P的磁場：B₁ = μ₀I/(2π√(x²+a²))，方向沿垂直於連線方向','取沿中垂線方向的分量：B_P = 2×B₁×cosθ，其中cosθ = a/√(x²+a²)','B_P = 2 × μ₀I/(2π√(x²+a²)) × a/√(x²+a²) = μ₀Ia/[π(x²+a²)]','求最大值：分母(x²+a²)在x=0時最小 ⇒ B最大，代入得 Bmax = μ₀Ia/(πa²) = μ₀I/(πa)'],
+ans:'(1) B = μ₀Ia/[π(x²+a²)]，方向沿中垂線方向；(2) x=0時最大，Bmax=μ₀I/(πa)',
+pitfall:'距離要用√(x²+a²)不是x本身；只有沿中垂線方向的分量能疊加，另一個方向的分量會互相抵消，漏了投影這一步答案會多一個cosθ的誤差。',
+svg:''},
+
+{id:'fd6',cat:'field',name:'磁場計算．範例六',type:'四條垂直紙面導線構成正方形頂點，求中心磁場',
+given:'垂直於紙面的四條平行長直導線，分別穿過紙面上邊長為a的正方形四頂點A、B、C及D。導線上各通以電流i，A、B及C導線的電流方向穿入紙內，D導線的電流方向穿出紙外。求在正方形中心點P的磁場之量值及方向？',
+think:['四個頂點到中心P的距離都相等（正方形對角線的一半），先求出單一導線在P點產生的B大小。','A、B、C同方向(入紙)、D反方向(出紙)：可以把B、D看成一對「反向電流」，A、C看成另一對「同向」——但因為A,C是對角，方向會抵消一部分，要仔細畫方向。','用安培右手定則個別畫出A、B、C、D在P點的磁場方向（4個方向都不同，指向各自的切線方向），再向量合成。','手寫參考解答直接給了合力沿CA方向、大小√2μ₀i/πa，說明最後只剩下A和C方向的分量沒有完全抵消，其餘互相消去。'],
+calc:['單一導線在P的貢獻：B₀ = μ₀i/(2πr)，其中r=正方形對角線一半=(a√2)/2','A、B、C、D四個方向兩兩比較：D與B方向相反的部分抵消，剩下的分量沿CA方向疊加','疊加後：B_P = √2μ₀i/(πa)（把B₀乘上幾何投影係數，整理後得此式）'],
+ans:'B_P = √2μ₀i/(πa)，方向沿CA方向',
+pitfall:'四條導線的方向要一條一條畫出來，不能直接假設對稱抵消；正方形對角線一半是(a√2)/2而不是a/2，這個距離代錯全題都會錯。',
+svg:'<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><rect x="50" y="30" width="140" height="140" stroke-width="1.4"/><circle cx="50" cy="30" r="8" stroke-width="1.4"/><line x1="45" y1="25" x2="55" y2="35" stroke-width="1.3"/><line x1="55" y1="25" x2="45" y2="35" stroke-width="1.3"/><text x="30" y="25" font-size="12">B⊗</text><circle cx="190" cy="30" r="8" stroke-width="1.4"/><circle cx="190" cy="30" r="2.5" fill="currentColor" stroke="none"/><text x="196" y="25" font-size="12">C⊙</text><circle cx="50" cy="170" r="8" stroke-width="1.4"/><line x1="45" y1="165" x2="55" y2="175" stroke-width="1.3"/><line x1="55" y1="165" x2="45" y2="175" stroke-width="1.3"/><text x="26" y="190" font-size="12">A⊗</text><circle cx="190" cy="170" r="8" stroke-width="1.4"/><line x1="185" y1="165" x2="195" y2="175" stroke-width="1.3"/><line x1="195" y1="165" x2="185" y2="175" stroke-width="1.3"/><text x="196" y="190" font-size="12">D⊗</text><circle cx="120" cy="100" r="3" fill="currentColor" stroke="none"/><text x="126" y="96" font-size="12">P</text></svg>',
+svgCap:'正方形四頂點A、B、C電流穿入紙面(⊗)，D穿出紙面(⊙)，P為正方形中心。'},
+
+{id:'fd7',cat:'field',name:'磁場計算．範例七',type:'電阻線圍圓，並聯分流後的圓心磁場',
+given:'長度為L₁、L₂的兩相同材料電阻線，圍成一圓圈，電流i由A點流入，由C點流出，則：(1)L₁段在圓心O點所建立之磁場大小為何？(2)在O點的總磁場大小為何？',
+think:['兩段電阻線A到C，其實是「並聯」關係（同樣的電位差，兩條路徑），電流會依電阻比反比分配，電阻又與線長成正比。','先用並聯規則求出流過L₁、L₂的電流各是多少（分流公式：電流與電阻成反比，即與長度成反比）。','每段圓弧在圓心的磁場，用「圓形線圈公式乘上弧占整圓的比例」來算：B = μ₀I/(2R) × (弧長/2πR)。','第(2)小題的關鍵是方向：L₁和L₂電流方向在圓心產生的磁場方向相反，兩者大小相等 ⇒ 完全抵消，這是這題的巧妙結論。'],
+calc:['圓周長 = L₁+L₂ = 2πR ⇒ R = (L₁+L₂)/(2π)','分流：I₁ = i × L₂/(L₁+L₂)（電阻與長度成正比，電流與長度成反比分配）','L₁段貢獻的磁場：B₁ = (μ₀I₁/2R) × (L₁/2πR) = π·μ₀·L₁·L₂·i / (L₁+L₂)³','(2) 同理算出L₂段的B₂，方向與B₁相反且大小相等 ⇒ B總 = B₁－B₂ = 0'],
+ans:'(1) B₁ = πμ₀L₁L₂i/(L₁+L₂)³　(2) O點總磁場 = 0',
+pitfall:'分流公式常代反——電流跟「自己那段」的電阻成反比，不是正比，容易把I₁、I₂算反；第(2)小題不用重新硬算，掌握「方向相反、大小相等」就能直接判斷為0。',
+svg:''},
+
+{id:'fd8',cat:'field',name:'磁場計算．範例八',type:'兩個規格不同的螺線管，功率比公式串接',
+given:'兩個螺線管外形(截面和管長)相同，各用不同粗細(截面半徑為r₁及r₂)和不同匝數(N₁及N₂)但同一材料的銅線繞成。欲在管內產生相同的磁場，加於各線圈的電功率比P₂/P₁為何？',
+think:['這是全章最容易卡住的一題：要同時串起「磁場相同」「電阻與線材粗細/長度的關係」「功率公式」三件事，任何一步漏掉都會卡住（課本上她自己也打了兩次叉才找到對的路）。','第一步先想「磁場相同」代表什麼：B=μ₀ni，管長L相同，所以「匝數N與磁場成正比」這條路是錯的（因為还要考虑導線繞了幾圈、電流多少），真正該用的是B=μ₀niN條件下 N₁i₁=N₂i₂（因為n=N/L，L相同）。','第二步求電阻：R=ρL線/A，線材相同(ρ相同)，導線總長度L線＝匝數×每匝周長(∝管半徑，管子外形相同所以每匝周長也相同)，所以R∝N/r²(A=πr²)。','第三步電功率P=I²R，把I用N₁i₁=N₂i₂的關係代換，再乘上R∝N/r²，兩個N會消掉一部分，最後化簡出只剩r和N的比例關係。'],
+calc:['磁場相同：N₁i₁ = N₂i₂ ⇒ i₁/i₂ = N₂/N₁','電阻比：R₁/R₂ = (N₁/r₁²)/(N₂/r₂²) = N₁r₂²/(N₂r₁²)','功率比：P₁/P₂ = I₁²R₁/(I₂²R₂) = (N₂/N₁)² × N₁r₂²/(N₂r₁²) = N₂r₂²/(N₁r₁²)','取倒數 ⇒ P₂/P₁ = N₁r₁²/(N₂r₂²)'],
+ans:'P₂/P₁ = N₁r₁²/(N₂r₂²)',
+pitfall:'這題最容易在「磁場相同」那一步就選錯條件（誤用B=μ₀Ni/L去湊，卻沒把n=N/L和圓形線圈公式μ₀Ni/L公式搞清楚哪個才對）；電阻與半徑平方成反比這件事也很常漏掉，直接以為電阻只跟長度有關。'},
+
+{id:'fd9',cat:'field',name:'磁場計算．範例九',type:'圓形線圈與長直導線互相垂直，向量合成磁場',
+given:'半徑a的圓形線圈面與甚長的CD直導線垂直，通電流i後，在圓心O點的磁場大小為何？',
+think:['跟範例四很像但差一個字：這裡是「垂直」不是「共平面」，代表兩個磁場方向互相垂直，不能直接加減，要用畢氏定理合成。','先分別算出兩個獨立貢獻：直導線在O的B=μ₀i/(2πa)，圓形線圈在O的B=μ₀i/(2a)，方向互相垂直（一個沿圓面法線方向，一個沿導線的切線方向）。','兩個垂直向量合成，用√(B₁²+B₂²)，這是判斷「共平面用加減、垂直用畢氏定理」的關鍵分岔點。','最後把μ₀i/(2πa)提出來當公因式，剩下的1和π會在根號內變成1+π²。'],
+calc:['B線 = μ₀i/(2πa)，B圈 = μ₀i/(2a)＝π×B線','兩者垂直 ⇒ B_O = √(B線² + B圈²) = √(B線² + (πB線)²) = B線×√(1+π²)','B_O = [μ₀i/(2πa)] × √(1+π²)'],
+ans:'B_O = μ₀i/(2πa) × √(1+π²)',
+pitfall:'看到兩個磁場來源，先確認方向關係再決定是加減還是畢氏定理；把B圈寫成π倍的B線是簡化計算的技巧，可以省掉重新代公式。'},
+
+{id:'fd10',cat:'field',name:'磁場計算．範例十',type:'電子繞氫原子核運動，等效電流產生的磁場',
+given:'已知電子質量為m、電子及質子電量均為e、庫侖靜電常數為K，氫原子核外的電子軌道半徑為r，求電子的公轉在原子核處建立之磁場量值為何？',
+think:['電子繞核運動看起來是力學題，但關鍵一步是「把公轉的電子看成一個等效電流」，這樣才能套用圓形線圈公式——這是這題的核心轉換。','要先用力學條件求出電子公轉的週期T：庫侖靜電力提供向心力，Ke²/r² = m×(4π²r/T²)，解出T。','有了週期T，等效電流 I = e/T（電荷e每繞一圈T秒通過同一點一次）。','最後把等效電流代入圓形線圈圓心磁場公式 B=μ₀I/(2r)，就是原子核處(圓心)的磁場。'],
+calc:['向心力方程：Ke²/r² = m×4π²r/T² ⇒ T² = 4π²mr³/(Ke²) ⇒ T = 2π√(mr³/Ke²)','等效電流：I = e/T = e / [2π√(mr³/Ke²)] = (e²/2πr)×√(K/mr)','磁場：B = μ₀I/(2r) = μ₀e²/(4πr²) × √(K/mr)'],
+ans:'B = μ₀e²/(4πr²) × √(K/mr)',
+pitfall:'容易忘記「先求週期T」這一步，直接想套電流公式却不知道I從哪來；等效電流I=e/T不是I=e/t的t，是公轉一圈的完整週期。'},
+
+{id:'fd11',cat:'field',name:'磁場計算．範例十一',type:'帶電圓環繞軸旋轉，求軸線上一點磁場',
+given:'如圖所示，一半徑為r的均勻帶電圓環，總帶電量為Q。今圓環繞垂直環面之中心軸旋轉，週期為T，則其在中心軸上與圓心相距4r/3處的磁場大小為何？',
+think:['帶電圓環旋轉，等效於一個圓形電流環，先求等效電流 I=Q/T（跟範例十邏輯一樣：帶電量Q繞一圈T秒回到原位）。','這裡問的不是圓心的磁場，是「軸線上某一點」的磁場，要用圓形線圈「軸上任一點」的公式，不能直接套圓心公式μ₀i/2r。','軸上一點的磁場公式：B = μ₀Ir²/[2(r²+x²)^(3/2)]，x是到圓心的距離，這裡x=4r/3。','把x=4r/3代入(r²+x²)，先算出r²+16r²/9=25r²/9，開根號後立方，數字會化簡成漂亮的分數。'],
+calc:['等效電流：I = Q/T','x = 4r/3 ⇒ r²+x² = r²(1+16/9) = 25r²/9 ⇒ (r²+x²)^(3/2) = (25r²/9)^(3/2) = 125r³/27','B = μ₀Ir²/[2×125r³/27] = μ₀I×27/(250r) = 27μ₀Q/(250rT)'],
+ans:'B = 27μ₀Q/(250rT)',
+pitfall:'一定要用「軸上一點」的公式而不是圓心公式，兩者差一個(r²+x²)^(3/2)的分母，x=0時才會退回圓心公式；分數化簡時25的3/2次方等於125，很容易算錯。'},
+
+{id:'fd12',cat:'field',name:'磁場計算．範例十二',type:'兩正交長直導線疊加，求磁場為零的點之軌跡',
+given:'如右圖所示，x軸及y軸上各有一長直導線，且分別通入電流3A與4A，則在x-y平面上，磁場為零的點之軌跡方程式為何？',
+think:['關鍵字「x軸、y軸各一長直導線」＋「磁場為零的軌跡」→ 這是兩個互相垂直的長直導線磁場疊加問題，要先各自用右手定則判斷方向，才能知道哪裡可能抵消。','兩導線互相垂直，磁場方向在第一、三象限是同向（不可能抵消為零），只有在第二、四象限兩者方向相反，才有可能相消為零。','在磁場為零的點(x,y)，兩導線的磁場「量值」要相等：μ₀×3/(2πx)=μ₀×4/(2πy)，這裡x、y是該點到y軸、x軸的垂直距離。','最容易忘記的是象限的正負號——只有第二、四象限x、y異號，把這個符號關係代進比例式，才會得到正確的軌跡方程式，而不是隨便寫成3y=4x。'],
+calc:['先比較量值：μ₀×3/(2πx)=μ₀×4/(2πy) ⇒ x/y=3/4','只有第II、IV象限(x、y異號)才可能抵消 ⇒ 代入正負號關係整理','得軌跡方程式：3y+4x=0（此直線通過原點，落在第二、四象限）'],
+ans:'3y+4x=0（僅在第二、四象限，不含原點）',
+pitfall:'很多人會直接假設磁場為零發生在第一象限或隨便一點，忘記先用右手定則判斷「哪個象限兩磁場才可能反向」；x、y代的是垂直距離（到另一軸的距離），不是到原點的距離，容易搞混。',
+svg:'<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="20" y1="110" x2="240" y2="110" stroke-width="1.6"/><polygon points="240,110 228,105 228,115" fill="currentColor" stroke="none"/><text x="205" y="100" font-size="12">4A→x</text><line x1="130" y1="200" x2="130" y2="20" stroke-width="1.6"/><polygon points="130,20 125,32 135,32" fill="currentColor" stroke="none"/><text x="136" y="30" font-size="12">3A↑y</text><circle cx="130" cy="110" r="2.5" fill="currentColor" stroke="none"/><line x1="70" y1="30" x2="190" y2="190" stroke-width="1.3" stroke-dasharray="4 3"/><text x="140" y="182" font-size="11">3y+4x=0</text><text x="78" y="50" font-size="10" opacity=".7">QII</text><text x="168" y="175" font-size="10" opacity=".7">QIV</text></svg>',
+svgCap:'x軸通4A、y軸通3A，磁場為零的軌跡3y+4x=0只出現在第二、四象限（x、y異號處）。'},
+
+{id:'fd13',cat:'field',name:'磁場計算．範例十三',type:'多層長螺線管中心磁場（匝數密度換算）',
+given:'以導線繞成5層的長螺線管，每層每公分繞有8匝線圈，當通電流0.20A時，管內中央的磁場量值為何？',
+think:['關鍵字「長螺線管」＋「管內中央磁場」→ 直接用螺線管公式B=μ₀nI，不是長直導線公式μ₀i/2πR，這是這一題最先要判斷對的事。','n是「單位長度的匝數」（匝/公尺），題目給的是「每層每公分8匝」，公分要換算成公尺，且不能漏看「共5層」。','換算順序：先求一層的匝數密度（每公尺幾匝），再乘上層數5，才是總匝數密度n。','5層線圈疊繞在同一段長度上，磁場會疊加，所以n要乘5倍，這是本題最容易漏掉的關鍵字。'],
+calc:['一層匝數密度＝8匝/0.01公尺＝800匝/公尺','5層總匝數密度 n＝5×800＝4000匝/公尺','B＝μ₀nI＝4π×10⁻⁷×4000×0.20≈1.01×10⁻³T'],
+ans:'B≈1.01×10⁻³T',
+pitfall:'n是「單位長度的匝數」不是總匝數，公分換算公尺時分母0.01不能漏掉；「5層」要記得乘上去，只算一層匝數密度會讓答案少了5倍。',
+svg:''},
+
+{id:'fc1',cat:'force',name:'安培力．範例一',type:'空間座標中直導線在均勻磁場中受力，向量外積求解',
+given:'PQ為一段不變的直導線，長為7公尺，通有10安培之電流，自P(0,0,3)向Q(2,6,0)。該段位於量值為2特斯拉、指向+x方向的均勻磁場中，則導線所受磁力之量值為多少牛頓？',
+think:['關鍵字「座標點P、Q」＋「均勻磁場」→ 這種給座標而不是給角度的題目，代表要用向量外積F=I·L⃗×B⃗解，不能用F=BILsinθ心算角度。','導線方向向量L⃗要照「電流方向」取：題目說電流自P向Q，所以L⃗＝Q座標－P座標，順序不能顛倒（雖然這題只問量值不受影響，但若題目問方向就會整個反過來）。','B⃗已經是向量(2,0,0)，直接跟L⃗做外積即可，外積本身已經包含sinθ的效果，不用再另外分解角度。','算完外積得到的是一個向量，最後一定要再取其大小（開根號平方和），只寫出分量沒有算出最終量值等於沒寫完。'],
+calc:['L⃗=Q－P=(2,6,0)－(0,0,3)=(2,6,-3)，大小=√(4+36+9)=√49=7（與題目給的7公尺一致，可驗算）','B⃗=(2,0,0)','L⃗×B⃗=(2,6,-3)×(2,0,0)=(6×0－(-3)×0,　-(2×0－(-3)×2),　2×0－6×2)=(0,-6,-12)','F=I×(L⃗×B⃗)=10×(0,-6,-12)=(0,-60,-120)，量值=√(60²+120²)=√18000=60√5 N'],
+ans:'F=60√5 N',
+pitfall:'這題不能用F=BILsinθ硬套角度，一定要用向量外積；L⃗方向要照電流方向（P到Q）取，遇到問方向的題目順序顛倒答案會反；外積算完別忘記最後開根號取量值，這是最容易漏掉的最後一步。',
+svg:'<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="150" y1="195" x2="150" y2="20" stroke-width="1.6" marker-end="url(#a1)"/><text x="156" y="24" font-size="12">z(m)</text><line x1="150" y1="195" x2="70" y2="215" stroke-width="1.6" marker-end="url(#a1)"/><text x="48" y="215" font-size="12">x(m)</text><line x1="150" y1="195" x2="278" y2="160" stroke-width="1.6" marker-end="url(#a1)"/><text x="282" y="158" font-size="12">y(m)</text><rect x="132" y="45" width="30" height="22" stroke-width="1.2"/><text x="112" y="42" font-size="11">P(0,0,3)</text><circle cx="230" cy="118" r="3" fill="currentColor" stroke="none"/><text x="236" y="122" font-size="11">Q(2,6,0)</text><line x1="150" y1="56" x2="230" y2="118" stroke-width="1.1" stroke-dasharray="4 3"/><line x1="150" y1="56" x2="205" y2="56" stroke-width="1.6" marker-end="url(#a1)"/><text x="210" y="52" font-size="11">B(+x, 2T)</text><defs><marker id="a1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'空間座標中PQ導線，P(0,0,3)、Q(2,6,0)，磁場B沿+x方向。'},
+
+{id:'fc2',cat:'force',name:'安培力．範例二',type:'立方體對角線導線在磁場中受力，向量外積求解',
+given:'如圖所示的立方體邊長為L，置於磁場為B的均勻磁場中，磁場方向平行x軸，導線PQ為立方體之對角線，通以電流I，方向由P向Q，則此直導線PQ受到磁力量值為何？',
+think:['關鍵字「立方體」＋「對角線」＋「磁場沿x軸」→ 對角線方向沒辦法直接心算出跟B的夾角，這種題型一定要靠座標＋向量外積來解，跟範例一是同一套方法。','先依圖幫立方體的P、Q兩個頂點建座標，對角線PQ的方向向量L⃗＝Q點座標－P點座標。','磁場只沿x軸，所以B⃗只有x分量(B,0,0)，其餘分量為0，這樣外積算起來會比較單純。','用F=I·L⃗×B⃗做外積，注意題目中「立方體邊長L」跟公式裡代表「導線長度」的L是同一個符號卻不同意義，抄的時候別搞混，也不能直接把對角線長度√3L代進F=BIL裡硬算（那是錯誤示範）。'],
+calc:['依圖建立座標，PQ方向向量：L⃗=Q－P=(-L,0,L)－(0,L,0)=(-L,-L,L)','B⃗=(B,0,0)','L⃗×B⃗=(-L,-L,L)×(B,0,0)=(-L×0-L×0,　-((-L)×0-L×B),　(-L)×0-(-L)×B)=(0,LB,LB)','F=I×(0,LB,LB)，量值=I×√((LB)²+(LB)²)=√2·ILB'],
+ans:'F=√2ILB',
+pitfall:'立方體對角線不能直接套F=BILsinθ心算角度，一定要先建座標再做向量外積；題目中「邊長L」跟受力公式裡的「導線長度L」是同一符號、不同意義，千萬別搞混或誤用對角線長度√3L去代公式。',
+svg:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><polygon points="70,150 190,150 190,70 70,70" stroke-width="1.5"/><polygon points="110,120 230,120 230,40 110,40" stroke-width="1.5"/><line x1="70" y1="150" x2="110" y2="120" stroke-width="1.3"/><line x1="190" y1="150" x2="230" y2="120" stroke-width="1.3"/><line x1="190" y1="70" x2="230" y2="40" stroke-width="1.3"/><line x1="70" y1="70" x2="110" y2="40" stroke-width="1.3"/><circle cx="190" cy="150" r="3.5" fill="currentColor" stroke="none"/><text x="195" y="165" font-size="12">P</text><circle cx="110" cy="40" r="3.5" fill="currentColor" stroke="none"/><text x="90" y="30" font-size="12">Q</text><line x1="190" y1="150" x2="110" y2="40" stroke-width="1.4" stroke-dasharray="4 3"/><line x1="30" y1="180" x2="90" y2="180" stroke-width="1.6" marker-end="url(#a2)"/><text x="30" y="196" font-size="12">B（沿x軸）</text><text x="130" y="145" font-size="11" opacity=".7">邊長L</text><defs><marker id="a2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'立方體邊長L，PQ為對角線（電流由P向Q），磁場B沿x軸方向。'},
+
+{id:'fc3',cat:'force',name:'安培力．範例三',type:'三角形電路在均勻磁場中，各邊受力與封閉迴路淨力',
+given:'邊長分別為1公尺、1公尺、√2公尺所組成的三角形電路，置於方向向右且強度為0.2特士拉的均勻磁場中，線上有電流10安培通過，如圖所示。求：(1) 各直段導線所受的力為何？(2) 整個電路所受的淨力為何？',
+think:['關鍵字「多邊形電路」＋「均勻磁場」＋「分別求各邊力」→ 每段導線都可以單獨用F=BILsinθ算，但更聰明的作法是把每段導線看成「起點到終點的位移向量」，只有垂直於B（這裡是鉛直方向）的分量才會產生力。','磁場B方向水平（向右），所以只要看每段導線「頭尾兩端的垂直高度差Δy」，F=BI×Δy，水平方向的變化量完全不影響力的大小──這就是為什麼直角邊(1m)和斜邊(√2m)算出來的力會一樣大。','乙邊是水平邊（頭尾兩端等高，Δy=0），力自然是0，不用再算sinθ=0這件事。','力的方向要用安培右手定則個別判斷：甲、丙雖然量值相同，但因為電流繞行方向不同，方向會相反（一出紙面一入紙面），這也解釋了封閉電路的淨力恰好會抵消為0。'],
+calc:['甲邊（鉛直邊，長1m，垂直於B）：F甲=BIL sin90°=0.2×10×1×1=2N，方向出紙面','乙邊（水平邊，長1m，平行於B）：F乙=BIL sin0°=0.2×10×1×0=0N','丙邊（斜邊，長√2m，但頭尾垂直高度差仍是1m）：F丙=BI×Δy=0.2×10×1=2N，方向入紙面（與甲相反）','整個封閉電路：F甲+F乙+F丙＝2N(出)+0+2N(入)，方向互相抵消＝0N'],
+ans:'(1) F甲=2N（出紙面）、F乙=0N、F丙=2N（入紙面）　(2) 整個電路所受淨力＝0N',
+pitfall:'算斜邊丙的力千萬別直接拿√2m代入F=BIL又忘記乘sinθ（會多算出√2倍）；正確心法是抓「垂直於磁場方向的等效高度差」，不是導線本身的長度；封閉電路淨力為0是通用結論（只要是封閉迴路，在均勻磁場中所受合力必為0），可以當作檢查答案的捷徑。',
+svg:'<svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="20" y1="50" x2="280" y2="50" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#a3)"/><line x1="20" y1="90" x2="280" y2="90" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#a3)"/><line x1="20" y1="130" x2="280" y2="130" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#a3)"/><polygon points="90,140 90,50 190,140" stroke-width="1.8"/><text x="65" y="95" font-size="13">甲（1m）</text><text x="120" y="155" font-size="13">乙（1m）</text><text x="155" y="90" font-size="13">丙（√2m）</text><text x="230" y="45" font-size="11" opacity=".7">B=0.2T</text></svg>',
+svgCap:'直角三角形電路，甲為鉛直邊、乙為水平邊、丙為斜邊，均勻磁場B水平向右。'},
+
+{id:'fc4',cat:'force',name:'安培力．範例四',type:'長直導線與矩形線圈共平面，求作用於線圈上的淨磁力',
+given:'長直導線XY和矩形線圈ABCD同在一平面內。若在XY及ABCD上分別通以電流i₁=20A及i₂=10A（方向如箭號所示），線圈平行XY方向的邊長為20cm，近邊距XY為10cm，遠邊距XY為10cm+10cm=20cm，則直導線XY作用於線圈ABCD上的磁力量值為何？',
+think:['關鍵字「長直導線」＋「矩形線圈」＋「同一平面」→ 矩形線圈四邊中，只有平行於XY的那兩邊（近邊、遠邊）才會受安培力，垂直於XY的兩短邊所受的力方向相反、大小相等會自己抵消，可以先鎖定平行的兩邊來算淨力。','平行的兩邊分別在不同距離（近邊10cm、遠邊10+10=20cm），各邊所在位置的磁場B不一樣（B與距離成反比），所以兩邊受力大小不同，近邊受力較大。','兩邊電流方向相反（線圈是封閉迴路，上下兩邊電流方向必然相反），所以兩邊的安培力方向也相反──是「同向相吸、反向相斥」的應用，最後要用「近邊力－遠邊力」而不是相加。','每邊受力都用F=B×i₂×L，L要用線圈平行於XY方向的邊長（20cm），10cm、20cm只是拿來算距離R用的，不要跟邊長搞混。'],
+calc:['近邊（距XY為0.1m）處磁場：B近=μ₀i₁/(2π×0.1)=(4π×10⁻⁷×20)/(2π×0.1)=4×10⁻⁵T','遠邊（距XY為0.1+0.1=0.2m）處磁場：B遠=μ₀i₁/(2π×0.2)=(4π×10⁻⁷×20)/(2π×0.2)=2×10⁻⁵T','近邊、遠邊所受力：F近=B近×i₂×L=4×10⁻⁵×10×0.2=8×10⁻⁵N；F遠=B遠×i₂×L=2×10⁻⁵×10×0.2=4×10⁻⁵N','兩力方向相反，淨力＝F近－F遠＝8×10⁻⁵－4×10⁻⁵＝4×10⁻⁵N'],
+ans:'F淨＝4×10⁻⁵ N',
+pitfall:'邊長L（線圈平行於XY方向的邊，20cm）跟距離R（10cm、20cm）是兩組不同的數字，很容易代錯；近邊遠邊的力方向一定相反，淨力要用相減不是相加；線圈垂直的兩短邊雖然也受力，但左右方向相反、大小相等會自己抵消，不影響這個淨力答案。',
+svg:'<svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="40" y1="20" x2="40" y2="180" stroke-width="2" marker-end="url(#a4)"/><text x="20" y="15" font-size="12">X</text><text x="20" y="195" font-size="12">Y</text><text x="10" y="100" font-size="11">i1=20A</text><rect x="140" y="40" width="60" height="120" stroke-width="1.6"/><text x="142" y="35" font-size="12">A</text><text x="192" y="35" font-size="12">B</text><text x="142" y="172" font-size="12">C</text><text x="192" y="172" font-size="12">D</text><line x1="40" y1="100" x2="100" y2="100" stroke-width="1" stroke-dasharray="3 3"/><text x="55" y="95" font-size="10" opacity=".75">10cm</text><line x1="100" y1="100" x2="140" y2="100" stroke-width="1" stroke-dasharray="3 3"/><text x="108" y="95" font-size="10" opacity=".75">10cm</text><text x="205" y="100" font-size="10" opacity=".75">20cm(邊長)</text><text x="150" y="55" font-size="10">i2=10A</text><defs><marker id="a4" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'長直導線XY在左，矩形線圈ABCD在右，近邊距XY為10cm、遠邊為20cm。'},
+
+{id:'fc5',cat:'force',name:'安培力．範例五',type:'彎成直線＋半圓弧形狀的導線，在垂直磁場中受力（等效直線長度）',
+given:'有一導線ABCD彎成如圖所示，將其置於垂直射出紙面的磁場B中，其中AB、CD為長度ℓ的直線段，中間為半徑R的半圓弧，若導線的電流為i，則此導線所受的力量值為何？',
+think:['關鍵字「彎成…形狀」＋「垂直射出紙面的磁場」→ 這是「任意形狀導線在均勻磁場中受力」的公式：只要找出頭尾兩端點的直線距離，中間彎成什麼形狀都不影響受力量值（因為每一小段的力可以向量疊加，最終只跟「頭到尾的位移向量」有關，跟實際走的路徑無關）。','所以不用去對半圓弧那段積分或切成很多小段來算，只要找到A到D的「直線距離」即可。','圖中兩段直線各長ℓ，中間是半徑R的半圓弧，因為半圓的兩個端點剛好落在同一條直線上，兩端點的直線距離＝半圓的直徑＝2R，不是弧長πR。','把頭尾兩段直線ℓ跟中間的直徑2R加起來，就是「等效直線長度」，直接代入F=BIL；磁場垂直紙面、導線都在紙面內，兩者必定互相垂直，sinθ=1可以直接省略。'],
+calc:['等效總長度＝ℓ(左段)+2R(半圓直徑)+ℓ(右段)＝2ℓ+2R','磁場垂直紙面，導線在紙面內，兩者互相垂直，sinθ=1','F=B×i×(2ℓ+2R)'],
+ans:'F=i(2ℓ+2R)×B',
+pitfall:'最常見的錯誤是把半圓弧的部分用弧長πR代入（算成2ℓ+πR），弧長只有在算「電阻」或「路徑長度」等題目才有用，安培力這裡只看「頭尾兩端點的直線距離」也就是直徑2R；另外因為磁場垂直紙面、導線都在紙面上，兩者必定垂直，sinθ=1可以直接省略不用另外判斷角度。',
+svg:'<svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><circle cx="60" cy="40" r="2" fill="none" stroke="currentColor"/><text x="20" y="30" font-size="10" opacity=".6">⊙⊙⊙⊙⊙⊙（B出紙面）</text><line x1="40" y1="100" x2="100" y2="100" stroke-width="1.8" marker-end="url(#a5)"/><text x="30" y="118" font-size="12">A</text><text x="60" y="118" font-size="11" opacity=".75">ℓ</text><path d="M100,100 A30,30 0 0,1 160,100" stroke-width="1.8"/><text x="126" y="60" font-size="11" opacity=".75">R</text><text x="96" y="118" font-size="12">B</text><text x="156" y="118" font-size="12">C</text><line x1="160" y1="100" x2="220" y2="100" stroke-width="1.8" marker-end="url(#a5)"/><text x="186" y="118" font-size="11" opacity=".75">ℓ</text><text x="222" y="104" font-size="12">D</text><defs><marker id="a5" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'導線ABCD由兩段直線(各長ℓ)和一段半徑R的半圓弧組成，磁場B垂直紙面射出。'},
+
+{id:'fc6',cat:'force',name:'安培力．範例六',type:'正方形四頂點四條導線，求中心磁場與其中一導線單位長度受力',
+given:'如圖所示，垂直於紙面的四條平行長直導線，分別穿過紙面上邊長為a的正方形四頂點A、B、C及D。導線上各通以電流i，A、B及C導線的電流方向穿入紙內，D導線的電流方向穿出紙外。求：(1) 中心軸上O點的磁場量值和方向。(2) 在D導線上單位長度所受力的量值和方向。',
+think:['關鍵字「四條長直導線」＋「正方形頂點」＋「先求磁場再求力」→ 第(1)問是複習磁場疊加，第(2)問才是這章的重點「安培力」，這裡分開算比較直接。','第(1)問：四個頂點到中心O距離都相等(=a√2/2)，關鍵是先看哪兩條線的磁場方向會互相抵消──A、C是對角線頂點且電流方向相同(都穿入紙內)，它們在O點的磁場方向剛好相反、大小相等，直接抵消；只剩B、D(方向相反的一組對角線)要向量相加。','第(2)問：D導線受到「其他三條導線」個別施加的安培力，要分三次用F/L=μ₀i₁i₂/2πd算(D對A、D對C、D對B)，注意D跟A、C是正方形的「邊」(距離a)，D跟B是正方形的「對角線」(距離a√2)，這兩種距離不能搞混。','D與A、C的電流方向相反(D出紙、A/C入紙)是「反向電流」→ 互相排斥；這三個排斥力方向各不相同，A、C對D的力要先用cos45°投影到OD延長線方向才能疊加，B對D的力剛好整個都在OD方向上不用投影。'],
+calc:['(1) 每條導線到O的距離r=a√2/2，單條磁場B0=μ₀i/(2πr)=μ₀i/(2π×a√2/2)=μ₀i/(√2πa)','(1) A、C同向且對角，磁場在O互相抵消；B、D方向相反疊加後，總磁場=2B0=2×μ₀i/(√2πa)=√2μ₀i/(πa)，方向沿OA方向','(2) D與A、D與C（皆距離a，反向電流相斥）：各自F/L=μ₀i²/(2πa)，兩者對稱分佈在OD延長線兩側，合成分量=2×[μ₀i²/(2πa)]×cos45°=√2μ₀i²/(2πa)','(2) D與B（距離a√2，反向電流相斥，方向恰好沿OD方向）：F/L=μ₀i²/(2π×a√2)=√2μ₀i²/(4πa)；三者沿OD延長線疊加：總F/L=√2μ₀i²/(2πa)+√2μ₀i²/(4πa)=3√2μ₀i²/(4πa)'],
+ans:'(1) B_O=√2μ₀i/(πa)，方向沿OA方向　(2) D導線單位長度所受力=3√2μ₀i²/(4πa)，方向沿OD方向',
+pitfall:'第(2)問距離最容易搞混──D到A、C是正方形「邊長」a，D到B是「對角線」a√2，不能全部用a或全部用a√2；A、C對D的兩個力不能直接相加量值，必須先用cos45°投影到同一方向(OD延長線)才能疊加；判斷排斥還是吸引要看電流方向是否相同，D出紙面、其他三條都入紙面，三個力全部都是排斥。',
+svg:'<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><rect x="60" y="50" width="120" height="120" stroke-width="1.4"/><line x1="60" y1="50" x2="180" y2="170" stroke-width="1" stroke-dasharray="3 3"/><line x1="60" y1="170" x2="180" y2="50" stroke-width="1" stroke-dasharray="3 3"/><circle cx="60" cy="170" r="8" stroke-width="1.4"/><line x1="55" y1="165" x2="65" y2="175" stroke-width="1.3"/><line x1="65" y1="165" x2="55" y2="175" stroke-width="1.3"/><text x="34" y="190" font-size="12">A⊗</text><circle cx="60" cy="50" r="8" stroke-width="1.4"/><line x1="55" y1="45" x2="65" y2="55" stroke-width="1.3"/><line x1="65" y1="45" x2="55" y2="55" stroke-width="1.3"/><text x="34" y="40" font-size="12">B⊗</text><circle cx="180" cy="50" r="8" stroke-width="1.4"/><line x1="175" y1="45" x2="185" y2="55" stroke-width="1.3"/><line x1="185" y1="45" x2="175" y2="55" stroke-width="1.3"/><text x="188" y="40" font-size="12">C⊗</text><circle cx="180" cy="170" r="8" stroke-width="1.4"/><circle cx="180" cy="170" r="2.5" fill="currentColor" stroke="none"/><text x="188" y="190" font-size="12">D⊙</text><circle cx="120" cy="110" r="3" fill="currentColor" stroke="none"/><text x="126" y="106" font-size="12">O</text></svg>',
+svgCap:'正方形四頂點A、B、C電流入紙(⊗)，D出紙(⊙)，O為中心，虛線為對角線。'},
+
+{id:'fc7',cat:'force',name:'安培力．範例七',type:'圓形載流線圈在均勻磁場中，求導線上的張力（切半法）',
+given:'一半徑為R的圓形導線，通以順時針方向的電流i，置於一均勻的磁場B中（垂直紙面射入），如圖所示，則線圈因磁力所產生的導線上張力為何？',
+think:['關鍵字「圓形線圈」＋「均勻磁場B（垂直紙面）」＋「導線上的張力」→ 這是把安培力轉換成「材料力學張力」概念的題型，因為線圈是連續的圓，直接對整圈積分計算很麻煩，課本教的訣竅是「切一半」分析。','把圓形線圈從中間切成上下兩半，只看「上半部」這段半圓弧所受的磁力，用範例五學過的技巧：半圓弧頭尾兩端點的直線距離＝直徑2R，磁力大小＝B×i×2R(不用算弧長πR)。','上半部所受的磁力方向整體往外(向上)推，而這股向外的力要靠「下半部拉住上半部」的張力來平衡──因為圓是連續的，左右兩個切點各有一個張力T，兩者都朝內(向下)拉住上半部。','對上半部列力平衡：磁力(向外) = 兩側張力的合力(向內)，注意是「兩個」切點張力加起來平衡，不是一個。'],
+calc:['上半部所受磁力(等效直線長度=直徑2R)：F=B×i×2R','上半部力平衡：兩個切點的張力合力方向與F相反，2T=F=i×2R×B','解出張力：T=iRB'],
+ans:'T=iRB',
+pitfall:'不能直接對整個圓周弧長2πR代入F=BIL（那樣會得到錯誤的合力，因為圓周上每一點的磁力方向都不同，不能直接相加量值）；正確作法是先用「切一半」+「等效直徑」的技巧化簡；另外要注意是「兩個」切點的張力一起平衡磁力，方程式是2T=F不是T=F，少乘2是最常見的漏算。',
+svg:'<svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><circle cx="80" cy="90" r="55" stroke-width="1.6"/><path d="M80,45 A20,20 0 0,1 96,54" stroke-width="1.3" marker-end="url(#a7)"/><text x="70" y="95" font-size="12">i（順時針）</text><text x="20" y="20" font-size="10" opacity=".7">×　×　×　×（B入紙）</text><text x="20" y="165" font-size="10" opacity=".7">×　×　×　×</text><path d="M190,120 A50,50 0 0,1 290,120" stroke-width="1.8"/><line x1="200" y1="100" x2="190" y2="60" stroke-width="1.2" marker-end="url(#a7)"/><line x1="240" y1="70" x2="240" y2="30" stroke-width="1.2" marker-end="url(#a7)"/><line x1="280" y1="100" x2="290" y2="60" stroke-width="1.2" marker-end="url(#a7)"/><line x1="190" y1="120" x2="190" y2="160" stroke-width="1.6" marker-end="url(#a7)"/><text x="170" y="175" font-size="11">T</text><line x1="290" y1="120" x2="290" y2="160" stroke-width="1.6" marker-end="url(#a7)"/><text x="292" y="175" font-size="11">T</text><defs><marker id="a7" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'左：圓形線圈通以順時針電流i，置於垂直入紙的磁場B中。右：切一半後，上半部所受磁力由兩端張力T平衡。'},
+
+{id:'fc8',cat:'force',name:'安培力．範例八',type:'正六邊形六條導線，求中心磁場與其中一導線單位長度受力',
+given:'圖中六條相互平行且垂直紙面的無限長直導線排列成正六邊形，每邊邊長為R，導線上載有穩定電流I，其中導線C與F上的電流為流出紙面，其餘均流入紙面，則：(1) 中心點O處磁場為何？(2) 導線F單位長度所受磁力為何？',
+think:['關鍵字「正六邊形」＋「六條導線」＋「其中兩條方向不同」→ 先處理第(1)問磁場：六邊形有三組「對角線頂點」（每組兩個頂點連線通過中心O），只要同一組的兩個頂點電流方向相同，它們在O點的磁場就會互相抵消（跟正方形AC抵消是同一招）。','題目說C、F是對角線頂點且電流方向相同(都出紙面)，其餘A、B、D、E電流方向也都相同(都入紙面)，所以三組對角線(A-D、B-E、C-F)都各自方向相同 ⇒ 三組都各自抵消 ⇒ O點合場為0，不用真的去對六個磁場做向量合成。','第(2)問求F導線的受力，F會同時被其他5條導線施加安培力，這5條線跟F的距離不會都一樣──正六邊形相鄰頂點距離R、隔一個頂點距離R√3、正對面頂點距離2R，要先分清楚每條線跟F的距離屬於哪一種。','判斷吸引/排斥看電流方向：F出紙面，跟入紙面的A、B、D、E都是反向(排斥，推F往外)，跟同為出紙面的C是同向(吸引，把F往中心拉)──這個力方向跟其他四個相反，公式裡才會用減號；相鄰的兩力、隔一頂點的兩力都要先投影到OF方向才能疊加。'],
+calc:['(1) 三組對角線(AD、BE、CF)電流方向皆相同 ⇒ 各組在O點磁場互相抵消 ⇒ B_O=0','(2) 相鄰兩線(距離R，排斥)：合力分量=2×[μ₀I²/(2πR)]×cos60°=μ₀I²/(2πR)','(2) 隔一頂點兩線(距離R√3，排斥)：合力分量=2×[μ₀I²/(2π√3R)]×cos30°=μ₀I²/(2πR)','(2) 正對面C(距離2R，同方向吸引，方向相反要減)：μ₀I²/(2π×2R)=μ₀I²/(4πR)；總和F/L=μ₀I²/(2πR)+μ₀I²/(2πR)-μ₀I²/(4πR)=3μ₀I²/(4πR)'],
+ans:'(1) B_O=0　(2) F導線單位長度受力=3μ₀I²/(4πR)，方向沿OF方向（向外）',
+pitfall:'六邊形三種距離(R、R√3、2R)千萬別搞混，尤其R√3這個「隔一個頂點」的距離最常被忘記、誤用R或2R代替；C對F是「同方向相吸」要用減號，跟其他四條的排斥方向相反，符號用錯全題會錯；相鄰、隔一頂點的兩對力都要先用cos投影到OF連線方向才能疊加，不能直接把量值加總。',
+svg:'<svg viewBox="0 0 280 260" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><polygon points="230,130 185,52 95,52 50,130 95,208 185,208" stroke-width="1.5"/><circle cx="185" cy="52" r="8" stroke-width="1.3"/><line x1="180" y1="47" x2="190" y2="57" stroke-width="1.2"/><line x1="190" y1="47" x2="180" y2="57" stroke-width="1.2"/><text x="190" y="42" font-size="11">A⊗</text><circle cx="95" cy="52" r="8" stroke-width="1.3"/><line x1="90" y1="47" x2="100" y2="57" stroke-width="1.2"/><line x1="100" y1="47" x2="90" y2="57" stroke-width="1.2"/><text x="60" y="42" font-size="11">B⊗</text><circle cx="50" cy="130" r="8" stroke-width="1.3"/><circle cx="50" cy="130" r="2.5" fill="currentColor" stroke="none"/><text x="14" y="134" font-size="11">C⊙</text><circle cx="95" cy="208" r="8" stroke-width="1.3"/><line x1="90" y1="203" x2="100" y2="213" stroke-width="1.2"/><line x1="100" y1="203" x2="90" y2="213" stroke-width="1.2"/><text x="60" y="228" font-size="11">D⊗</text><circle cx="185" cy="208" r="8" stroke-width="1.3"/><line x1="180" y1="203" x2="190" y2="213" stroke-width="1.2"/><line x1="190" y1="203" x2="180" y2="213" stroke-width="1.2"/><text x="190" y="228" font-size="11">E⊗</text><circle cx="230" cy="130" r="8" stroke-width="1.3"/><circle cx="230" cy="130" r="2.5" fill="currentColor" stroke="none"/><text x="236" y="134" font-size="11">F⊙</text><circle cx="140" cy="130" r="3" fill="currentColor" stroke="none"/><text x="146" y="126" font-size="12">O</text></svg>',
+svgCap:'正六邊形六頂點導線，C、F出紙面(⊙)，A、B、D、E入紙面(⊗)，O為中心。'},
+
+{id:'fc9',cat:'force',name:'安培力．範例九',type:'水平軌條上金屬棒，安培力克服最大靜摩擦力開始滑動的臨界電壓',
+given:'圖中相距1.0公尺且無電阻的水平軌條與電源V串接，電阻1.0Ω、質量1.0公斤的金屬線段PQ恰橫跨於軌條上，其間靜摩擦係數為0.60，整個結構處於鉛直向上、大小為0.12特士拉的均勻磁場中，則電源電壓至少應超過多少伏特，PQ才會開始滑動？',
+think:['關鍵字「靜摩擦係數」＋「開始滑動」＋「磁場鉛直向上」→ 這是安培力當作「推力」，要克服最大靜摩擦力才會滑動的臨界值問題，核心不等式是F安培力 > f_s(最大靜摩擦)。','B是鉛直方向、PQ電流是水平方向(沿軌條間的橫桿)，兩者互相垂直(sinθ=90°)，所以F_B=BIL可以直接用，不用另外算角度；L要用軌條間距1.0m(這是PQ在磁場中的有效長度)。','最大靜摩擦力f_s=μs×N，這裡N(正向力)就是PQ的重力mg，因為安培力是水平方向、不影響鉛直方向的正向力，很多人會誤以為安培力也會改變N，要小心分辨力的方向。','電壓V跟電流I的關係，用電路的總電阻1.0Ω(題目說軌條無電阻，電阻只集中在這1.0Ω)，V=IR，先解出臨界電流I，再換算成臨界電壓V。'],
+calc:['最大靜摩擦力：f_s=μs×mg=0.60×1.0×9.8=5.88N','安培力要超過此值：BIL>f_s ⇒ I×0.12×1.0>5.88','解出臨界電流：I>5.88/0.12=49A','換算電壓：V=IR=49×1.0=49V'],
+ans:'電源電壓須超過49V',
+pitfall:'N(正向力)不要跟安培力搞混，這裡N就是單純的重力mg，安培力是水平方向不影響它；L要用「軌條間距」1.0m而不是PQ導線本身可能更長的長度；別忘了最後要把臨界電流換算成電壓(用V=IR)，只解出電流就交卷是漏了最後一步。',
+svg:'<svg viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="30" y1="60" x2="30" y2="140" stroke-width="1.6"/><line x1="230" y1="60" x2="230" y2="140" stroke-width="1.6"/><line x1="30" y1="140" x2="230" y2="140" stroke-width="1.6"/><line x1="30" y1="60" x2="230" y2="60" stroke-width="1.6"/><line x1="60" y1="60" x2="60" y2="140" stroke-width="2.4"/><text x="45" y="55" font-size="11">P</text><text x="45" y="158" font-size="11">Q</text><text x="90" y="55" font-size="10" opacity=".75">1.0m 軌距</text><line x1="50" y1="20" x2="50" y2="45" stroke-width="1.3" marker-end="url(#a9)"/><line x1="100" y1="20" x2="100" y2="45" stroke-width="1.3" marker-end="url(#a9)"/><line x1="150" y1="20" x2="150" y2="45" stroke-width="1.3" marker-end="url(#a9)"/><text x="150" y="15" font-size="10" opacity=".75">B=0.12T（鉛直向上）</text><circle cx="255" cy="100" r="14" stroke-width="1.3"/><text x="248" y="104" font-size="11">V</text><text x="235" y="130" font-size="10" opacity=".75">R=1.0Ω</text><defs><marker id="a9" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'水平軌條(間距1.0m)與電源V串接，PQ橫跨其上，磁場B鉛直向上穿過整個結構。'},
+
+{id:'fc10',cat:'force',name:'安培力．範例十',type:'鉛直面導線組合，CD受AB磁場作用而懸浮平衡＋微小振盪週期',
+given:'如圖所示的鉛直面導線組合，AB為甚長固定導線（水平），CD段長度為ℓ、質量為m，可上、下自由滑動，懸於AB上方。已知重力加速度為g，當AB、CD均通以電流i時，CD恰平衡靜止，若只計AB所引起的磁場作用，則：(1) CD與AB的距離為何？(2) 使CD產生一微小位移而作上、下振盪，則其週期為何？',
+think:['關鍵字「恰平衡靜止」＋「微小位移」＋「週期」→ 這是兩層題：第(1)問是單純的「力平衡」(安培力=重力)，第(2)問是進階的「類簡諧振動」，安培力雖然不是像彈簧力F=-kx那種線性關係，但在平衡點附近做微小偏移時，可以用微分線性化的技巧，把它「當作」彈簧來處理。','第(1)問：CD所受的力是AB傳來的磁場B=μ₀i/(2πx)在CD這段長度ℓ上產生的安培力，方向要跟重力平衡(題目說「恰平衡靜止」代表這時安培力剛好=mg)，直接列方程式解距離x。','第(2)問是這幾題中最容易卡住的題型：因為F是x的函數(F(x)=μ₀i²ℓ/2πx，不是固定值)，CD偏移一點點之後力不再等於mg，必須用「對F(x)微分」的技巧，求出F在平衡點附近隨位移y變化的斜率dF/dx，這個斜率的大小就是等效彈簧常數k。','算出k之後，週期公式就跟彈簧一樣直接套T=2π√(m/k)，重點是k不是題目直接給的，是自己微分算出來的──這一步最容易漏掉或不會下手。驗算技巧：把第(1)問算出的平衡距離x代回k的算式，如果代數化簡順利可以推回課本給的答案形式。'],
+calc:['(1) B(AB在CD處)=μ₀i/(2πx)；安培力F_B=B×i×ℓ=μ₀i²ℓ/(2πx)；力平衡：F_B=mg ⇒ μ₀i²ℓ/(2πx)=mg','(1) 解出：x=μ₀i²ℓ/(2πmg)','(2) 對F(x)=μ₀i²ℓ/(2πx)微分：dF/dx=-μ₀i²ℓ/(2πx²)，平衡點附近等效彈簧常數k=μ₀i²ℓ/(2πx₀²)（取大小）','(2) 代入x₀=μ₀i²ℓ/(2πmg)化簡k，再代入T=2π√(m/k)，整理後得T=2π√(μ₀i²ℓ/(2πmg²))'],
+ans:'(1) x=μ₀i²ℓ/(2πmg)　(2) T=2π√(μ₀i²ℓ/(2πmg²))',
+pitfall:'第(2)問最大的坑是「以為安培力本來就是線性的可以直接套彈簧公式」──事實上F=μ₀i²ℓ/2πx是反比函數不是線性函數，一定要先對x微分才能得到「等效」的k，直接把F(x)裡的x當成一般彈簧的x代是錯的；微分後的k裡面的x要代「平衡位置x₀」(第1問算出的值)，不是一個變數；判斷方向時，位移增加力會變小(拉回)，所以是回復力，取k的大小代入T=2π√(m/k)即可，不用糾結負號。',
+svg:'<svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="30" y1="60" x2="190" y2="60" stroke-width="2.2" marker-end="url(#a10)"/><text x="20" y="50" font-size="12">D</text><text x="192" y="50" font-size="12">C</text><text x="80" y="50" font-size="11" opacity=".75">ℓ</text><line x1="90" y1="65" x2="90" y2="110" stroke-width="1.1" stroke-dasharray="3 3"/><text x="96" y="90" font-size="11" opacity=".75">x</text><line x1="10" y1="150" x2="210" y2="150" stroke-width="2.2" marker-end="url(#a10)"/><text x="10" y="170" font-size="12">A(∞)</text><text x="185" y="170" font-size="12">B(∞)</text><text x="100" y="170" font-size="11">i</text><line x1="90" y1="70" x2="90" y2="45" stroke-width="1.3" marker-end="url(#a10)"/><text x="94" y="40" font-size="10" opacity=".75">F_B</text><line x1="130" y1="65" x2="130" y2="95" stroke-width="1.3" marker-end="url(#a10)"/><text x="134" y="100" font-size="10" opacity=".75">mg</text><defs><marker id="a10" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'CD段(長ℓ)懸於固定長直導線AB上方，距離x，靠AB的磁場產生的安培力與重力mg平衡。'},
+
+{id:'fc11',cat:'force',name:'安培力．範例十一',type:'兩條懸吊導線通反向電流，小角度近似求平衡間距',
+given:'兩條單位長度的質量為λ的導線，通以等量反向電流i，今以兩條長度皆為ℓ的細線從同一點懸吊起來，平衡時兩懸線分開夾角為θ(若θ甚小)，兩導線分開的距離為x，則x之值為何？',
+think:['關鍵字「等量反向電流」＋「兩條細線懸吊」＋「θ甚小」→ 這是「安培力(水平) vs 重力(垂直) vs 線張力」三力平衡的題型，而且要用「小角度近似」(sinθ≈tanθ≈θ)簡化計算，是這幾題中最容易卡住的一題（她曾在這題打叉重寫過）。','先判斷方向：「反向電流」是互相排斥，兩條導線會被推開，所以垂吊的細線會像鐘擺一樣向外分開角度θ，不是靠攏。','對「單一條」導線(取單位長度來看，質量λ)做力平衡：垂直方向細線張力的分量要撐住重力λg，水平方向細線張力的分量要頂住安培力F_B，兩式相除消去張力T，得到tan(這條線與鉛直線的夾角)=F_B/(λg)。','這裡最容易搞混的是「θ」的定義：題目說的θ是「兩懸線之間分開的夾角」，因為兩條線是從同一個點吊下來、左右對稱張開，每一條線跟鉛直線的夾角其實是θ/2，不是θ本身，這個「除以2」的步驟很容易漏掉，也是最容易算錯的地方。','兩導線間的水平距離x，要用幾何關係(每邊線長ℓ×sin(θ/2))換算，配合小角度近似sinφ≈φ，把θ、x、F_B兜在一起解聯立，最後才代入F_B=μ₀i²/(2πx)得到x的方程式。'],
+calc:['單一條導線力平衡：Tsinφ=F_B(水平)、Tcosφ=λg(垂直)，其中φ為單一懸線與鉛直線的夾角(φ=θ/2)','兩式相除：tanφ=F_B/(λg)，小角度近似tanφ≈φ','幾何關係：x=2ℓsinφ≈2ℓφ(小角度)，所以φ≈x/(2ℓ)','代入安培力F_B=μ₀i²/(2πx)：x/(2ℓ)=μ₀i²/(2πxλg)，整理：2πλg·x²=2ℓμ₀i² ⇒ x²=ℓμ₀i²/(πλg) ⇒ x=i√(μ₀ℓ/(λgπ))'],
+ans:'x=i√(μ₀ℓ/(λgπ))',
+pitfall:'這題最容易犯兩個錯：①把題目給的θ直接當成單一懸線與鉛直線的夾角去代，忘記兩線是對稱張開、單一懸線的夾角其實是θ/2；②忘記做小角度近似(sinθ≈tanθ≈θ)，題目特別註明「θ甚小」就是在暗示要用這個近似，沒用近似會卡在無法解出簡單的x顯式解。力的方向也要先判斷清楚：等量「反向」電流是互斥不是互吸，兩線是被推開撐大角度，不是被拉近。',
+svg:'<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="122" y1="15" x2="138" y2="15" stroke-width="3"/><line x1="130" y1="15" x2="80" y2="150" stroke-width="1.4"/><line x1="130" y1="15" x2="180" y2="150" stroke-width="1.4"/><path d="M110,45 A70,70 0 0,1 150,45" stroke-width="1" fill="none"/><text x="135" y="35" font-size="11">θ</text><text x="60" y="45" font-size="11" opacity=".75">ℓ</text><text x="185" y="45" font-size="11" opacity=".75">ℓ</text><circle cx="80" cy="150" r="8" stroke-width="1.3"/><line x1="75" y1="145" x2="85" y2="155" stroke-width="1.2"/><line x1="85" y1="145" x2="75" y2="155" stroke-width="1.2"/><text x="55" y="168" font-size="11">⊗</text><circle cx="180" cy="150" r="8" stroke-width="1.3"/><circle cx="180" cy="150" r="2.5" fill="currentColor" stroke="none"/><text x="185" y="168" font-size="11">⊙</text><line x1="95" y1="150" x2="70" y2="150" stroke-width="1.2" marker-end="url(#a11)"/><text x="50" y="145" font-size="10" opacity=".75">F_B</text><line x1="165" y1="150" x2="190" y2="150" stroke-width="1.2" marker-end="url(#a11)"/><text x="192" y="145" font-size="10" opacity=".75">F_B</text><line x1="80" y1="155" x2="80" y2="180" stroke-width="1.1" marker-end="url(#a11)"/><text x="65" y="195" font-size="10" opacity=".75">λg</text><line x1="180" y1="155" x2="180" y2="180" stroke-width="1.1" marker-end="url(#a11)"/><text x="184" y="195" font-size="10" opacity=".75">λg</text><line x1="80" y1="160" x2="180" y2="160" stroke-width="1" stroke-dasharray="3 3"/><text x="120" y="175" font-size="11" opacity=".75">x</text><defs><marker id="a11" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'兩條導線由同一點以長度ℓ的細線懸吊，通以等量反向電流，因互斥而分開夾角θ、水平距離x。'},
+
+{id:'fc12',cat:'force',name:'安培力．範例十二',type:'兩平行懸吊導線靠彈力(懸線張力)與安培力平衡求電流',
+given:'如右圖所示，兩條平行導線長4.0cm，懸垂於同一軸下。這兩條導線與懸線之質量皆為50公克/公尺，並有大小相同但方向相反之電流。若懸線與垂直線間之夾角為30°，則電流為何？(設g=10m/s²)',
+think:['關鍵字「方向相反之電流」→ 先確認兩導線是「互斥」（反向電流才會互斥），互斥才會把兩條懸線往外推開，撐出與鉛垂線的夾角。','畫單一條導線的受力圖：張力T沿懸線方向、重力mg鉛直向下、安培斥力F_B水平方向，三力平衡。','把T分解成水平、垂直分量：水平分量要平衡F_B，垂直分量要平衡mg，兩者相除消掉T，得到tan30°=F_B/mg。','F_B要用兩平行導線安培力公式F_B/L=μ₀I²/(2πd)，這裡的「每公尺質量」是線密度，要先確認mg也是用「每公尺」為單位代入，才能跟F_B(每公尺)配對。'],
+calc:['靜力平衡：tan30°=F_B/mg（皆取每公尺）','F_B(每公尺)=μ₀I²/(2πd)＝4π×10⁻⁷×I²/(2π×0.04)，mg(每公尺)=0.050×10=0.5','tan30°=1/√3＝[4π×10⁻⁷×I²/(2π×0.04)]/0.5','整理：I²＝(1/√3)×0.5×(2π×0.04)/(4π×10⁻⁷)＝(2π×0.04×0.05×10)/(√3×4π×10⁻⁷)','I＝√[(2π×0.04×0.05×10)/(√3×4π×10⁻⁷)]≈240.3A'],
+ans:'I≈240.3A',
+pitfall:'反向電流是「互斥」不是「相吸」，方向判斷錯，力圖整個畫反；50公克/公尺是線密度不是總重量，要用「每公尺」的F_B對「每公尺」的mg才能直接相除，不要莫名其妙多乘或少乘長度。',
+svg:'<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><circle cx="150" cy="15" r="2.5" fill="currentColor" stroke="none"/><line x1="150" y1="15" x2="95" y2="130" stroke-width="1.6"/><line x1="150" y1="15" x2="205" y2="130" stroke-width="1.6"/><text x="112" y="48" font-size="11">30°</text><text x="163" y="48" font-size="11">30°</text><circle cx="95" cy="130" r="4" stroke-width="1.4"/><text x="72" y="150" font-size="12">I⊗</text><circle cx="205" cy="130" r="4" stroke-width="1.4"/><circle cx="205" cy="130" r="1.5" fill="currentColor" stroke="none"/><text x="212" y="150" font-size="12">I⊙</text><line x1="95" y1="130" x2="205" y2="130" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/><text x="120" y="122" font-size="10" opacity=".7">d=4.0cm</text><line x1="205" y1="130" x2="228" y2="176" stroke-width="1.3"/><polygon points="228,176 216,168 223,180" fill="currentColor" stroke="none"/><text x="230" y="188" font-size="11">mg</text><line x1="205" y1="130" x2="255" y2="130" stroke-width="1.3"/><polygon points="255,130 245,125 245,135" fill="currentColor" stroke="none"/><text x="225" y="120" font-size="11">F_B(斥)</text></svg>',
+svgCap:'兩導線通反向電流互斥，各以懸線與鉛垂線成30°角撐開，間距d視為4.0cm代入安培力公式。'},
+
+{id:'fc13',cat:'force',name:'安培力．範例十三',type:'輻射狀磁場對圓形線圈的淨磁力（對稱抵消＋分量投影）',
+given:'半徑2.0cm、通有電流0.253A的水平圓形線圈上每一點都有磁鐵N極發出來的磁力線通過，若線圈上每一點的磁場大小皆為0.088T，且磁力線皆與過該點的鉛直線成30°角向外，求此線圈所受的淨磁力？',
+think:['關鍵字「線圈上每一點磁場大小相同、皆與鉛直線成定角」→ 磁力線呈輻射對稱分布（像一把傘骨），要先想像整個線圈是被對稱包圍的，這種對稱性是解題的關鍵。','取線圈上一小段導線dL，其磁力dF_B=i×dL×B，方向垂直於dL與B所在平面；因為線圈是完整圓形、磁場對稱輻射，水平方向的分量會被正對面那一小段互相抵消，只剩鉛直方向分量會疊加。','磁力線與鉛直線夾30°，決定每個dF在鉛直方向的投影角度；這裡要小心用的是與磁力線「互餘」的角度(60°)去取分量，不是直接套30°。','不用真的逐段積分，因為對稱抵消後，鉛直分量的投影係數對每一小段都一樣，可以直接把周長2πr、B、投影係數三者相乘。'],
+calc:['線圈周長＝2πr＝2π×0.02','ΣF_B＝i×(2πr)×B×cos60°','＝0.253×2π×0.02×0.088×0.5≈1.4×10⁻³N'],
+ans:'ΣF_B≈1.4×10⁻³N，方向沿線圈中心軸方向',
+pitfall:'水平分量對稱抵消這件事最容易被忽略，誤以為要把所有dF直接向量硬加；投影角度要看清楚是跟磁力線的夾角(30°)互餘後的60°，不是直接拿30°去取cos，角度用錯會差√3倍。',
+svg:'<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><ellipse cx="150" cy="70" rx="90" ry="18" stroke-width="1.6"/><text x="248" y="65" font-size="12">線圈(半徑r)</text><circle cx="150" cy="170" r="3" fill="currentColor" stroke="none"/><text x="138" y="195" font-size="12">N極</text><line x1="150" y1="170" x2="60" y2="72" stroke-width="1.2"/><line x1="150" y1="170" x2="150" y2="60" stroke-width="1.1" stroke-dasharray="3 3" opacity=".6"/><text x="95" y="115" font-size="11">30°</text><line x1="150" y1="170" x2="240" y2="72" stroke-width="1.2"/><text x="190" y="115" font-size="11">30°</text><text x="52" y="60" font-size="10" opacity=".8">B</text><text x="240" y="60" font-size="10" opacity=".8">B</text><line x1="150" y1="70" x2="150" y2="25" stroke-width="1.6"/><polygon points="150,25 145,37 155,37" fill="currentColor" stroke="none"/><text x="158" y="30" font-size="12">合力ΣF_B</text></svg>',
+svgCap:'磁力線從N極呈輻射狀通過線圈，每點磁場皆與鉛直線成30°角；水平分量對稱抵消，只剩鉛直分量疊加成淨磁力。'},
+
+{id:'fc14',cat:'force',name:'安培力．範例十四',type:'長直導線與可動導線由彈簧相連，安培力＋外加磁場力的三力平衡',
+given:'長度未知的導線段Y與長直固定導線X用完全相同的絕緣輕彈簧S1、S2連結後，以細長導線鉛直懸起，使X、Y平行且同處於某水平面上。如右圖X、Y各通以反向等量電流i時，兩者相距ℓ1；若X、Y各通以同向等量電流i時，兩者則相距ℓ2；若X、Y通以反向等量電流i且兩彈簧能保持原長，則整個結構應處於如何的一個外加磁場中？(不計細導線的磁場作用)',
+think:['關鍵字「反向/同向電流」＋「彈簧」→ 先分清楚「反向電流互斥、同向電流互吸」，這是這節最常考混的方向題，方向判斷錯，後面全部推翻。','沒有外加磁場時：反向電流互斥把彈簧撐長到ℓ1，同向電流互吸把彈簧壓縮到ℓ2；這兩個狀態都只是「安培力＝彈力」，可以各自列一條方程式。','兩條方程式裡有三個未知數（彈簧原長ℓ、彈簧常數k、導線長度L），但只問外加磁場，所以要找一個方法讓這些未知數互相消掉——把兩式相除，L和k都會消掉，只留下ℓ。','解出彈簧原長ℓ後，才能處理第三種情境：反向電流(互斥)+外加磁場，要讓彈簧「保持原長」＝彈力為零，代表外加磁場對Y的作用力必須剛好抵消X、Y之間的安培斥力，方向要用右手定則判斷。'],
+calc:['反向電流(互斥)：μ₀i²L/(2πℓ1)=k(ℓ1－ℓ)','同向電流(互吸)：μ₀i²L/(2πℓ2)=k(ℓ－ℓ2)','兩式相除消去k、L：(ℓ1－ℓ)/(ℓ－ℓ2)=ℓ2/ℓ1 ⇒ 解得ℓ=(ℓ1²+ℓ2²)/(ℓ1+ℓ2)','彈力為零時：安培斥力＝外加磁場力 ⇒ μ₀i²L/(2πℓ)=iLB ⇒ B=μ₀i/(2πℓ)','代入ℓ：B=μ₀i(ℓ1+ℓ2)/[2π(ℓ1²+ℓ2²)]，方向鉛直向上（由右手定則判斷使力抵消）'],
+ans:'外加磁場B=μ₀i(ℓ1+ℓ2)/[2π(ℓ1²+ℓ2²)]，方向鉛直向上',
+pitfall:'最容易搞混方向——反向電流是「互斥」不是「相吸」，同向電流才是「相吸」，方向判斷反了正負號全倒；導線長度L是未知數，很多人會卡在「L沒給怎麼算」，其實聯立消去後L根本不需要單獨求出。',
+svg:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="40" y1="20" x2="40" y2="60" stroke-width="1.3"/><line x1="50" y1="60" x2="250" y2="60" stroke-width="2"/><polygon points="250,60 238,55 238,65" fill="currentColor" stroke="none"/><text x="253" y="65" font-size="12">X(固定)</text><text x="10" y="15" font-size="10" opacity=".7">懸吊細線</text><line x1="70" y1="60" x2="70" y2="120" stroke-width="1.2"/><text x="75" y="95" font-size="11">S1</text><line x1="190" y1="60" x2="190" y2="120" stroke-width="1.2"/><text x="195" y="95" font-size="11">S2</text><line x1="50" y1="120" x2="250" y2="120" stroke-width="2"/><polygon points="60,120 60,112 50,120 60,128" fill="currentColor" stroke="none"/><text x="253" y="125" font-size="12">Y</text><line x1="150" y1="18" x2="150" y2="53" stroke-width="1.3"/><polygon points="150,18 145,30 155,30" fill="currentColor" stroke="none"/><text x="158" y="28" font-size="11">外加磁場B(鉛直向上)</text></svg>',
+svgCap:'X為固定長直導線，Y以彈簧S1、S2相連並鉛直懸吊，外加磁場B需鉛直向上，才能讓Y所受合力為零、彈簧保持原長。'},
+
+{id:'tq1',cat:'torque',name:'線圈力矩．範例一',type:'矩形線圈在均勻磁場中所受力矩，重點在分辨「線圈平面與B的夾角」和「法線與B的夾角」',
+given:'如圖所示，一長度為0.25公尺、寬度為0.20公尺之矩形線圈，共100匝，置於強度為0.50特士拉、方向向右之均勻磁場中，線圈平面與磁場方向間的夾角為60°。當線圈通以電流0.4安培時，此線圈瞬間所受之力矩量值為何？',
+think:['關鍵字「線圈平面與磁場方向間之夾角」→ 這是這一節最大的地雷：公式τ＝NiABsinθ裡的θ，一定是「線圈法線」跟B的夾角，不是「線圈平面」跟B的夾角，兩者互餘、差90°。','題目給的是平面跟B的夾角60°，要先換算成法線跟B的夾角＝90°－60°＝30°，才能代進sinθ。','其餘就是把N、i、A、B四個數字對號入座：A要自己先算出長×寬的面積，不能漏乘。','算完檢查單位：安培×平方公尺×特士拉，乘上沒有因次的sinθ，結果就是牛頓·公尺，單位對了才代表沒代錯欄位。'],
+calc:['線圈面積 A＝0.25×0.20＝0.05平方公尺','法線與B的夾角 θ＝90°－60°＝30°，sinθ＝0.5','τ＝NiABsinθ＝100×0.4×0.05×0.50×0.5','＝0.5 牛頓·公尺'],
+ans:'τ＝0.5牛頓·公尺（0.5 m-N）',
+pitfall:'這題就是在考「θ算錯90°」這個坑：如果沒有先把60°換成30°、直接把60°套進sinθ，會算出NiABsin60°≈0.87 m-N，跟正確答案0.5 m-N差了一大截，方向完全對但數值全錯。記住一句話：sinθ裡的θ永遠是「法線」跟B的夾角，題目給平面角就要先用90°去減。',
+svg:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><defs><marker id="tq1ar" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs><line x1="150" y1="100" x2="260" y2="100" stroke-width="1.6" marker-end="url(#tq1ar)"/><text x="225" y="92" font-size="12">B(0.50T)</text><line x1="120" y1="48" x2="180" y2="152" stroke-width="2.2"/><line x1="112" y1="52" x2="128" y2="44" stroke-width="1.6"/><line x1="172" y1="156" x2="188" y2="148" stroke-width="1.6"/><text x="185" y="160" font-size="11">線圈(邊視) N=100</text><line x1="150" y1="100" x2="210" y2="65" stroke-width="1.4" marker-end="url(#tq1ar)"/><text x="212" y="60" font-size="12">法線n</text><circle cx="150" cy="100" r="2.6" fill="currentColor" stroke="none"/><path d="M190,100 A40,40 0 0,1 170,134.6" stroke-width="1" opacity=".8"/><text x="178" y="128" font-size="11">60°(平面與B)</text><path d="M175,100 A25,25 0 0,0 171.7,87.5" stroke-width="1" opacity=".8"/><text x="180" y="86" font-size="11">30°(法線與B)</text><text x="60" y="185" font-size="11" opacity=".75">i=0.4A，A=0.25×0.20m²</text></svg>',
+svgCap:'線圈邊視圖：法線n與B的夾角30°才是公式要用的θ，圖上另外標出容易誤用的「平面與B夾角60°」。'},
+
+{id:'tq2',cat:'torque',name:'線圈力矩．範例二',type:'三角形線圈的力矩，磁場恰好躺在線圈平面內（θ=90°）的特殊情形',
+given:'邊長分別由1.0公尺、1.0公尺、√2公尺所組成之三角形線圈，置於方向向右且強度為0.20特士拉的均勻磁場中，線圈平面與磁場同在紙面內（如圖所示，直角頂點與水平邊、斜邊之間夾45°），線圈上通有電流10安培。求整個線圈所受的力矩量值為何？',
+think:['關鍵字「三邊長1.0、1.0、√2」→ 先驗證1²+1²＝(√2)²，這是一個直角三角形，兩股邊互相垂直，面積用½×底×高最快，不用海龍公式。','看圖判斷θ最快的方法：B的箭頭跟三角形線圈畫在「同一個紙面」上，代表B躺在線圈平面內，而線圈的法線是垂直紙面射出來的，兩者天生垂直，θ＝90°。','θ＝90°時sinθ＝1，公式τ＝NiABsinθ直接退化成τ＝NiAB，不用再處理角度，這是這題的簡化捷徑。','題目沒提到匝數，代表是單匝線圈N＝1，這種「沒寫就是1」的細節也不能漏看。'],
+calc:['面積 A＝½×1.0×1.0＝0.5平方公尺','θ(法線與B的夾角)＝90° ⇒ sinθ＝1','τ＝NiABsinθ＝1×10×0.5×0.20×1','＝1.0 牛頓·公尺'],
+ans:'τ＝1.0牛頓·公尺（1.0 m-N）',
+pitfall:'圖上標的45°是三角形本身兩股邊跟斜邊的幾何夾角，不是公式裡的θ，千萬別把45°直接套進sinθ算成τ＝NiABsin45°；真正的θ要看「線圈法線」跟B的關係，這裡B躺在線圈平面內，法線跟B垂直，θ其實是90°不是45°。',
+svg:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><defs><marker id="tq2ar" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs><line x1="60" y1="35" x2="120" y2="35" stroke-width="1.4" marker-end="url(#tq2ar)"/><line x1="60" y1="50" x2="120" y2="50" stroke-width="1.4" marker-end="url(#tq2ar)"/><line x1="60" y1="65" x2="120" y2="65" stroke-width="1.4" marker-end="url(#tq2ar)"/><text x="128" y="55" font-size="12">B(0.20T)</text><polygon points="70,160 210,160 210,60" stroke-width="2"/><text x="130" y="175" font-size="12">1.0m</text><text x="215" y="115" font-size="12">1.0m</text><text x="115" y="105" font-size="12">√2m</text><path d="M100,160 A30,30 0 0,1 92,132" stroke-width="1" opacity=".8"/><text x="95" y="150" font-size="11">45°</text><line x1="70" y1="160" x2="140" y2="160" stroke-width="1.6" marker-end="url(#tq2ar)"/><text x="80" y="178" font-size="11">i=10A</text><circle cx="160" cy="130" r="4" stroke-width="1.3"/><circle cx="160" cy="130" r="1.4" fill="currentColor" stroke="none"/><text x="168" y="128" font-size="10">n(出紙面)</text><text x="150" y="195" font-size="10" opacity=".75">B躺在線圈平面內⇒n⊥B⇒θ=90°</text></svg>',
+svgCap:'直角三角形線圈與B同在紙面內，法線n垂直紙面射出，跟B夾90°；圖中45°只是三角形自己的幾何角，不是公式的θ。'},
+
+{id:'tq3',cat:'torque',name:'線圈力矩．範例三',type:'圓柱木頭斜面線圈平衡問題，力矩式兩邊的sinθ會互相消去',
+given:'如圖所示，一圓柱形木頭質量為m，截面圓半徑為r，圓柱表面繞有N匝線圈，將其放置在傾角為θ的斜面上，並施加磁場B（方向沿斜面向上，如圖）。若欲使此圓柱恰好不轉動（此時線圈平面與斜面平行），求線圈上應通入的電流i為何？（圖中線圈沿圓柱軸向的纏繞長度以l表示，此變數在照片題目文字段落中字跡不清，此處依參考解答與示意圖引入）',
+think:['關鍵字「恰不轉動」→ 這是力矩平衡題：把圓柱跟斜面的接觸線當轉軸，讓「重力力矩」和「磁力力矩」互相抵消，ΣΤ＝0。','題目特別註明「此時線圈面與斜面平行」，這句話是在鎖定計算當下的幾何關係：可以把線圈看成一個等效矩形迴路，寬是圓柱直徑2r，長是纏繞長度l。','重力的力臂不是半徑r，是圓心到接觸線的「垂直距離」＝r sinθ，因為斜面傾斜，要把r投影一次。','磁力力矩的算式裡，線圈法線跟B的夾角在這個位置也剛好是θ，所以磁力力矩式子裡也帶一個sinθ——方程式兩邊各有一個sinθ，可以直接消掉，這是最容易被忽略、卻是這題真正要考的化簡步驟。','消去r和sinθ之後，答案只剩m、g、N、i、l、B的簡單比例，跟斜面角度θ完全無關，這個「跟θ無關」的結論才是這題的重點。'],
+calc:['重力力矩：τ重＝mg×(r sinθ)','磁力力矩：τ磁＝N×i×(2r×l)×B×sinθ','平衡：mg·r·sinθ＝N·i·2r·l·B·sinθ','兩邊消去r與sinθ：mg＝2NilB ⇒ i＝mg/(2NlB)'],
+ans:'i＝mg/(2NlB)',
+pitfall:'力臂沒有投影就直接拿r代入是最常見的錯，一定要寫成r sinθ；另外方程式兩邊的sinθ看起來可以「一眼看出」互相抵消，但解題時仍要老實寫出兩邊各自的sinθ再消去，不能省略這一步直接假設答案跟θ無關，否則遇到磁場方向改成鉛直向上等變化題時會套錯捷徑。',
+svg:'<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><defs><marker id="tq3ar" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs><line x1="30" y1="190" x2="270" y2="190" stroke-width="1.6"/><line x1="30" y1="190" x2="190" y2="50" stroke-width="1.8"/><path d="M70,190 A40,40 0 0,1 65,168" stroke-width="1" opacity=".8"/><text x="72" y="178" font-size="11">θ</text><circle cx="140" cy="112" r="26" stroke-width="1.6"/><line x1="118" y1="98" x2="162" y2="126" stroke-width="1" opacity=".7"/><line x1="118" y1="112" x2="162" y2="112" stroke-width="1" opacity=".7"/><line x1="118" y1="126" x2="162" y2="98" stroke-width="1" opacity=".7"/><text x="150" y="90" font-size="11">N匝線圈</text><line x1="140" y1="112" x2="170" y2="80" stroke-width="1.6" marker-end="url(#tq3ar)"/><text x="172" y="76" font-size="12">B(沿斜面向上)</text><line x1="140" y1="112" x2="140" y2="152" stroke-width="1.4" marker-end="url(#tq3ar)"/><text x="146" y="150" font-size="11">mg</text><line x1="140" y1="112" x2="140" y2="190" stroke-width="1" stroke-dasharray="3 3" opacity=".8"/><text x="146" y="190" font-size="10" opacity=".8">r sinθ(重力力臂)</text></svg>',
+svgCap:'圓柱斜面示意：θ為斜面傾角，重力力矩用力臂r sinθ，磁力力矩來自線圈等效寬度2r與纏繞長度l。'},
+
+{id:'tq4',cat:'torque',name:'線圈力矩．範例四',type:'可繞OO′軸轉動的三邊線圈，重點是每一段的「力臂」怎麼量、哪兩邊沒有磁力矩',
+given:'O與O′兩點間連接一段質量為m、長度為l的銅導線，且被折彎成正方形的三邊，可繞水平軸OO′轉動，如圖所示。導線放置於鉛直向上的均勻磁場中，當導線中的電流為I時，導線偏離原來鉛直位置偏轉角度θ而平衡，求磁場B的大小為何？',
+think:['關鍵字「三邊」＋「可繞水平軸OO′轉動」→ 正方形的第四邊就是固定的轉軸OO′本身(不算進導線長度l內)，真正繞出來的三邊(總長l)平分成三等長段，每段長l/3、質量都是m/3。','三段分別是：從O垂直往下接到底邊的「側邊」、從O′垂直往下接到底邊的另一「側邊」、以及連接兩側邊末端、跟OO′平行的「底邊」。偏轉角θ是整個線圈繞OO′離開鉛直位置轉出來的角度。','先判斷哪些邊有磁力矩：兩段側邊在偏轉後，電流方向仍落在OO′所在的轉動平面內，算出來的磁力方向剛好跟OO′軸平行——力平行轉軸，不管力臂多長都轉不動它，所以側邊對磁力矩的貢獻是0；只有底邊的電流方向永遠垂直於半徑、平行於OO′本身，才會受到垂直於半徑的水平磁力，這是唯一有磁力矩的邊。','力臂怎麼量是這題最大的坑：重力要用「該段重心到轉軸的水平距離」——側邊的重心在中點，力臂是(l/6)sinθ；底邊整段跟轉軸的距離都相等(不用取中點)，力臂直接是(l/3)sinθ，不能套用側邊的l/6。','磁力的力臂則是底邊到轉軸的「鉛直距離」＝(l/3)cosθ，跟重力力臂用的是同一段長度l/3，但一個用sinθ(水平分量，因為重力是鉛直力)、一個用cosθ(鉛直分量，因為磁力是水平力)，兩個角度函數千萬不能混用。'],
+calc:['每段導線質量m/3、長度l/3','重力力矩：兩側邊 2×(m/3)g×(l/6)sinθ ＋ 底邊 (m/3)g×(l/3)sinθ ＝ (2mgl/9)sinθ','磁力力矩(只有底邊)：F＝I×(l/3)×B，力臂＝(l/3)cosθ ⇒ τ磁＝I×(l/3)×(l/3)×B×cosθ＝(Il²B/9)cosθ','平衡：(2mgl/9)sinθ＝(Il²B/9)cosθ ⇒ 兩邊同乘9/l：2mg sinθ＝IlB cosθ ⇒ B＝(2mg/Il)tanθ'],
+ans:'B＝(2mg/Il)tanθ',
+pitfall:'這題的坑全部集中在力臂：①側邊力臂要用重心(中點)算＝(l/6)sinθ，不是(l/3)sinθ；②底邊力臂反而要用整段長度(l/3)(不能取中點)，因為底邊整段到轉軸的距離處處相等；③重力力臂用sinθ(水平分量)、磁力力臂用cosθ(鉛直分量)，兩個三角函數對應不同的力、不能互換；④兩段側邊雖然也載有電流I、也泡在磁場B裡，但受力方向跟轉軸OO′平行，不會產生對OO′的磁力矩，很多人會誤把它們也算進磁力矩總和裡。這一題照片上算了三次、換了三種顏色的筆，改的就是這幾個力臂。',
+svg:'<svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><defs><marker id="tq4ar" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs><line x1="30" y1="20" x2="290" y2="20" stroke-width="1" stroke-dasharray="2 2" opacity=".6"/><line x1="160" y1="220" x2="160" y2="20" stroke-width="1" stroke-dasharray="1 1" opacity="0"/><line x1="30" y1="20" x2="290" y2="20" stroke-width="0" opacity="0"/><line x1="30" y1="30" x2="30" y2="210" stroke-width="1.4" marker-end="url(#tq4ar)" opacity=".55"/><line x1="160" y1="30" x2="160" y2="210" stroke-width="1.4" marker-end="url(#tq4ar)" opacity=".55"/><line x1="290" y1="30" x2="290" y2="210" stroke-width="1.4" marker-end="url(#tq4ar)" opacity=".55"/><text x="296" y="26" font-size="12">B(鉛直向上)</text><line x1="70" y1="40" x2="250" y2="40" stroke-width="2.2"/><circle cx="70" cy="40" r="3" fill="currentColor" stroke="none"/><circle cx="250" cy="40" r="3" fill="currentColor" stroke="none"/><text x="55" y="30" font-size="13">O</text><text x="252" y="30" font-size="13">O′</text><line x1="70" y1="40" x2="70" y2="170" stroke-width="1" stroke-dasharray="3 3" opacity=".7"/><line x1="70" y1="40" x2="130" y2="170" stroke-width="2.2" marker-end="url(#tq4ar)"/><path d="M70,70 A30,30 0 0,1 84,66" stroke-width="1" opacity=".8"/><text x="78" y="80" font-size="11">θ</text><line x1="250" y1="40" x2="190" y2="170" stroke-width="2.2"/><line x1="180" y1="164" x2="130" y2="170" stroke-width="1.2"/><line x1="130" y1="170" x2="190" y2="170" stroke-width="2.4" marker-end="url(#tq4ar)"/><text x="140" y="188" font-size="11">I(底邊電流)</text><line x1="160" y1="40" x2="160" y2="170" stroke-width="1" stroke-dasharray="4 3"/><text x="166" y="105" font-size="10">(l/3)cosθ 磁力力臂</text><line x1="70" y1="170" x2="130" y2="170" stroke-width="1" stroke-dasharray="4 3"/><text x="75" y="185" font-size="10">(l/3)sinθ</text><line x1="160" y1="170" x2="160" y2="205" stroke-width="1.4" marker-end="url(#tq4ar)"/><text x="166" y="202" font-size="11">mg(合重)</text></svg>',
+svgCap:'正方形三邊繞OO′偏轉θ角：兩側邊的磁力平行轉軸不產生力矩，只有底邊受水平磁力，磁力力臂是(l/3)cosθ，重力力臂用(l/3)sinθ或(l/6)sinθ。'},
+
+{id:'tq5',cat:'torque',name:'線圈力矩．範例五',type:'同心半圓導線的磁場、封閉迴路合力、力矩（多選觀念題）',
+given:'由兩直線段和半徑為a及b的二同心半圓構成的導線，載電流為i，下列何者正確？(A)半圓AED與半圓BFC兩部分導線在圓心O點產生的磁場大小相同、方向相反 (B)由半圓AED部分導線在圓心O點產生的磁場量值為μ₀i/4a (C)AB及CD部分導線在圓心O點產生的磁場為零 (D)當外加一垂直於紙面均勻磁場B₀於此導線處，此導線所受力量值為2iB₀(a－b) (E)當外加一平行於紙面均勻磁場B₀於此導線處，此導線所受力矩量值為iB₀π(a²－b²)/2',
+think:['這是多選觀念題，要把五個選項拆開分別判斷：(A)(B)是磁場疊加、(C)是特殊幾何(電流延長線過圓心)、(D)是封閉迴路合力、(E)是力矩，四個觀念分開想才不會互相干擾。','(A)(B)：兩個半圓在O點的磁場都是「完整圓公式μ₀i/2r的一半」(只走半圈)，但半徑不同(a、b不相等)，算出來的量值μ₀i/4a與μ₀i/4b「大小並不相等」——只有方向相反，「大小相同」這句話是陷阱。','(C)：AB、CD是直線段，且電流方向的延長線剛好通過圓心O，這是長直導線公式的特例，當field point在導線所在直線上時，公式會退化為零，這是常考的幾何陷阱。','(D)：只要是「封閉迴路」放在「均勻磁場」中，不管形狀多複雜，合力恆為零，這是可以直接背起來的定理，不用真的去逐段積分算力。','(E)：力矩公式τ=NiABsinθ，這裡θ是磁場與線圈「法線」的夾角。題目說磁場「平行於紙面」，而線圈法線垂直紙面，兩者夾90°，sinθ=1是最大力矩；面積A要用兩個半圓的面積差，不是完整圓面積。'],
+calc:['外圈半圓在O的磁場：B_A=(μ₀i/2a)×(1/2)=μ₀i/4a','內圈半圓在O的磁場：B_B=(μ₀i/2b)×(1/2)=μ₀i/4b（方向與B_A相反，但數值不相等）','AB、CD電流延長線皆過O ⇒ 對O點磁場貢獻為0，(C)成立','封閉迴路在均勻磁場中合力恆為0 ⇒ (D)所述2iB₀(a－b)不成立，實際應為0','力矩：τ=i×A×B₀×sin90°=i×[π(a²－b²)/2]×B₀，(E)成立'],
+ans:'正確選項為(B)(C)(E)；(A)錯在「大小相同」不成立(只有方向相反)，(D)錯在封閉迴路合力應為0而非2iB₀(a－b)',
+pitfall:'(D)最容易被騙，看到「均勻磁場中的導線」直覺想套F=iLB去硬算，卻忘了「封閉迴路在均勻磁場中合力恆為零」這個更高階的定理；(E)的θ是磁場與線圈「法線」的夾角，不是磁場與紙面(線圈平面)的夾角，題目給「平行紙面」要先轉換成對法線的夾角才能代sinθ。',
+svg:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><path d="M60,150 A90,90 0 0,1 240,150" stroke-width="1.6"/><path d="M100,150 A50,50 0 0,1 200,150" stroke-width="1.6"/><line x1="60" y1="150" x2="100" y2="150" stroke-width="1.6"/><line x1="200" y1="150" x2="240" y2="150" stroke-width="1.6"/><circle cx="150" cy="150" r="3" fill="currentColor" stroke="none"/><text x="156" y="148" font-size="12">O</text><text x="42" y="165" font-size="12">A</text><text x="246" y="165" font-size="12">D</text><text x="88" y="165" font-size="12">B</text><text x="205" y="165" font-size="12">C</text><text x="142" y="55" font-size="12">E</text><text x="142" y="95" font-size="12">F</text><text x="153" y="115" font-size="10" opacity=".7">b</text><text x="153" y="70" font-size="10" opacity=".7">a</text></svg>',
+svgCap:'外半圓AED半徑a、內半圓BFC半徑b，同心於O；AB、CD為徑向直線段，電流延長線通過O。'},
+
+{id:'tq6',cat:'torque',name:'線圈力矩．範例六',type:'懸吊正方形線圈側視圖，力矩平衡求平衡角度tanθ',
+given:'如右圖所示，一邊長為ℓ的正方形線圈，質量為m，以細線懸其邊長中點O而掛之，並置於鉛直向上的均勻磁場B中，通電流I於線圈中，受磁力後不變形。若平衡時線圈面與鉛直面夾θ角，則tanθ為何？',
+think:['關鍵字「懸邊長中點O」＋「線圈面與鉛直面夾θ角」→ 這是「力矩平衡」問題，不是單純的力平衡，支點在O，要抓重力矩與磁力矩相等。','從側面看正方形線圈會變成一條線段(因為是從邊長中點O懸吊)，這樣才看得出重力mg和磁力F_B分別的力臂，這是這一節最核心的技巧：力臂要從轉軸(O)量到力的作用線的垂直距離。','重力作用在線圈的重心，力臂是(ℓ/2)sinθ；磁力F_B作用在對邊(離O最遠的那條邊)，力臂是ℓcosθ——兩個力臂用的三角函數不一樣，是因為兩個力的方向不同(一個鉛直向下、一個水平)，要照側視圖幾何分別判斷。','F_B本身要先用安培力公式F=BIℓ算出來(線圈邊長ℓ在磁場B中通電流I)，不是直接當成已知數字代入力矩式。'],
+calc:['磁力F_B＝BIℓ（線圈邊在磁場中受力）','力矩平衡：mg×(ℓ/2)sinθ＝F_B×ℓcosθ','tanθ＝2F_B/(mg)＝2IBℓ/mg'],
+ans:'tanθ=2IBℓ/mg',
+pitfall:'力臂一定要從轉軸O量到力的作用線(垂直距離)，很多人會直接把ℓ/2或ℓ當力臂代入，漏乘sinθ或cosθ；重力和磁力的力臂用的三角函數不同，是因為兩力方向不同，要從側視圖幾何個別判斷，不能兩個都套同一個角度函數。',
+svg:'<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="100" y1="20" x2="200" y2="20" stroke-width="3"/><line x1="150" y1="20" x2="120" y2="170" stroke-width="1.6"/><line x1="150" y1="20" x2="150" y2="170" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/><text x="156" y="60" font-size="11">θ</text><circle cx="150" cy="20" r="3" fill="currentColor" stroke="none"/><text x="156" y="16" font-size="12">O</text><circle cx="135" cy="95" r="3" fill="currentColor" stroke="none"/><text x="88" y="92" font-size="10" opacity=".7">ℓ/2</text><line x1="135" y1="95" x2="135" y2="140" stroke-width="1.3"/><polygon points="135,140 129,128 141,128" fill="currentColor" stroke="none"/><text x="140" y="152" font-size="12">mg</text><circle cx="120" cy="170" r="3" fill="currentColor" stroke="none"/><line x1="120" y1="170" x2="175" y2="170" stroke-width="1.3"/><polygon points="175,170 163,165 163,175" fill="currentColor" stroke="none"/><text x="178" y="175" font-size="12">F_B</text><line x1="60" y1="20" x2="60" y2="170" stroke-width="1.2"/><polygon points="60,20 55,32 65,32" fill="currentColor" stroke="none"/><text x="36" y="100" font-size="12">B</text></svg>',
+svgCap:'從側面看正方形線圈：懸吊點O、重心在ℓ/2處、線圈邊在ℓ處，θ為線圈面與鉛垂線的夾角，mg與F_B對O的力臂分別為(ℓ/2)sinθ與ℓcosθ。'},
+
+{id:'tq7',cat:'torque',name:'線圈力矩．範例七',type:'線圈磁力矩與重力矩平衡求平衡角度θ',
+given:'半徑R=10cm的10匝圓線圈懸掛於垂直向下的磁場B=0.50T中，線圈可以繞其通過中心的水平軸轉動。線圈下方有一質量為m=0.5kg的物體，當線圈通電流i=1.0A時，線圈會轉到平衡位置，此時線圈面的法線和B的夾角為θ，求θ值為何？(g=10m/s²)',
+think:['關鍵字「線圈可繞水平軸轉動」＋「線圈面法線與B夾角θ」→ 跟範例六一樣是力矩平衡，但這裡直接用線圈磁力矩公式τ=NiABsinθ，不用再從基本安培力去推導。','重力矩的來源是線圈下方懸掛的物體(質量m)透過線圈整體繞水平軸轉動，力臂是R(半徑)，重力方向與轉動幾何的關係要取cosθ分量。','磁力矩τ=NiABsinθ的θ「一定是線圈法線與B的夾角」，不是線圈平面與B的夾角——這是本節最常考混的地方，題目剛好直接問的就是法線夾角，可以直接代入不用轉換。','代入數字前，先確認N(匝數)、A(單圈面積πR²)、B、m、g、R六個量都找齊，尤其A是「圓面積」不是「圓周長」，很多人會代錯成2πR。'],
+calc:['磁力矩＝NiABsinθ＝10×1.0×π×(0.1)²×0.5×sinθ','重力矩＝mgRcosθ＝0.5×10×0.1×cosθ','平衡：mgRcosθ＝NiABsinθ ⇒ cotθ＝NiAB/(mgR)＝(10×1×π×0.01×0.5)/(0.5×10×0.1)≈0.314','θ＝cot⁻¹(0.314)≈72.6°'],
+ans:'θ≈72.6°',
+pitfall:'τ=NiABsinθ的θ是「線圈法線」與B的夾角，不是線圈平面跟B的夾角(這兩個角互餘，代錯會整題差90°沒轉換)；A要用πR²(圓面積)不是2πR(周長)；最後解出的是cotθ不是tanθ，別直接把0.314當tanθ算出完全不同的角度。',
+svg:'<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="30" y1="20" x2="30" y2="90" stroke-width="1.6"/><polygon points="30,90 25,78 35,78" fill="currentColor" stroke="none"/><text x="10" y="15" font-size="12">B</text><ellipse cx="140" cy="90" rx="85" ry="30" stroke-width="1.6" transform="rotate(20 140 90)"/><line x1="140" y1="90" x2="140" y2="140" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/><line x1="140" y1="90" x2="110" y2="35" stroke-width="1.4"/><polygon points="110,35 111,48 121,40" fill="currentColor" stroke="none"/><text x="95" y="30" font-size="12">法線n</text><text x="126" y="115" font-size="11">θ</text><text x="188" y="75" font-size="11">R</text><line x1="140" y1="120" x2="140" y2="170" stroke-width="1.2"/><circle cx="140" cy="182" r="10" stroke-width="1.4"/><text x="130" y="186" font-size="11">m</text></svg>',
+svgCap:'線圈可繞水平軸轉動，法線n與磁場B(鉛直向下)夾角為θ；下方懸掛質量m，平衡時重力矩與磁力矩相等。'},
+
+{id:'lz3',cat:'lorentz',name:'勞侖茲力．範例三',type:'質譜儀：先用速度選擇器篩速度，再用磁場求質量',
+given:'如圖所示的質譜儀，內部有一均勻磁場為B，將一電荷量為q的帶電粒子先經一速度選擇器（電場E₀與磁場B₀交叉區），再進入質譜儀中，而測得此帶電粒子的圓周半徑為R，求此帶電粒子的質量為何？',
+think:['看到「先經速度選擇器、再進質譜儀」→這是兩段式問題，要分兩步驟做，不能一次列完所有量。','第一步：速度選擇器裡電場力與磁力平衡，粒子才能「直線」通過不偏折，這一步只求出速度v，跟後面的B、R無關。','第二步：粒子帶著這個v進入質譜儀的均勻磁場B，做圓周運動，這裡才用到向心力方程式求質量m。','最容易搞混的是兩個磁場：選擇器裡的B₀只負責選速度，質譜儀裡的B才是讓粒子轉圈的磁場，兩者不可以代錯或混用。'],
+calc:['速度選擇器：電力=磁力 ⇒ qE₀=qvB₀ ⇒ v=E₀/B₀','進入質譜儀後：磁力=向心力 ⇒ qvB=mv²/R ⇒ m=qBR/v','代入v：m=qBR/(E₀/B₀)=qBRB₀/E₀'],
+ans:'m=qB₀BR/E₀',
+pitfall:'兩個磁場B₀（選擇器用）跟B（質譜儀用）一定要分清楚，很多人會直接把B₀當B代入向心力方程式；速度選擇器求出的v只在「電場力=磁力」時成立，不能拿去跟其他公式的v搞混。',
+svg:'<svg viewBox="0 0 280 300" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><path d="M50,130 A90,90 0 0,1 230,130" stroke-width="1.6"/><text x="110" y="40" font-size="11">B（質譜儀，出紙面）</text><text x="60" y="90" font-size="13">•</text><text x="100" y="70" font-size="13">•</text><text x="140" y="62" font-size="13">•</text><text x="180" y="70" font-size="13">•</text><text x="215" y="90" font-size="13">•</text><path d="M140,130 A50,50 0 0,1 224,90" stroke-width="1.3" stroke-dasharray="4 3"/><text x="185" y="105" font-size="11" opacity=".8">R</text><line x1="140" y1="130" x2="140" y2="170" stroke-width="1.6" marker-end="url(#lz3a)"/><rect x="105" y="170" width="70" height="55" stroke-width="1.3"/><text x="80" y="202" font-size="12">＋</text><text x="182" y="202" font-size="12">－</text><text x="112" y="192" font-size="10">×B₀</text><text x="140" y="192" font-size="10">×</text><text x="112" y="210" font-size="10">×</text><text x="140" y="210" font-size="10">×</text><text x="150" y="240" font-size="10" opacity=".75">E₀（速度選擇器）</text><line x1="140" y1="225" x2="140" y2="260" stroke-width="1.6"/><text x="95" y="280" font-size="11">離子源 S</text><defs><marker id="lz3a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'粒子先經E₀、B₀構成的速度選擇器篩出速度v，再進入上方磁場B做圓周運動，半徑R可量測感光底片上的落點。'},
+
+{id:'lz4',cat:'lorentz',name:'勞侖茲力．範例四',type:'電位差加速＋磁場圓周運動，求荷質比',
+given:'一質譜儀中，帶電量為q、質量為m的離子經電位差V加速後，垂直射入均勻磁場B中，作半徑r之圓周運動，則其荷質比為何？',
+think:['「經電位差V加速」是能量式的關鍵字：電場加速的過程用功能定理（qV=動能變化）最快，不要嘗試用F=ma去解加速過程，因為加速距離、時間都沒給。','加速後「垂直射入」磁場做圓周運動，這一步才用得到磁力=向心力，跟前面的加速過程是兩個獨立階段，分開處理不要混用同一條方程式。','題目問的是「荷質比q/m」不是q或m單獨的值，所以要把兩個階段的式子聯立，想辦法消去中間的v，只留下q/m的組合。','這題本質跟範例三的「兩階段」邏輯一樣：先求v(這裡用能量式)，再代入向心力式子求另一個量，只是這裡最後問的是比值不是單一物理量。'],
+calc:['加速階段(功能定理)：qV=½mv² ⇒ v=√(2qV/m)','圓周運動：qvB=mv²/r ⇒ v=qBr/m','兩式的v相等：√(2qV/m)=qBr/m','兩邊平方消去v：2qV/m=q²B²r²/m² ⇒ q/m=2V/(B²r²)'],
+ans:'q/m=2V/(B²r²)',
+pitfall:'加速過程只能用功能定理(qV=½mv²)，很多人會誤用qE×距離去算，但這裡沒給電場強度或加速距離，硬套會卡住；兩個階段各自求出的v要記得是「同一個v」，才能聯立消去，不能各自獨立看待。',
+svg:''},
+
+{id:'lz5',cat:'lorentz',name:'勞侖茲力．範例五',type:'電場＋磁場同時作用，磁力不作功求速率',
+given:'兩帶電金屬板相距d、電位差V，其間有均勻磁場B。質量m、電量+q的質點沿兩板中央線以初速v₀水平射入，當m出磁場時橫向位移為d/4，求此時m之速率？',
+think:['看到「橫向位移」加上「磁場＋電場同時存在」→先判斷誰在做功：磁力恆垂直速度、不作功，只有電力做功，這一眼就能簡化整題。','不用去解軌跡方程式，直接用功能定理：電力對質點做的功＝動能變化量，磁場只負責讓路徑彎曲，跟能量無關。','電場力大小qE=qV/d是「定值」（跟磁場、速度都無關），位移d/4是電力方向上的位移，直接拿來算功。','這題最大的陷阱：B看起來是關鍵資訊，但其實算「速率」完全不需要用到B，只是拿來讓題目看起來難。'],
+calc:['E=V/d（兩板間電場）','電力做的功：W=qE×(d/4)=q(V/d)(d/4)=qV/4','功能定理：W=½m(v²－v₀²) ⇒ qV/4=½m(v²－v₀²)','解出：v²=v₀²+qV/(2m) ⇒ v=√(v₀²+qV/(2m))'],
+ans:'v=√(v₀²+qV/(2m))',
+pitfall:'磁場B在這題是干擾項——磁力垂直速度不作功，算「速率」完全用不到B；很多人會想套r=mv/qB硬解軌跡，反而繞遠路，其實只要抓「只有電力做功」就能秒殺。',
+svg:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="20" y1="30" x2="280" y2="30" stroke-width="2"/><text x="10" y="20" font-size="11">＋＋＋＋＋＋＋＋</text><line x1="20" y1="170" x2="280" y2="170" stroke-width="2"/><text x="8" y="190" font-size="11">－－－－－－－－</text><text x="60" y="60" font-size="12">×</text><text x="110" y="60" font-size="12">×</text><text x="160" y="60" font-size="12">×</text><text x="210" y="60" font-size="12">×</text><text x="60" y="140" font-size="12">×</text><text x="110" y="140" font-size="12">×</text><text x="160" y="140" font-size="12">×</text><text x="210" y="140" font-size="12">×</text><line x1="20" y1="100" x2="280" y2="100" stroke-width="1" stroke-dasharray="3 3" opacity=".6"/><path d="M30,100 Q160,100 260,80" stroke-width="1.6"/><line x1="30" y1="94" x2="60" y2="94" stroke-width="1.4" marker-end="url(#lz5a)"/><text x="30" y="88" font-size="10">v₀</text><line x1="255" y1="80" x2="255" y2="100" stroke-width="1" stroke-dasharray="2 2"/><text x="260" y="95" font-size="10">d/4</text><line x1="290" y1="30" x2="290" y2="170" stroke-width="1"/><text x="292" y="105" font-size="10">d</text><defs><marker id="lz5a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'正電荷沿兩板中線以v₀水平射入，磁場×垂直紙面向內；出場時往上偏了d/4，但因磁力不作功，速率變化只由電場決定。'},
+
+{id:'lz6',cat:'lorentz',name:'勞侖茲力．範例六',type:'帶電粒子斜向射入均勻磁場，首次通過y軸的時間與距離',
+given:'如圖，在分佈廣大的均勻磁場B中，一質量為m、電量為－q的電荷以量值為v、方向與＋x軸夾30°角之速度，垂直磁場自原點射出，則：(1)經過多久時間此電荷首次通過y軸？(2)此時其與原點距離為何？(3)若改為＋q，(1)、(2)的答案會變如何？',
+think:['看到「垂直磁場」＋「初速與x軸夾角」→確定是等速率圓周運動，先求半徑r=mv/(qB)，這是解這類題的固定起手式。','重點是先判斷轉彎方向：同一個B場，負電荷與正電荷受力方向相反，所以－q和+q繞圈的方向是相反的——這一步錯了整題角度全部反。','畫出圓心位置（一定在速度的垂直方向上，即v轉90°的方向），再看這個圓要轉多少角度才會「第一次」碰到y軸——注意是「首次」，不是隨便一個交點。','角度求出來之後，用Δt=(轉過角度/2π)×(2πm/qB)換算時間；弦長用r和圓心角的幾何關係（等腰三角形）算距離，不要直接猜。','＋q和－q因為轉向相反，繞到y軸所需的角度是「互補」的（一個是120°，另一個是360°－120°＝240°），時間會不一樣，但距離反而一樣——這個對稱性是這題的巧妙之處，也是最容易漏掉去驗證的地方。'],
+calc:['半徑：r=mv/(qB)','(1)依電荷為－q時的轉向，幾何上首次到達y軸掃過120°（即1/3圈）：Δt=(1/3)T=(1/3)×2πm/(qB)=2πm/(3qB)','(2)此120°對應的弦長（等腰三角形）：Δx=2r sin(60°)=2×(mv/qB)×(√3/2)=√3mv/(qB)','(3)改為+q後轉向相反，首次到y軸要多繞的角度變成240°（即2/3圈）：Δt′=(2/3)T=4πm/(3qB)；對稱的弦長幾何不變，Δx′=√3mv/(qB)（與(2)相同）'],
+ans:'(1)Δt=2πm/(3qB)　(2)Δx=√3mv/(qB)　(3)+q時Δt′=4πm/(3qB)，Δx′不變，仍是√3mv/(qB)',
+pitfall:'負電荷的受力方向（F=qv×B，q為負要記得多乘一個負號）最容易搞錯轉向；「首次」通過y軸一定要畫圖看是轉120°還是240°，不能憑直覺猜是180°或90°；(3)問改變電荷正負，很多人會忘記重新畫圖判斷新的轉向，直接套用原本的120°。',
+svg:'<svg viewBox="0 0 280 260" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="20" y1="220" x2="260" y2="220" stroke-width="1.4"/><text x="255" y="215" font-size="11">x</text><line x1="70" y1="240" x2="70" y2="20" stroke-width="1.4"/><text x="75" y="25" font-size="11">y</text><text x="100" y="60" font-size="12">•</text><text x="140" y="50" font-size="12">•</text><text x="180" y="70" font-size="12">•</text><text x="110" y="110" font-size="12">•</text><text x="160" y="120" font-size="12">•</text><text x="200" y="140" font-size="12">•</text><text x="130" y="170" font-size="12">•</text><text x="90" y="150" font-size="12">•</text><circle cx="70" cy="220" r="2.5" fill="currentColor" stroke="none"/><text x="55" y="235" font-size="10">O</text><line x1="70" y1="220" x2="150" y2="175" stroke-width="1.6" marker-end="url(#lz6a)"/><text x="140" y="165" font-size="10">v</text><path d="M70,204 A18,18 0 0,1 88,212" stroke-width="1"/><text x="88" y="200" font-size="10">30°</text><path d="M70,220 A100,100 0 0,1 30,132" stroke-width="1.3" stroke-dasharray="4 3"/><circle cx="30" cy="132" r="2" fill="currentColor" stroke="none"/><text x="15" y="128" font-size="10">y軸交點</text><defs><marker id="lz6a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'磁場出紙面(•)充滿整個區域；電荷從原點O以v、與x軸夾30°射出，沿圓弧首次到達y軸。'},
+
+{id:'lz7',cat:'lorentz',name:'勞侖茲力．範例七',type:'電場＋磁場中，套在細棒上滑動的小球，正向力非定值',
+given:'一長直的絕緣細棒沿鉛直方向固定放置，在一質量為m、帶正電荷q的小球的直徑上穿孔，使其可套在細棒上滑動；整個系統置於均勻、不變、沿水平方向的電磁場中，電場E向右，磁場B垂直進入紙面。假設小球與細棒的動摩擦係數為μ，且電場量值、靜摩擦係數以及μ都夠小可以讓小球沿細棒由靜止起向下滑動。求：(1)所有施於小球的力(包括量值與方向)。(2)小球最大加速度量值。(3)小球最大速度量值。',
+think:['第一眼看到「套在細棒上滑動」＋「摩擦係數」→這是力學＋電磁力混合題，小球只能沿棒（鉛直方向）動，水平方向完全被棒「卡死」，這一點是解題的鑰匙。','先分別列出小球受的三種水平力來源：電力Fe=qE（方向固定向右，量值不變）、磁力FB=qvB（方向也向右，但量值隨小球下滑的速度v越來越大而變大）——兩個方向剛好都向右，會一起被棒的正向力擋住。','因為棒是「剛性」的，小球水平方向不會動，所以棒必須用正向力N把Fe和FB「完全抵消」：N=qE+qvB。這就是她卡住的地方——N不是固定值，是會隨著v增加而越來越大的量，因為FB會隨v變大。','N會變→摩擦力Fr=μN=μ(qE+qvB)也會跟著變→所以小球往下滑的加速度a=g－μ(qE+qvB)/m，不是「等加速度運動」，而是加速度隨v越來越小的運動，直到a=0時到達最大速度（也就是「終端速度」，跟自由落體有摩擦力的終端速度概念一樣）。','第(2)問「最大加速度」要反應過來：加速度最大是在「v最小」的時候，也就是剛從靜止出發那一瞬間(v=0)，這時候FB還沒出現，只有電力造成的摩擦力，之後只會越來越慢；第(3)問「最大速度」反而是在a=0（力平衡、不再加速）的那一刻，兩者發生的時間點是相反的兩端，不要搞混。'],
+calc:['任意時刻水平方向：N=Fe+FB=qE+qvB（棒的正向力，方向與Fe、FB相反）','摩擦力：Fr=μN=μ(qE+qvB)，方向沿棒向上（阻止小球下滑）','鉛直方向牛頓第二定律：mg－Fr=ma ⇒ a=g－μ(qE+qvB)/m','(2)最大加速度發生在v=0（剛出發）：a_max=g－μqE/m','(3)最大速度發生在a=0（力平衡，之後不再加速）：mg=μ(qE+qv_maxB) ⇒ v_max=mg/(μqB)－E/B'],
+ans:'(1)重力mg向下、電力qE向右、磁力qvB向右(隨v變化)、棒的正向力N=qE+qvB向左、摩擦力μN向上；(2)a_max=g－μqE/m；(3)v_max=mg/(μqB)－E/B',
+pitfall:'這題最大的坑就是「正向力N不是定值」——很多人下意識把N當成常數mg或qE直接套摩擦力公式，但這裡N其實是qE+qvB，會隨小球速度變化而變化，所以不能用國中版「定加速度」的公式硬解；一定要先寫出a=g－μ(qE+qvB)/m這個式子，才看得出「最大加速度在v=0」、「最大速度在a=0」分別對應哪一瞬間。',
+svg:'<svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="130" y1="20" x2="130" y2="280" stroke-width="2.2"/><text x="140" y="30" font-size="10">絕緣細棒</text><text x="40" y="80" font-size="12">×</text><text x="80" y="80" font-size="12">×</text><text x="180" y="80" font-size="12">×</text><text x="220" y="80" font-size="12">×</text><text x="40" y="150" font-size="12">×</text><text x="80" y="150" font-size="12">×</text><text x="180" y="150" font-size="12">×</text><text x="220" y="150" font-size="12">×</text><text x="40" y="220" font-size="12">×</text><text x="80" y="220" font-size="12">×</text><text x="180" y="220" font-size="12">×</text><text x="220" y="220" font-size="12">×</text><circle cx="130" cy="150" r="8" stroke-width="1.6"/><text x="120" y="145" font-size="10">q,m</text><line x1="230" y1="150" x2="255" y2="150" stroke-width="1.6" marker-end="url(#lz7a)"/><text x="235" y="142" font-size="10">E</text><line x1="138" y1="140" x2="170" y2="140" stroke-width="1.3" marker-end="url(#lz7a)"/><text x="172" y="135" font-size="9">Fe=qE</text><line x1="138" y1="160" x2="180" y2="160" stroke-width="1.3" marker-end="url(#lz7a)"/><text x="182" y="165" font-size="9">FB=qvB</text><line x1="122" y1="150" x2="95" y2="150" stroke-width="1.3" marker-end="url(#lz7a)"/><text x="70" y="145" font-size="9">N(棒)</text><line x1="130" y1="158" x2="130" y2="200" stroke-width="1.6" marker-end="url(#lz7a)"/><text x="135" y="195" font-size="10">mg</text><line x1="130" y1="142" x2="130" y2="110" stroke-width="1.3" stroke-dasharray="3 2"/><text x="105" y="115" font-size="9">v(向下)</text><defs><marker id="lz7a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'小球套在鉛直細棒上向下滑，磁場×垂直進紙面；Fe與FB都指向右方，由棒的正向力N擋住，N＝qE+qvB會隨v增加而變大。'},
+
+{id:'lz8',cat:'lorentz',name:'勞侖茲力．範例八',type:'圓形磁場邊界，瞄準圓心射入、偏轉角θ求速度',
+given:'如圖所示，一圓形區域的均勻磁場B，半徑為a，方向進入紙面，一帶電量為q、質量m之質點由A點朝O點入射後，由C點偏折射出，若θ=60°，求此質點的速度量值為何？',
+think:['「瞄準圓心O射入、又從邊界C射出」是這類圓形磁場邊界題的招牌設定——記得這一型的固定幾何關係：入射線瞄準圓心、出射線偏轉角θ、粒子的圓周運動半徑r，三者用r=a/tan(θ/2)連起來（a是磁場區域半徑）。','不用急著列向心力方程式，先把這條幾何關係的圖畫出來（入射點、圓心O、出射點、粒子軌跡圓心），確認θ指的是「偏轉角」不是別的角度，這是最容易看錯圖的地方。','算出r之後，才回頭用「磁力=向心力」qvB=mv²/r解出v，這一步就是單純代公式，不是難點。','θ愈大代表偏轉愈明顯，也代表粒子軌跡半徑r相對a愈小（轉得愈急），可以用這個直覺檢查算出來的r是否合理。'],
+calc:['瞄準圓心的幾何關係：r=a/tan(θ/2)','θ=60° ⇒ r=a/tan30°=a/(1/√3)=√3a','磁力＝向心力：qvB=mv²/r ⇒ v=qBr/m=qB(√3a)/m'],
+ans:'v=√3qBa/m',
+pitfall:'r=a/tan(θ/2)這個幾何關係是這類「瞄準圓心」題型的固定套路，一定要先確認入射方向真的是瞄準圓心才能用；θ/2很容易被看漏，直接拿θ=60°代入tan算出錯誤的r。',
+svg:'<svg viewBox="0 0 280 260" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><circle cx="150" cy="130" r="90" stroke-width="1.6"/><text x="120" y="70" font-size="12">×</text><text x="160" y="70" font-size="12">×</text><text x="100" y="110" font-size="12">×</text><text x="200" y="110" font-size="12">×</text><text x="120" y="180" font-size="12">×</text><text x="180" y="180" font-size="12">×</text><circle cx="150" cy="130" r="2.5" fill="currentColor" stroke="none"/><text x="155" y="125" font-size="11">O</text><line x1="60" y1="220" x2="150" y2="130" stroke-width="1.6" marker-end="url(#lz8a)"/><text x="45" y="230" font-size="11">A</text><path d="M150,130 A140,140 0 0,0 230,95" stroke-width="1.4" stroke-dasharray="4 3"/><text x="235" y="90" font-size="11">C</text><path d="M170,110 A25,25 0 0,1 160,88" stroke-width="1"/><text x="178" y="95" font-size="10">θ=60°</text><defs><marker id="lz8a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'磁場區域半徑a、方向進紙面(×)；質點由A瞄準圓心O射入，實際沿圓弧偏轉後從C射出，θ為偏轉角。'},
+
+{id:'lz9',cat:'lorentz',name:'勞侖茲力．範例九',type:'碳原子核在磁場中分裂為氦核與鈹核，動量守恆求半徑、頻率比、動能',
+given:'原靜止於均勻磁場B的碳原子核¹²₆C忽然分裂為兩個原子核（氦核⁴₂He與鈹核⁸₄Be），以相反方向斥開，其一為氦原子核在垂直於磁場中作半徑為R的圓周運動，則：(1)另一原子核所作圓周運動半徑為何？(2)分裂後氦原子核與另一原子核在磁場內所作圓周運動之頻率比為何？(3)設碳原子核的質量為m，e表示一個基本電荷，則分裂時有多少能量轉變成動能？',
+think:['「原靜止分裂為兩個、以相反方向斥開」是動量守恆的關鍵字：分裂前總動量為0，分裂後兩碎片動量大小一定相等、方向相反，這是解這整題的起點，要先寫下來。','碳-12分裂成氦-4和鈹-8，質量數4+8=12、電荷數2+4=6都對得上，所以氦核質量是m/3、電荷2e；鈹核質量是2m/3、電荷4e——這兩組數字要先從原子核符號準確拆出來，錯一個後面全錯。','因為兩者動量大小相等，用r=mv/(qB)=p/(qB)這條式子最方便：同一個p、同一個B，只有q不同，r和q成反比，直接列比例就能求另一個半徑，不用真的解出v。','頻率f=qB/(2πm)只跟q/m這個比值有關，算出氦核和鈹核的q/m是否相等，就能秒判頻率比。','第(3)問能量要動用KE=p²/(2m)，兩邊都用同一個p代入各自的質量，再相加——這題她反覆驗算過，關鍵是p要先用「已知的那個核」(He，半徑R)算出來，不要試圖直接套已知的R去湊鈹核的KE。'],
+calc:['質量：m_He=m/3，m_Be=2m/3；電荷：q_He=2e，q_Be=4e','(1)動量守恆(大小相等)：p=q_He·B·R=2eBR；同一個p ⇒ r_Be=p/(q_Be·B)=2eBR/(4eB)=R/2','(2)頻率f=qB/(2πm)：f_He=2eB/(2π·m/3)=3eB/(πm)；f_Be=4eB/(2π·2m/3)=3eB/(πm) ⇒ f_He:f_Be=1:1','(3)動能：KE_He=p²/(2m_He)=(2eBR)²/(2m/3)=6e²B²R²/m；KE_Be=p²/(2m_Be)=(2eBR)²/(2·2m/3)=3e²B²R²/m；總轉變動能=KE_He+KE_Be=9e²B²R²/m'],
+ans:'(1) r_Be = R/2　(2) f_He : f_Be = 1:1　(3) 總動能 = 9e²B²R²/m　＝課本寫的 q²B²R²/4m（課本的 q 是碳核電荷 6e，代入後 (6e)²/4 = 9e²，兩個寫法是同一個答案）',
+pitfall:'★如果你算到這裡覺得「怎麼跟課本對不起來」——問題不在你。課本參考解答寫 q²B²R²/4m，這裡算出 9e²B²R²/m，看起來不一樣，其實是同一個答案：課本那個 q 指的是碳核的電荷 6e，代進去 (6e)²B²R²/(4m) = 36e²B²R²/(4m) = 9e²B²R²/m，兩邊完全相等。差別只是符號用得不同，不是你算錯。｜另外兩個真正的坑：①氦核和鈹核的質量、電荷要照原子序與質量數重新拆一次（He 是 m/3、2e；Be 是 2m/3、4e），不能憑印象套 2 倍或 4 倍。②算動能時兩個核質量不同，要各自用 KE=p²/2m 算完再相加，只算一邊會少掉一半的能量。',
+svg:'<svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><text x="30" y="40" font-size="12">×</text><text x="80" y="40" font-size="12">×</text><text x="180" y="40" font-size="12">×</text><text x="230" y="40" font-size="12">×</text><text x="30" y="180" font-size="12">×</text><text x="80" y="180" font-size="12">×</text><text x="180" y="180" font-size="12">×</text><text x="230" y="180" font-size="12">×</text><circle cx="140" cy="110" r="3" fill="currentColor" stroke="none"/><text x="145" y="105" font-size="10">分裂點</text><circle cx="140" cy="70" r="40" stroke-width="1.4"/><text x="115" y="25" font-size="11">He⁴₂ 半徑R</text><circle cx="140" cy="150" r="20" stroke-width="1.4"/><text x="150" y="195" font-size="11">Be⁸₄ 半徑R/2</text></svg>',
+svgCap:'碳核在磁場×（進紙面）中靜止分裂，氦核與鈹核以相反方向斥開，分別沿各自半徑的圓弧運動。'},
+
+{id:'lz10',cat:'lorentz',name:'勞侖茲力．範例十',type:'質子與α粒子螺線運動，求螺距比',
+given:'將一質子及一α粒子，以相同速率及方向，分別射入相同均勻磁場中。由於入射速度不與磁場方向垂直，因此質子及α粒子均作螺線形運動。設質子及α粒子所作螺線運動之螺距(如圖所示)分別為d₁及d₂，則d₁:d₂為何？',
+think:['看到「入射速度不與磁場垂直」→直接判斷這是螺旋線運動，不是單純圓周運動：把v拆成平行磁場的分量v∥和垂直磁場的分量v⊥。','v⊥造成圓周運動（決定半徑），v∥完全不受磁力影響、沿磁場方向等速前進（因為磁力永遠垂直v，v∥方向沒有分力）——這條「平行分量不受力」的性質就是這一節的大坑之一，一定要先講清楚。','「螺距」的定義是粒子轉一圈(週期T)的時間內，沿v∥方向前進的距離：d=v∥×T，所以要先求出T。','週期T=2πm/(qB)只跟m、q、B有關，跟速率v完全無關（這節另一個大坑）；質子和α粒子用同一個B、同樣的v∥（因為題目說「相同速率及方向」，夾角一樣所以v∥比例也一樣），所以d比例其實只看m/q這個比值。'],
+calc:['螺距d=v∥×T=v∥×2πm/(qB)，正比於m/q','質子：m_p=1u，q_p=1e ⇒ m/q=1','α粒子：m_α=4u，q_α=2e ⇒ m/q=4/2=2','d₁:d₂=1:2'],
+ans:'d₁:d₂=1:2',
+pitfall:'這題的核心是T=2πm/(qB)跟速率v無關——很多人會想去比較v⊥、v∥的大小，其實完全不需要，因為兩者的v∥比例會自動消掉，只留下m/q的比值；α粒子的q是2e不是1e，質量是4u不是2u，這兩個數字最容易記錯。',
+svg:'<svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="20" y1="80" x2="280" y2="80" stroke-width="1.3"/><text x="285" y="75" font-size="11">x(B方向)</text><path d="M30,80 C50,20 70,140 90,80 C110,20 130,140 150,80 C170,20 190,140 210,80 C230,20 250,140 270,80" stroke-width="1.5"/><line x1="90" y1="95" x2="150" y2="95" stroke-width="1" stroke-dasharray="3 2"/><text x="105" y="110" font-size="10">螺距 d</text><line x1="90" y1="88" x2="90" y2="102" stroke-width="1"/><line x1="150" y1="88" x2="150" y2="102" stroke-width="1"/><text x="20" y="30" font-size="10" opacity=".8">v = v∥ + v⊥</text></svg>',
+svgCap:'帶電粒子在磁場中沿螺旋線前進，沿磁場方向（x軸）每轉一圈前進的距離就是螺距d。'},
+
+{id:'lz11',cat:'lorentz',name:'勞侖茲力．範例十一',type:'弦切角定理求圓周運動費時',
+given:'某帶電質點以速度v垂直射入均勻磁場中，作直徑d的等速率圓周運動(圓心為C)，當質點通過P點時，OP與原入射方向夾θ角，則由O到P費時若干？',
+think:['「弦與切線夾角」是這題的幾何核心：質點從O出發沿圓周運動，OP是圓上的一條弦，原入射方向是O點的切線方向，這兩者的夾角θ，跟「圓心角」有固定的幾何關係（弦切角定理）——圓心角＝2θ。','很多人會直接把θ當成圓心角去算弧長，這是這題最大的陷阱：一定要先確認θ是「弦與切線的夾角」還是「圓心角」，兩者差兩倍。','弧長ℓ=r×(圓心角)=（d/2）×2θ=dθ，直徑d和半徑r=d/2的關係也要記得代對，不要把直徑當半徑用。','最後費時就是弧長除以速率：等速率圓周運動全程速率不變，Δt=ℓ/v，這是最後一步單純代入。'],
+calc:['弦切角θ對應的圓心角＝2θ（弦切角定理）','半徑r=d/2','弧長ℓ=r×2θ=(d/2)×2θ=dθ','費時Δt=ℓ/v=dθ/v'],
+ans:'Δt=dθ/v',
+pitfall:'θ是「弦OP與原入射切線方向」的夾角，不是圓心角，圓心角要乘2倍；直徑d和半徑r=d/2很容易代混，直接把d當r代入弧長公式會少一半。',
+svg:'<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><text x="30" y="40" font-size="12">×</text><text x="80" y="40" font-size="12">×</text><text x="160" y="40" font-size="12">×</text><text x="30" y="180" font-size="12">×</text><text x="80" y="180" font-size="12">×</text><text x="160" y="180" font-size="12">×</text><circle cx="120" cy="110" r="60" stroke-width="1.6"/><circle cx="120" cy="110" r="2.5" fill="currentColor" stroke="none"/><text x="126" y="106" font-size="11">C</text><circle cx="60" cy="110" r="2.5" fill="currentColor" stroke="none"/><text x="40" y="105" font-size="11">O</text><line x1="60" y1="110" x2="60" y2="60" stroke-width="1.4" marker-end="url(#lz11a)"/><text x="30" y="65" font-size="10">v(切線方向)</text><circle cx="98" cy="55" r="2.5" fill="currentColor" stroke="none"/><text x="102" y="50" font-size="11">P</text><line x1="60" y1="110" x2="98" y2="55" stroke-width="1.4" stroke-dasharray="4 2"/><path d="M60,90 A22,22 0 0,1 82,68" stroke-width="1"/><text x="65" y="75" font-size="10">θ</text><defs><marker id="lz11a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'磁場×（進紙面），粒子從O沿切線方向射入，繞圓心C運動到P；θ是弦OP與原入射方向的夾角，圓心角為2θ。'},
+
+{id:'lz12',cat:'lorentz',name:'勞侖茲力．範例十二',type:'帶電單擺在垂直於擺動面的磁場中，週期不受影響',
+given:'一單擺擺長為L，擺錘為絕緣體，質量為m，且帶有正電荷q，在一均勻的水平磁場B中做小角度擺動，磁場方向與單擺的運動面互相垂直。設重力加速度為g，則此單擺的週期為何？',
+think:['看到「磁場方向與運動面互相垂直」是這題的破題點：擺錘的速度v永遠在擺動平面內，而B垂直於這個平面，所以磁力F=qv×B的方向會落在「擺動平面內、且垂直於v」——也就是沿著擺線方向(徑向)，不會有沿弧線方向(切向)的分量。','決定週期快慢的是「切向」的回復力（重力沿弧線方向的分量），磁力完全沒有切向分量⇒磁力對角加速度、對週期完全沒有影響，只會小小改變繩子的張力而已。','這是勞侖茲力「垂直速度、不作功」性質的延伸應用：這裡不只不作功，連對「轉動」的貢獻都是0，因為它被「擠」到徑向去了。','所以這題不用列任何磁力相關的方程式，直接套小角度單擺的標準週期公式即可——B、q、m(電荷相關)完全不會出現在答案裡，只是干擾項。'],
+calc:['磁力方向：F=qv×B，因v在擺動平面內、B垂直於該平面⇒F落在擺動平面內且垂直於v，即沿擺線（徑向）方向','切向（決定角加速度）的回復力只剩重力分量：mgsinθ≈mgθ（小角度）','套用單擺標準結果：T=2π√(L/g)'],
+ans:'T=2π√(L/g)（與B、q完全無關）',
+pitfall:'不要看到磁場就想列qvB相關的力矩方程式——這題磁力被限制在徑向、對轉動完全沒貢獻，答案跟國中版單擺公式一模一樣，B、q、擺錘電性都是干擾資訊。',
+svg:'<svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><text x="30" y="30" font-size="12">•</text><text x="80" y="30" font-size="12">•</text><text x="130" y="30" font-size="12">•</text><text x="180" y="30" font-size="12">•</text><text x="30" y="90" font-size="12">•</text><text x="80" y="90" font-size="12">•</text><text x="130" y="90" font-size="12">•</text><text x="180" y="90" font-size="12">•</text><text x="30" y="150" font-size="12">•</text><text x="80" y="150" font-size="12">•</text><text x="130" y="150" font-size="12">•</text><text x="180" y="150" font-size="12">•</text><circle cx="100" cy="20" r="2" fill="currentColor" stroke="none"/><path d="M100,20 A90,90 0 0,1 180,150" stroke-width="1" stroke-dasharray="3 2" opacity=".6"/><line x1="100" y1="20" x2="180" y2="150" stroke-width="1.8"/><circle cx="180" cy="150" r="8" fill="none" stroke-width="1.6"/><text x="188" y="155" font-size="10">m,+q</text><text x="90" y="15" font-size="9">O</text></svg>',
+svgCap:'磁場（•出紙面）垂直於單擺運動平面；擺錘帶正電，磁力只落在徑向、不影響切向的回復力，週期不受B影響。'},
+
+{id:'lz13',cat:'lorentz',name:'勞侖茲力．範例十三',type:'左右對稱進出磁場帶，弦長求角度、弧長與費時',
+given:'如圖所示，在x=0至x=d之間有均勻磁場B，方向為垂直進入紙面，一質量為m的粒子，帶電荷Q，以速度v由左方進入磁場區。此粒子剛進入磁場區時，運動方向與x軸夾角為θ，當粒子穿過磁場後，其運動方向與x軸角度也是θ，則：(1)sinθ=？(2)電荷掃過的軌跡有多長？(3)電荷在磁場中，費時多久？',
+think:['「進場角度θ、出場角度也是θ」是對稱性的訊號：這代表粒子的圓形軌跡對整個磁場帶(x=0到x=d)是左右對稱的，圓心一定落在x=0和x=d的中垂線上，可以直接用弦長關係列式，不用解完整的軌跡方程式。','磁力=向心力先求出半徑r=mv/(QB)，這一步跟前面所有題目一樣是起手式。','這裡的「弦長」就是磁場帶的寬度d，弦長=2r sinθ是圓的基本弦長公式（θ是弦與半徑端點切線的夾角，這裡剛好題目給的入射夾角θ就是這個角），列出d=2r sinθ就能反解sinθ。','第(2)問「軌跡長」是弧長，要用弧長=r×(圓心角)，圓心角是2θ（弦切角定理，跟範例十一是同一招）；第(3)問費時＝弧長/v，因為是等速率圓周運動。'],
+calc:['磁力＝向心力：QvB=mv²/r ⇒ r=mv/(QB)','(1)弦長關係：d=2r sinθ ⇒ sinθ=d/(2r)=QBd/(2mv)','(2)弧長：ℓ=r×2θ=2×(mv/QB)×sin⁻¹(QBd/2mv)','(3)費時：Δt=ℓ/v=(2m/QB)×sin⁻¹(QBd/2mv)'],
+ans:'sinθ=QBd/(2mv)；ℓ=2(mv/QB)sin⁻¹(QBd/2mv)；Δt=(2m/QB)sin⁻¹(QBd/2mv)',
+pitfall:'「進出角度相同」是左右對稱的線索，看到這個條件要立刻想到弦長=2r sinθ，不用硬解整條軌跡；θ在這裡同時是入射角，也是弦切角，圓心角要記得乘2倍才是弧長公式要用的角度。',
+svg:'<svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="70" y1="20" x2="70" y2="180" stroke-width="1.3" stroke-dasharray="3 2"/><text x="60" y="15" font-size="10">x=0</text><line x1="200" y1="20" x2="200" y2="180" stroke-width="1.3" stroke-dasharray="3 2"/><text x="190" y="15" font-size="10">x=d</text><text x="100" y="50" font-size="12">×</text><text x="140" y="50" font-size="12">×</text><text x="170" y="50" font-size="12">×</text><text x="100" y="150" font-size="12">×</text><text x="140" y="150" font-size="12">×</text><text x="170" y="150" font-size="12">×</text><text x="100" y="100" font-size="12">×</text><text x="140" y="100" font-size="12">×</text><text x="170" y="100" font-size="12">×</text><line x1="30" y1="100" x2="70" y2="100" stroke-width="1.6" marker-end="url(#lz13a)"/><text x="20" y="95" font-size="10">v</text><path d="M70,100 Q135,40 200,100" stroke-width="1.6"/><line x1="200" y1="100" x2="240" y2="100" stroke-width="1.6" marker-end="url(#lz13a)"/><path d="M70,90 A18,18 0 0,1 88,78" stroke-width="1"/><text x="78" y="88" font-size="10">θ</text><path d="M182,90 A18,18 0 0,0 200,78" stroke-width="1"/><text x="178" y="85" font-size="10">θ</text><defs><marker id="lz13a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'磁場區域在x=0到x=d之間(×進紙面)；粒子以角度θ進入，也以角度θ離開，軌跡左右對稱。'},
+
+{id:'lz14',cat:'lorentz',name:'勞侖茲力．範例十四',type:'直角三角形幾何求曲率半徑、質量與費時',
+given:'如圖所示，一電荷q以速率v垂直射入寬度為d的均勻磁場B中，射出磁場時偏向位移為d/3。求：(1)此電荷在磁場中的曲率半徑為何？(2)此電荷的質量為何？(3)此電荷在磁場中經歷時間為何？',
+think:['「垂直射入、寬度d、偏向位移d/3」是標準的直角三角形幾何題：畫出圓心位置後，圓心到入射點的距離＝圓心到偏移後位置的距離＝半徑R，這條等式就能列出一個R的方程式。','設圓心在入射點正上（或正下）方距離R處，出射點相對入射點偏移了d(往前)和d/3(側移)，用畢氏定理：R²=(R－d/3)²+d²，這是唯一需要的幾何式，其餘都是代數展開。','解出R之後，才回頭用「磁力=向心力」qvB=mv²/R求質量——這一步是把幾何算出的R代進物理公式，不要在幾何階段就想套物理公式。','第(3)問「經歷時間」要先找出粒子轉過的圓心角度，這裡剛好邊長比是3:4:5的直角三角形，對應角度是37°或53°，要看清楚題目圖上θ標在哪一個角，再用弧長Δt=Rθ/v(θ用弧度)算時間。'],
+calc:['(1)幾何關係：R²=(R－d/3)²+d² ⇒ 0=－2Rd/3+(d/3)²+d² ⇒ R=5d/3','(2)磁力＝向心力：qvB=mv²/R ⇒ m=qBR/v=qB(5d/3)/v=5qBd/(3v)','(3)三邊(R－d/3, d, R)＝(4d/3, d, 5d/3)恰為3:4:5直角三角形 ⇒ θ=37°=37π/180（弧度）','Δt=Rθ/v=(5d/3)×(37π/180)/v=37πd/(108v)'],
+ans:'R=5d/3；m=5qBd/(3v)；Δt=37πd/(108v)',
+pitfall:'R²=(R－d/3)²+d²這條式子的「R－d/3」是圓心到偏移後水平線的距離，不是隨便寫R－d；角度θ要靠3:4:5三角形的邊長比對出是37°還是53°，看錯邊會整個度數顛倒。',
+svg:'<svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="60" y1="20" x2="60" y2="200" stroke-width="1.3" stroke-dasharray="3 2"/><text x="30" y="15" font-size="10">入射邊界</text><text x="90" y="50" font-size="12">×</text><text x="130" y="50" font-size="12">×</text><text x="170" y="50" font-size="12">×</text><text x="90" y="110" font-size="12">×</text><text x="130" y="110" font-size="12">×</text><text x="170" y="110" font-size="12">×</text><text x="90" y="170" font-size="12">×</text><text x="130" y="170" font-size="12">×</text><text x="170" y="170" font-size="12">×</text><line x1="30" y1="150" x2="60" y2="150" stroke-width="1.6" marker-end="url(#lz14a)"/><text x="15" y="145" font-size="10">v</text><path d="M60,150 Q140,140 200,70" stroke-width="1.6"/><line x1="200" y1="70" x2="230" y2="55" stroke-width="1.6" marker-end="url(#lz14a)"/><line x1="60" y1="150" x2="200" y2="150" stroke-width="1" stroke-dasharray="2 2"/><text x="120" y="165" font-size="10">d</text><line x1="200" y1="70" x2="200" y2="150" stroke-width="1" stroke-dasharray="2 2"/><text x="205" y="115" font-size="10">d/3</text><defs><marker id="lz14a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'磁場寬度d(×進紙面)，電荷垂直射入後偏轉d/3離開；圖上標出水平距離d與側移d/3的直角三角形關係。'},
+
+{id:'lz15',cat:'lorentz',name:'勞侖茲力．範例十五',type:'水平釋放的帶電單擺，最低點最大繩張力',
+given:'如圖所示，在均勻磁場B中自水平位置釋放一擺長為ℓ的單擺，擺錘質量為m，帶電量為－q，則擺錘在運動過程中最大的繩張力為何？',
+think:['「最大張力」一定發生在「最低點」——這是單擺力學的老規矩：最低點速度最大，需要的向心力也最大，張力自然跟著最大，先鎖定要分析的位置。','在最低點畫自由體圖：重力mg向下、張力T向上(指向圓心，也就是向心方向)，這題多了磁力qvB——題目直接告訴我們此時磁力也向下(跟重力同方向)，這點不用自己重新判斷方向，直接採用。','在最低點列牛頓第二定律：張力(向心方向,正)減去重力和磁力(離心方向,負)＝向心力mv²/R，這裡R就是擺長ℓ。','速度v要用能量守恆求：從水平釋放、下降高度剛好等於擺長ℓ，重力位能全部轉換成動能（磁力不作功，不影響這個能量守恆），v=√(2gℓ)。'],
+calc:['能量守恆(磁力不作功)：mgℓ=½mv² ⇒ v=√(2gℓ)','最低點：T－mg－qvB=mv²/ℓ','代入v²=2gℓ：mv²/ℓ=2mg','T=mg+qvB+2mg=3mg+qB√(2gℓ)'],
+ans:'T_max=3mg+qB√(2gℓ)',
+pitfall:'磁力不作功，但在最低點仍然是一個真實存在、影響張力大小的力，不能因為「磁力不作功」就把它從力平衡方程式裡拿掉——不作功和不受力是兩回事；v要用能量守恆求，不能用等加速度公式（因為擺錘做的是圓周運動，加速度方向一直在變）。',
+svg:'<svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><text x="30" y="30" font-size="12">•</text><text x="80" y="30" font-size="12">•</text><text x="130" y="30" font-size="12">•</text><text x="180" y="30" font-size="12">•</text><text x="30" y="90" font-size="12">•</text><text x="80" y="90" font-size="12">•</text><text x="130" y="90" font-size="12">•</text><text x="180" y="90" font-size="12">•</text><text x="30" y="150" font-size="12">•</text><text x="80" y="150" font-size="12">•</text><text x="130" y="150" font-size="12">•</text><text x="180" y="150" font-size="12">•</text><circle cx="110" cy="20" r="2" fill="currentColor" stroke="none"/><line x1="110" y1="20" x2="190" y2="20" stroke-width="1.6" stroke-dasharray="4 3"/><circle cx="190" cy="20" r="7" fill="none" stroke-width="1.6"/><text x="150" y="12" font-size="9">釋放位置(水平)</text><path d="M110,20 A90,90 0 0,1 200,110" stroke-width="1" stroke-dasharray="3 2" opacity=".6"/><line x1="110" y1="20" x2="110" y2="110" stroke-width="1.8"/><circle cx="110" cy="110" r="8" fill="none" stroke-width="1.6"/><text x="118" y="130" font-size="10">m,－q(最低點)</text><line x1="110" y1="102" x2="110" y2="70" stroke-width="1.3" marker-end="url(#lz15a)"/><text x="115" y="80" font-size="9">T</text><defs><marker id="lz15a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'磁場（•出紙面）中，擺錘從水平位置釋放，最低點時張力T最大，此時重力與磁力都指向下方。'},
+
+{id:'lz16',cat:'lorentz',name:'勞侖茲力．範例十六',type:'平行金屬板間磁場，離子由a端或b端離開的幾何求初速',
+given:'如圖所示，兩相互平行的金屬板，長度L=2.0m，板間距離為d=3.0m，兩板間有沿水平方向紙面外的均勻磁場B=2.5T。有一質量m=0.25g且帶電量q=12C的正離子團(不計重力)，由兩板中央的左端水平射入磁場中。已知帶電粒子團將飛離磁場且不碰觸金屬板，則：(1)離子將由金屬板a端離開磁場，則其初速v₁為何？(2)若改由b端離開，則其初速v₂為何？',
+think:['「離子團將飛離磁場且不碰觸金屬板」＋「由a端或b端離開」是幾何邊界題：粒子沿圓弧運動，把它離開磁場的那一點的座標，跟圓心、半徑列成一個直角三角形方程式，這是這類「金屬板夾磁場」題的固定招式。','入射點在兩板中央、左端，取為座標原點；圓心一定在垂直於v0方向、距離r的地方（因為v0水平，圓心必在正上方或正下方）——先把這個幾何圖畫出來再列式，不要直接硬代公式。','(1)由a端離開：a點的位置是「水平移動L、垂直移動d/2」（相對於入射點的偏移），用畢氏定理R²=(R－d/2)²+L²可以解出半徑；(2)由b端離開的位置不同（垂直移動剛好是d/2，是粒子繞回左邊界的臨界情形），要對照圖重新列出對應的距離關係，不能直接照抄第(1)題的式子。','半徑求出來後，兩小題都一樣：v=qBr/m，把已知的q、B、m數字代入這條共通公式即可，不用重新推導。'],
+calc:['共通公式：磁力＝向心力 ⇒ qvB=mv²/r ⇒ v=qBr/m＝(12×2.5/0.25×10⁻³)×r＝1.2×10⁵×r（m/s，r以公尺代入）','(1)由a端離開：R²=(R－1.5)²+2² ⇒ 0=－3R+2.25+4 ⇒ R=(2.25+4)/3≈2.1m','v₁=1.2×10⁵×2.1≈2.52×10⁵ m/s','(2)由b端離開：2r=d/2=1.5 ⇒ r=0.75m','v₂=1.2×10⁵×0.75=9.0×10⁴ m/s'],
+ans:'v₁≈2.52×10⁵ m/s（由a端離開）；v₂=9.0×10⁴ m/s（由b端離開）',
+pitfall:'a端和b端對應的幾何關係不一樣，不能用同一條R²=(R－1.5)²+2²硬套兩題；質量記得先換算成公斤(0.25g=0.25×10⁻³kg)，這種小數字換算單位最容易漏乘或漏除10的次方。',
+svg:'<svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="30" y1="40" x2="250" y2="40" stroke-width="2"/><text x="130" y="30" font-size="10">金屬板a</text><line x1="30" y1="180" x2="250" y2="180" stroke-width="2"/><text x="130" y="200" font-size="10">金屬板b</text><text x="80" y="80" font-size="12">•</text><text x="140" y="80" font-size="12">•</text><text x="200" y="80" font-size="12">•</text><text x="80" y="140" font-size="12">•</text><text x="140" y="140" font-size="12">•</text><text x="200" y="140" font-size="12">•</text><circle cx="30" cy="110" r="2.5" fill="currentColor" stroke="none"/><text x="12" y="105" font-size="10">O</text><line x1="30" y1="110" x2="60" y2="110" stroke-width="1.6" marker-end="url(#lz16a)"/><text x="30" y="100" font-size="9">v0</text><path d="M30,110 Q150,60 210,40" stroke-width="1.5"/><text x="200" y="35" font-size="9">a端射出(v1)</text><path d="M30,110 Q60,170 30,180" stroke-width="1.3" stroke-dasharray="4 2"/><text x="15" y="198" font-size="9">b端(v2)</text><defs><marker id="lz16a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'正離子團從兩板中央左端射入磁場(•出紙面)，可能由上方a端或下方b端離開磁場邊界。'},
+
+{id:'lz17',cat:'lorentz',name:'勞侖茲力．範例十七',type:'3D空間螺旋運動回到原點，求最小初速',
+given:'如圖，今有一電量q質量m的質點，經坐標原點時始有初速v₀，此瞬間它與x、y、z坐標軸的夾角分別為α、β及θ。若空間中存在著往－z方向的均勻磁場B與電場E，若質點能回到原點，則v₀最小值應為何？',
+think:['這是2D圓周運動疊加1D直線運動的3D版本：把v₀拆成垂直z軸(xy平面)的分量v⊥=v₀sinθ，跟沿z軸的分量v_z=v₀cosθ——θ是v₀與z軸的夾角，這是關鍵拆解，其他角度α、β只是用來描述v⊥在xy平面裡的方向，這題其實用不到。','xy平面的v⊥在磁場B(沿－z)作用下做圓周運動，週期T=2πm/(qB)，這跟速率無關；z方向的v_z在電場力(沿z方向的等加速度)作用下做「類似鉛直拋體」運動，會先變慢、停止、再加速回來，跟自由落體上拋是同一種數學。','「質點能回到原點」代表兩個方向要「同時」歸零：xy平面繞完整數圈N圈回到原點(x,y都=0)，z方向也剛好完成一次「上拋又落回原點」(z=0)——這兩個時間必須相等，這就是連立方程式的關鍵。','z方向上拋又落回原點的時間，套用「初速度、等加速度、末位移為0」的關係：時間＝2×(初速度)/(加速度)，跟拋體運動公式一樣；等這個時間跟xy平面的NT相等，就能解出v₀跟N的關係。','要「最小」的v₀，就是找能讓上面方程式成立的「最小正整數N」，也就是N=1(繞一圈)，圈數愈少代表花的時間愈短，需要的初速度分量愈小。'],
+calc:['xy平面圓周運動週期：T=2πm/(qB)；繞N圈所需時間：Δt=N×T=2πNm/(qB)','z方向加速度大小：a=qE/m；上拋又落回原點所需時間：Δt=2v_z/a=2(v₀cosθ)/(qE/m)=2mv₀cosθ/(qE)','兩時間相等：2mv₀cosθ/(qE)=2πNm/(qB) ⇒ v₀cosθ=NπE/B ⇒ v₀=NπE/(Bcosθ)','取最小正整數N=1，得最小值：v₀_min=πE/(Bcosθ)'],
+ans:'v₀最小值＝πE/(Bcosθ)',
+pitfall:'角度α、β是誘餌資訊，這題只用得到θ(v₀與z軸的夾角)，不要浪費時間想辦法把α、β也代進公式；「回到原點」是xy平面繞整數圈跟z方向上拋回落「兩個時間同時成立」，只顧其中一個方向會漏解。',
+svg:'<svg viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="130" y1="220" x2="130" y2="20" stroke-width="1.4" marker-end="url(#lz17a)"/><text x="135" y="25" font-size="11">z</text><line x1="130" y1="150" x2="240" y2="180" stroke-width="1.4" marker-end="url(#lz17a)"/><text x="245" y="185" font-size="11">y</text><line x1="130" y1="150" x2="40" y2="200" stroke-width="1.4" marker-end="url(#lz17a)"/><text x="20" y="210" font-size="11">x</text><circle cx="130" cy="150" r="2.5" fill="currentColor" stroke="none"/><text x="115" y="165" font-size="10">O(q,m)</text><line x1="130" y1="150" x2="190" y2="70" stroke-width="1.8" marker-end="url(#lz17a)"/><text x="195" y="65" font-size="11">v₀</text><path d="M130,120 A30,30 0 0,1 155,100" stroke-width="1"/><text x="158" y="112" font-size="10">θ</text><path d="M110,150 A20,20 0 0,0 100,168" stroke-width="1"/><text x="80" y="170" font-size="10">α</text><path d="M150,150 A20,20 0 0,1 165,168" stroke-width="1"/><text x="168" y="175" font-size="10">β</text><defs><marker id="lz17a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'質點以v₀從原點射出，與x、y、z軸夾角分別為α、β、θ；B沿－z方向，E使z方向做類似拋體運動。'},
+
+{id:'c16a1',ch:16,cat:'flux',sec:'不明',name:'磁通量計算．範例六',type:'長螺線管內部磁場與磁通量計算，B=μ0ni公式應用',
+given:'有一長螺線管直徑為4.0厘米，每厘米有線圈10匝，當通以電流1.0安培時，該螺線管內之磁通量為何？',
+think:['關鍵字「長螺線管」＋「每公分幾匝」→ 要先求管內磁場B，用長螺線管公式B=μ0ni，i是電流、n是「單位長度匝數」。','n要換算成「每公尺」的匝數，題目給的是每公分10匝，要乘100變成每公尺1000匝，這一步最容易漏掉換算單位。','直徑4.0公分要先除以2再除以100變成半徑r=0.02公尺，磁通量公式Φ=B×A=B×πr²用的是圓面積不是直徑。','算出來會出現π²，這種題目常用π²≈10的近似值快速化簡，不然數字會很難看，也對不上課本答案。'],
+calc:['n = 10匝/cm = 1000匝/m = 1×10³ /m','B = μ0 i n = 4π×10⁻⁷ × 1.0 × 10³ = 4π×10⁻⁴ T','r = 2.0cm = 2×10⁻² m，Φ = B×πr² = 4π×10⁻⁴ × π × (2×10⁻²)² = 16π²×10⁻⁸ Wb','取π²≈10 ⇒ Φ ≈ 160×10⁻⁸ = 1.6×10⁻⁶ Wb'],
+ans:'Φ ≈ 1.6×10⁻⁶ Wb',
+pitfall:'每公分幾匝一定要換算成「每公尺」再代入B=μ0ni，直接把10代進去會少一個100倍；算出來會有π²，這類題常用π²≈10的近似，沒換算會對不上課本答案。',
+svg:'<svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><ellipse cx="60" cy="70" rx="10" ry="30" stroke-width="1.5"/><ellipse cx="90" cy="70" rx="10" ry="30" stroke-width="1.5"/><ellipse cx="120" cy="70" rx="10" ry="30" stroke-width="1.5"/><ellipse cx="150" cy="70" rx="10" ry="30" stroke-width="1.5"/><ellipse cx="180" cy="70" rx="10" ry="30" stroke-width="1.5"/><ellipse cx="210" cy="70" rx="10" ry="30" stroke-width="1.5"/><line x1="20" y1="70" x2="40" y2="70" stroke-width="1.5" marker-end="url(#arS)"/><text x="8" y="62" font-size="11">i</text><line x1="230" y1="40" x2="230" y2="100" stroke-width="1.3"/><text x="235" y="45" font-size="11">d=4.0cm</text><line x1="60" y1="40" x2="60" y2="22" stroke-width="1" stroke-dasharray="2 2"/><line x1="210" y1="40" x2="210" y2="22" stroke-width="1" stroke-dasharray="2 2"/><text x="85" y="18" font-size="11">n=10匝/cm</text><defs><marker id="arS" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'長螺線管示意圖，每公分繞10匝，直徑4.0cm，通以電流i。'},
+
+{id:'c16a2',ch:16,cat:'flux',sec:'不明',name:'磁通量計算．範例七',type:'圓線圈以直徑為軸轉動，磁通量變化ΔΦ計算',
+given:'一圓線圈截面積為60cm²，圈面垂直置於0.15T的均勻磁場中，今以其直徑為軸轉動53°角，則線圈中磁通量變化為何？',
+think:['關鍵字「圈面垂直於磁場」→ 這不是θ本身，是在講「線圈平面」和B垂直，代表線圈的「法線」跟B同方向，也就是θ=0°，Φ最大。','Φ=BAcosθ，這裡的θ永遠是「法線」和B的夾角，不是線圈平面和B的夾角，這跟第15章力矩是同一個要注意的地方。','「以直徑為軸轉動53°」代表線圈繞著平面內一條直徑轉，轉了53°之後，法線與B的夾角就從0°變成53°。','面積單位要換算成平方公尺(cm²→m²，乘10⁻⁴)，再分別算轉動前後的Φ，最後相減求ΔΦ，注意正負號代表方向改變。'],
+calc:['A = 60cm² = 60×10⁻⁴ m² = 6×10⁻³ m²','轉動前(法線∥B，θ=0°)：Φ₁ = B×A = 0.15×6×10⁻³ = 9×10⁻⁴ Wb','轉動後(θ=53°)：Φ₂ = B×A×cos53° = 9×10⁻⁴ × 3/5 = 5.4×10⁻⁴ Wb','ΔΦ = Φ₂－Φ₁ = 5.4×10⁻⁴－9×10⁻⁴ = －3.6×10⁻⁴ Wb'],
+ans:'ΔΦ = －3.6×10⁻⁴ Wb（磁通量減少3.6×10⁻⁴ Wb）',
+pitfall:'「圈面垂直於磁場」指的是線圈平面和B垂直，換算成法線和B的夾角要反過來想，這裡θ=0°不是90°，判斷角度顛倒cos值會整個代錯；cos53°=3/5、cos37°=4/5要背熟不要搞反。',
+svg:''},
+
+{id:'c16a3',ch:16,cat:'ac',sec:'不明',name:'自感應現象．範例八',type:'螺線管自感應現象，開關接通／切斷瞬間燈泡亮度變化的定性解釋',
+given:'如圖所示，L為螺線管線圈，F為燈泡。則：(1)當K接通後瞬間F甚亮，然後即變暗淡何故？(2)K打開之瞬間F突然甚亮然後才熄掉何故？(3)電路中若有線圈，在切斷電路時冒火花何故？',
+think:['關鍵字「線圈L」+「燈泡F並聯」+「接通/切斷瞬間」→ 這是自感應現象，線圈反抗的是電流的「變化」，不是電流本身。','接通瞬間L的電流從0開始增加，磁通量在增加，冷次定律告訴我們L會感應出電動勢去阻止這個增加，於是大部分電流先繞去阻力較大的F(相當於L暫時像斷路一樣)，F突然很亮。','電流穩定後，L不再有ΔΦ/Δt，感應作用消失，L就變回單純的低電阻導線，電流大部分改走電阻小的L，分到F的電流變少，F變暗。','切斷K瞬間，L的電流原本要維持，磁場正在消失、ΔΦ/Δt很大，感應電動勢可能非常大，能把儲存在磁場裡的能量瞬間釋放，透過F放電甚至冒火花，這股能量的來源不是電源，是線圈磁場原本儲存的能量。'],
+calc:['接通瞬間：L相當於暫時的大阻力(反抗電流增加) ⇒ 電流優先流經F ⇒ F瞬間甚亮','電流穩定後：ΔΦ/Δt=0，L變回小電阻路徑 ⇒ 電流大部分改走L ⇒ 分到F的電流變小 ⇒ F變暗','切斷瞬間：L的電流要維持，ΔΦ/Δt很大 ⇒ 感應電動勢大，透過F瞬間放電 ⇒ F突然甚亮才熄滅，冒火花的能量＝線圈原本磁場儲存的能量'],
+ans:'(1)(2)(3)皆為自感應現象：線圈反抗的是電流的「變化」，感應電動勢的能量來源是線圈磁場儲存的能量，切斷瞬間釋放能量造成火花或燈泡瞬間變亮。',
+pitfall:'這題最容易搞混「線圈反抗電流本身」跟「線圈反抗電流的變化」——L不是討厭電流大，是討厭電流忽然變大或變小；冒火花、瞬間變亮的能量不是電源多給的，是磁場原本儲存的能量釋放出來，這個「磁場也是一種能量」的概念是這題真正在考的。',
+svg:'<svg viewBox="0 0 260 160" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="30" y1="20" x2="230" y2="20" stroke-width="1.6"/><line x1="30" y1="20" x2="30" y2="140" stroke-width="1.6"/><line x1="230" y1="20" x2="230" y2="140" stroke-width="1.6"/><line x1="30" y1="140" x2="230" y2="140" stroke-width="1.6"/><line x1="120" y1="12" x2="132" y2="28" stroke-width="1.8"/><circle cx="120" cy="20" r="2" fill="currentColor" stroke="none"/><circle cx="132" cy="28" r="2" fill="currentColor" stroke="none"/><text x="118" y="8" font-size="12">K</text><rect x="60" y="60" width="20" height="60" stroke-width="1.4"/><text x="45" y="95" font-size="13">L</text><circle cx="150" cy="90" r="20" stroke-width="1.4"/><text x="143" y="95" font-size="13">F</text><line x1="210" y1="70" x2="210" y2="90" stroke-width="2.4"/><line x1="205" y1="100" x2="215" y2="100" stroke-width="1.2"/><line x1="207" y1="108" x2="213" y2="108" stroke-width="1"/><text x="216" y="95" font-size="13">ε</text></svg>',
+svgCap:'K為開關，L為螺線管線圈，F為燈泡，ε為電源，L與F並聯後接電源。'},
+
+{id:'c16a4',ch:16,cat:'flux',sec:'二、法拉第電磁感應定律',name:'法拉第定律．範例一',type:'判斷哪種運動情況才會使磁通量隨時間改變、進而產生感應電動勢',
+given:'設均勻磁場方向為水平由南而北，下述那一情況下，線圈才有感應電動勢？(A)線圈面水平並由上掉下來 (B)線圈面水平並在水平運動 (C)線圈面和南北向垂直，由上掉下來 (D)線圈面和南北向垂直，將線圈由圓形變為正方形 (E)以線圈直徑為軸轉動，轉軸和磁場垂直。',
+think:['關鍵字「哪種情況才有感應電動勢」→ 這題本質只問一件事：磁通量Φ=BAcosθ有沒有「隨時間改變」，跟線圈是不是在動、動得快不快都無關。','逐一檢查每個選項：只要線圈面積A、法線與B的夾角θ都固定不變，即使線圈整個在移動，Φ也不會變，就沒有感應電動勢。','(A)(B)線圈水平移動或掉落，磁場處處均勻，線圈的A、θ都沒變，Φ不變 → 沒有感應電動勢；(C)線圈面和南北垂直代表法線和B平行，掉下來的過程A、θ仍不變 → 也沒有。','(D)線圈形狀從圓形變正方形，面積A在改變 → Φ在變 → 有感應電動勢；(E)轉軸和磁場垂直的轉動會讓法線和B的夾角θ持續改變 → Φ隨時間變化 → 有感應電動勢。'],
+calc:['(A)(B)(C)：A、θ皆不變 ⇒ Φ=BAcosθ為定值 ⇒ ΔΦ/Δt=0 ⇒ 無感應電動勢','(D)：形狀改變使A隨時間變 ⇒ ΔΦ/Δt≠0 ⇒ 有感應電動勢','(E)：轉軸與B垂直的轉動使θ隨時間變 ⇒ ΔΦ/Δt≠0 ⇒ 有感應電動勢'],
+ans:'答案為(D)(E)',
+pitfall:'這題的坑是直覺會覺得「線圈在動」就該有感應電動勢，但真正決定有沒有感應電動勢的只有Φ=BAcosθ這三個量(B、A、θ)裡有沒有東西隨時間在變；(C)選項最容易誤判，因為線圈在動、又跟南北垂直看起來很像會有變化，但其實θ全程=90°不變，Φ本身一直是0，「0」也是不變。',
+svg:''},
+
+{id:'c16a5',ch:16,cat:'flux',sec:'二、法拉第電磁感應定律',name:'法拉第定律．範例二',type:'磁通量方向反轉時的平均感應電動勢與感應電流計算',
+given:'如圖所示，一個水平放置的100匝封閉圓形線圈，其電阻為50Ω，初始時線圈內有2.5×10⁻⁵Wb，方向垂直向下的磁通量。在0.0010s的時間內，線圈內的磁通量變為3.0×10⁻⁵Wb，方向垂直向上，則在此段時間內：(1)線圈中所生的平均感應電動勢為何？(2)感應電流的大小與方向為何？',
+think:['關鍵字「初始磁通量方向向下」+「變為方向向上」→ 這不是單純數字相減，因為方向反轉了，要先設一個正方向(例如向上為正)，把向下的Φ當成負值。','設向上為正：Φ初=－2.5×10⁻⁵Wb(向下)，Φ末=＋3.0×10⁻⁵Wb(向上)，這樣ΔΦ才會算出「真正改變了多少」，不是誤以為只變了0.5×10⁻⁵。','100匝線圈，每匝都感應相同的ΔΦ/Δt，所以總電動勢要再乘上匝數N，公式是ε=NΔΦ/Δt，不是只算一匝的量。','第(2)小題方向要用冷次定律判斷：磁通量從向下變向上，線圈要感應出電流去「反抗」這個改變(想維持原來向下的磁通量)，再用安培右手定則反推方向。'],
+calc:['設向上為正：ΔΦ = Φ末－Φ初 = 3.0×10⁻⁵－(－2.5×10⁻⁵) = 5.5×10⁻⁵ Wb','每匝平均電動勢 = ΔΦ/Δt = 5.5×10⁻⁵ / 0.0010 = 5.5×10⁻² V','總電動勢 ε = N × 5.5×10⁻² = 100 × 5.5×10⁻² = 5.5 V','電流 I = ε/R = 5.5/50 = 0.11 A，方向：由上往下看為順時針(反抗磁通量由下往上增加的變化)'],
+ans:'(1) ε = 5.5V　(2) I = 0.11A，由上往下看為順時針方向',
+pitfall:'磁通量方向反轉時千萬不能直接拿兩個數字相減(3.0－2.5)，要先設正方向，把反方向的那個變號，才是真正的ΔΦ；100匝的N千萬別忘記乘，只算一匝的電動勢是最常見的漏乘。',
+svg:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><ellipse cx="150" cy="70" rx="80" ry="20" stroke-width="1.6"/><text x="35" y="45" font-size="11">Φ初=2.5×10⁻⁵Wb(向下)</text><line x1="100" y1="55" x2="100" y2="85" stroke-width="1.3" marker-end="url(#a5)"/><line x1="150" y1="55" x2="150" y2="85" stroke-width="1.3" marker-end="url(#a5)"/><line x1="200" y1="55" x2="200" y2="85" stroke-width="1.3" marker-end="url(#a5)"/><ellipse cx="150" cy="150" rx="80" ry="20" stroke-width="1.6"/><text x="35" y="185" font-size="11">Φ末=3.0×10⁻⁵Wb(向上)</text><line x1="100" y1="165" x2="100" y2="135" stroke-width="1.3" marker-end="url(#a5)"/><line x1="150" y1="165" x2="150" y2="135" stroke-width="1.3" marker-end="url(#a5)"/><line x1="200" y1="165" x2="200" y2="135" stroke-width="1.3" marker-end="url(#a5)"/><text x="235" y="115" font-size="11">N=100,R=50Ω</text><defs><marker id="a5" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'線圈磁通量從向下2.5×10⁻⁵Wb在0.0010s內變為向上3.0×10⁻⁵Wb。'},
+
+{id:'c16a6',ch:16,cat:'rod',sec:'二、法拉第電磁感應定律',name:'動生電動勢．範例三',type:'立方體上不同方向、不同長度導線在均勻磁場中運動的動生電動勢',
+given:'右圖所示的立方體邊長1.0公尺，置於強度為2.0T的均勻磁場B中，磁場的方向為+Y。導線A、C與D分別沿圖中所示方向以0.50 m/s之速率運動，求各導線之感應電動勢分別為何？',
+think:['關鍵字「立方體邊長」+「導線沿圖中方向運動」→ 這是動生電動勢題，公式ε=ℓ(v×B)，重點是分別看清楚每條導線的方向和速度方向跟B的夾角關係。','v×B這個向量方向垂直於v和B所在平面，導線只有「跟v×B方向平行的分量」才會有電動勢貢獻，完全垂直於v×B的話電動勢就是0。','A導線的方向使得v×B剛好和導線本身垂直(或v平行於B使v×B=0)，所以εA=0，這是先判斷方向關係、不是先算數字。','C、D是邊或面對角線，要先抓出導線長度(邊長1.0m還是面對角線√2×1.0m)跟v、B之間的夾角，再代入ε=ℓvBcosθ，D剛好方向對齊到全部投影，所以是最大值。'],
+calc:['εA = 0(方向使v×B與導線垂直，或v∥B)','εC：長度ℓ=1.0m，夾角45° ⇒ εC = ℓvBcos45° = 1×0.5×2×(√2/2) ≈ 0.71 V','εD：長度ℓ=√2 m(面對角線)，方向與v×B完全平行 ⇒ εD = ℓvB = √2×0.5×2 = √2 ≈ 1.4 V'],
+ans:'εA=0、εC≈0.71V、εD≈1.4V',
+pitfall:'動生電動勢看的是導線方向跟(v×B)方向的夾角，不是隨便拿邊長乘一乘；面對角線的長度是√2倍邊長，這裡如果誤用邊長1.0m代入D，答案會少了√2倍。',
+svg:'<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><polygon points="60,150 60,60 130,30 130,120" stroke-width="1.3"/><polygon points="60,150 130,120 200,150 130,180" stroke-width="1.3"/><polygon points="130,30 200,60 200,150 130,120" stroke-width="1.3"/><line x1="60" y1="60" x2="130" y2="30" stroke-width="1.1" stroke-dasharray="2 2"/><line x1="60" y1="150" x2="60" y2="60" stroke-width="1.1" stroke-dasharray="2 2"/><text x="30" y="45" font-size="11">Z</text><line x1="200" y1="60" x2="260" y2="60" stroke-width="1.6" marker-end="url(#a6)"/><text x="264" y="65" font-size="12">B(+Y)</text><text x="50" y="165" font-size="12">A</text><line x1="60" y1="150" x2="60" y2="180" stroke-width="1.5" marker-end="url(#a6)"/><text x="63" y="195" font-size="10">vA</text><text x="200" y="165" font-size="12">C</text><line x1="200" y1="150" x2="230" y2="170" stroke-width="1.5" marker-end="url(#a6)"/><text x="232" y="180" font-size="10">vC</text><text x="128" y="195" font-size="12">D</text><line x1="130" y1="180" x2="160" y2="200" stroke-width="1.5" marker-end="url(#a6)"/><text x="163" y="212" font-size="10">vD</text><defs><marker id="a6" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'邊長1.0m的立方體，B沿+Y方向，A、C、D三邊分別以0.50m/s沿圖示方向運動。'},
+
+{id:'c16a7',ch:16,cat:'rod',sec:'二、法拉第電磁感應定律',name:'動生電動勢．範例四',type:'中點彎折120°的金屬棒在磁場中平移運動的動生電動勢，分段投影求解',
+given:'右圖所示有一金屬棒ab，總長度為ℓ，在棒中點c處彎成∠acb=120°，使棒在均勻磁場B中，沿著垂直磁場方向以速度v作等速度運動，則金屬棒ab的感應電動勢為何？',
+think:['關鍵字「棒中點彎成120°」+「垂直磁場方向等速運動」→ 這是動生電動勢，但因為棒不是一直線，不能直接ε=ℓvB，要把棒拆成ac、cb兩段分開算再相加。','電動勢只吃「垂直於v方向」的長度分量(因為v×B的方向垂直於v)，v的方向沒變，所以要看每一段偏離原本直線方向多少度，再取投影。','中點c彎成120°，代表這個彎角把棒的方向拆成兩段對稱但不同角度的線段，各自對v方向的投影不一樣，要分別代入cosθ算有效長度。','算完兩段各自的電動勢後直接相加(不是取平均)，因為每一段都各自對總電動勢有貢獻，兩段電動勢方向一致才能直接加總。'],
+calc:['ac段：投影後有效長度＝ℓ/2 ⇒ ε_ac = (ℓ/2)vB','cb段：因彎角造成方向偏移，投影後有效長度＝ℓ/4 ⇒ ε_cb = (ℓ/4)vB','總電動勢 ε = ε_ac + ε_cb = (ℓ/2)vB + (ℓ/4)vB = (3/4)ℓvB'],
+ans:'ε = (3/4)ℓvB',
+pitfall:'棒彎折之後不能直接套ε=ℓvB(把ℓ當總長度硬代)，一定要先拆段、各自取「垂直於v方向」的投影長度再相加；120°是兩段線段之間的夾角，不是每段偏離原方向的角度，這裡角度換算搞混是最容易錯的地方。',
+svg:'<svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><g opacity=".6"><text x="30" y="30" font-size="13">×</text><text x="80" y="30" font-size="13">×</text><text x="130" y="30" font-size="13">×</text><text x="180" y="30" font-size="13">×</text><text x="30" y="70" font-size="13">×</text><text x="80" y="70" font-size="13">×</text><text x="130" y="70" font-size="13">×</text><text x="180" y="70" font-size="13">×</text><text x="30" y="110" font-size="13">×</text><text x="80" y="110" font-size="13">×</text><text x="130" y="110" font-size="13">×</text><text x="180" y="110" font-size="13">×</text></g><line x1="60" y1="50" x2="120" y2="90" stroke-width="1.8"/><line x1="120" y1="90" x2="60" y2="130" stroke-width="1.8"/><text x="45" y="45" font-size="12">a</text><text x="126" y="94" font-size="12">c</text><text x="45" y="140" font-size="12">b</text><path d="M100,90 A20,20 0 0,1 108,72" stroke-width="1"/><text x="105" y="105" font-size="11">120°</text><line x1="140" y1="90" x2="190" y2="90" stroke-width="1.6" marker-end="url(#a7)"/><text x="192" y="94" font-size="12">v</text><defs><marker id="a7" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'金屬棒ab在c點彎成120°，磁場B垂直射入紙面(×)，棒沿垂直磁場方向以v等速運動。'},
+
+{id:'c16a8',ch:16,cat:'rod',sec:'二、法拉第電磁感應定律',name:'動生電動勢．範例五',type:'自由落下的水平導線在地磁(磁傾角)中的動生電動勢',
+given:'磁傾角為60°的某處，地磁強度為B，有一東西向水平放置的導線長度ℓ，從空中自由落下，第t秒末的瞬間，導線兩端的電位差為何？',
+think:['關鍵字「磁傾角」+「地磁」+「自由落下」→ 這是動生電動勢，但B是地磁，方向不是正南正北水平的，要先把地磁拆成水平分量和垂直分量。','磁傾角φ是B和水平面的夾角，所以水平分量Bcosφ(指北)、垂直分量Bsinφ(指下)，要先想清楚φ是量哪個角。','導線垂直落下(v方向向下)，v和B的垂直分量平行 ⇒ 這部分v×B=0沒有貢獻；只有B的水平分量會跟v產生v×B，而且方向剛好沿著東西向，跟導線方向一致。','第t秒末的自由落下速度用v=gt(不是位移，是瞬時速度)，代入ε=ℓvBcosφ求電位差。'],
+calc:['v = gt(自由落下第t秒末的瞬時速度)','地磁水平分量 = Bcosφ = Bcos60° = B/2(只有這個分量對東西向導線的v×B有貢獻)','ε = ℓ×v×(Bcosφ) = ℓ×gt×B×(1/2) = (1/2)ℓ(gt)B'],
+ans:'ε = (1/2)ℓ(gt)B',
+pitfall:'這題最容易搞混的是v=gt(瞬時速度)還是(1/2)gt²(位移)——電動勢公式吃的是速度不是位移，代錯會多一個t的次方；磁傾角φ是B跟水平面的夾角，Bcosφ是水平分量不是垂直分量，這裡角度用錯cos/sin答案就會顛倒。',
+svg:'<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><line x1="130" y1="20" x2="130" y2="180" stroke-width="1" stroke-dasharray="2 2" opacity=".5"/><line x1="130" y1="40" x2="130" y2="120" stroke-width="1.8" marker-end="url(#a8)"/><text x="135" y="80" font-size="12">v=gt(向下)</text><line x1="130" y1="40" x2="200" y2="80" stroke-width="1.6" marker-end="url(#a8)"/><text x="205" y="85" font-size="12">B(地磁)</text><path d="M130,60 A30,30 0 0,1 165,66" stroke-width="1"/><text x="150" y="55" font-size="11">φ=60°</text><line x1="70" y1="150" x2="190" y2="150" stroke-width="2"/><text x="60" y="170" font-size="11">西</text><text x="195" y="170" font-size="11">東</text><text x="60" y="140" font-size="10" opacity=".7">導線ℓ(東西向水平)</text><defs><marker id="a8" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'東西向導線自由落下，v沿垂直方向，地磁B與水平面夾磁傾角φ=60°。'},
+
+{id:'c16a9',ch:16,cat:'rod',sec:'二、法拉第電磁感應定律',name:'動生電動勢．範例六',type:'旋轉銅棒因轉軸位置不同，兩端電位差各不相同的計算',
+given:'一銅棒長度為L，垂直於均勻磁場B作等角速度ω旋轉，求下列各種情況下銅棒因感應電動勢所造成兩端的電位差各為何？(1)以棒的一端為轉軸。(2)以棒心為轉軸。(3)以長度比為2:1的點為轉軸。',
+think:['關鍵字「棒旋轉」+「求兩端電位差」→ 這是旋轉棒的動生電動勢，棒上每一點的速度v=rω都不同(r是離轉軸的距離)，不能直接套ε=LvB，要用「以某端為軸ε=(1/2)r²ωB」這條公式。','旋轉棒公式的本質：以某一點為轉軸時，該轉軸到棒端的電位差＝(1/2)r²ωB，r是「該端到轉軸的距離」，離轉軸越遠貢獻越大。','轉軸位置改變時，本質上是把棒切成兩段，各自獨立看成「以轉軸為端點」的小棒，各自求出(1/2)r²ωB，再看兩段的電位方向是相加還是相減。','棒心為軸時，兩段長度相等(L/2、L/2)，兩段各自產生的電位差大小相等、方向對稱抵消，兩端電位相同，所以整支棒兩端的電位差＝0，這是最容易想錯覺得也該有值的地方。'],
+calc:['(1) 以一端為軸，整段長度L：ε = (1/2)L²ωB','(2) 以棒心為軸，兩側各L/2，兩段電位差大小相等方向抵消：ε = (1/2)(L/2)²ωB － (1/2)(L/2)²ωB = 0','(3) 以2:1分點為軸，兩側長度2L/3、L/3：ε = (1/2)(2L/3)²ωB － (1/2)(L/3)²ωB = (1/2)ωB×(4L²/9－L²/9) = L²ωB/6'],
+ans:'(1) ε=(1/2)L²ωB　(2) ε=0　(3) ε=(1/6)L²ωB',
+pitfall:'旋轉棒的電動勢公式裡的r一定是「離轉軸的距離」不是棒的全長，轉軸換位置整題要重新看兩段各自的r；棒心為軸不是「沒有電動勢產生」，是兩段各自都有電動勢、只是大小相等方向相消，兩端電位差才是0，這跟「完全沒有感應」是兩回事，這題16-10頁她自己手寫解答時也在這裡卡住過。',
+svg:'<svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><g opacity=".5"><text x="20" y="30" font-size="12">×</text><text x="60" y="30" font-size="12">×</text><text x="100" y="30" font-size="12">×</text><text x="20" y="90" font-size="12">×</text><text x="60" y="90" font-size="12">×</text><text x="100" y="90" font-size="12">×</text><text x="20" y="150" font-size="12">×</text><text x="60" y="150" font-size="12">×</text><text x="100" y="150" font-size="12">×</text></g><line x1="70" y1="20" x2="70" y2="180" stroke-width="2"/><circle cx="70" cy="20" r="3" fill="currentColor" stroke="none"/><text x="80" y="18" font-size="11">端點軸(1)</text><circle cx="70" cy="100" r="3" fill="currentColor" stroke="none"/><text x="80" y="103" font-size="11">中點軸(2)</text><circle cx="70" cy="140" r="3" fill="currentColor" stroke="none"/><text x="80" y="150" font-size="11">2:1分點軸(3)</text><path d="M150,60 A50,50 0 0,1 150,140" stroke-width="1.3" marker-end="url(#a9)"/><text x="160" y="100" font-size="12">ω</text><text x="10" y="200" font-size="11">L</text><defs><marker id="a9" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'銅棒長L垂直於磁場B(×表入紙面)以角速度ω旋轉，圖中標出三種轉軸位置：一端、棒心、2:1分點。'},
+
+{id:'c16a10',ch:16,cat:'flux',sec:'二、法拉第電磁感應定律',name:'法拉第定律．範例七',type:'正方形線圈半區域內磁場隨時間變化，求感應電流與安培力',
+given:'有一邊長為d的正方形線圈，線圈電阻為R。總線圈內有一半的地方沒有磁場，另一半則有均勻但隨時間t而改變的磁場B(t)，方向為射出紙面，如右圖所示。設B(t)=ct，其中c為正的常數，求：(1)線圈中感應電流大小為何？(2)線圈所受磁力的方向為何？(3)線圈在t時刻所受磁力量值為何？',
+think:['關鍵字「一半沒有磁場、一半有隨時間變化的磁場B(t)」→ 這是純粹的磁通量變化(ΔΦ/Δt)問題，線圈本身沒有動，是磁場強度本身在變，屬於法拉第定律的「變化磁場」型，不是動生電動勢。','只有一半面積(d×d/2)有磁場，所以Φ=B(t)×(這一半的面積)，另一半面積永遠對Φ沒有貢獻，面積要只算「有磁場那一半」不是整個d²。','感應電流i=ε/R算出來之後，第(2)(3)問是在問「載流線圈在磁場中受力」，這時要換回安培力F=iLB，L是在磁場區域內的導線長度(邊長d)，不是ε那段。','力的方向要用冷次定律先判斷感應電流方向(反抗磁通量的增加)，再用安培力方向(電流方向×磁場方向)反推，兩層判斷不能省。'],
+calc:['Φ(t) = B(t)×(有磁場的一半面積) = ct×(d×d/2) = cd²t/2','ε = dΦ/dt = cd²/2(B(t)=ct對t微分是常數c)','i = ε/R = cd²/(2R)','F_B = i×L×B(t) = [cd²/(2R)]×d×(ct) = c²d³t/(2R)，方向向左(冷次定律判斷電流方向後，用安培力方向反推)'],
+ans:'(1) i=cd²/(2R)　(2) 方向向左　(3) F_B=c²d³t/(2R)',
+pitfall:'算Φ只能用「有磁場的那一半面積」(d×d/2)，把整個d²代進去是最常見的錯；(2)(3)問的是「安培力」不是電動勢，要換回F=iLB這條公式，L只取在磁場範圍內的那段邊長，且時間t要記得代回去(F隨t線性增加，不是定值)。',
+svg:'<svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><rect x="40" y="30" width="180" height="120" stroke-width="1.6"/><line x1="130" y1="30" x2="130" y2="150" stroke-width="1.3" stroke-dasharray="3 3"/><text x="60" y="95" font-size="12">無磁場</text><g><circle cx="150" cy="55" r="3" fill="currentColor" stroke="none"/><circle cx="180" cy="55" r="3" fill="currentColor" stroke="none"/><circle cx="150" cy="90" r="3" fill="currentColor" stroke="none"/><circle cx="180" cy="90" r="3" fill="currentColor" stroke="none"/><circle cx="150" cy="125" r="3" fill="currentColor" stroke="none"/><circle cx="180" cy="125" r="3" fill="currentColor" stroke="none"/></g><text x="140" y="45" font-size="11">B(t)=ct(射出紙面)</text><text x="35" y="165" font-size="11">d</text><text x="122" y="165" font-size="11">d/2</text><text x="210" y="165" font-size="11">d/2</text></svg>',
+svgCap:'邊長d的正方形線圈，左半無磁場，右半有隨時間變化的磁場B(t)=ct(⊙表射出紙面)。'},
+
+{id:'c16a11',ch:16,cat:'rod',sec:'二、法拉第電磁感應定律',name:'動生電動勢．範例八',type:'金屬棒繞一端沿圓錐面轉動的動生電動勢，先降維再套旋轉棒公式',
+given:'金屬棒OA長L放在均勻磁場B中，以等角速度ω繞O端沿圓錐面轉動，如右圖所示，則金屬棒的兩端A、O何者電位較高？兩端的電位差為？',
+think:['關鍵字「圓錐面轉動」→ 棒不是在平面內轉，是繞O端斜著轉出一個圓錐面，這種題目的訣竅是「只看棒在水平面的投影」，投影出來的等效半徑R=Lsinθ(θ是棒與轉軸的夾角)。','把圓錐轉動問題降維成平面圓周轉動問題後，就變回旋轉棒「以一端為軸」的情形，可以直接套ε=(1/2)R²ωB。','判斷哪一端電位高不能只看公式，要用帶電粒子受力(F=qv×B)去判斷正電荷被推往哪一端，不能跳過直接背口訣，方向容易背錯。','B的方向(向下)、轉動方向(由上往下看是逆時針)、v的方向(圓周切線方向)三個都要標在圖上，才能正確用右手定則判斷正電荷往O端還是A端聚集。'],
+calc:['投影半徑：R = Lsinθ(θ為棒OA與轉軸的夾角)','降維成平面圓周旋轉，以O為軸：ε = (1/2)R²ωB = (1/2)(Lsinθ)²ωB','用右手定則判斷正電荷聚集方向：正電荷向O端聚集 ⇒ O端電位較高'],
+ans:'O端電位較高，兩端電位差 ΔV = (1/2)(Lsinθ)²ωB',
+pitfall:'圓錐轉動題目一定要先做「投影」這一步，把斜著轉的棒等效成水平面上半徑R=Lsinθ的圓周運動，直接把L當成半徑代入公式(忘記乘sinθ)是最常見的錯；判斷哪端電位高不能死背口訣，要老實用正電荷所受的v×B方向去推，方向錯電位高低就會顛倒。',
+svg:'<svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><circle cx="110" cy="20" r="3" fill="currentColor" stroke="none"/><text x="115" y="15" font-size="12">O</text><ellipse cx="110" cy="160" rx="70" ry="18" stroke-width="1.2" stroke-dasharray="3 3"/><line x1="110" y1="20" x2="70" y2="160" stroke-width="1.8"/><text x="55" y="175" font-size="12">A</text><line x1="110" y1="20" x2="110" y2="160" stroke-width="1" stroke-dasharray="2 2" opacity=".6"/><path d="M110,50 A30,30 0 0,1 95,45" stroke-width="1"/><text x="80" y="50" font-size="11">θ</text><path d="M40,50 A70,70 0 0,1 90,15" stroke-width="1.2" marker-end="url(#a11)"/><text x="45" y="30" font-size="12">ω</text><line x1="30" y1="30" x2="30" y2="90" stroke-width="1.3" marker-end="url(#a11)"/><line x1="190" y1="30" x2="190" y2="90" stroke-width="1.3" marker-end="url(#a11)"/><text x="10" y="100" font-size="11">B</text><defs><marker id="a11" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'金屬棒OA以O為頂點繞圓錐面旋轉，B方向向下，θ為棒與轉軸的夾角。'},
+
+{id:'c16a12',ch:16,cat:'rod',sec:'二、法拉第電磁感應定律',name:'動生電動勢．範例九',type:'轉軸偏離中心的正方形線圈，各邊到轉軸距離不同的動生電動勢與電流',
+given:'在強度0.05T、水平向右的均勻磁場中，有一邊長8cm、每邊電阻R=0.01Ω的正方形單匝線圈，以100 rad/s的角速度繞st軸旋轉，且sd=3×as、ct=3×bt，當線圈轉到與磁場平行如右圖所示瞬間，求：(1)線圈各邊的感應電動勢。(2)線圈上的感應電流。',
+think:['關鍵字「繞st軸旋轉」+「sd=3as、ct=3bt」→ 轉軸不是正方形的中心線，是偏一邊的軸，所以四邊到轉軸的「距離」不相等，這是這題最特別的地方。','每邊的電動勢公式回到動生電動勢ε=LvB，其中v=rω，r是「該邊到轉軸的垂直距離」，不是邊長本身，要先靠sd=3as這個比例關係算出as、sd各是多少公尺。','「線圈轉到與磁場平行」這個瞬間是關鍵時刻：這時候ad、bc兩邊剛好和B同方向，任何跟B平行的邊，感應電動勢一定是0(因為v×B必垂直於B，點乘上跟B平行的邊長方向一定是0)，可以直接排除這兩邊不用算。','算出ab、cd兩邊各自的電動勢後，因為線圈只有一圈、四邊串聯成一個迴路，先求整個迴路的淨電動勢，再用總電阻(4邊電阻串聯)求電流。'],
+calc:['邊長0.08m，as=bt=0.02m、sd=ct=0.06m(由sd=3as、ct=3bt及全長0.08m算出)','ad、bc兩邊與B平行 ⇒ εad=εbc=0','cd邊：r=0.06m，v=rω=0.06×100=6 m/s ⇒ εcd=L·v·B=0.08×6×0.05=0.024V','ab邊：r=0.02m，v=rω=0.02×100=2 m/s ⇒ εab=L·v·B=0.08×2×0.05=0.008V','迴路總電動勢=εcd+εab=0.032V，總電阻=4R=4×0.01=0.04Ω ⇒ I=0.032/0.04=0.80A'],
+ans:'(1) εad=εbc=0、εcd=0.024V、εab=0.008V　(2) I=0.80A',
+pitfall:'轉軸不通過中心時，每邊的r要各自算(不是通通用半邊長)，靠sd=3as這種比例關係先求出實際距離，漏了這一步會四邊都套錯半徑；「與磁場平行的邊電動勢是0」這個判斷是這題的關鍵捷徑，沒看出ad、bc平行B就會白算兩條不必要的邊，這題16-11頁她自己手寫解答時也在這裡卡住過。',
+svg:'<svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><rect x="60" y="30" width="140" height="120" stroke-width="1.6"/><text x="45" y="35" font-size="12">a</text><text x="205" y="35" font-size="12">b</text><text x="45" y="155" font-size="12">d</text><text x="205" y="155" font-size="12">c</text><line x1="95" y1="20" x2="95" y2="160" stroke-width="1.2" stroke-dasharray="3 3"/><text x="80" y="15" font-size="11">s</text><text x="80" y="172" font-size="11">t</text><text x="65" y="95" font-size="10">as=0.02</text><text x="150" y="95" font-size="10">sd=0.06</text><line x1="220" y1="90" x2="250" y2="90" stroke-width="1.6" marker-end="url(#a12)"/><text x="220" y="80" font-size="11">B=0.05T</text><defs><marker id="a12" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'正方形線圈abcd，轉軸st偏離中心(as=0.02m、sd=0.06m)，B水平向右0.05T，圖示為線圈與B平行瞬間。'},
+
+{id:'c16b1',ch:16,cat:'rod',sec:'不明',name:'動生電動勢．範例十',type:'旋轉棒動生電動勢，只有垂直於轉動平面的磁場分量有效',
+given:'一銅棒的長度為1.0m，以一端為軸心，每秒100/π轉的速度在均勻磁場內水平旋轉。已知磁場大小為2.0T，方向與水平成30°斜向下方，求銅棒兩端電位差為何？',
+think:['關鍵字「以一端為軸心」＋「水平旋轉」→ 這是轉動棒的動生電動勢，不是直線滑動，公式要用ΔV=(1/2)L²ωB，不是ε=BLv。','棒是在水平面內轉，能讓棒「掃過磁力線」產生電動勢的，只有垂直於水平面（也就是鉛直方向）的磁場分量，水平分量對這個旋轉沒有貢獻。','磁場方向與水平成30°斜向下方，要先取B的鉛直分量Bsin30°，這一步最容易漏掉，直接把2.0T整個代進去。','轉速要換算成角速度ω（弧度/秒），每秒100/π轉要乘2π才是ω，不是直接拿100/π當ω用。'],
+calc:['鉛直磁場分量：B⊥ = Bsin30° = 2.0×0.5 = 1.0T','角速度：ω = (100/π)×2π = 200 rad/s','ΔV = (1/2)L²ωB⊥ = (1/2)×1.0²×200×1.0 = 100V'],
+ans:'ΔV=100V',
+pitfall:'兩個坑最常見：①直接拿2.0T代入沒有先取sin30°分量；②轉速100/π(轉/秒)忘記乘2π換算成ω，兩個錯任一個答案就差好幾倍。',
+svg:'<svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><circle cx="60" cy="110" r="3" fill="currentColor" stroke="none"/><text x="30" y="130" font-size="12">軸心</text><line x1="60" y1="110" x2="200" y2="110" stroke-width="2"/><polygon points="200,110 189,105 189,115" fill="currentColor" stroke="none"/><text x="130" y="102" font-size="11">L=1.0m</text><ellipse cx="60" cy="110" rx="140" ry="34" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/><path d="M95,80 A45,45 0 0,1 118,92" stroke-width="1.2"/><text x="92" y="72" font-size="11">ω</text><line x1="30" y1="150" x2="230" y2="178" stroke-width="1.4" stroke-dasharray="5 3"/><polygon points="230,178 218,176 221,186" fill="currentColor" stroke="none"/><text x="150" y="196" font-size="11">B=2.0T(與水平30°)</text></svg>',
+svgCap:'銅棒以左端為軸心在水平面內旋轉，磁場B與水平面成30°夾角，只有鉛直分量Bsin30°對電動勢有貢獻。'},
+
+{id:'c16b2',ch:16,cat:'rod',sec:'不明',name:'動生電動勢．範例十一',type:'導體棒在雙電阻並聯的軌道上滑動，求棒上總電流',
+given:'如圖所示，一長度為40cm的直導線在0.4T、方向鉛直向下的均勻磁場中，以1.5m/s的等速度，在一固定的水平U形軌道上滑動。若直導線無電阻，而矩形導線上有25Ω與15Ω的A、B兩電阻器，則流經直導線的電流為何？',
+think:['關鍵字「等速滑動」＋「均勻磁場」→ 導線本身就相當於一顆電池，先用ε=BLv求出這根棒的電動勢。','兩個電阻A(25Ω)、B(15Ω)分別接在軌道的兩端，對這根動棒來說是並聯關係（電壓都等於ε），不是串聯。','並聯電路裡通過電源（也就是這根導線）的總電流，是兩個支路電流的「和」，不是取其中一個。','導線本身無電阻，所以ε就等於A、B兩電阻上的電壓，各自用歐姆定律求出IA、IB再相加。'],
+calc:['ε = LvB = 0.4×1.5×0.4 = 0.24V','IA = ε/RA = 0.24/25 = 9.6×10⁻³A','IB = ε/RB = 0.24/15 = 1.6×10⁻²A','導線上總電流 I = IA+IB = 9.6×10⁻³+1.6×10⁻² = 2.56×10⁻²A'],
+ans:'I≈2.56×10⁻²A',
+pitfall:'最容易搞混的是「並聯還是串聯」——A、B是接在導線兩端往外的兩條支路，對導線來說是並聯，導線電流要用IA+IB相加，不能誤當串聯只取其中一個電阻算電流。',
+svg:'<svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><rect x="60" y="30" width="180" height="100" stroke-width="1.6"/><g stroke-width="1" opacity=".6"><line x1="80" y1="40" x2="86" y2="46"/><line x1="80" y1="46" x2="86" y2="40"/><line x1="110" y1="40" x2="116" y2="46"/><line x1="110" y1="46" x2="116" y2="40"/><line x1="80" y1="70" x2="86" y2="76"/><line x1="80" y1="76" x2="86" y2="70"/><line x1="110" y1="70" x2="116" y2="76"/><line x1="110" y1="76" x2="116" y2="70"/><line x1="80" y1="100" x2="86" y2="106"/><line x1="80" y1="106" x2="86" y2="100"/><line x1="110" y1="100" x2="116" y2="106"/><line x1="110" y1="106" x2="116" y2="100"/></g><line x1="100" y1="30" x2="100" y2="130" stroke-width="2.4"/><text x="90" y="145" font-size="11">ab(40cm)</text><line x1="115" y1="80" x2="150" y2="80" stroke-width="1.2" marker-end="url(#a2)"/><text x="118" y="72" font-size="10">v=1.5m/s</text><rect x="60" y="20" width="14" height="14" stroke-width="1.2"/><text x="42" y="18" font-size="10">A25Ω</text><rect x="220" y="20" width="14" height="14" stroke-width="1.2"/><text x="222" y="18" font-size="10">B15Ω</text><defs><marker id="a2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'直導線ab在U形水平軌道上以1.5m/s滑動，磁場B鉛直向下(入紙面×)，A、B電阻並聯在軌道兩端。'},
+
+{id:'c16b3',ch:16,cat:'flux',sec:'不明',name:'磁通量變化．範例十二',type:'人造衛星隨軌道方向不同，是否切割磁力線、有無感應電流的概念題',
+given:'一個外殼以金屬製成之人造衛星沿赤道上空繞地球運行時是否會因地磁感應而產生感應電流？若是繞地球子午線(經過兩極上空)運行，則又如何？若能產生感應電流，則此種電流對該人造衛星之運行有何影響？',
+think:['關鍵字「是否產生感應電流」→ 這不是算數字的題目，是要判斷「穿過衛星的磁通量有沒有在變化」，有變化才有感應電流，這是法拉第定律的核心精神。','沿赤道上空繞行：衛星一直待在同一緯度、地磁大小與方向幾乎不變的環境中運動，相當於在均勻磁場內移動，磁通量不變，所以沒有感應電流。','繞子午線（經過兩極上空）運行：衛星會飛過磁場大小、方向都不同的緯度（赤道到兩極地磁差很多），穿過衛星的磁通量持續改變，所以會有感應電流。','有感應電流之後要接楞次定律：感應電流會生磁場，這個磁場與地磁交互作用會對衛星產生阻力，讓衛星力學能減少，才會影響軌道。'],
+calc:['沿赤道：磁場環境視為均勻不變 ⇒ dΦ/dt=0 ⇒ 無感應電流','沿子午線：地磁大小、方向隨緯度改變 ⇒ dΦ/dt≠0 ⇒ 有感應電流','感應電流生磁場與地磁作用生阻力 ⇒ 力學能E=－GMm/2r 減少 ⇒ 半徑r變小','半徑r變小，由環繞速率v=√(GM/r)可知r變小則v變大'],
+ans:'沿赤道無感應電流；沿子午線有感應電流，且會使衛星軌道半徑變小、速率變大',
+pitfall:'不要看到「衛星在磁場中運動」就直接認定一定有感應電流——關鍵永遠是「磁通量有沒有隨時間改變」，沿赤道雖然衛星在動，但相對磁場環境沒有變化，一樣沒有感應電流；另外「力學能減少」不代表衛星變慢，因為軌道半徑變小反而使速率變大，這點很反直覺容易答錯。',
+svg:''},
+
+{id:'c16b4',ch:16,cat:'flux',sec:'不明',name:'法拉第感應定律．範例十三',type:'兩同心線圈在同一變化磁場中，感應電流比的計算（面積比×電阻比）',
+given:'兩同心單匝線圈半徑比為3:1，電阻比也為3:1，則在圈內全部垂直穿透一個隨時間改變之磁場時，大、小兩線圈內的感應電流比為何？',
+think:['關鍵字「同心」＋「全部垂直穿透」→ 兩個線圈感受到的是同一個磁場、同一個dB/dt，差別只在線圈本身的面積和電阻不同。','先處理電動勢：ε=|dΦ/dt|=A×|dB/dt|，同一個dB/dt下，ε只跟面積A成正比，而A=πr²，所以要先把半徑比換算成面積比（要平方）。','半徑比3:1 ⇒ 面積比是3²:1²=9:1，這一步最容易忘記平方，直接把半徑比當面積比用。','最後電流I=ε/R，把面積比(電動勢比)和電阻比一起代入I=ε/R，才是最終的電流比，不能只看電動勢比就當答案。'],
+calc:['半徑比 r1:r2=3:1 ⇒ 面積比 A1:A2=3²:1²=9:1','同一dB/dt下，電動勢比 ε1:ε2 = A1:A2 = 9:1','電阻比 R1:R2=3:1','電流比 I1:I2 = (ε1/R1):(ε2/R2) = (9/3):(1/1) = 3:1'],
+ans:'I大:I小 = 3:1',
+pitfall:'最大的坑是半徑比忘記平方就直接當面積比／電動勢比用（誤把9:1算成3:1）；另一個坑是算完電動勢比就停下來，忘記還要除以各自的電阻才是電流比。',
+svg:'<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><circle cx="120" cy="110" r="80" stroke-width="1.6"/><circle cx="120" cy="110" r="27" stroke-width="1.6"/><text x="200" y="40" font-size="11">大圈(r1)</text><text x="128" y="90" font-size="10">小圈(r2)</text><g stroke-width="1.2"><line x1="60" y1="10" x2="60" y2="30" marker-end="url(#a4)"/><line x1="100" y1="5" x2="100" y2="25" marker-end="url(#a4)"/><line x1="140" y1="5" x2="140" y2="25" marker-end="url(#a4)"/><line x1="180" y1="10" x2="180" y2="30" marker-end="url(#a4)"/></g><text x="60" y="8" font-size="11">B(t)</text><defs><marker id="a4" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto"><path d="M0,0 L6,0 L3,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'大、小同心線圈半徑比3:1，磁場B(t)隨時間變化、垂直穿過整個線圈面。'},
+
+{id:'c16b5',ch:16,cat:'rod',sec:'不明',name:'動生電動勢．範例十四',type:'滑動導線棒在含電池電路中，動生反電動勢與電池共同決定電流與加速度',
+given:'右圖之裝置於一水平桌面上，已知電池ε=9.0伏特，電阻R=3歐姆，導線ab長為0.4公尺，其電阻為2歐姆，質量m=0.2公斤可左右自由滑動(與軌道無摩擦力)，所在之均勻磁場B=1.0T。求：(1)當導線ab之速度為向右10m/s，導線的瞬時加速度量值為何？(2)導線ab的最大速率為何？',
+think:['關鍵字「電池ε」＋「導線ab可自由滑動」→ 電路裡同時有電池的電動勢，也有ab棒因為運動產生的動生反電動勢，兩個電動勢要先看方向是相助還是相消。','ab棒運動會產生εL=LvB，這個反電動勢的方向由冷次定律決定，本題方向與電池相反，所以電路的淨電動勢是兩者相減(ε－εL)，不是相加。','(1)先求瞬時電流I=(ε－εL)/(R+r)，再用磁力F=BIL求安培力，最後a=F/m，這是「動生電動勢+電路」題的固定套路。','(2)問「最大速率」，要想到：沒有摩擦力，棒會一直加速到「淨電動勢為零、電流為零、安培力為零」的那一刻，也就是εL剛好追上ε，這才是終端(最大)速度。'],
+calc:['(1) εL = LvB = 0.4×10×1.0 = 4V','淨電動勢 = ε－εL = 9－4 = 5V，總電阻 = R+r = 3+2 = 5Ω','I = 5/5 = 1A ⇒ F = BIL = 1.0×1×0.4 = 0.4N ⇒ a = F/m = 0.4/0.2 = 2.0 m/s²','(2) 最大速率時 I=0 ⇒ εL=ε ⇒ L×vmax×B = 9 ⇒ 0.4×vmax×1.0 = 9 ⇒ vmax = 22.5 m/s'],
+ans:'(1) a=2.0 m/s²　(2) vmax=22.5 m/s',
+pitfall:'這題最大的坑是誤把電池電動勢和ab棒的反電動勢直接相加，要先判斷兩者方向（本題是相減）；另一個坑是把「最大速率」想成無限加速，其實沒有摩擦力時電磁阻力會讓棒趨近一個電流為零的等速終端狀態。',
+svg:'<svg viewBox="0 0 260 170" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><rect x="40" y="20" width="180" height="110" stroke-width="1.6"/><circle cx="40" cy="75" r="14" stroke-width="1.3"/><text x="28" y="79" font-size="12">ε</text><rect x="205" y="55" width="14" height="40" stroke-width="1.3"/><text x="222" y="78" font-size="11">R=3Ω</text><g stroke-width="1" opacity=".6"><line x1="90" y1="35" x2="96" y2="41"/><line x1="90" y1="41" x2="96" y2="35"/><line x1="130" y1="35" x2="136" y2="41"/><line x1="130" y1="41" x2="136" y2="35"/><line x1="90" y1="110" x2="96" y2="116"/><line x1="90" y1="116" x2="96" y2="110"/><line x1="130" y1="110" x2="136" y2="116"/><line x1="130" y1="116" x2="136" y2="110"/></g><line x1="110" y1="20" x2="110" y2="130" stroke-width="2.4"/><text x="96" y="145" font-size="11">ab(0.4m,2Ω)</text><line x1="120" y1="75" x2="155" y2="75" stroke-width="1.2" marker-end="url(#a5)"/><text x="120" y="68" font-size="10">v</text><defs><marker id="a5" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'電池ε經電阻R接到可滑動的導線ab，磁場B垂直穿入紙面(×)，ab以速度v向右滑動。'},
+
+{id:'c16b6',ch:16,cat:'rod',sec:'不明',name:'導體棒與軌道．範例十五',type:'U形軌道棒被吊掛重物拉動，求終端速度、最大電流與最大功率，並判斷各選項對錯',
+given:'水平面上有一寬度為L、長度很長的U型軌條，垂直軌條面有均勻磁場B向上。質量為m的金屬棒ab橫跨於軌條上，受鉛直所吊質量M物體作用由靜止開始移動，如圖所示；不考慮細繩及定滑輪及棒與軌條間的摩擦力，全部迴線電阻R集中在cd邊，棒ab移動一直維持與cd邊平行，不計空氣阻力，則下列何者正確？(A)迴線應電流為順時針方向 (B)最大應電流為Mg/BL (C)棒移動的終端速度vt為mgR/B²L² (D)最大生熱功率為M²g²R/B²L² (E)當棒移動的速度為v(v<vt)時，加速度a=B²vL²/mR。',
+think:['關鍵字「細繩經定滑輪吊掛M」＋「棒ab被拉動」→ ab棒和吊掛的M是同一條繩子連著一起加減速，寫牛頓第二定律時「系統總質量」要用M+m，不能只用m或只用M，這是這題最常見的坑。','先用ε=BLv、I=ε/R、F=BIL寫出安培力，安培力方向由冷次定律判斷一定是阻止棒加速（反抗運動），所以繩子這端合力是Mg－安培力。','看到「終端速度」「最大電流」「最大功率」關鍵字，都要想到同一件事：加速度=0的那一刻，也就是Mg剛好等於安培力的瞬間，把這個條件代進去解vt、Imax。','每個選項要各自檢查：(A)用冷次定律判方向；(B)(C)(D)在a=0的條件下代公式；(E)看它給的加速度公式分母有沒有用對「M+m」——這正是本題手寫訂正的重點。'],
+calc:['(A) ab向右移動使線圈面積增加、磁通量增加(向上)⇒感應磁場方向向下(反抗增加)⇒電流方向為順時針 ⇒ (A)正確','a=0(終端速度)時：Mg = Imax×L×B ⇒ Imax = Mg/(LB) ⇒ (B)正確','Imax = LvtB/R ⇒ Mg/(LB) = LvtB/R ⇒ vt = MgR/(L²B²)，分子是「M」不是選項(C)寫的「m」⇒ (C)錯誤','Pmax = Imax²×R = (Mg/LB)²×R = M²g²R/(L²B²)，與(D)相符 ⇒ (D)正確','(E) 正確的加速度應為 a=(Mg－B²vL²/R)/(M+m)，選項卻只除以m且沒有Mg這一項 ⇒ (E)錯誤'],
+ans:'正確選項為(A)(B)(D)',
+pitfall:'這題手寫解答有紅筆訂正：加速度公式的分母原本錯寫成m，訂正成(M+m)——只要牽涉到「棒與吊掛重物用繩子連動」，系統的慣性質量永遠是兩者相加，這是這一整類題最容易扣分的地方；另外(C)選項故意把M和m調換，讀題要看清楚每個字母指的是哪個物體。',
+svg:'<svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><rect x="40" y="30" width="150" height="100" stroke-width="1.6"/><text x="30" y="26" font-size="10">c</text><text x="182" y="26" font-size="10">d(電阻R)</text><line x1="100" y1="30" x2="100" y2="130" stroke-width="2.4"/><text x="90" y="145" font-size="11">ab</text><g stroke-width="1" opacity=".6"><circle cx="65" cy="55" r="2.2" fill="currentColor" stroke="none"/><circle cx="65" cy="105" r="2.2" fill="currentColor" stroke="none"/><circle cx="150" cy="55" r="2.2" fill="currentColor" stroke="none"/><circle cx="150" cy="105" r="2.2" fill="currentColor" stroke="none"/></g><text x="205" y="55" font-size="10" opacity=".7">B向上(⊙)</text><line x1="100" y1="30" x2="100" y2="10" stroke-width="1.2"/><circle cx="100" cy="8" r="4" stroke-width="1.2"/><line x1="104" y1="8" x2="240" y2="8" stroke-width="1"/><line x1="240" y1="8" x2="240" y2="60" stroke-width="1"/><rect x="230" y="60" width="20" height="20" stroke-width="1.3"/><text x="228" y="95" font-size="10">M</text></svg>',
+svgCap:'棒ab橫跨水平U形軌道，磁場B向上穿出紙面(⊙)，繩子經定滑輪吊掛質量M拉動ab，迴路電阻R集中在cd邊。'},
+
+{id:'c16b7',ch:16,cat:'rod',sec:'不明',name:'導體棒與軌道．範例十六',type:'導體棒在傾斜光滑U形軌道上滑下，磁場鉛直向上，求最大(終端)速度',
+given:'如圖所示，在鉛直向上的均勻磁場B中，一質量為m、電阻為R的金屬棒，自靜止開始沿無電阻、傾斜角θ、間距為L的光滑U型軌道上滑下，設軌道足夠長，則金屬棒所能獲得的最大速度為何？',
+think:['關鍵字「鉛直向上磁場」＋「傾斜軌道」→ 棒沿斜面運動，跟鉛直的B不垂直，這種「磁場方向和運動方向不垂直」的題型，要先想清楚兩者夾角是多少，不能直接套ε=BLv。','棒沿斜面下滑的速度v和鉛直磁場B的夾角是(90°+θ)，所以有效的電動勢要乘上sin(90°+θ)=cosθ，這是這章最容易漏乘的一步。','安培力F=BIL的方向也不是正好沿斜面，要再把它投影回斜面方向（多乘一次cosθ），所以力平衡式裡安培力那一項是F_Bcosθ，不是F_B。','「棒所能獲得的最大速度」＝終端速度＝沿斜面方向合力為零的那一刻，把mgsinθ＝F_Bcosθ這條式子列出來解vmax，是這類「反抗力隨速度變大」題目的共同套路。'],
+calc:['感應電流 I = ε/R = LvBsin(90°+θ)/R = LvBcosθ/R','安培力 F_B = BIL = L²vB²cosθ/R，其沿斜面分量為 F_Bcosθ = L²vB²cos²θ/R','力平衡（沿斜面）：mgsinθ = F_Bcosθ ⇒ mgsinθ = L²vmaxB²cos²θ/R','解得 vmax = mgRsinθ/(L²B²cos²θ)'],
+ans:'vmax = mgRsinθ/(L²B²cos²θ)',
+pitfall:'這題的核心是兩次cosθ：一次是算電動勢時磁場與速度的夾角要用sin(90°+θ)=cosθ，另一次是安培力要投影回斜面方向又乘一次cosθ，很多人只乘一次就直接套進mgsinθ=F_B，答案會多一個cosθ的誤差。',
+svg:'<svg viewBox="0 0 280 190" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><polygon points="30,170 250,170 250,90" stroke-width="1.6"/><line x1="60" y1="150" x2="150" y2="112" stroke-width="2.4"/><text x="80" y="105" font-size="11">金屬棒(L)</text><g stroke-width="1.2"><line x1="90" y1="40" x2="90" y2="70" marker-end="url(#a7)"/><line x1="140" y1="30" x2="140" y2="60" marker-end="url(#a7)"/><line x1="190" y1="25" x2="190" y2="55" marker-end="url(#a7)"/></g><text x="150" y="20" font-size="11">B(鉛直向上)</text><path d="M60,170 A35,35 0 0,1 90,145" stroke-width="1.1"/><text x="60" y="160" font-size="11">θ</text><defs><marker id="a7" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto"><path d="M0,0 L6,0 L3,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'金屬棒沿傾角θ的光滑U型軌道下滑，磁場B鉛直向上，軌道間距為L。'},
+
+{id:'c16b8',ch:16,cat:'rod',sec:'不明',name:'導體棒與軌道．範例十七',type:'斜面U形軌道棒被砝碼經定滑輪拉動上移，分階段求初始加速度、終端速度、最大電動勢與最大功率',
+given:'如圖所示，一水平導線ab的電阻為0.50Ω，被一細線通過定滑輪掛砝碼而拉之，使其沿U形導線框之兩平行軌道上移，軌道面與水平夾角為30°。一均勻磁場B=0.50T，方向垂直向上，若ab棒質量為50g、長度為20cm，砝碼質量為100g，不計一切阻力及U形框電阻，求ab棒的：(g=9.8m/s²)(1)導線ab最大加速度量值為何？(2)導線ab最大速度量值為何？(3)導線ab最大感應電動勢為何？(4)導線ab最大消耗電功率為何？',
+think:['關鍵字「剛開始拉動」→ 第(1)問問的是「最大加速度」，要想到最大加速度發生在v=0的瞬間，因為這時還沒有感應電流，沒有安培力阻礙，之後安培力只會讓加速度變小，所以第一瞬間就是全程加速度最大值。','這題跟範例十六是同一個家族：棒沿斜面移動、磁場鉛直向上，所以電動勢、安培力都要記得乘cosθ的投影，套路一模一樣，差別是這裡多了「砝碼經定滑輪拉」，系統質量一樣要用(M+m)。','第(2)問「最大速度」＝終端速度，條件同範例十六：沿斜面方向合力為零，把砝碼重力、棒的重力分量、安培力分量三者放進同一條平衡式解vmax。','第(3)(4)問是拿到vmax之後的下游計算——先算最大電動勢εmax=LvmaxBcosθ，再算最大功率Pmax=εmax²/R，這兩步只是代公式，不是新的物理概念，不要想太複雜。'],
+calc:['(1) v=0時無感應電流無安培力：a = (Mg－mgsin30°)/(M+m) = (0.1×9.8－0.05×9.8×0.5)/(0.1+0.05) = 4.9 m/s²','(2) 終端速度時合力為零：Mg－mgsin30° = F_Bmax cos30°，F_Bmax = εmax LB/R = (Lvmax cos30°×B)×LB/R','代入數值解得 vmax = (Mg－mgsin30°)×R/(L²B²cos²30°) = 49 m/s','(3) εmax = L×vmax×Bcos30° = 0.2×49×0.5×(√3/2) ≈ 4.2V','(4) Pmax = εmax²/R = 4.2²/0.50 = 35W'],
+ans:'(1) a=4.9 m/s²　(2) vmax=49 m/s　(3) εmax≈4.2V　(4) Pmax=35W',
+pitfall:'第(1)問最容易誤會成要套安培力公式，其實t=0時v=0根本沒有感應電流，是全題唯一「不用管磁場」的一問；第(2)問跟範例十六一樣，電動勢和安培力都要記得乘cos30°的投影，漏乘會讓後面三小題全部連環錯。',
+svg:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><polygon points="30,180 270,180 270,60" stroke-width="1.6"/><line x1="70" y1="155" x2="180" y2="105" stroke-width="2.4"/><text x="90" y="98" font-size="11">ab(0.05kg,0.2m)</text><g stroke-width="1.1"><line x1="100" y1="20" x2="100" y2="50" marker-end="url(#a8)"/><line x1="150" y1="15" x2="150" y2="45" marker-end="url(#a8)"/></g><text x="160" y="15" font-size="10">B=0.5T</text><path d="M60,180 A30,30 0 0,1 85,158" stroke-width="1"/><text x="58" y="170" font-size="11">30°</text><circle cx="270" cy="60" r="7" stroke-width="1.2"/><line x1="180" y1="105" x2="263" y2="63" stroke-width="1"/><line x1="277" y1="63" x2="277" y2="110" stroke-width="1"/><rect x="267" y="110" width="20" height="20" stroke-width="1.3"/><text x="260" y="145" font-size="10">砝碼100g</text><defs><marker id="a8" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto"><path d="M0,0 L6,0 L3,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'導線ab沿傾角30°的U形軌道被繩子經定滑輪連接的砝碼向上拉動，磁場B=0.50T垂直向上。'},
+
+{id:'c16b9',ch:16,cat:'rod',sec:'不明',name:'導體棒與軌道．範例十八',type:'可變電壓源＋摩擦力＋磁場的平行四邊形迴路，求下滑臨界電壓與等速上滑速度',
+given:'右圖中可變電壓V與仰角θ的金屬軌條串接，質量為M、長度為ℓ的金屬棒ab可在軌條上滑動而形成一封閉的平行四邊形迴路，整個裝置除ab與電阻R之外，其餘皆無電阻，今施一鉛直向上的均勻磁場B，軌條的靜摩擦係數為μs(μs<tanθ)，動摩擦係數為μK，則：(1)當V調低到V1時，ab開始沿軌條下滑，求V1為何？(2)當V調高到V2時，ab可沿軌條等速上滑，求此時之速度量值？',
+think:['關鍵字「可變電壓V」＋「開始下滑」→ 這一瞬間ab棒速度仍是0，代表電路裡完全沒有動生反電動勢，電流純粹由電池電壓V1決定，I=V1/R，這一步不能忘。','因為磁場B是鉛直向上、棒卻在斜面上，安培力F_B不會剛好沿斜面，要拆成沿斜面分量(F_Bcosθ)和垂直斜面分量(F_Bsinθ)；垂直分量會加進正向力N裡，影響摩擦力大小，這是這題和前面幾題最大的不同。','(1)問「即將下滑」代表靜摩擦力已達最大值μsN且方向沿斜面向上（阻止下滑）；把重力分量、安培力分量、摩擦力三者列進沿斜面的平衡式，解V1。','(2)問「等速上滑」，這時候v≠0，要多加一項動生反電動勢(ℓvcosθB)，而且摩擦力方向反過來(沿斜面向下阻止上滑)，動摩擦係數也換成μK；先列受力平衡式解出F_B，再回頭用電流式反解v。'],
+calc:['(1) I=V1/R ⇒ F_B=ℓBV1/R；沿斜面平衡：Mgsinθ = F_Bcosθ + μs(Mgcosθ+F_Bsinθ)','整理：Mg(sinθ－μscosθ) = (ℓBV1/R)(cosθ+μssinθ) ⇒ V1 = (tanθ－μs)/(1+μstanθ) × MgR/(ℓB)','(2) 電流 i=(V2－ℓvcosθB)/R，沿斜面平衡：F_Bcosθ = Mgsinθ + μK(Mgcosθ+F_Bsinθ)','整理得 F_B = (tanθ+μK)/(1－μKtanθ) × Mg，代回i的關係式反解v','v = V2/(ℓBcosθ) － (μK+tanθ)/(1－μKtanθ) × MgR/(ℓ²B²cosθ)'],
+ans:'V1 = (tanθ－μs)/(1+μstanθ) × MgR/(ℓB)；v = V2/(ℓBcosθ) － (μK+tanθ)/(1－μKtanθ) × MgR/(ℓ²B²cosθ)',
+pitfall:'這題最容易漏掉的是「正向力N不是單純Mgcosθ」——因為磁場鉛直、棒在斜面上，安培力有一個分量會壓進斜面(F_Bsinθ)，這個分量要加進N裡才能算對摩擦力，很多人直接用N=Mgcosθ整題就錯；另外(1)是v=0(純電池驅動)，(2)是v≠0(要扣掉反電動勢)，兩問的電流算法完全不同，不要套錯。',
+svg:'<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"><style>text{fill:currentColor;font-family:sans-serif;stroke:none;}</style><polygon points="30,180 270,180 270,70" stroke-width="1.6"/><line x1="70" y1="160" x2="160" y2="115" stroke-width="2.4"/><text x="90" y="108" font-size="11">ab(M,ℓ,R)</text><rect x="35" y="145" width="16" height="14" stroke-width="1.2"/><text x="18" y="143" font-size="10">V</text><g stroke-width="1.1"><line x1="110" y1="25" x2="110" y2="55" marker-end="url(#a9)"/><line x1="160" y1="20" x2="160" y2="50" marker-end="url(#a9)"/></g><text x="170" y="20" font-size="10">B(鉛直向上)</text><path d="M55,180 A28,28 0 0,1 78,160" stroke-width="1"/><text x="55" y="170" font-size="11">θ</text><defs><marker id="a9" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto"><path d="M0,0 L6,0 L3,6 z" fill="currentColor"/></marker></defs></svg>',
+svgCap:'可變電壓V經軌條連接可滑動的棒ab，形成斜面上的平行四邊形迴路，磁場B鉛直向上，仰角θ。'}
+];
+const QUIZ = [
+{ch:15,q:'一條長直導線與一個半徑同為r的圓形線圈都通有相同電流i，若要比較「導線外距離r處」與「圓形線圈圓心」的磁場大小，下列敘述何者正確？',opts:['長直導線處磁場較大，是圓心處的π倍','兩處磁場大小相等','圓形線圈圓心處磁場較大，是長直導線處的π倍','兩處都沒有磁場'],ans:2,exp:'長直導線B=μ₀i/(2πR)，圓形線圈圓心B=μ₀i/(2r)，同樣半徑時，圓心少除一個π，所以磁場是導線處的π倍，圓心磁場較大。最容易選兩者相等，誤以為兩式形式相近大小就一樣，忽略了分母差一個π。'},
+{ch:15,q:'一個長螺線管總共繞了500匝，管長2公尺，通以電流i，下列哪一個是計算管內磁場B=μ₀ni正確代入的n值？',opts:['n=250（每公尺250匝）','n=500（直接用總匝數）','n=1000','n=2'],ans:0,exp:'B=μ₀ni的n是「單位長度匝數」，等於總匝數除以管長，500除以2等於250匝/公尺。最容易選直接代500，忘記n必須先除以管長才能用。'},
+{ch:15,q:'關於安培力F=BiLsinθ與勞侖茲力F=qvBsinθ，下列敘述何者正確？',opts:['兩者都是計算一段導線受力，只是符號不同','安培力的θ是導線與地面的夾角','勞侖茲力可以對電荷做功，因為它會使粒子加速','安培力的對象是一段載流導線，L是導線長度；勞侖茲力的對象是單一帶電粒子，v是粒子速度'],ans:3,exp:'安培力算的是一整段電流導線受的磁力，代入導線長度L；勞侖茲力算的是單一帶電粒子受的磁力，代入粒子速度v。最容易選勞侖茲力會做功，但勞侖茲力恆垂直於v，不作功，只改變方向不改變速率。'},
+{ch:15,q:'一帶電粒子以速率v垂直射入磁場B中做圓周運動，若其他條件不變，只把速率增加為原本的2倍，迴旋半徑r會如何變化？',opts:['變為原本的1/2倍','變為原本的2倍','不變','變為原本的4倍'],ans:1,exp:'r=mv/(qB)，r與v成正比，速率變2倍半徑也跟著變2倍。最容易選不變，把「週期T與速率無關」的性質誤套到半徑上。'},
+{ch:15,q:'承上題，若粒子速率增加為原本的2倍，繞完一整圈所需的週期T會如何變化？',opts:['變為原本的2倍','變為原本的1/2倍','不變','變為原本的4倍'],ans:2,exp:'T=2πm/(qB)，式子裡沒有v，速率改變不影響週期，粒子跑快跑慢繞一圈時間都一樣。最容易選變為2倍，誤以為速率變快週期也跟著變快。'},
+{ch:15,q:'一帶電粒子只受磁場的勞侖茲力作用而做圓周運動，經過半圈後，下列敘述何者正確？',opts:['速率不變，但方向已反轉180度','速率變為原本的一半','動能增加','動能減少'],ans:0,exp:'勞侖茲力恆垂直於速度方向，不對粒子做功，所以速率（動能）全程不變，只有方向持續改變，繞半圈後方向剛好相反。最容易選動能改變，誤以為磁場對粒子有加速或減速效果。'},
+{ch:15,q:'一條長直導線中電流方向沿紙面向上，用右手定則判斷導線右側一點的磁場方向為何？',opts:['穿出紙面','指向導線方向','沒有磁場','穿入紙面'],ans:3,exp:'用右手定則，拇指指電流方向（向上），四指彎曲方向就是磁場環繞方向；導線右側對應的彎曲方向指向紙面內，所以磁場穿入紙面。最容易選穿出紙面，把左右兩側該對應的方向弄反了。'},
+{ch:15,q:'兩條平行長直導線相距一定距離，若兩者電流方向相同，彼此之間的作用力是？',opts:['互相排斥','互相吸引','沒有作用力','方向不確定，需視電流大小而定'],ans:1,exp:'電流方向相同的兩條平行導線會互相吸引，方向相反則互相排斥，可用一條導線的磁場對另一條導線電流的安培力公式驗證。最容易選互相排斥，把「同性相斥」的靜電直覺套用到電流上，但磁力的規則正好相反。'},
+{ch:15,q:'計算線圈力矩τ=NiABsinθ時，θ指的是下列哪一個夾角？',opts:['線圈平面與磁場B的夾角','電流方向與磁場B的夾角','線圈法線（垂直線圈平面的向量）與磁場B的夾角','線圈平面與地面的夾角'],ans:2,exp:'τ=NiABsinθ的θ是「線圈法線」與B的夾角，跟線圈平面本身的夾角恰好相差90度。最容易選線圈平面與B的夾角，把法線和平面搞混，導致sinθ、cosθ用反。'},
+{ch:15,q:'一帶電粒子的速度與磁場方向夾60度角射入磁場中，其運動軌跡為何？',opts:['螺旋運動，且平行磁場方向的分量等速前進','直線運動','純圓周運動','螺旋運動，但速率持續增加'],ans:0,exp:'把速度分解成平行B與垂直B兩個分量：垂直分量產生圓周運動，平行分量因為與B夾角為0而不受磁力，所以等速前進，合起來就是螺旋運動。最容易選速率持續增加，誤以為磁場會讓粒子越轉越快。'},
+{ch:16,q:'一個線圈放在很強的均勻磁場中，磁場強度很大但完全靜止不變，線圈本身也靜止不動，此時線圈中有沒有感應電動勢？',opts:['有，因為磁通量Φ很大','有，但很微弱','無法判斷，要看線圈的電阻','沒有，因為磁通量沒有隨時間改變'],ans:3,exp:'感應電動勢ε=−NΔΦ/Δt看的是磁通量變化的速率，不是磁通量本身的大小；Φ再大，只要不隨時間改變，就完全沒有感應電動勢。最容易選有，因為Φ很大，這是本章最常見的誤解。'},
+{ch:16,q:'一個線圈平面與磁場B互相垂直（線圈平面本身垂直於B），此時穿過線圈的磁通量Φ=BAcosθ中，θ應該代入多少度？',opts:['90度','0度','45度','180度'],ans:1,exp:'Φ公式裡的θ是「線圈法線」與B的夾角，不是線圈平面與B的夾角。線圈平面垂直於B，代表法線平行於B，所以θ=0，cosθ=1，磁通量最大。最容易選90度，誤把「平面垂直於B」直接當成θ=90度代入，忘記θ是對法線而非平面量的。'},
+{ch:16,q:'一根磁棒N極朝下，正快速靠近一個水平放置的線圈（磁棒在線圈上方往下插入），從上方俯視線圈，感應電流的方向為何？',opts:['順時針（從上方俯視）','沒有感應電流，因為磁棒還沒接觸線圈','逆時針（從上方俯視）','電流方向在磁棒抵達線圈中心前後會忽然反轉'],ans:2,exp:'磁棒N極向下插入，穿過線圈向下的磁通量持續增加；楞次定律要求感應電流反抗這個增加，所以要在線圈內部產生向上的磁場來抵消，用右手定則回推，從上方俯視電流方向是逆時針。最容易選順時針，只看磁棒N極朝下就直覺判斷，忘記要先問磁通量的變化方向。'},
+{ch:16,q:'使用公式ε=BLv計算導體棒的動生電動勢時，下列哪個條件是必要的？',opts:['B、L、v三者必須互相垂直','導體棒必須是超導體','磁場必須隨時間變化','導體棒的電阻必須為零'],ans:0,exp:'ε=BLv是簡化公式，只有在磁場B、導體棒長度方向L、運動方向v三者互相垂直時才能直接相乘，若v與B不垂直要先取垂直分量代入。最容易選磁場必須隨時間變化，但動生電動勢是靠導體棒運動切割磁場線產生的，磁場本身可以固定不變。'},
+{ch:16,q:'一根導體棒在光滑水平軌條上因外力而加速運動，軌道所在平面有均勻磁場垂直穿過。導體棒最終會達到「終端速度」，此時的條件是？',opts:['導體棒的加速度最大','磁通量變化率達到最大值','導體棒的電阻變為零','外力與感應電流產生的安培力大小相等、方向相反，合力為零'],ans:3,exp:'感應電流產生的安培力方向永遠反抗導體棒的運動，當外力被這個反抗力剛好抵消、合力為零時，導體棒不再加速、以固定速度前進，這就是終端速度。最容易選加速度最大，但終端速度時加速度其實是零。'},
+{ch:16,q:'交流發電機的線圈以角速度ω在磁場中等速轉動，感應電動勢ε=NABω·sin(ωt)的最大值出現在線圈平面與磁場的相對位置為何？',opts:['線圈平面與磁場B垂直的瞬間（此時磁通量Φ最大）','線圈平面與磁場B平行的瞬間（此時磁通量Φ=0）','磁通量Φ與電動勢ε同時達到最大值的瞬間','線圈完全靜止的瞬間'],ans:1,exp:'ε是Φ對時間的變化率，Φ=NABcos(ωt)在最大值時曲線是水平的、變化率反而是零；ε最大值出現在Φ=0的瞬間，也就是線圈平面與磁場平行的時候，磁通量變化最快。最容易選磁通量最大的瞬間，誤以為兩者同時最大，但其實差了90度。'},
+{ch:16,q:'一個理想變壓器，初級線圈100匝、次級線圈400匝，若初級電流為8安培，次級電流應該是多少？',opts:['2安培','32安培','8安培','400安培'],ans:0,exp:'理想變壓器電流比跟圈數比反向，I₁/I₂=N₂/N₁，所以I₂=I₁×(N₁/N₂)=8×(100/400)=2安培。最容易選32安培，把電壓比同向的規則套用到電流上，方向抓反了。'},
+{ch:16,q:'一個線圈的電感為L，若通過它的電流在0.1秒內從2安培變化到6安培，下列敘述何者正確？',opts:['自感電動勢大小與電流變化的快慢無關，只跟電感L有關','電流變化速率越慢，自感電動勢反而越大','自感電動勢大小為L乘以(4除以0.1)等於40L，方向會反抗電流的增加','自感電動勢只在電流減少時才會產生'],ans:2,exp:'自感電動勢ε=−LΔI/Δt，ΔI=6−2=4安培，Δt=0.1秒，代入得大小為40L，負號表示方向會反抗電流的增加、阻礙電流變大。最容易選只跟電感L有關，忽略了ΔI/Δt這個變化率才是決定大小的關鍵。'}
+];
+
+/* ===== localStorage 安全包裝 ===== */
+function lsGet(key, fallback){
+  try{ const v = localStorage.getItem(key); return v===null? fallback : JSON.parse(v); }
+  catch(e){ return fallback; }
+}
+function lsSet(key, val){
+  try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){}
+}
+
+/* ===== 分頁切換 ===== */
+document.querySelectorAll('nav.tabbar button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('nav.tabbar button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('section.page').forEach(s=>s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.page).classList.add('active');
+    window.scrollTo(0,0);
+  });
+});
+
+/* ===== 範例渲染 ===== */
+const CAT_NAME = {field:'磁場計算', force:'安培力', torque:'線圈力矩', lorentz:'勞侖茲力',
+                  flux:'法拉第定律', lenz:'楞次定律', rod:'動生電動勢', ac:'交流與變壓器'};
+const CH_CATS = {15:['field','force','torque','lorentz'], 16:['flux','lenz','rod','ac']};
+const CH_NAME = {15:'第15章', 16:'第16章'};
+function exCh(e){ return e.ch || 15; }   /* 15章的舊資料沒有 ch 欄位，預設 15 */
+let currentCat = 'all';
+let currentCh = 'all';
+const marks = lsGet('phys15_marks', {});
+
+function renderExamples(){
+  const list = document.getElementById('example-list');
+  list.innerHTML = '';
+  const items = EXAMPLES.filter(e =>
+    (currentCh==='all' || String(exCh(e))===currentCh) &&
+    (currentCat==='all' || e.cat===currentCat));
+  items.forEach(ex=>{
+    const card = document.createElement('div');
+    card.className = 'excard';
+    card.id = 'ex-'+ex.id;
+    const mark = marks[ex.id];
+    let svgHtml = '';
+    if(ex.svg){
+      svgHtml = '<div class="exdiag">'+ex.svg+'<div class="cap">'+(ex.svgCap||'')+'</div></div>';
+    }
+    card.innerHTML = `
+      <div class="exhead">
+        <div>
+          <div class="t">${ex.name}</div>
+          <div class="meta">${CH_NAME[exCh(ex)]}｜${CAT_NAME[ex.cat]||ex.cat}｜${ex.type}</div>
+        </div>
+        <div class="arrow">▾</div>
+      </div>
+      <div class="exbody">
+        <div class="exsec"><div class="lab">題目</div><div class="given">${ex.given}</div></div>
+        ${svgHtml}
+        <div class="exsec"><div class="lab">思考過程</div><div class="think"><ol>${ex.think.map(t=>'<li>'+t+'</li>').join('')}</ol></div></div>
+        <div class="exsec"><div class="lab">計算過程</div><div class="calc">${ex.calc.map(c=>'<div class="line">'+c+'</div>').join('')}</div></div>
+        <div class="exsec"><div class="lab">答案</div><div class="answer">${ex.ans}</div></div>
+        <div class="exsec"><div class="lab">容易錯在哪</div><div class="pitfall"><b>注意：</b>${ex.pitfall}</div></div>
+        <div class="exfoot">
+          <button class="markbtn seenbtn ${mark==='seen'?'on-seen':''}">看懂了</button>
+          <button class="markbtn stuckbtn ${mark==='stuck'?'on-stuck':''}">還是不懂</button>
+        </div>
+      </div>`;
+    const head = card.querySelector('.exhead');
+    head.addEventListener('click', ()=> card.classList.toggle('open'));
+    card.querySelector('.seenbtn').addEventListener('click', (e)=>{
+      e.stopPropagation();
+      marks[ex.id] = marks[ex.id]==='seen' ? null : 'seen';
+      lsSet('phys15_marks', marks);
+      renderExamples();
+      updateProgress();
+    });
+    card.querySelector('.stuckbtn').addEventListener('click', (e)=>{
+      e.stopPropagation();
+      marks[ex.id] = marks[ex.id]==='stuck' ? null : 'stuck';
+      lsSet('phys15_marks', marks);
+      renderExamples();
+      updateProgress();
+    });
+    list.appendChild(card);
+  });
+}
+function updateProgress(){
+  const scope = EXAMPLES.filter(e => currentCh==='all' || String(exCh(e))===currentCh);
+  const ids = scope.map(e=>e.id);
+  const seen = ids.filter(id=>marks[id]==='seen').length;
+  const stuck = ids.filter(id=>marks[id]==='stuck').length;
+  const label = currentCh==='all' ? '兩章合計' : CH_NAME[currentCh];
+  document.getElementById('progress-text').textContent =
+    `${label} 共 ${scope.length} 題．已看懂 ${seen}．還不懂 ${stuck}`;
+}
+function renderCatbar(){
+  const bar = document.getElementById('catbar');
+  let cats;
+  if(currentCh==='all'){ cats = CH_CATS[15].concat(CH_CATS[16]); }
+  else { cats = CH_CATS[currentCh].slice(); }
+  /* 只留下真的有題目的題型，避免按了卻空白 */
+  cats = cats.filter(c => EXAMPLES.some(e => e.cat===c &&
+           (currentCh==='all' || String(exCh(e))===currentCh)));
+  if(cats.indexOf(currentCat)===-1) currentCat = 'all';
+  bar.innerHTML = '<button data-cat="all"' + (currentCat==='all'?' class="active"':'') + '>全部</button>' +
+    cats.map(c=>'<button data-cat="'+c+'"'+(currentCat===c?' class="active"':'')+'>'+CAT_NAME[c]+'</button>').join('');
+}
+document.getElementById('catbar').addEventListener('click', (e)=>{
+  if(e.target.tagName!=='BUTTON') return;
+  currentCat = e.target.dataset.cat;
+  renderCatbar();
+  renderExamples();
+});
+document.getElementById('chbar').addEventListener('click', (e)=>{
+  if(e.target.tagName!=='BUTTON') return;
+  document.querySelectorAll('#chbar button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  currentCh = e.target.dataset.ch;
+  currentCat = 'all';
+  renderCatbar();
+  renderExamples();
+  updateProgress();
+});
+
+/* ===== 自我檢測 ===== */
+function renderQuiz(){
+  const list = document.getElementById('quiz-list');
+  list.innerHTML = '';
+  QUIZ.forEach((q, qi)=>{
+    const card = document.createElement('div');
+    card.className = 'qcard';
+    card.innerHTML = `<div class="qtext">${qi+1}. ${q.q}</div>` +
+      q.opts.map((op,oi)=>`<button class="qopt" data-qi="${qi}" data-oi="${oi}">${op}</button>`).join('') +
+      `<div class="qexp" id="qexp-${qi}">${q.exp}</div>`;
+    list.appendChild(card);
+  });
+  list.querySelectorAll('.qopt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const qi = +btn.dataset.qi, oi = +btn.dataset.oi;
+      const q = QUIZ[qi];
+      const card = btn.closest('.qcard');
+      if(card.dataset.answered) return;
+      card.dataset.answered = '1';
+      card.querySelectorAll('.qopt').forEach((b,i)=>{
+        if(i===q.ans) b.classList.add('correct');
+        else if(i===oi) b.classList.add('wrong');
+      });
+      document.getElementById('qexp-'+qi).classList.add('show');
+    });
+  });
+}
+document.getElementById('quiz-reset').addEventListener('click', renderQuiz);
+
+renderCatbar();
+renderExamples();
+updateProgress();
+renderQuiz();
+</script>
+</body>
+</html>
