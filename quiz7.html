@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="build-id" content="20260926164501">
+<meta name="build-id" content="20260926165556">
 <title>Glossary P3（9/26-10/3）</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
 <style>
@@ -153,7 +153,7 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
    若使用者正在輸入答案（文字輸入框有內容），先不重整，等下一次檢查再試。 */
 (function(){
 try{
-  var BUILD_ID = "20260926164501";
+  var BUILD_ID = "20260926165556";
   var CHECK_INTERVAL_MS = 60000;
   var RELOAD_TARGET_KEY = 'q7_reload_target';
   var SKIP_HIT_KEY = 'q7_skip_hit_once';
@@ -685,8 +685,8 @@ function subtitleText(){
     var uniq = {}, un = 0;
     WORDS.forEach(function(w){ if(w.word && !uniq[w.word]){ uniq[w.word]=1; un++; } });
     var wtxt = (un===WORDS.length) ? ('共 '+WORDS.length+' 個單字')
-             : ('共 '+un+' 個單字・'+WORDS.length+' 個意思（一字多義已合併）');
-    return wtxt+'・GSAT/AST GLOSSARY PART III';
+             : ('共 '+un+' 個單字・'+WORDS.length+' 個意思');
+    return wtxt;
   }
   if(state.cat==='phrase') return '共 '+PHRASES.length+' 個片語・DORRIS ENGLISH PHRASES（A34-65・B1-16）';
   return '共 '+ROOT_WORDS.length+' 個字根單字・'+ROOT_NAMES.length+' 個字根（'+ROOT_NAMES.join('/')+'）';
