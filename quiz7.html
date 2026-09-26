@@ -7,8 +7,8 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="build-id" content="20260926133415">
-<title>本週小考 9/26</title>
+<meta name="build-id" content="20260926164501">
+<title>Glossary P3（9/26-10/3）</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
 <style>
 :root{
@@ -153,7 +153,7 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
    若使用者正在輸入答案（文字輸入框有內容），先不重整，等下一次檢查再試。 */
 (function(){
 try{
-  var BUILD_ID = "20260926133415";
+  var BUILD_ID = "20260926164501";
   var CHECK_INTERVAL_MS = 60000;
   var RELOAD_TARGET_KEY = 'q7_reload_target';
   var SKIP_HIT_KEY = 'q7_skip_hit_once';
@@ -230,6 +230,8 @@ var DATA = {"words": [{"page": 129, "word": "Austrian", "phonetic": "[ˈɔstrɪ�
 "use strict";
 var WORDS = (DATA && DATA.words) ? DATA.words : [];
 var PHRASES = (DATA && DATA.phrases) ? DATA.phrases : [];
+var VTAG = (function(){ try{ var m=location.search.match(/[?&]v=([A-Za-z0-9]{1,12})/); return m?m[1]:''; }catch(e){ return ''; } })();
+var VLINE = { rsyq: '我哪次一定要比你高' };
 var ROOT_GROUPS = (DATA && DATA.roots) ? DATA.roots : [];
 WORDS.forEach(function(w){ w.cat='word'; });
 PHRASES.forEach(function(p){ p.cat='phrase'; });
@@ -627,7 +629,7 @@ function renderTopbar(){
       '<button class="mitem" data-act="start-cards">🃏 字卡</button>'+
       '<button class="mitem" data-act="home">📋 回單字清單</button>';
   }
-  return '<div class="topbar"><div class="ttl">本週小考 9/26</div>'+
+  return '<div class="topbar"><div class="ttl">Glossary P3（9/26-10/3）</div>'+
     '<div class="menuwrap"><button class="menubtn" id="menuBtn" aria-label="選單">⋯</button>'+
     '<div class="menudrop" id="menuDrop"'+(state.menuOpen?'':' hidden')+'>'+dropInner+'</div></div></div>';
 }
@@ -763,6 +765,7 @@ function renderList(){
   return ''+
   resumeHtml+
   '<p class="sub" style="margin-top:0">'+subtitleText()+'</p>'+
+  (VLINE[VTAG] ? '<p class="sub" style="margin-top:0">'+esc(VLINE[VTAG])+'</p>' : '')+
   '<input class="searchbox" id="searchBox" type="search" placeholder="搜尋…" value="'+esc(state.search)+'">'+
   '<div class="chiprow">'+catChips+'</div>'+
   secondaryHtml+
