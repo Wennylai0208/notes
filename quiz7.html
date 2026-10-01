@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="build-id" content="20260926165820">
+<meta name="build-id" content="20261002071308">
 <title>Glossary P3（9/26-10/3）</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
 <style>
@@ -61,7 +61,7 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
 .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .lab{font-size:.79em;color:var(--tx3);font-weight:650;margin:4px 0 8px;letter-spacing:.4px}
 .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.wcell{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 10px 10px;min-width:0}
+.wcell{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 10px 10px;min-width:0;position:relative}
 .wcell b{font-weight:750;font-size:1em;word-break:break-word}
 .wcell .pg{color:var(--tx3);font-size:.68em;font-weight:700;background:var(--accent2);color:var(--accent);
  border-radius:6px;padding:1px 6px;margin-left:5px;vertical-align:1px}
@@ -71,6 +71,14 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
 .wcell .sub{font-size:.72em;color:var(--tx3);margin:4px 0 0;padding-left:8px;border-left:2px solid var(--line);line-height:1.55}
 .wcell .sub b{font-weight:700;color:var(--tx2);font-size:1em}
 .wcell .sense.more{margin-top:9px;padding-top:8px;border-top:1px dashed var(--line)}
+/* 2026-10-02 雨葳指定：每張卡右上角可點的 ☆ 標記 */
+.wcell .whead{padding-right:30px}
+.starbtn{position:absolute;top:2px;right:1px;width:34px;height:34px;border:0;padding:0;background:transparent;
+ color:var(--tx3);font-size:1.2em;line-height:34px;text-align:center;cursor:pointer;border-radius:9px}
+.starbtn.on{color:#f0a500}
+.starbtn:active{background:var(--accent2)}
+.chip.starchip.on{background:#f0a500;border-color:#f0a500;color:#fff}
+.wsec{margin-bottom:4px}
 .empty{color:var(--tx3);font-size:.9em;text-align:center;padding:24px 8px}
 .resume{border-color:var(--accent);background:var(--accent2)}
 .resumetxt{font-size:.9em;color:var(--tx2);font-weight:650}
@@ -153,7 +161,7 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
    若使用者正在輸入答案（文字輸入框有內容），先不重整，等下一次檢查再試。 */
 (function(){
 try{
-  var BUILD_ID = "20260926165820";
+  var BUILD_ID = "20261002071308";
   var CHECK_INTERVAL_MS = 60000;
   var RELOAD_TARGET_KEY = 'q7_reload_target';
   var SKIP_HIT_KEY = 'q7_skip_hit_once';
@@ -260,8 +268,14 @@ function keyOf(it){
 }
 
 function pageMatch(w, page){ return page==='all' || String(w.page)===String(page); }
-function catLabel(cat){ return cat==='word' ? '單字' : (cat==='phrase' ? '片語' : '字根'); }
+function catLabel(cat){
+  if(cat==='word') return '單字';
+  if(cat==='phrase') return '片語';
+  if(cat==='star') return '⭐ 重點';
+  return '字根';
+}
 function filteredList(){
+  if(state.cat==='star') return starredItems();
   if(state.cat==='phrase') return PHRASES.filter(function(p){ return p.word; });
   if(state.cat==='root') return ROOT_WORDS.filter(function(rw){ return rw.word && (state.root==='all' || rw.root===state.root); });
   return WORDS.filter(function(w){ return w.word && pageMatch(w, state.page); });
@@ -294,6 +308,33 @@ function addWrongRoot(rootName){ var a=loadWrongRoot(); var k=String(rootName||'
 function removeWrongRoot(rootName){ var a=loadWrongRoot(); var k=String(rootName||'').trim().toLowerCase(); var i=a.indexOf(k); if(i>=0){ a.splice(i,1); lsSet(rootWrongKey(),a);} }
 function isWrongRoot(rootName){ return loadWrongRoot().indexOf(String(rootName||'').trim().toLowerCase())>=0; }
 function anyWrongRoot(){ return loadWrongRoot().length>0; }
+
+/* ---------- ⭐ 重點標記（2026-10-02 雨葳指定）----------
+   key 以「類別＋字」為單位（同一個字的多個意思共用一顆星，因為清單上就是同一張卡）。
+   只存在使用者自己的裝置；localStorage 被封鎖時 lsGet/lsSet 會吞掉錯誤，不影響查表。 */
+function starsKey(){ return 'quiz7_star_v1'; }
+function loadStars(){ var a = lsGet(starsKey(), []); return (a && typeof a.length === 'number') ? a : []; }
+function starKey(it){
+  var cat = it.cat || 'word';
+  var w = (it.word||'').trim().toLowerCase();
+  if(cat==='root') return 'root||'+(it.root||'').trim().toLowerCase()+'||'+w;
+  if(cat==='phrase') return 'phrase||'+w;
+  return 'word||'+w;
+}
+function isStarredKey(k){ return loadStars().indexOf(k)>=0; }
+function toggleStarKey(k){
+  var a = loadStars(); var i = a.indexOf(k);
+  if(i>=0){ a.splice(i,1); } else { a.push(k); }
+  lsSet(starsKey(), a);
+  return i<0;
+}
+function starredItems(){
+  var st = loadStars();
+  if(!st.length) return [];
+  var m = {}; st.forEach(function(k){ m[k]=1; });
+  return WORDS.concat(PHRASES, ROOT_WORDS).filter(function(it){ return it.word && m[starKey(it)]; });
+}
+function starredCount(){ return groupItems(starredItems()).length; }
 
 function fcKey(){ return 'quiz7_fc_status'; }
 function loadFc(){ return lsGet(fcKey(), {}); }
@@ -492,27 +533,22 @@ function pickDistinct(pool, excludeVal, count, textOf){
 function buildQuestions(wrongOnly){
   var pool = filteredList();
   var qs = [];
-  if(state.cat==='word'){
-    pool.forEach(function(w){
-      if(wrongOnly && !isWrong(w)) return;
-      if(w.zh){ qs.push({ type:'meaning2word', item:w }); qs.push({ type:'word2meaning', item:w }); }
-      (w.collocations||[]).forEach(function(c){ if(c && c.en && c.zh) qs.push({ type:'colloc', item:w, col:c }); });
-      (w.examples||[]).forEach(function(e){ if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'cloze', item:w, ex:e }); });
-    });
-  } else if(state.cat==='phrase'){
-    pool.forEach(function(p){
-      if(wrongOnly && !isWrong(p)) return;
-      if(p.zh){ qs.push({ type:'p_m2w', item:p }); qs.push({ type:'p_w2m', item:p }); }
-      if((p.synonyms||[]).length){ qs.push({ type:'p_syn', item:p, syn:p.synonyms[Math.floor(Math.random()*p.synonyms.length)] }); }
-      (p.examples||[]).forEach(function(e){ if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'p_cloze', item:p, ex:e }); });
-    });
-  } else if(state.cat==='root'){
-    pool.forEach(function(rw){
-      if(wrongOnly && !isWrong(rw)) return;
-      if(rw.zh){ qs.push({ type:'r_m2w', item:rw }); qs.push({ type:'r_w2m', item:rw }); }
-      (rw.examples||[]).forEach(function(e){ if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'r_cloze', item:rw, ex:e }); });
-    });
-  }
+  pool.forEach(function(it){
+    if(wrongOnly && !isWrong(it)) return;
+    var ic = it.cat || 'word';
+    if(ic==='word'){
+      if(it.zh){ qs.push({ type:'meaning2word', item:it }); qs.push({ type:'word2meaning', item:it }); }
+      (it.collocations||[]).forEach(function(c){ if(c && c.en && c.zh) qs.push({ type:'colloc', item:it, col:c }); });
+      (it.examples||[]).forEach(function(e){ if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'cloze', item:it, ex:e }); });
+    } else if(ic==='phrase'){
+      if(it.zh){ qs.push({ type:'p_m2w', item:it }); qs.push({ type:'p_w2m', item:it }); }
+      if((it.synonyms||[]).length){ qs.push({ type:'p_syn', item:it, syn:it.synonyms[Math.floor(Math.random()*it.synonyms.length)] }); }
+      (it.examples||[]).forEach(function(e){ if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'p_cloze', item:it, ex:e }); });
+    } else {
+      if(it.zh){ qs.push({ type:'r_m2w', item:it }); qs.push({ type:'r_w2m', item:it }); }
+      (it.examples||[]).forEach(function(e){ if(e && e.en && e.answer && e.en.indexOf(e.answer)>=0) qs.push({ type:'r_cloze', item:it, ex:e }); });
+    }
+  });
   shuffle(qs);
   qs.forEach(function(q){
     var pairs; /* [{text, cp}] cp = 該選項對應的另一種語言（英選項配中文、中選項配英文），沒有就空字串 */
@@ -607,17 +643,17 @@ function renderTopbar(){
       '<button class="mitem" data-act="start-quiz" data-mode="all">📝 全部</button>'+
       '<button class="mitem" data-act="start-quiz" data-mode="wrong"'+(nWrongMc===0?' disabled':'')+'>🔁 只練錯的（'+nWrongMc+' 題）</button>';
   } else if(state.menuSub==='typing'){
-    if(state.cat==='word' && !state.menuTypingDir){
+    if((state.cat==='word'||state.cat==='star') && !state.menuTypingDir){
       /* 單字：先選方向 */
       dropInner =
         '<button class="mitem" data-act="back-menu">‹ 返回</button>'+
         '<button class="mitem" data-act="pick-typing-dir" data-dir="zh2en">✍️ 中翻英</button>'+
         '<button class="mitem" data-act="pick-typing-dir" data-dir="en2zh">✍️ 英翻中</button>';
     } else {
-      var tyDir = state.cat==='root' ? 'root' : (state.cat==='word' ? state.menuTypingDir : 'zh2en');
+      var tyDir = state.cat==='root' ? 'root' : ((state.cat==='word'||state.cat==='star') ? state.menuTypingDir : 'zh2en');
       var tyModeKey = tyDir==='en2zh' ? 'typing_en2zh' : 'typing_zh2en';
       var nWrongTy = tyDir==='root' ? loadWrongRoot().length : loadWrong(tyModeKey).length;
-      var tyBackAct = state.cat==='word' ? 'back-typing-dir' : 'back-menu';
+      var tyBackAct = (state.cat==='word'||state.cat==='star') ? 'back-typing-dir' : 'back-menu';
       var tyUnit = tyDir==='root' ? '組' : '題';
       dropInner =
         '<button class="mitem" data-act="'+tyBackAct+'">‹ 返回</button>'+
@@ -683,6 +719,10 @@ function itemSubLines(it){
   return subs;
 }
 function subtitleText(){
+  if(state.cat==='star'){
+    var ns = starredCount();
+    return ns ? ('⭐ 你標了 '+ns+' 個重點') : '還沒標任何東西。到「單字／片語／字根」分頁，點卡片右上角的 ☆ 就會收進這裡。';
+  }
   if(state.cat==='word'){
     var uniq = {}, un = 0;
     WORDS.forEach(function(w){ if(w.word && !uniq[w.word]){ uniq[w.word]=1; un++; } });
@@ -694,15 +734,51 @@ function subtitleText(){
   return '共 '+ROOT_WORDS.length+' 個字根單字・'+ROOT_NAMES.length+' 個字根（'+ROOT_NAMES.join('/')+'）';
 }
 
+/* 同一個單字的不同意思合併成同一張卡（2026-09-23 雨葳指定） */
+function groupItems(list){
+  var groups = [], gidx = {};
+  list.forEach(function(w){
+    var key = ((w.cat||'word')==='word' && w.word) ? ('w::'+w.word) : null;
+    if(key && gidx[key] !== undefined){ groups[gidx[key]].push(w); return; }
+    if(key) gidx[key] = groups.length;
+    groups.push([w]);
+  });
+  return groups;
+}
+function cellHtml(g){
+  var head = g[0];
+  var hay = g.map(itemHay).join(' ');
+  var badges = '', seen = {};
+  g.forEach(function(s){ var b = itemBadge(s); if(b && !seen[b]){ seen[b]=1; badges += b; } });
+  var body = g.map(function(s, i){
+    var ipaLine = (s.phonetic || s.pos) ? ('<span class="ipa">'+esc(s.phonetic||'')+' <span class="pos">'+esc(s.pos||'')+'</span></span>') : '';
+    return '<div class="sense'+(i? ' more':'')+'">'+
+      ipaLine+
+      '<div class="zh">'+zhBreak(s.zh||'')+'</div>'+ itemSubLines(s) +
+      '</div>';
+  }).join('');
+  var sk = starKey(head);
+  var on = isStarredKey(sk);
+  return '<div class="wcell" data-hay="'+esc(hay)+'">'+
+    '<button class="starbtn'+(on?' on':'')+'" data-act="togglestar" data-skey="'+esc(sk)+'" aria-label="標記重點" aria-pressed="'+(on?'true':'false')+'">'+(on?'★':'☆')+'</button>'+
+    '<div class="whead"><b>'+esc(head.word)+'</b>'+badges+'</div>'+ body +
+    '</div>';
+}
+function wsecHtml(label, cellsHtml){
+  return '<div class="wsec"><div class="lab">'+label+'</div>'+
+    '<div class="wgrid">'+(cellsHtml||'<div class="empty">目前沒有資料</div>')+'</div></div>';
+}
+
 function renderList(){
   var availCats = ['word','phrase','root'].filter(function(c){
     if(c==='word') return WORDS.length>0;
     if(c==='phrase') return PHRASES.length>0;
     return ROOT_WORDS.length>0;
   });
-  var catChips = availCats.length>1 ? availCats.map(function(c){
+  var catChips = (availCats.length>1 ? availCats.map(function(c){
     return '<button class="chip'+(state.cat===c?' on':'')+'" data-act="setcat" data-cat="'+c+'">'+catLabel(c)+'</button>';
-  }).join('') : '';
+  }).join('') : '')+
+  '<button class="chip starchip'+(state.cat==='star'?' on':'')+'" id="starChip" data-act="setcat" data-cat="star">⭐ '+starredCount()+'</button>';
   var secondaryHtml = '';
   if(state.cat==='word'){
     var pageChips = ['<button class="chip'+(state.page==='all'?' on':'')+'" data-act="setpage" data-page="all">全部</button>'].concat(
@@ -720,30 +796,24 @@ function renderList(){
     secondaryHtml = '<div class="chiprow">'+rootChips+'</div>';
   }
   var list = filteredList();
-  // 2026-09-23 雨葳指定：同一個單字的不同意思合併成同一張卡，各意思分行
-  var groups = [], gidx = {};
-  list.forEach(function(w){
-    var key = (state.cat==='word' && w.word) ? ('w::'+w.word) : null;
-    if(key && gidx[key] !== undefined){ groups[gidx[key]].push(w); return; }
-    if(key) gidx[key] = groups.length;
-    groups.push([w]);
-  });
-  var cells = groups.map(function(g){
-    var head = g[0];
-    var hay = g.map(itemHay).join(' ');
-    var badges = '', seen = {};
-    g.forEach(function(s){ var b = itemBadge(s); if(b && !seen[b]){ seen[b]=1; badges += b; } });
-    var body = g.map(function(s, i){
-      var ipaLine = (s.phonetic || s.pos) ? ('<span class="ipa">'+esc(s.phonetic||'')+' <span class="pos">'+esc(s.pos||'')+'</span></span>') : '';
-      return '<div class="sense'+(i? ' more':'')+'">'+
-        ipaLine+
-        '<div class="zh">'+zhBreak(s.zh||'')+'</div>'+ itemSubLines(s) +
-        '</div>';
-    }).join('');
-    return '<div class="wcell" data-hay="'+esc(hay)+'">'+
-      '<b>'+esc(head.word)+'</b>'+badges+ body +
-      '</div>';
-  }).join('');
+  var listBody;
+  if(state.cat==='star'){
+    var starSecs = [{c:'word',l:'單字'},{c:'phrase',l:'片語'},{c:'root',l:'字根'}];
+    var parts = '';
+    starSecs.forEach(function(sc){
+      var sub = list.filter(function(it){ return (it.cat||'word')===sc.c; });
+      if(!sub.length) return;
+      var gs = groupItems(sub);
+      parts += wsecHtml('⭐ '+sc.l+'（'+gs.length+'）', gs.map(cellHtml).join(''));
+    });
+    listBody = parts || '<div class="empty">還沒標任何東西。<br>回「單字／片語／字根」分頁，點卡片右上角的 ☆ 就會收進這裡。</div>';
+  } else {
+    var groups = groupItems(list);
+    listBody = wsecHtml(
+      catLabel(state.cat)+'清單（'+(groups.length===list.length ? list.length : (groups.length+' 個單字・'+list.length+' 個意思'))+'）',
+      groups.map(cellHtml).join('')
+    );
+  }
   var resumeHtml = '';
   var mcS = loadMcSession();
   if(mcS && mcS.quiz && mcS.quiz.qs && mcS.quiz.qs.length && mcS.quiz.idx < mcS.quiz.qs.length){
@@ -771,8 +841,7 @@ function renderList(){
   '<input class="searchbox" id="searchBox" type="search" placeholder="搜尋…" value="'+esc(state.search)+'">'+
   '<div class="chiprow">'+catChips+'</div>'+
   secondaryHtml+
-  '<div class="lab">'+catLabel(state.cat)+'清單（'+(groups.length===list.length ? list.length : (groups.length+' 個單字・'+list.length+' 個意思'))+'）</div>'+
-  '<div class="wgrid" id="wgrid">'+(cells||'<div class="empty">目前沒有資料</div>')+'</div>';
+  listBody;
 }
 
 var TYPE_TAG = {
@@ -1137,6 +1206,23 @@ function bind(){
     else if(act==='setcat'){ state.cat = t.getAttribute('data-cat'); render(); }
     else if(act==='setpage'){ state.page = t.getAttribute('data-page'); render(); }
     else if(act==='setroot'){ state.root = t.getAttribute('data-root'); render(); }
+    else if(act==='togglestar'){
+      var sOn = toggleStarKey(t.getAttribute('data-skey'));
+      t.className = 'starbtn'+(sOn?' on':'');
+      t.textContent = sOn ? '★' : '☆';
+      t.setAttribute('aria-pressed', sOn?'true':'false');
+      var sChip = document.getElementById('starChip');
+      if(sChip) sChip.textContent = '⭐ '+starredCount();
+      if(state.cat==='star' && !sOn){
+        var sCell = t.parentNode;
+        if(sCell){
+          sCell.hidden = true;
+          sCell.setAttribute('data-unstar','1');
+          var sSec = sCell.parentNode && sCell.parentNode.parentNode;
+          if(sSec && sSec.className==='wsec' && sSec.querySelectorAll('.wcell:not([hidden])').length===0) sSec.hidden = true;
+        }
+      }
+    }
     else if(act==='pick'){
       var q = state.quiz; var cur = q.qs[q.idx];
       if(cur.answered) return;
@@ -1189,12 +1275,15 @@ function bind(){
     searchBox.oninput = function(){
       state.search = searchBox.value;
       var q = state.search.trim().toLowerCase();
-      var grid = $('#wgrid', app);
-      if(!grid) return;
-      var cells = grid.querySelectorAll('.wcell');
+      var cells = app.querySelectorAll('.wcell');
       for(var i=0;i<cells.length;i++){
+        if(cells[i].getAttribute('data-unstar')==='1'){ cells[i].hidden = true; continue; }
         var hay = cells[i].getAttribute('data-hay')||'';
         cells[i].hidden = !!q && hay.indexOf(q)<0;
+      }
+      var secs = app.querySelectorAll('.wsec');
+      for(var k=0;k<secs.length;k++){
+        secs[k].hidden = secs[k].querySelectorAll('.wcell:not([hidden])').length===0;
       }
     };
   }
