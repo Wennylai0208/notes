@@ -67,6 +67,14 @@ input.code{font:inherit;border:1px solid var(--line);background:var(--field);col
 </div>
 
 <div class="card">
+<span class="tag">🔍 自我剖析・誠實面對自己</span>
+<div id="swSelf"></div>
+<p class="q" id="selfQ"></p>
+<textarea id="selfA" placeholder="想到什麼就寫什麼，寫完再想：明天的最小一步是什麼？"></textarea>
+<div class="row" style="margin-top:10px"><button class="ghost" id="rerollSelf" type="button">換一題</button></div>
+</div>
+
+<div class="card">
 <span class="tag">隨機一題</span>
 <div id="swRandom"></div>
 <p class="q" id="randQ"></p>
@@ -234,9 +242,79 @@ var RANDOM=[
 "我最想讓這個世界多一點什麼？",
 "如果今晚能夢到一個地方，我想夢到哪裡？"
 ];
+var SELF=[
+"我最近一直拿來當藉口的理由是什麼？它是真的，還是我想聽的？",
+"如果有人只看我這週怎麼花時間，他會覺得我最重視什麼？",
+"我在逃避的那件事，最壞的結果其實是什麼？",
+"我說「等一下」的那件事，已經等多久了？",
+"我每次都說「明天開始」的那件事，明天可以做的最小一步是什麼？",
+"這週我手機上花最多時間的是什麼？那是我選的，還是我滑著滑著就到了？",
+"我嘴上說很想做、但這週一次都沒碰的事是什麼？",
+"如果我真的很想要它，我現在會有什麼不一樣的行動？",
+"我最近有哪一次說「好」，其實心裡是想說「不」？",
+"我在逃避的那件事，如果只做五分鐘，我會做什麼？",
+"我常說「我就是這樣」的地方，是真的改不了，還是還沒試過？",
+"有什麼事我其實知道該做，只是不想承認？",
+"這週有哪件事，我把它的責任推給別人或環境了？如果我自己負一半責任，那會是哪一半？",
+"我最近一次拖到最後一刻才做的事，拖延的真正原因是什麼？是難、無聊，還是怕做不好？",
+"我現在最想逃開的感覺是什麼？是那件事本身，還是做它時的那種不舒服？",
+"我有沒有一直在跟某個人比？比的那一項，我自己真的在乎嗎？",
+"我羨慕別人的哪一點？那一點我今天能練習一小步嗎？",
+"我最近為了讓別人喜歡我，做了什麼不太像我的事？",
+"我多久沒有對別人說出真正的意見了？最近一次想說卻吞下去的是什麼？",
+"我的舒適圈裡，有什麼事其實已經讓我有點悶了？",
+"上一次我做了讓自己有點緊張的事是什麼時候？下一次想試什麼？",
+"我每天一定會做的習慣，哪一個在幫我，哪一個在偷我的時間？",
+"有一個小習慣如果持續一個月，我的生活會變好，它是什麼？我明天怎麼開始最輕鬆？",
+"我說過的話裡，有哪一句最近沒有做到？我要修正話，還是修正行動？",
+"我最近有答應別人什麼事還沒做嗎？我現在能先回他一句嗎？",
+"我會跟朋友說的「我很忙」，是真的忙，還是不想排它的優先順序？",
+"如果把我的待辦清單砍掉一半，我會先砍哪些？這代表什麼？",
+"我的「重要的事」有哪些？這週我給它們的時間有多少？",
+"我最近一次做完某件事，覺得「早知道早點做」是什麼？",
+"我常用「我心情不好」「我沒力氣」當理由，哪些時候是真的需要休息，哪些時候只是想躲？",
+"我現在的休息，是真的在充電，還是只是在拖時間？",
+"如果今天重來一次，我會把哪一個小時換掉？",
+"我今天最浪費的十分鐘是什麼？那十分鐘本來可以做什麼？",
+"我最近一次說「我試過了，沒用」，我到底試了幾次、試了多久？",
+"我現在做的事裡，哪些是我選的，哪些只是我習慣照做？",
+"有什麼事我一直在準備、準備、再準備，其實是不敢開始？",
+"我怕開始的那件事，如果做得很爛也沒關係，我第一步會做什麼？",
+"我最近一次被指出缺點，我第一反應是什麼？事後想想，裡面有幾分是對的？",
+"有誰說過我一句不太好聽但其實有道理的話？我有改嗎？",
+"我最近有因為怕被笑或怕被評價，而沒去做什麼事嗎？",
+"我在別人面前的樣子，跟一個人的時候差在哪裡？哪一個比較像真正的我？",
+"我有沒有在假裝自己不在乎，但其實很在乎某件事？",
+"我最近有沒有故意把期待放低，這樣就不會失望？",
+"我最近一次對自己說謊是什麼？我當時為什麼要這樣說？",
+"我有哪件事一直在說「之後再說」，其實是在等一個永遠不會到的好時機？",
+"如果我只能保留三件每天會做的事，我會留哪三件？",
+"我哪個壞習慣被我說成「沒辦法」？其實有沒有一個小到不行的改法？",
+"我有沒有把「想做」當成「做了」？我最近哪件事只停在想？",
+"我這週有什麼事，是比我以為的更快就能完成的？為什麼我一直把它想得很難？",
+"我的環境裡有什麼東西，讓我一坐下就分心？我能不能今天就移開它？",
+"我專心的時候通常是在什麼情況下？我能不能多創造一次這種情況？",
+"我這週有什麼事是做完會讓我鬆一口氣的？我為什麼還留著不做？",
+"我最近有沒有把別人的情緒或錯誤，扛成自己的責任？哪些其實不是我的？",
+"我最近有沒有把自己的事，賴給別人去處理？",
+"如果我不再抱怨某件事，而是只改我能改的那 1%，那 1% 是什麼？",
+"我最近一次真心說「對不起」或「謝謝」是什麼時候？有沒有一個現在該補上的？",
+"我最近抱怨最多的是什麼？抱怨之後，我有沒有做任何事去改它？",
+"我是不是常在等別人先開始，我才跟著動？這次我可以先動什麼？",
+"我是不是常把事情「做到剛好過得去」？有哪一件值得我多做 10%？",
+"我最近有什麼事做得很好，但我因為怕驕傲而不肯承認？",
+"我現在最想變成什麼樣的人？今天的我，有哪一個動作是在靠近他？",
+"如果一年後的我回頭看今天，會希望我現在放下什麼、開始什麼？",
+"我最近覺得最卡的地方是什麼？我是缺方法、缺時間，還是缺一個開始的理由？",
+"我最近一次不舒服但還是做了的事是什麼？那種感覺其實撐得過去嗎？",
+"今天我對自己最誠實的一句話會是什麼？"
+];
 /*END_PURE_DATA*/
 function dayIndex(y,m,d){var a=Date.UTC(y,m-1,d),b=Date.UTC(2026,0,1);return Math.floor((a-b)/86400000);}
 function dailyFor(y,m,d){var n=DAILY.length;var i=((dayIndex(y,m,d)%n)+n)%n;return DAILY[i];}
+function selfIdxFor(y,m,d){var n=SELF.length;return (((dayIndex(y,m,d)*7+3)%n)+n)%n;}
+function selfFor(y,m,d){return SELF[selfIdxFor(y,m,d)];}
+function sharedItemsPure(e,FX){var it=[],s=e.share||{};(e.fixed||[]).forEach(function(a,i){if(s["f"+i]&&a&&a.trim())it.push({q:FX[i]||"",a:a});});if(s.daily&&e.daily&&e.daily.a&&e.daily.a.trim())it.push({q:e.daily.q,a:e.daily.a});if(s.self&&e.self&&e.self.a&&e.self.a.trim())it.push({q:e.self.q,a:e.self.a});if(s.random&&e.random&&e.random.a&&e.random.a.trim())it.push({q:e.random.q,a:e.random.a});return it;}
 /*END_PURE*/
 </script>
 <script type="module">
@@ -253,14 +331,14 @@ var now=new Date(),Y=now.getFullYear(),M=now.getMonth()+1,D=now.getDate();
 var TODAY=Y+"-"+pad(M)+"-"+pad(D);
 var WD=["日","一","二","三","四","五","六"];
 $("dateText").textContent=Y+" 年 "+M+" 月 "+D+" 日・星期"+WD[now.getDay()];
-var dailyQ=dailyFor(Y,M,D),randQ="";
+var dailyQ=dailyFor(Y,M,D),randQ="",selfQ=selfFor(Y,M,D);
 function errShow(where,e){var m=where+"："+((e&&(e.code||"")+" "+(e.message||e))||e);$("err").textContent=m;console.error(where,e);}
 function errClear(){$("err").textContent="";}
 function toast(m){var t=$("toast");t.textContent=m;t.style.opacity=1;setTimeout(function(){t.style.opacity=0;},3000);}
 function grow(t){t.style.height="auto";t.style.height=(t.scrollHeight+4)+"px";}
 function bind(t){t.addEventListener("input",function(){grow(t);});grow(t);}
 // share toggles
-var share={f0:true,f1:true,f2:true,daily:true,random:true};
+var share={f0:true,f1:true,f2:true,daily:true,self:true,random:true};
 var swEls={};
 function paintSw(k){var b=swEls[k];var on=share[k];b.textContent=on?"👀 給好友看":"🔒 只有我";b.className="sw"+(on?" on":"");}
 function mkSw(k,host){var b=document.createElement("button");b.type="button";b.onclick=function(){share[k]=!share[k];paintSw(k);};swEls[k]=b;paintSw(k);host.appendChild(b);}
@@ -272,21 +350,17 @@ FIXED.forEach(function(q,i){
  var t=document.createElement("textarea");t.placeholder="想到什麼就寫什麼";
  c.appendChild(s);c.appendChild(p);c.appendChild(t);fixedBox.appendChild(c);fixedAreas.push(t);bind(t);
 });
-mkSw("daily",$("swDaily"));mkSw("random",$("swRandom"));
-bind($("dailyA"));bind($("randA"));
+mkSw("daily",$("swDaily"));mkSw("self",$("swSelf"));mkSw("random",$("swRandom"));
+bind($("dailyA"));bind($("selfA"));bind($("randA"));
+$("selfQ").textContent=selfQ;
+$("rerollSelf").onclick=function(){var q;do{q=SELF[Math.floor(Math.random()*SELF.length)];}while(q===selfQ&&SELF.length>1);selfQ=q;$("selfQ").textContent=q;$("selfA").value="";grow($("selfA"));};
 $("dailyQ").textContent=dailyQ;
 function pickRandom(){var q;do{q=RANDOM[Math.floor(Math.random()*RANDOM.length)];}while(q===randQ&&RANDOM.length>1);randQ=q;$("randQ").textContent=q;}
 pickRandom();
 $("reroll").onclick=function(){pickRandom();$("randA").value="";grow($("randA"));};
-function resetForm(){fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("randA").value="";grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=true;paintSw(k);}}
-function collect(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},random:{q:randQ,a:$("randA").value},share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,random:share.random},savedAt:new Date().toISOString()};}
-function sharedItems(e){
- var it=[],s=e.share||{};
- (e.fixed||[]).forEach(function(a,i){if(s["f"+i]&&a&&a.trim())it.push({q:FIXED[i]||"",a:a});});
- if(s.daily&&e.daily&&e.daily.a&&e.daily.a.trim())it.push({q:e.daily.q,a:e.daily.a});
- if(s.random&&e.random&&e.random.a&&e.random.a.trim())it.push({q:e.random.q,a:e.random.a});
- return it;
-}
+function resetForm(){fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("selfA").value="";$("randA").value="";grow($("selfA"));grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=true;paintSw(k);}}
+function collect(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},self:{q:selfQ,a:$("selfA").value},random:{q:randQ,a:$("randA").value},share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,self:share.self,random:share.random},savedAt:new Date().toISOString()};}
+function sharedItems(e){return sharedItemsPure(e,FIXED);}
 async function writeEntry(e){
  await setDoc(doc(db,"users",uid,"entries",e.date),e);
  var items=sharedItems(e);
@@ -355,6 +429,7 @@ async function renderHistory(){
    function add(label,text,on){if(!text||!String(text).trim())return;var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.textContent=icon(on)+label;var v=document.createElement("div");v.textContent=String(text);w.appendChild(b);w.appendChild(v);d.appendChild(w);}
    (o.fixed||[]).forEach(function(v,i){add(FIXED[i]||"",v,sh["f"+i]);});
    if(o.daily)add(o.daily.q,o.daily.a,sh.daily);
+   if(o.self)add(o.self.q,o.self.a,sh.self);
    if(o.random)add(o.random.q,o.random.a,sh.random);
    if(sharedItems(o).length)mountComments(d,uid,o.date);
    box.appendChild(d);
@@ -368,8 +443,9 @@ async function loadToday(){
   var v=s.data();
   (v.fixed||[]).forEach(function(x,i){if(fixedAreas[i]){fixedAreas[i].value=x||"";grow(fixedAreas[i]);}});
   if(v.daily&&v.daily.q===dailyQ){$("dailyA").value=v.daily.a||"";grow($("dailyA"));}
+  if(v.self&&v.self.q){selfQ=v.self.q;$("selfQ").textContent=selfQ;$("selfA").value=v.self.a||"";grow($("selfA"));}
   if(v.random&&v.random.q){randQ=v.random.q;$("randQ").textContent=randQ;$("randA").value=v.random.a||"";grow($("randA"));}
-  var sh=v.share||{};for(var k in share){share[k]=!!sh[k];paintSw(k);}
+  var sh=v.share||{};for(var k in share){share[k]=(k==="self"&&!("self" in sh))?true:!!sh[k];paintSw(k);}
  }catch(e){errShow("讀取今天失敗",e);}
 }
 // friends
@@ -441,7 +517,7 @@ $("legacyBtn").onclick=async function(){
   errClear();var n=0,l=legacyList();
   for(var i=0;i<l.length;i++){
    var o=l[i];if(!/^\d{4}-\d{2}-\d{2}$/.test(o.date))continue;
-   var e={date:o.date,fixed:o.fixed||[],daily:o.daily||{q:"",a:""},random:o.random||{q:"",a:""},share:{f0:true,f1:true,f2:true,daily:true,random:true},savedAt:o.savedAt||new Date().toISOString()};
+   var e={date:o.date,fixed:o.fixed||[],daily:o.daily||{q:"",a:""},random:o.random||{q:"",a:""},self:o.self||{q:"",a:""},share:{f0:true,f1:true,f2:true,daily:true,self:true,random:true},savedAt:o.savedAt||new Date().toISOString()};
    await writeEntry(e);n++;
   }
   toast("已上傳 "+n+" 天。");$("legacy").hidden=true;await renderHistory();
