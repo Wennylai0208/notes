@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant" data-nbt="legal">
+<html lang="zh-Hant" data-nbt="sketch">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -172,13 +172,50 @@ details.paper .item.cmt{padding-bottom:12px}
 .slot .addrow{display:flex;gap:8px;align-items:center;margin-top:6px}
 .slot .notes{padding:12px 2px 4px}
 .notes:empty{display:none}
+
+/* ===== sketch / letter-paper hand-drawn layer ===== */
+@font-face{font-family:"ChenYuluoyan";src:url(fonts/chenyu.woff2) format("woff2");font-display:swap}
+:root{--paper:#fbf9f5;--kraft:#e6c894;--ink0:#1a1a1a}
+:root[data-nbt=sketch]{--nb-paper:#e6c894;--nb-ink:#1a1a1a;--nb-tsh:none;--nb-rule:rgba(0,0,0,.07);--nb-ink2:rgba(26,26,26,.62);--nb-mcol:rgba(26,26,26,.4);--nb-mw:0px;--nb-mstyle:solid;--nb-btn:#1a1a1a;--nb-btnfg:#fbf9f5;--nb-fiber:radial-gradient(rgba(0,0,0,.04) 1px,transparent 0),radial-gradient(hsla(0,0%,100%,.1) 1px,transparent 0);--nb-fsz:6px 6px,6px 6px,auto;--nb-font:"ChenYuluoyan","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
+:root[data-nbt=sketch] .pscroll{background-position:0 0,3px 3px,0 0}
+:root[data-nbt=sketch] .paper::after{opacity:.4}
+main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]){position:relative;font-family:inherit;color:var(--ink0);background:var(--paper);border:2px solid #000;border-radius:14px 6px 16px 8px;box-shadow:3px 3px 0 0 #000;transform:rotate(-1.2deg);margin-right:4px;margin-bottom:4px;font-weight:600;text-shadow:none;transition:transform .08s,box-shadow .08s}
+main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]):nth-of-type(even){border-radius:8px 18px 6px 16px;transform:rotate(1deg)}
+main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]):active{transform:translate(2px,2px) rotate(-1deg);box-shadow:1px 1px 0 0 #000}
+main button.save,main #loginBtn,main #legacyBtn{box-shadow:4px 4px 0 0 #000;transform:rotate(-1.5deg)}
+main button.save:active,main #loginBtn:active,main #legacyBtn:active{box-shadow:2px 2px 0 0 #000;transform:translate(2px,2px) rotate(-1.5deg)}
+main button.save::after,main #loginBtn::after,main #legacyBtn::after{content:"";position:absolute;inset:3px;border:1.5px dashed currentColor;border-radius:inherit;pointer-events:none;opacity:.75}
+main button.save{width:calc(100% - 6px);font-size:20px;letter-spacing:.2em}
+main button.sw.on,main button.thmbtn.on,main .sealpick button.on,main .settings button.on{background:var(--ink0)!important;color:var(--paper)!important;border-color:#000}
+main .calgrid button.day{border:2px solid transparent;border-radius:14px 6px 16px 8px;font-family:inherit}
+main .calgrid button.day.today{border-color:#000;background:var(--paper)}
+main .calgrid button.day.sel{background:var(--ink0);color:var(--paper)}
+main .sticky button{border-color:#000!important}
+main .paper input.code,main .nbinp{border:0;border-bottom:2px solid #000;border-radius:0;background:transparent;color:var(--ink0);font-family:inherit;box-shadow:none;outline:0;text-transform:none}
+main .paper input.code{text-transform:uppercase;width:8.5em}
+main .paper input.code::placeholder,main .nbinp::placeholder{color:var(--nb-ink2);opacity:.8}
+main .paper input.code:focus,main .nbinp:focus{background:rgba(255,255,255,.28);border-bottom-width:3px}
+#tabs button{border:2px solid #000;border-bottom:0;border-radius:14px 7px 0 0;font-family:"ChenYuluoyan","PingFang TC","Noto Sans TC",sans-serif;color:#1a1a1a;filter:none;box-shadow:none}
+#tabs button:nth-child(even){border-radius:7px 16px 0 0}
+#tabs button:not(.on){filter:brightness(.92)}
+#tabs button.on{box-shadow:none;font-weight:700}
+#toast{background:var(--paper);color:var(--ink0);border:2px solid #000;border-radius:14px 6px 16px 8px;box-shadow:3px 3px 0 0 #000;font-family:"ChenYuluoyan","PingFang TC","Noto Sans TC",sans-serif}
+#authBox{background-color:var(--kraft);background-image:radial-gradient(rgba(0,0,0,.04) 1px,transparent 0),radial-gradient(hsla(0,0%,100%,.1) 1px,transparent 0);background-size:6px 6px,6px 6px;background-position:0 0,3px 3px;color:var(--ink0);box-shadow:0 3px 8px rgba(0,0,0,.3);border:2px solid #000;border-radius:14px 6px 16px 8px;gap:22px;font-family:"ChenYuluoyan","PingFang TC","Noto Sans TC",sans-serif}
+#authBox::before{display:none}
+.clabel{background:transparent;border:0;box-shadow:none;padding:0;color:var(--ink0);font-family:"ChenYuluoyan","PingFang TC","Noto Sans TC",sans-serif;transform:rotate(-3deg)}
+.ctitle{font-size:84px;letter-spacing:.12em;text-indent:.12em;line-height:1.15;font-weight:400}
+.clabel .fish{display:block;margin:2px auto 0;max-width:60%;height:auto}
+.csub{color:var(--ink0);font-size:17px;margin-top:10px}
+.csmall{color:rgba(26,26,26,.75)}
+main #authBox button{font-size:22px;padding:12px 30px;letter-spacing:.15em;font-family:"ChenYuluoyan","PingFang TC","Noto Sans TC",sans-serif}
+.paper{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
 <main>
 
 
-<div id="authBox"><div class="clabel"><div class="ctitle">日記</div><div class="csub">慢慢寫，寫一句也算數</div></div><button id="loginBtn" type="button">用 Google 登入</button><p class="csmall">登入後，日記會存在雲端。</p></div>
+<div id="authBox"><div class="clabel"><div class="ctitle">日記</div><svg class="fish" viewBox="0 0 130 64" width="130" height="64" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 32C32 8 72 8 94 32C72 56 32 56 12 32Z"/><path d="M94 32L120 14M94 32L120 50M120 14C113 26 113 38 120 50"/><path d="M50 12C54 4 62 4 66 11"/><circle cx="30" cy="28" r="1.6" fill="#1a1a1a"/><path d="M46 24C50 30 50 36 46 41"/></svg><div class="csub">慢慢寫，寫一句也算數</div></div><button id="loginBtn" type="button">蓋章登入</button><p class="csmall">登入後，日記會存在雲端。</p></div>
 <div id="err" role="alert"></div>
 <div id="app" hidden>
 <nav id="tabs" hidden><button type="button" data-tab="today">今天</button><button type="button" data-tab="cal">日曆</button><button type="button" data-tab="friends">朋友</button></nav>
@@ -533,9 +570,9 @@ function initLn(ln){
 }
 document.querySelectorAll("#nb .ln").forEach(initLn);
 function nbRefAll(){document.querySelectorAll("#nb .ln").forEach(function(l){if(l._ref)l._ref();});}
-var NBT=["legal","kraft","xuan"],NBN={legal:"美式橫線本",kraft:"牛皮紙本",xuan:"書法宣紙"};
+var NBT=["sketch","legal","kraft","xuan"],NBN={sketch:"信箋手帳",legal:"美式橫線本",kraft:"牛皮紙本",xuan:"書法宣紙"};
 function setTheme(t,save){
- if(NBT.indexOf(t)<0)t="legal";
+ if(NBT.indexOf(t)<0)t="sketch";
  document.documentElement.setAttribute("data-nbt",t);
  if(save){try{localStorage.setItem("dd_nbt",t);}catch(e){}}
  var bs=document.querySelectorAll(".thmbtn");for(var i=0;i<bs.length;i++)bs[i].className="thmbtn ghost"+((bs[i].getAttribute("data-t")===t)?" on":"");
@@ -547,7 +584,7 @@ function mkSettings(host){
  var o=document.createElement("button");o.type="button";o.className="ghost";o.textContent="登出";o.onclick=doLogout;host.appendChild(o);
 }
 document.querySelectorAll(".settings").forEach(mkSettings);
-(function(){var t="legal";try{t=localStorage.getItem("dd_nbt")||"legal";}catch(e){}setTheme(t,false);})();
+(function(){var t="sketch";try{t=localStorage.getItem("dd_nbt")||"sketch";}catch(e){}setTheme(t,false);})();
 // pages
 var pgEls=[].slice.call(document.querySelectorAll("#nbPages>.nbpage")),pgI=0;
 document.querySelectorAll(".pscroll").forEach(function(sc2){var d=document.createElement("div");d.className="pgdate";d.textContent=DATE_STR;var yr=document.createElement("span");yr.className="yr";yr.textContent=Y;d.appendChild(yr);sc2.insertBefore(d,sc2.firstChild);});
