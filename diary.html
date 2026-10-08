@@ -119,6 +119,13 @@ input.code{font:inherit;border:1px solid var(--line);background:var(--field);col
 <div class="row" style="margin-top:10px"><button class="ghost" id="reroll" type="button">換一題</button></div>
 </div>
 
+<div class="card">
+<span class="tag">🌙 睡前收尾</span>
+<div id="swClose"></div>
+<p class="q" id="closeQ"></p>
+<textarea id="closeA" placeholder="睡前一兩句就好，寫完就可以安心休息了"></textarea>
+</div>
+
 <button class="save" id="saveBtn" type="button">儲存今天</button>
 <p class="small" style="margin-top:30px">標 👀 的題目（預設）互加的好友看得到；點成 🔒 就只有自己看得到。</p>
 </div>
@@ -354,14 +361,16 @@ var SELF=[
 "我最近一次不舒服但還是做了的事是什麼？那種感覺其實撐得過去嗎？",
 "今天我對自己最誠實的一句話會是什麼？"
 ];
+var CLOSE=["你今天想對自己說什麼？", "如果今天可以重來，你會選擇哪個時刻？", "今天哪一刻的你，是你最喜歡的自己？", "今天有什麼可以放下、不用帶進明天？", "今天的自己，值得被稱讚的一件小事是？", "明天醒來，想先對自己說哪句話？", "今天有哪一刻，你覺得心裡暖暖的？", "今天有誰或什麼事，讓你想說聲謝謝？", "今天身體或心裡，哪裡最需要被好好照顧一下？", "今天有什麼小小的事，其實做得比你想的好？", "今天最讓你放鬆的一個瞬間是什麼？", "今天你撐過了什麼？給當時的自己一個擁抱會說什麼？", "今天有什麼事，現在回頭看已經沒那麼糟了？", "今天學到了關於自己的一件新事情是什麼？", "今天哪個畫面你想留在記憶裡？", "今天有什麼事你不用再想了，可以交給明天？", "如果把今天寄給一年後的自己，你會附上哪句話？", "今天有哪個小選擇，是你為自己好而做的？", "今天有什麼聲音、味道或天氣，讓你印象深刻？", "今天你對別人做的哪件事，讓你覺得自己是溫柔的？", "今天有什麼讓你笑了，或差點笑了？", "此刻的你，心裡最安靜的那個感受是什麼？", "今天有什麼事，你想原諒自己一下？", "今天辛苦了。你最想為自己做的一件小事是什麼？", "今天有什麼事情比你預期的順利一點點？", "睡前想把哪個煩惱先放在床邊，明天再看？", "今天有誰讓你覺得被理解、被接住？", "今天你最想記得的一句話或一個人是誰？", "如果今天是一首歌，它會是什麼感覺？", "今天為了明天，你已經悄悄做了什麼準備？", "今晚你想用什麼心情入睡？", "今天的你，有哪一點讓現在的你覺得「這樣就很好」？"];
 /*END_PURE_DATA*/
 function dayIndex(y,m,d){var a=Date.UTC(y,m-1,d),b=Date.UTC(2026,0,1);return Math.floor((a-b)/86400000);}
 function dailyFor(y,m,d){var n=DAILY.length;var i=((dayIndex(y,m,d)%n)+n)%n;return DAILY[i];}
 function selfIdxFor(y,m,d){var n=SELF.length;return (((dayIndex(y,m,d)*7+3)%n)+n)%n;}
+function closeFor(y,m,d){var n=CLOSE.length;return CLOSE[(((dayIndex(y,m,d)*11+5)%n)+n)%n];}
 function selfFor(y,m,d){return SELF[selfIdxFor(y,m,d)];}
 var REFLECT_Q=["今天有什麼後悔、或做得跟心裡想的不一樣的？","那一刻我心裡是什麼感覺？是什麼讓我那樣做？","下次遇到一樣的情況：如果＿＿，我就＿＿。"];
 var REFLECT_HINT=["只寫發生了什麼，先不評價自己。","試著替感覺取個名字（煩躁、怕、委屈…），問「是什麼」，不問「我為什麼這麼爛」。","越具體越好，例如「如果我拿起手機想滑，我就先把它放到書桌另一邊」。"];
-function sharedItemsPure(e,FX){var it=[],s=e.share||{};(e.fixed||[]).forEach(function(a,i){if(s["f"+i]&&a&&a.trim())it.push({q:FX[i]||"",a:a});});if(s.daily&&e.daily&&e.daily.a&&e.daily.a.trim())it.push({q:e.daily.q,a:e.daily.a});if(s.self&&e.self&&e.self.a&&e.self.a.trim())it.push({q:e.self.q,a:e.self.a});if(s.random&&e.random&&e.random.a&&e.random.a.trim())it.push({q:e.random.q,a:e.random.a});var rf=Array.isArray(e.reflect)?e.reflect:[];for(var ri=0;ri<3;ri++){var ra=rf[ri];if(s["r"+ri]!==false&&typeof ra==="string"&&ra.trim())it.push({q:REFLECT_Q[ri],a:ra});}if(s.followup!==false&&e.followup&&e.followup.a&&e.followup.a.trim())it.push({q:"🔁 "+e.followup.q,a:e.followup.a});if(s.thread!==false&&e.thread&&e.thread.a&&e.thread.a.trim())it.push({q:"🧵 "+e.thread.q,a:e.thread.a});return it;}
+function sharedItemsPure(e,FX){var it=[],s=e.share||{};(e.fixed||[]).forEach(function(a,i){if(s["f"+i]&&a&&a.trim())it.push({q:FX[i]||"",a:a});});if(s.daily&&e.daily&&e.daily.a&&e.daily.a.trim())it.push({q:e.daily.q,a:e.daily.a});if(s.self&&e.self&&e.self.a&&e.self.a.trim())it.push({q:e.self.q,a:e.self.a});if(s.random&&e.random&&e.random.a&&e.random.a.trim())it.push({q:e.random.q,a:e.random.a});var rf=Array.isArray(e.reflect)?e.reflect:[];for(var ri=0;ri<3;ri++){var ra=rf[ri];if(s["r"+ri]!==false&&typeof ra==="string"&&ra.trim())it.push({q:REFLECT_Q[ri],a:ra});}if(s.followup!==false&&e.followup&&e.followup.a&&e.followup.a.trim())it.push({q:"🔁 "+e.followup.q,a:e.followup.a});if(s.thread!==false&&e.thread&&e.thread.a&&e.thread.a.trim())it.push({q:"🧵 "+e.thread.q,a:e.thread.a});if(s.close!==false&&e.close&&e.close.a&&e.close.a.trim())it.push({q:"🌙 "+e.close.q,a:e.close.a});return it;}
 /*END_PURE*/
 </script>
 <script type="module">
@@ -378,14 +387,14 @@ var now=new Date(),Y=now.getFullYear(),M=now.getMonth()+1,D=now.getDate();
 var TODAY=Y+"-"+pad(M)+"-"+pad(D);
 var WD=["日","一","二","三","四","五","六"];
 $("dateText").textContent=Y+" 年 "+M+" 月 "+D+" 日・星期"+WD[now.getDay()];
-var dailyQ=dailyFor(Y,M,D),randQ="",selfQ=selfFor(Y,M,D);
+var closeQ=closeFor(Y,M,D),dailyQ=dailyFor(Y,M,D),randQ="",selfQ=selfFor(Y,M,D);
 function errShow(where,e){var m=where+"："+((e&&(e.code||"")+" "+(e.message||e))||e);$("err").textContent=m;console.error(where,e);}
 function errClear(){$("err").textContent="";}
 function toast(m){var t=$("toast");t.textContent=m;t.style.opacity=1;setTimeout(function(){t.style.opacity=0;},3000);}
 function grow(t){t.style.height="auto";t.style.height=(t.scrollHeight+4)+"px";}
 function bind(t){t.addEventListener("input",function(){grow(t);});grow(t);}
 // share toggles
-var share={f0:true,f1:true,f2:true,daily:true,self:true,random:true,r0:true,r1:true,r2:true,followup:true,thread:true};
+var share={f0:true,f1:true,f2:true,daily:true,self:true,random:true,r0:true,r1:true,r2:true,followup:true,thread:true,close:true};
 var swEls={};
 function paintSw(k){var b=swEls[k];var on=share[k];b.textContent=on?"👀 給好友看":"🔒 只有我";b.className="sw"+(on?" on":"");}
 function mkSw(k,host){var b=document.createElement("button");b.type="button";b.onclick=function(){share[k]=!share[k];paintSw(k);};swEls[k]=b;paintSw(k);host.appendChild(b);}
@@ -406,18 +415,18 @@ REFLECT_Q.forEach(function(q,i){
  var t=document.createElement("textarea");t.placeholder="想到什麼就寫什麼";
  w.appendChild(s);w.appendChild(p);w.appendChild(h);w.appendChild(t);$("reflectBox").appendChild(w);reflectAreas.push(t);bind(t);
 });
-mkSw("followup",$("swFollow"));mkSw("thread",$("swThread"));bind($("followA"));bind($("threadA"));
+mkSw("followup",$("swFollow"));mkSw("thread",$("swThread"));mkSw("close",$("swClose"));bind($("closeA"));bind($("followA"));bind($("threadA"));
 mkSw("daily",$("swDaily"));mkSw("self",$("swSelf"));mkSw("random",$("swRandom"));
 bind($("dailyA"));bind($("selfA"));bind($("randA"));
-$("selfQ").textContent=selfQ;
+$("selfQ").textContent=selfQ;$("closeQ").textContent=closeQ;
 $("rerollSelf").onclick=function(){var q;do{q=SELF[Math.floor(Math.random()*SELF.length)];}while(q===selfQ&&SELF.length>1);selfQ=q;$("selfQ").textContent=q;$("selfA").value="";grow($("selfA"));};
 $("dailyQ").textContent=dailyQ;
 function pickRandom(){var q;do{q=RANDOM[Math.floor(Math.random()*RANDOM.length)];}while(q===randQ&&RANDOM.length>1);randQ=q;$("randQ").textContent=q;}
 pickRandom();
 $("reroll").onclick=function(){pickRandom();$("randA").value="";grow($("randA"));};
-function resetForm(){$("followA").value="";$("threadA").value="";linkState.sig="";reflectAreas.forEach(function(t){t.value="";grow(t);});fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("selfA").value="";$("randA").value="";grow($("selfA"));grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=true;paintSw(k);}}
-function collect(){var ex={};if(linkState.fq)ex.followup={q:linkState.fq,a:$("followA").value};if(linkState.tq)ex.thread={tid:linkState.tid,step:linkState.step,q:linkState.tq,a:$("threadA").value};var base=collect0();for(var k in ex)base[k]=ex[k];return base;}
-function collect0(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},self:{q:selfQ,a:$("selfA").value},random:{q:randQ,a:$("randA").value},reflect:reflectAreas.map(function(t){return t.value;}),share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,self:share.self,random:share.random,r0:share.r0,r1:share.r1,r2:share.r2,followup:share.followup,thread:share.thread},savedAt:new Date().toISOString()};}
+function resetForm(){$("closeA").value="";grow($("closeA"));$("followA").value="";$("threadA").value="";linkState.sig="";reflectAreas.forEach(function(t){t.value="";grow(t);});fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("selfA").value="";$("randA").value="";grow($("selfA"));grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=true;paintSw(k);}}
+function collect(){var ex={};if(linkState.fq)ex.followup={q:linkState.fq,a:$("followA").value};if(linkState.tq)ex.thread={tid:linkState.tid,step:linkState.step,q:linkState.tq,a:$("threadA").value};var base=collect0();base.close={q:closeQ,a:$("closeA").value};for(var k in ex)base[k]=ex[k];return base;}
+function collect0(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},self:{q:selfQ,a:$("selfA").value},random:{q:randQ,a:$("randA").value},reflect:reflectAreas.map(function(t){return t.value;}),share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,self:share.self,random:share.random,r0:share.r0,r1:share.r1,r2:share.r2,followup:share.followup,thread:share.thread,close:share.close},savedAt:new Date().toISOString()};}
 function sharedItems(e){return sharedItemsPure(e,FIXED);}
 async function writeEntry(e){
  await setDoc(doc(db,"users",uid,"entries",e.date),e);
@@ -476,7 +485,7 @@ async function loadEntries(){
 }
 function hasContent(o){
  var t=[].concat(o.fixed||[],o.reflect||[]);
- ["daily","self","random","followup","thread"].forEach(function(k){if(o[k])t.push(o[k].a);});
+ ["daily","self","random","followup","thread","close"].forEach(function(k){if(o[k])t.push(o[k].a);});
  return t.some(function(x){return x&&String(x).trim();});
 }
 function buildEntry(o,open){
@@ -490,6 +499,7 @@ function buildEntry(o,open){
  if(Array.isArray(o.reflect))o.reflect.forEach(function(v,i){if(i<3)add(REFLECT_Q[i],v,sh["r"+i]!==false);});
  if(o.followup)add("🔁 "+o.followup.q,o.followup.a,sh.followup!==false);
  if(o.thread)add("🧵 "+o.thread.q,o.thread.a,sh.thread!==false);
+ if(o.close)add("🌙 "+o.close.q,o.close.a,sh.close!==false);
  if(sharedItems(o).length)mountComments(d,uid,o.date);
  if(open)d.open=true;
  return d;
@@ -611,7 +621,8 @@ async function loadToday(){
   if(v.self&&v.self.q){selfQ=v.self.q;$("selfQ").textContent=selfQ;$("selfA").value=v.self.a||"";grow($("selfA"));}
   if(v.random&&v.random.q){randQ=v.random.q;$("randQ").textContent=randQ;$("randA").value=v.random.a||"";grow($("randA"));}
   if(Array.isArray(v.reflect))v.reflect.forEach(function(x,i){if(reflectAreas[i]){reflectAreas[i].value=x||"";grow(reflectAreas[i]);}});
-  var sh=v.share||{};for(var k in share){share[k]=((k==="self"||k==="followup"||k==="thread"||/^r[0-2]$/.test(k))&&!(k in sh))?true:!!sh[k];paintSw(k);}
+  if(v.close&&v.close.q){closeQ=v.close.q;$("closeQ").textContent=closeQ;$("closeA").value=v.close.a||"";grow($("closeA"));}
+  var sh=v.share||{};for(var k in share){share[k]=((k==="self"||k==="followup"||k==="thread"||k==="close"||/^r[0-2]$/.test(k))&&!(k in sh))?true:!!sh[k];paintSw(k);}
  }catch(e){errShow("讀取今天失敗",e);}
 }
 // friends
