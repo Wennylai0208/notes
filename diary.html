@@ -63,6 +63,7 @@ input.code{font:inherit;border:1px solid var(--line);background:var(--field);col
 .ln .lnq{display:block;width:100%;text-align:left;background:transparent;color:var(--nb-ink);border-radius:0;padding:0;font:inherit;font-weight:600;line-height:var(--nb-lh);cursor:pointer}
 .ln .lnq .tg{display:inline-block;font-size:12px;font-weight:400;line-height:18px;border:1px solid var(--nb-ink2);border-radius:4px;padding:0 5px;margin-right:6px;color:var(--nb-ink2);vertical-align:2px}
 .ln .lnq::after{content:"";display:inline-block;width:14px;height:14px;margin-left:6px;vertical-align:-1px;background:currentColor;opacity:.5;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20l1-4L16 5l3 3L8 19z'/%3E%3Cpath d='M14 7l3 3'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20l1-4L16 5l3 3L8 19z'/%3E%3Cpath d='M14 7l3 3'/%3E%3C/svg%3E") center/contain no-repeat}
+.ln .lnq:not(:has(.tg)):not(#lnFree .lnq)::before,.ln .lnq .tg~span:not(#freeQ)::before,details.paper .item:not(.cmt):not(.sealdone) .cq::before,.sharedq::before{content:"";display:inline-block;width:6.5px;height:6px;margin-right:7px;vertical-align:2px;background:var(--nb-ink);border-radius:55% 45% 60% 40%/50% 60% 40% 50%;transform:rotate(-12deg)}
 .ln .lnq[aria-expanded=true]::after{opacity:.95}
 .ln .pv{color:var(--nb-ink2);font-size:15px;line-height:var(--nb-lh);height:var(--nb-lh);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding-left:8px}
 .ln .tools{display:flex;align-items:center;gap:8px;height:var(--nb-lh);flex-wrap:nowrap}
@@ -114,13 +115,13 @@ details.paper .item.cmt{padding-bottom:12px}
 .dogear:active{filter:brightness(.92)}
 #app{position:relative;padding-right:22px}
 #tabs{position:absolute;right:0;top:66px;z-index:6;display:flex;flex-direction:column;gap:16px;pointer-events:none}
-#tabs button{pointer-events:auto;position:relative;display:block;width:36px;height:72px;margin:0 4px 0 0;padding:0;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.12em;font-family:var(--nb-font);font-size:16px;font-weight:500;line-height:36px;color:#3b3631;background:linear-gradient(90deg,rgba(255,255,255,.4),rgba(255,255,255,0) 45%),var(--tc);border:0;border-radius:2px 5px 5px 2px;box-shadow:1px 2px 4px rgba(0,0,0,.3);transform:rotate(var(--rot,0deg));transform-origin:left center;transition:margin .15s,width .15s,transform .15s;clip-path:polygon(0 0,100% 0,100% 100%,0 100%);text-shadow:none}
-#tabs button::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:rgba(0,0,0,.07)}
-#tabs button[data-tab=today]{--tc:rgba(255,226,122,.9);--rot:2deg}
-#tabs button[data-tab=cal]{--tc:rgba(255,179,199,.88);--rot:-1.5deg}
-#tabs button[data-tab=friends]{--tc:rgba(168,212,255,.88);--rot:2.5deg}
+#tabs button{pointer-events:auto;position:relative;display:block;width:36px;height:72px;margin:0 4px 0 0;padding:0;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.12em;font-family:var(--nb-font);font-size:16px;font-weight:500;line-height:36px;color:#f4ecdc;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,rgba(0,0,0,.03) 1px 3px),linear-gradient(100deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.1)),var(--tc);border:0;border-radius:2px 5px 5px 2px;box-shadow:1px 2px 6px rgba(40,25,10,.28);transform:rotate(var(--rot,0deg));transform-origin:left center;transition:margin .15s,width .15s,transform .15s;clip-path:polygon(0 0,100% 0,100% 100%,0 100%);text-shadow:0 1px 1px rgba(0,0,0,.25)}
+#tabs button::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:rgba(0,0,0,.12)}
+#tabs button[data-tab=today]{--tc:#4f6b52;--rot:2deg}
+#tabs button[data-tab=cal]{--tc:#a4553f;--rot:-1.5deg}
+#tabs button[data-tab=friends]{--tc:#c9a23f;--rot:2.5deg}
 #tabs button.on{width:44px;margin-right:0;font-weight:700;--rot:0deg}
-:root[data-nbt=sketch] #tabs button{border:1.5px solid rgba(0,0,0,.55);border-left:0;box-shadow:1px 2px 0 rgba(0,0,0,.4)}
+:root[data-nbt=sketch] #tabs button{border:1.5px solid rgba(0,0,0,.45);border-left:0;box-shadow:1px 2px 5px rgba(40,25,10,.3)}
 .paper .card{background:transparent;border:0;border-radius:0;padding:0;margin:0}
 .paper h2{color:var(--nb-ink);font-size:18px;line-height:var(--nb-lh);margin:0;font-weight:700;letter-spacing:.05em}
 .paper .calhd{margin:0;height:var(--nb-lh)}
