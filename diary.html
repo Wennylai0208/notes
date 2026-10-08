@@ -93,7 +93,7 @@ input.code{font:inherit;border:1px solid var(--line);background:var(--field);col
 </div>
 
 </div>
-<p class="small" style="margin-top:30px">日記存在雲端，只有你自己看得到；標 👀 的題目只有互加的好友看得到。</p>
+<p class="small" style="margin-top:30px">標 👀 的題目（預設）互加的好友看得到；點成 🔒 就只有自己看得到。</p>
 </main>
 <script>window.addEventListener("error",function(e){var x=document.getElementById("err");if(x)x.textContent+="載入錯誤："+(e.message||"")+"\n";});</script>
 <script>
@@ -242,7 +242,7 @@ function dailyFor(y,m,d){var n=DAILY.length;var i=((dayIndex(y,m,d)%n)+n)%n;retu
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, getDocs, query, where, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, getDocs, query, where, updateDoc, arrayUnion, addDoc, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 var app=initializeApp({apiKey:"AIzaSyDql-jBCWx9ZMhzFkKdkzcNf7L-hVqD9rA",authDomain:"diary-84ec1.firebaseapp.com",projectId:"diary-84ec1",storageBucket:"diary-84ec1.firebasestorage.app",messagingSenderId:"816785137783",appId:"1:816785137783:web:58404af0f2d7f11da86672"});
 var auth=getAuth(app),db=getFirestore(app);
 var P="dd_v1_";
@@ -260,7 +260,7 @@ function toast(m){var t=$("toast");t.textContent=m;t.style.opacity=1;setTimeout(
 function grow(t){t.style.height="auto";t.style.height=(t.scrollHeight+4)+"px";}
 function bind(t){t.addEventListener("input",function(){grow(t);});grow(t);}
 // share toggles
-var share={f0:false,f1:false,f2:false,daily:false,random:false};
+var share={f0:true,f1:true,f2:true,daily:true,random:true};
 var swEls={};
 function paintSw(k){var b=swEls[k];var on=share[k];b.textContent=on?"👀 給好友看":"🔒 只有我";b.className="sw"+(on?" on":"");}
 function mkSw(k,host){var b=document.createElement("button");b.type="button";b.onclick=function(){share[k]=!share[k];paintSw(k);};swEls[k]=b;paintSw(k);host.appendChild(b);}
@@ -278,7 +278,7 @@ $("dailyQ").textContent=dailyQ;
 function pickRandom(){var q;do{q=RANDOM[Math.floor(Math.random()*RANDOM.length)];}while(q===randQ&&RANDOM.length>1);randQ=q;$("randQ").textContent=q;}
 pickRandom();
 $("reroll").onclick=function(){pickRandom();$("randA").value="";grow($("randA"));};
-function resetForm(){fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("randA").value="";grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=false;paintSw(k);}}
+function resetForm(){fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("randA").value="";grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=true;paintSw(k);}}
 function collect(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},random:{q:randQ,a:$("randA").value},share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,random:share.random},savedAt:new Date().toISOString()};}
 function sharedItems(e){
  var it=[],s=e.share||{};
@@ -297,6 +297,43 @@ $("saveBtn").onclick=async function(){
  try{errClear();await writeEntry(collect());toast("已經收好了。今天的你，辛苦了。");await renderHistory();}
  catch(e){errShow("儲存失敗",e);toast("這次沒存成功。");}
 };
+// comments: users/{ownerUid}/shared/{date}/comments/{cid}
+function fmtAt(t){try{var d=new Date(t);return isNaN(d)?String(t||""):(d.getMonth()+1)+"/"+d.getDate()+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");}catch(e){return "";}}
+function mountComments(d,ownerUid,date){
+ var wrap=document.createElement("div");wrap.className="item";
+ var hd=document.createElement("b");hd.textContent="💬 留言";wrap.appendChild(hd);
+ var list=document.createElement("div");list.style.whiteSpace="normal";wrap.appendChild(list);
+ var row=document.createElement("div");row.className="row";row.style.marginTop="8px";
+ var inp=document.createElement("input");inp.type="text";inp.maxLength=500;inp.placeholder="寫點什麼…";inp.style.cssText="flex:1;min-width:120px;border:1px solid var(--line);background:var(--field);color:var(--ink);border-radius:14px;padding:9px 12px;font:inherit";
+ var btn=document.createElement("button");btn.type="button";btn.className="ghost";btn.textContent="留言";
+ row.appendChild(inp);row.appendChild(btn);wrap.appendChild(row);d.appendChild(wrap);
+ async function load(){
+  try{
+   var snap=await getDocs(query(collection(db,"users",ownerUid,"shared",date,"comments"),orderBy("at")));
+   list.textContent="";
+   if(snap.empty){var e=document.createElement("div");e.className="small";e.textContent="還沒有留言。";list.appendChild(e);return;}
+   snap.forEach(function(cd){
+    var c=cd.data(),p=document.createElement("div");p.style.cssText="margin:6px 0;white-space:pre-wrap;word-break:break-word";
+    var n=document.createElement("span");n.style.color="var(--sub)";n.textContent=(c.name||"?")+"　";
+    var t=document.createElement("span");t.textContent=c.text||"";
+    var at=document.createElement("span");at.className="small";at.textContent="　"+fmtAt(c.at);
+    p.appendChild(n);p.appendChild(t);p.appendChild(at);
+    if(c.by===uid){var del=document.createElement("button");del.type="button";del.className="ghost";del.style.cssText="padding:2px 10px;font-size:13px;margin-left:6px";del.textContent="刪除";
+     del.onclick=async function(){try{errClear();await deleteDoc(doc(db,"users",ownerUid,"shared",date,"comments",cd.id));await load();}catch(e2){errShow("刪除留言失敗",e2);}};p.appendChild(del);}
+    list.appendChild(p);
+   });
+  }catch(e){errShow("讀取留言失敗",e);}
+ }
+ btn.onclick=async function(){
+  var tx=inp.value.trim();if(!tx)return;
+  try{errClear();
+   await addDoc(collection(db,"users",ownerUid,"shared",date,"comments"),{by:uid,name:(me&&me.name)||"",text:tx.slice(0,500),at:new Date().toISOString()});
+   inp.value="";await load();
+  }catch(e){errShow("留言失敗",e);}
+ };
+ var loaded=false;
+ d.addEventListener("toggle",function(){if(d.open&&!loaded){loaded=true;load();}});
+}
 function icon(on){return on?"👀 ":"🔒 ";}
 var myEntries=[];
 async function loadEntries(){
@@ -319,6 +356,7 @@ async function renderHistory(){
    (o.fixed||[]).forEach(function(v,i){add(FIXED[i]||"",v,sh["f"+i]);});
    if(o.daily)add(o.daily.q,o.daily.a,sh.daily);
    if(o.random)add(o.random.q,o.random.a,sh.random);
+   if(sharedItems(o).length)mountComments(d,uid,o.date);
    box.appendChild(d);
   });
  }catch(e){errShow("讀取過去日記失敗",e);}
@@ -362,6 +400,7 @@ async function renderShared(){
    arr.forEach(function(o){
     var d=document.createElement("details"),s=document.createElement("summary");s.textContent=o.date;d.appendChild(s);
     (o.items||[]).forEach(function(it){var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.textContent=it.q;var v=document.createElement("div");v.textContent=it.a;w.appendChild(b);w.appendChild(v);d.appendChild(w);});
+    mountComments(d,f,o.date);
     sec.appendChild(d);
    });
   }catch(e){var m2=document.createElement("p");m2.className="empty";m2.textContent="對方還沒加你為好友";sec.appendChild(m2);console.warn(e);}
@@ -402,7 +441,7 @@ $("legacyBtn").onclick=async function(){
   errClear();var n=0,l=legacyList();
   for(var i=0;i<l.length;i++){
    var o=l[i];if(!/^\d{4}-\d{2}-\d{2}$/.test(o.date))continue;
-   var e={date:o.date,fixed:o.fixed||[],daily:o.daily||{q:"",a:""},random:o.random||{q:"",a:""},share:{f0:false,f1:false,f2:false,daily:false,random:false},savedAt:o.savedAt||new Date().toISOString()};
+   var e={date:o.date,fixed:o.fixed||[],daily:o.daily||{q:"",a:""},random:o.random||{q:"",a:""},share:{f0:true,f1:true,f2:true,daily:true,random:true},savedAt:o.savedAt||new Date().toISOString()};
    await writeEntry(e);n++;
   }
   toast("已上傳 "+n+" 天。");$("legacy").hidden=true;await renderHistory();
