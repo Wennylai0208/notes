@@ -80,10 +80,11 @@ h2.sec-title:first-child{margin-top:4px;}
 .think ol{margin:0;padding-left:18px;font-size:14px;}
 .think ol li{margin-bottom:6px;}
 .calc{background:var(--calc);border-radius:10px;padding:10px 11px;font-size:14.5px;}
-.calc .line{margin-bottom:10px;line-height:1.6;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13.5px;}
-.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .18em;line-height:1.25;}
-.frac>.n{padding:0 .3em;}
-.frac>.d{padding:0 .3em;border-top:1.4px solid currentColor;}
+.calc .line{margin-bottom:12px;line-height:1.75;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14.5px;}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 4px;line-height:1.15;font-family:system-ui,-apple-system,"Noto Sans TC","PingFang TC",sans-serif;font-size:16px;}
+.frac>.n{border-bottom:1.6px solid currentColor;padding:0 4px;}
+.frac>.d{padding:0 4px;}
+.calc .line sup.sp{font-size:.72em;}
 .answer{background:var(--good);color:#fff;border-radius:10px;padding:9px 11px;font-size:15px;font-weight:600;}
 .pitfall{background:var(--pitfall);border-radius:10px;padding:9px 11px;font-size:13.5px;}
 .pitfall b{color:var(--warn);}
@@ -572,7 +573,7 @@ function fmtCalc(s){
     });
     return out+esc(t.slice(pos));
   }
-  return render(s);
+  return render(s).replace(/\^\{([^{}<>]*)\}/g,'<sup class="sp">$1</sup>');
 }
 const EXAMPLES = [
 /*EXAMPLES_INSERT*/
