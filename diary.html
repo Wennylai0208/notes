@@ -65,7 +65,7 @@ input.code{font:inherit;border:1px solid var(--line);background:var(--field);col
 .ln .lnq[aria-expanded=true]::after{opacity:.95}
 .ln .pv{color:var(--nb-ink2);font-size:15px;line-height:var(--nb-lh);height:var(--nb-lh);overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding-left:8px}
 .ln .tools{display:flex;align-items:center;gap:8px;height:var(--nb-lh);flex-wrap:nowrap}
-.paper textarea{display:block;width:100%;min-height:calc(var(--nb-lh)*2);resize:none;overflow:hidden;border:0;border-radius:0;background:transparent;color:var(--nb-ink);padding:0;margin:0;font:inherit;line-height:var(--nb-lh);caret-color:var(--nb-ink);text-shadow:var(--nb-tsh)}
+.paper textarea{display:block;overflow-y:hidden;width:100%;min-height:calc(var(--nb-lh)*2);resize:none;overflow:hidden;border:0;border-radius:0;background:transparent;color:var(--nb-ink);padding:0;margin:0;font:inherit;line-height:var(--nb-lh);caret-color:var(--nb-ink);text-shadow:var(--nb-tsh)}
 .paper textarea::placeholder{color:var(--nb-ink2);opacity:.7}
 .paper textarea:focus{outline:0;background:rgba(255,255,255,.22)}
 .nbpage.in-next{transform-origin:left center;animation:nbNext .38s ease}
@@ -111,12 +111,15 @@ details.paper .item.cmt{padding-bottom:12px}
 .sheetwrap{position:relative;flex:1;min-height:0;filter:drop-shadow(0 3px 6px rgba(0,0,0,.3))}
 .dogear{position:absolute;top:0;right:0;width:30px;height:30px;padding:0;border:0;border-radius:0 0 0 6px;background:linear-gradient(225deg,transparent 50%,#efe6c8 50%,#cdbf93 100%);cursor:pointer;z-index:4;box-shadow:-2px 2px 3px rgba(0,0,0,.18)}
 .dogear:active{filter:brightness(.92)}
-#tabs{flex:none;display:flex;gap:5px;align-items:flex-end;padding:0 14px;margin:0 0 -3px;position:relative;z-index:3}
-#tabs button{flex:0 1 104px;min-width:0;height:30px;padding:0 4px;background:var(--tc);color:#3b3631;border-radius:12px 12px 0 0;font-size:14px;font-weight:500;line-height:1.2;box-shadow:inset 0 -6px 6px -6px rgba(0,0,0,.25);filter:saturate(.8) brightness(.93);white-space:nowrap;overflow:hidden;text-overflow:clip}
-#tabs button.on{height:37px;font-weight:700;filter:none;box-shadow:0 -2px 4px rgba(0,0,0,.12)}
-#tabs button[data-tab=today]{--tc:#ffe27a}
-#tabs button[data-tab=cal]{--tc:#ffb3c7}
-#tabs button[data-tab=friends]{--tc:#a8d4ff}
+#app{position:relative;padding-right:22px}
+#tabs{position:absolute;right:0;top:66px;z-index:6;display:flex;flex-direction:column;gap:16px;pointer-events:none}
+#tabs button{pointer-events:auto;position:relative;display:block;width:36px;height:72px;margin:0 4px 0 0;padding:0;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.12em;font-family:var(--nb-font);font-size:16px;font-weight:500;line-height:36px;color:#3b3631;background:linear-gradient(90deg,rgba(255,255,255,.4),rgba(255,255,255,0) 45%),var(--tc);border:0;border-radius:2px 5px 5px 2px;box-shadow:1px 2px 4px rgba(0,0,0,.3);transform:rotate(var(--rot,0deg));transform-origin:left center;transition:margin .15s,width .15s,transform .15s;clip-path:polygon(0 0,100% 0,100% 100%,0 100%);text-shadow:none}
+#tabs button::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:rgba(0,0,0,.07)}
+#tabs button[data-tab=today]{--tc:rgba(255,226,122,.9);--rot:2deg}
+#tabs button[data-tab=cal]{--tc:rgba(255,179,199,.88);--rot:-1.5deg}
+#tabs button[data-tab=friends]{--tc:rgba(168,212,255,.88);--rot:2.5deg}
+#tabs button.on{width:44px;margin-right:0;font-weight:700;--rot:0deg}
+:root[data-nbt=sketch] #tabs button{border:1.5px solid rgba(0,0,0,.55);border-left:0;box-shadow:1px 2px 0 rgba(0,0,0,.4)}
 .paper .card{background:transparent;border:0;border-radius:0;padding:0;margin:0}
 .paper h2{color:var(--nb-ink);font-size:18px;line-height:var(--nb-lh);margin:0;font-weight:700;letter-spacing:.05em}
 .paper .calhd{margin:0;height:var(--nb-lh)}
@@ -143,7 +146,7 @@ details.paper .item.cmt{padding-bottom:12px}
 .sheetwrap#nbPages{--clip:polygon(0 0,calc(100% - 30px) 0,100% 30px,100% calc(100% - 28px),calc(100% - 28px) 100%,28px 100%,0 calc(100% - 28px));perspective:1200px}
 .paper::before{content:"";position:absolute;left:36px;top:0;bottom:0;border-left:var(--nb-mw) var(--nb-mstyle) var(--nb-mcol);pointer-events:none}
 .paper::after{content:"";position:absolute;left:10px;top:0;bottom:0;width:12px;background:radial-gradient(circle at 6px 17px,rgba(0,0,0,.28) 0 4px,transparent 4.6px) 0 0/12px 136px;pointer-events:none;opacity:.55}
-.pscroll{position:absolute;inset:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 12px 46px 46px;display:flex;flex-direction:column;background-image:var(--nb-fiber),repeating-linear-gradient(to bottom,transparent 0 33px,var(--nb-rule) 33px 34px);background-size:var(--nb-fsz);background-attachment:local}
+.pscroll{position:absolute;inset:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 30px 46px 46px;display:flex;flex-direction:column;background-image:var(--nb-fiber),repeating-linear-gradient(to bottom,transparent 0 33px,var(--nb-rule) 33px 34px);background-size:var(--nb-fsz);background-attachment:local}
 .pscroll>*{flex:none}
 .pscroll>.pgno{margin-top:auto}
 .pgdate{font-size:27px;font-weight:700;line-height:var(--nb-lh);color:var(--nb-ink);white-space:nowrap;padding-right:34px}
@@ -177,7 +180,7 @@ details.paper .item.cmt{padding-bottom:12px}
 @font-face{font-family:"ChenYuluoyan";src:url(fonts/chenyu.woff2) format("woff2");font-display:swap}
 :root{--paper:#fbf9f5;--kraft:#e6c894;--ink0:#1a1a1a}
 :root[data-nbt=sketch]{--nb-paper:#e6c894;--nb-ink:#1a1a1a;--nb-tsh:none;--nb-rule:rgba(0,0,0,.07);--nb-ink2:rgba(26,26,26,.62);--nb-mcol:rgba(26,26,26,.4);--nb-mw:0px;--nb-mstyle:solid;--nb-btn:#1a1a1a;--nb-btnfg:#fbf9f5;--nb-fiber:radial-gradient(rgba(0,0,0,.04) 1px,transparent 0),radial-gradient(hsla(0,0%,100%,.1) 1px,transparent 0);--nb-fsz:6px 6px,6px 6px,auto;--nb-font:"ChenYuluoyan","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
-:root[data-nbt=sketch] .pscroll{background-position:0 0,3px 3px,0 0}
+:root[data-nbt=sketch] .pscroll,:root[data-nbt=sketch] #flowView{background-position:0 0,3px 3px,0 0}
 :root[data-nbt=sketch] .paper::after{opacity:.4}
 main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]){position:relative;font-family:inherit;color:var(--ink0);background:var(--paper);border:2px solid #000;border-radius:14px 6px 16px 8px;box-shadow:3px 3px 0 0 #000;transform:rotate(-1.2deg);margin-right:4px;margin-bottom:4px;font-weight:600;text-shadow:none;transition:transform .08s,box-shadow .08s}
 main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]):nth-of-type(even){border-radius:8px 18px 6px 16px;transform:rotate(1deg)}
@@ -195,10 +198,6 @@ main .paper input.code,main .nbinp{border:0;border-bottom:2px solid #000;border-
 main .paper input.code{text-transform:uppercase;width:8.5em}
 main .paper input.code::placeholder,main .nbinp::placeholder{color:var(--nb-ink2);opacity:.8}
 main .paper input.code:focus,main .nbinp:focus{background:rgba(255,255,255,.28);border-bottom-width:3px}
-#tabs button{border:2px solid #000;border-bottom:0;border-radius:14px 7px 0 0;font-family:"ChenYuluoyan","PingFang TC","Noto Sans TC",sans-serif;color:#1a1a1a;filter:none;box-shadow:none}
-#tabs button:nth-child(even){border-radius:7px 16px 0 0}
-#tabs button:not(.on){filter:brightness(.92)}
-#tabs button.on{box-shadow:none;font-weight:700}
 #toast{background:var(--paper);color:var(--ink0);border:2px solid #000;border-radius:14px 6px 16px 8px;box-shadow:3px 3px 0 0 #000;font-family:"ChenYuluoyan","PingFang TC","Noto Sans TC",sans-serif}
 #authBox{background-color:var(--kraft);background-image:radial-gradient(rgba(0,0,0,.04) 1px,transparent 0),radial-gradient(hsla(0,0%,100%,.1) 1px,transparent 0);background-size:6px 6px,6px 6px;background-position:0 0,3px 3px;color:var(--ink0);box-shadow:0 3px 8px rgba(0,0,0,.3);border:2px solid #000;border-radius:14px 6px 16px 8px;gap:22px;font-family:"ChenYuluoyan","PingFang TC","Noto Sans TC",sans-serif}
 #authBox::before{display:none}
@@ -209,6 +208,21 @@ main .paper input.code:focus,main .nbinp:focus{background:rgba(255,255,255,.28);
 .csmall{color:rgba(26,26,26,.75)}
 main #authBox button{font-size:22px;padding:12px 30px;letter-spacing:.15em;font-family:"ChenYuluoyan","PingFang TC","Noto Sans TC",sans-serif}
 .paper{overflow-wrap:anywhere}
+
+/* ===== flow: today page auto-paginates by CSS columns ===== */
+#flowView{position:absolute;inset:0;overflow-x:auto;overflow-y:hidden;overscroll-behavior:contain;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;background-image:var(--nb-fiber),repeating-linear-gradient(to bottom,transparent 0 33px,var(--nb-rule) 33px 34px);background-size:var(--nb-fsz)}
+#flowView::-webkit-scrollbar{display:none}
+#track{position:relative;height:100%;width:100%}
+#flow{position:relative;column-gap:0;column-fill:auto;column-count:auto;overflow:visible;height:100%;width:100%}
+.snp{position:absolute;top:0;height:1px;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
+#flow .ln,#flow .pghd,#flow .pgdate,#flow .sealblock,#flow .backcover,#flow>.card,#flow .hintline{margin-left:46px;margin-right:30px}
+#flow .ln,#flow .sealblock,#flow .backcover,#flow>.card{break-inside:avoid}
+#flow .pghd{break-after:avoid}
+#flow .backcover{break-before:column}
+#fixed,#reflectBox{display:contents}
+#flow .hintline{margin-top:0;margin-bottom:0}
+#flow .ln .lnq{width:100%}
+#pgnoBar{position:absolute;left:46px;right:34px;bottom:2px;text-align:center;line-height:30px;pointer-events:none;color:var(--nb-ink2)}
 </style>
 </head>
 <body>
@@ -218,39 +232,25 @@ main #authBox button{font-size:22px;padding:12px 30px;letter-spacing:.15em;font-
 <div id="authBox"><div class="clabel"><div class="ctitle">日記</div><svg class="fish" viewBox="0 0 130 64" width="130" height="64" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 32C32 8 72 8 94 32C72 56 32 56 12 32Z"/><path d="M94 32L120 14M94 32L120 50M120 14C113 26 113 38 120 50"/><path d="M50 12C54 4 62 4 66 11"/><circle cx="30" cy="28" r="1.6" fill="#1a1a1a"/><path d="M46 24C50 30 50 36 46 41"/></svg><div class="csub">慢慢寫，寫一句也算數</div></div><button id="loginBtn" type="button">蓋章登入</button><p class="csmall">登入後，日記會存在雲端。</p></div>
 <div id="err" role="alert"></div>
 <div id="app" hidden>
-<nav id="tabs" hidden><button type="button" data-tab="today">今天</button><button type="button" data-tab="cal">日曆</button><button type="button" data-tab="friends">朋友</button></nav>
+<nav id="tabs" hidden aria-label="索引旗"><button type="button" data-tab="today">今天</button><button type="button" data-tab="cal">日曆</button><button type="button" data-tab="friends">朋友</button></nav>
 <div class="pane" id="paneToday">
 <div id="nb">
 <div id="nbPages" class="sheetwrap">
-
-<section class="paper nbpage"><div class="pscroll">
+<section class="paper nbpage"><div id="flowView"><div id="track"><div id="flow">
 <div id="legacy" class="card" hidden><p>發現這支手機有舊日記，上傳到雲端？</p><button id="legacyBtn" type="button">上傳到雲端</button></div>
 <div class="pghd">今天的三件小事</div>
 <div id="fixed"></div>
-</div></section>
-
-<section class="paper nbpage" hidden><div class="pscroll">
-<div class="pghd">今天的問題</div>
-<div class="ln" id="lnDaily"><button type="button" class="lnq"><span class="tg">深度題</span><span id="dailyQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swDaily"></span></div><textarea id="dailyA" placeholder="想到什麼就寫什麼"></textarea></div></div>
+<div class="ln" id="lnDaily"><button type="button" class="lnq"><span class="tg">今日深度題</span><span id="dailyQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swDaily"></span></div><textarea id="dailyA" placeholder="想到什麼就寫什麼"></textarea></div></div>
 <div class="ln" id="followCard" hidden><button type="button" class="lnq"><span class="tg">昨天的約定</span><span id="followQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swFollow"></span></div><textarea id="followA" placeholder="做到了什麼、卡在哪，都可以寫"></textarea></div></div>
 <div class="ln" id="threadCard" hidden><button type="button" class="lnq"><span class="tg" id="threadTag">延續題</span><span id="threadQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swThread"></span></div><textarea id="threadA" placeholder="想到什麼就寫什麼，不用寫很多"></textarea></div></div>
-</div></section>
-
-<section class="paper nbpage" hidden><div class="pscroll">
-<div class="pghd">今日自我剖析</div>
+<div class="pghd">自我剖析</div>
 <div id="reflectBox"></div>
-<p class="small" style="margin:0">如果好朋友遇到一樣的事，我會怎麼跟他說？</p>
-</div></section>
-
-<section class="paper nbpage" hidden><div class="pscroll">
-<div class="pghd">再往裡面看一點</div>
-<div class="ln" id="lnSelf"><button type="button" class="lnq"><span class="tg">犀利題</span><span id="selfQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swSelf"></span><button class="ghost" id="rerollSelf" type="button">換一題</button></div><textarea id="selfA" placeholder="想到什麼就寫什麼，寫完再想：明天的最小一步是什麼？"></textarea></div></div>
-<div class="ln" id="lnRand"><button type="button" class="lnq"><span class="tg">隨機題</span><span id="randQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swRandom"></span><button class="ghost" id="reroll" type="button">換一題</button></div><textarea id="randA" placeholder="想到什麼就寫什麼"></textarea></div></div>
+<p class="small hintline">如果好朋友遇到一樣的事，我會怎麼跟他說？</p>
+<div class="ln" id="lnSelf"><button type="button" class="lnq"><span class="tg">犀利一題</span><span id="selfQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swSelf"></span><button class="ghost" id="rerollSelf" type="button">換一題</button></div><textarea id="selfA" placeholder="想到什麼就寫什麼，寫完再想：明天的最小一步是什麼？"></textarea></div></div>
+<div class="ln" id="lnRand"><button type="button" class="lnq"><span class="tg">隨機一題</span><span id="randQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swRandom"></span><button class="ghost" id="reroll" type="button">換一題</button></div><textarea id="randA" placeholder="想到什麼就寫什麼"></textarea></div></div>
 <div class="ln" id="lnClose"><button type="button" class="lnq"><span class="tg">睡前收尾</span><span id="closeQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swClose"></span></div><textarea id="closeA" placeholder="睡前一兩句就好，寫完就可以安心休息了"></textarea></div></div>
-</div></section>
-
-<section class="paper nbpage" hidden><div class="pscroll"><div class="pghd">自由發揮</div><div class="tools"><span id="swFree"></span></div><textarea id="freeA" placeholder="想寫什麼都可以，沒有題目。"></textarea></div></section>
-<section class="paper nbpage" hidden><div class="pscroll">
+<div class="ln" id="lnFree"><button type="button" class="lnq"><span class="tg">自由發揮</span><span id="freeQ">沒有題目，想寫什麼都可以</span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swFree"></span></div><textarea id="freeA" placeholder="想寫什麼都可以，沒有題目。"></textarea></div></div>
+<div class="sealblock">
 <div class="pghd">寫完了，蓋個章</div>
 <div class="small">選一種收尾方式，蓋下去就會存檔。</div>
 <div class="sealpick" id="sealPick"><button type="button" data-seal="stamp">印章</button><button type="button" data-seal="postage">郵票</button><button type="button" data-seal="sign">簽名</button></div>
@@ -258,10 +258,11 @@ main #authBox button{font-size:22px;padding:12px 30px;letter-spacing:.15em;font-
 <button class="save" id="saveBtn" type="button">蓋下去</button>
 <div class="small" id="sealNote"></div>
 <p class="small" style="margin:0 0 34px">標「給好友看」的題目（預設）互加的好友看得到；點成「只有我」就只有自己看得到。</p>
-</div></section>
-<section class="paper nbpage" hidden><div class="pscroll"><div class="pghd">封底</div><div class="small">這本筆記本寫完了。想換一本，或先收起來都可以。</div><div class="settings" data-s="1"></div></div></section>
-
-
+</div>
+<div class="backcover"><div class="pghd">封底</div><div class="small">這本筆記本寫完了。想換一本，或先收起來都可以。</div><div class="settings" data-s="1"></div></div>
+</div></div></div>
+<div id="pgnoBar" class="small"></div>
+</section>
 </div>
 </div>
 </div>
@@ -530,7 +531,8 @@ var closeQ=closeFor(Y,M,D),dailyQ=dailyFor(Y,M,D),randQ="",selfQ=selfFor(Y,M,D);
 function errShow(where,e){var m=where+"："+((e&&(e.code||"")+" "+(e.message||e))||e);$("err").textContent=m;console.error(where,e);}
 function errClear(){$("err").textContent="";}
 function toast(m){var t=$("toast");t.textContent=m;t.style.opacity=1;setTimeout(function(){t.style.opacity=0;},3000);}
-function grow(t){if(t.offsetParent!==null){t.style.height="auto";var lh=34;t.style.height=Math.max(t._min||lh*2,Math.ceil(t.scrollHeight/lh)*lh)+"px";}if(t._ln)t._ln._ref();}
+var FLOWCAP=0;
+function grow(t){if(t.offsetParent!==null){t.style.height="auto";var lh=34;var h=Math.max(t._min||lh*2,Math.ceil(t.scrollHeight/lh)*lh),sh=t.scrollHeight;if(FLOWCAP&&h>FLOWCAP)h=FLOWCAP;t.style.height=h+"px";t.style.overflowY=(sh>h+1)?"auto":"hidden";if(t.closest&&t.closest("#flow"))schedLayout();}if(t._ln)t._ln._ref();}
 function bind(t){t.addEventListener("input",function(){grow(t);});grow(t);}
 // share toggles
 var share={f0:true,f1:true,f2:true,daily:true,self:true,random:true,r0:true,r1:true,r2:true,followup:true,thread:true,close:true,free:true};
@@ -552,7 +554,7 @@ FIXED.forEach(function(q,i){var r=mkLn((i+1)+". "+q,"f"+i,"想到什麼就寫什
 var reflectAreas=[];
 REFLECT_Q.forEach(function(q,i){var r=mkLn(q,"r"+i,REFLECT_HINT[i]);$("reflectBox").appendChild(r.ln);reflectAreas.push(r.ta);bind(r.ta);});
 mkSw("followup",$("swFollow"));mkSw("thread",$("swThread"));mkSw("close",$("swClose"));bind($("closeA"));bind($("followA"));bind($("threadA"));
-mkSw("free",$("swFree"));$("freeA")._min=34*14;bind($("freeA"));mkSw("daily",$("swDaily"));mkSw("self",$("swSelf"));mkSw("random",$("swRandom"));
+mkSw("free",$("swFree"));$("freeA")._min=34*4;bind($("freeA"));mkSw("daily",$("swDaily"));mkSw("self",$("swSelf"));mkSw("random",$("swRandom"));
 bind($("dailyA"));bind($("selfA"));bind($("randA"));
 $("selfQ").textContent=selfQ;$("closeQ").textContent=closeQ;
 $("rerollSelf").onclick=function(){var q;do{q=SELF[Math.floor(Math.random()*SELF.length)];}while(q===selfQ&&SELF.length>1);selfQ=q;$("selfQ").textContent=q;$("selfA").value="";grow($("selfA"));};
@@ -565,7 +567,7 @@ function initLn(ln){
  if(ln._ref)return;
  var q=ln.querySelector(".lnq"),pv=ln.querySelector(".pv"),bd=ln.querySelector(".lnbody"),ta=ln.querySelector("textarea");
  function ref(){var v=(ta.value||"").replace(/\s+/g," ").trim(),open=!bd.hidden;if(v&&!open){pv.hidden=false;pv.textContent="已寫："+(v.length>14?v.slice(0,14)+"…":v);}else pv.hidden=true;q.setAttribute("aria-expanded",open?"true":"false");}
- q.onclick=function(){bd.hidden=!bd.hidden;if(!bd.hidden){grow(ta);ta.focus();}ref();};
+ q.onclick=function(){bd.hidden=!bd.hidden;if(!bd.hidden){grow(ta);}ref();flowLayout();if(!bd.hidden){flowShow(ln);try{ta.focus({preventScroll:true});}catch(e){ta.focus();}}};
  ta._ln=ln;ln._ref=ref;ref();
 }
 document.querySelectorAll("#nb .ln").forEach(initLn);
@@ -576,7 +578,7 @@ function setTheme(t,save){
  document.documentElement.setAttribute("data-nbt",t);
  if(save){try{localStorage.setItem("dd_nbt",t);}catch(e){}}
  var bs=document.querySelectorAll(".thmbtn");for(var i=0;i<bs.length;i++)bs[i].className="thmbtn ghost"+((bs[i].getAttribute("data-t")===t)?" on":"");
- setTimeout(function(){document.querySelectorAll("#nb textarea").forEach(grow);},0);
+ setTimeout(function(){document.querySelectorAll("#nb textarea").forEach(grow);schedLayout();},0);
 }
 function mkSettings(host){
  var l=document.createElement("span");l.textContent="款式";host.appendChild(l);
@@ -585,30 +587,47 @@ function mkSettings(host){
 }
 document.querySelectorAll(".settings").forEach(mkSettings);
 (function(){var t="sketch";try{t=localStorage.getItem("dd_nbt")||"sketch";}catch(e){}setTheme(t,false);})();
-// pages
-var pgEls=[].slice.call(document.querySelectorAll("#nbPages>.nbpage")),pgI=0;
-document.querySelectorAll(".pscroll").forEach(function(sc2){var d=document.createElement("div");d.className="pgdate";d.textContent=DATE_STR;var yr=document.createElement("span");yr.className="yr";yr.textContent=Y;d.appendChild(yr);sc2.insertBefore(d,sc2.firstChild);});
-pgEls.forEach(function(p,i){var n=document.createElement("div");n.className="pgno small";n.textContent="— "+(i+1)+" —";p.querySelector(".pscroll").appendChild(n);});
+// pages (CSS columns flow)
+(function(){var d=document.createElement("div");d.className="pgdate";d.textContent=DATE_STR;var yr=document.createElement("span");yr.className="yr";yr.textContent=Y;d.appendChild(yr);var f=$("flow");f.insertBefore(d,f.firstChild);})();
 var cPrev=document.createElement("button"),cNext=document.createElement("button");
 cPrev.type=cNext.type="button";cPrev.className="pgcorner prev";cNext.className="pgcorner next";cPrev.setAttribute("aria-label","上一頁");cNext.setAttribute("aria-label","下一頁");
 $("nbPages").appendChild(cPrev);$("nbPages").appendChild(cNext);
-function nbGo(i,dir){
- if(i<0||i>=pgEls.length)return;
- pgI=i;
- pgEls.forEach(function(p,k){p.hidden=(k!==i);p.classList.remove("in-next","in-prev");});
- var el=pgEls[i];
- if(dir){void el.offsetWidth;el.classList.add(dir>0?"in-next":"in-prev");}
- cPrev.hidden=(i===0);cNext.hidden=(i===pgEls.length-1);
- el.querySelectorAll("textarea").forEach(grow);
- el.querySelector(".pscroll").scrollTop=0;
+var fvEl=$("flowView"),flowEl=$("flow"),trackEl=$("track"),PW=0,PN=1,laying=false,layQ=false;
+function curPg(){return PW?Math.max(0,Math.min(PN-1,Math.round(fvEl.scrollLeft/PW))):0;}
+function updPg(){var p=curPg();$("pgnoBar").textContent="— "+(p+1)+" / "+PN+" —";cPrev.hidden=(p===0);cNext.hidden=(p>=PN-1);}
+function goPg(p,smooth){p=Math.max(0,Math.min(PN-1,p));fvEl.scrollTo({left:p*PW,behavior:smooth?"smooth":"instant"});}
+function flowShow(el){var x=el.offsetLeft;if(PW){var p=Math.floor((x+2)/PW);if(p!==curPg())goPg(p,false);}}
+function flowLayout(){
+ if(laying)return;laying=true;
+ try{
+  if(fvEl.offsetParent===null)return;
+  var pw=fvEl.clientWidth,vh=fvEl.clientHeight;if(!pw||!vh)return;
+  var H=Math.floor((vh-34)/34)*34;if(H<136)H=vh;
+  var keep=document.activeElement&&document.activeElement.closest&&document.activeElement.closest(".ln");
+  var was=curPg();
+  FLOWCAP=Math.max(102,Math.min(H-136,Math.floor(H*.6/34)*34));
+  PW=pw;flowEl.style.height=H+"px";flowEl.style.width=pw+"px";flowEl.style.columnWidth=pw+"px";
+  var n=Math.max(1,Math.ceil((flowEl.scrollWidth-2)/pw));
+  if(n!==PN||trackEl.childElementCount!==n+0&&false){}
+  PN=n;trackEl.style.width=(n*pw)+"px";
+  var an=trackEl.querySelectorAll(".snp");
+  if(an.length!==n){an.forEach(function(e){e.remove();});for(var i=0;i<n;i++){var a=document.createElement("i");a.className="snp";trackEl.appendChild(a);}an=trackEl.querySelectorAll(".snp");}
+  for(var j=0;j<n;j++){an[j].style.left=(j*pw)+"px";an[j].style.width=pw+"px";}
+  var tp=was;
+  if(keep&&!keep.hidden)tp=Math.floor((keep.offsetLeft+2)/pw);
+  tp=Math.max(0,Math.min(n-1,tp));
+  if(Math.abs(fvEl.scrollLeft-tp*pw)>2)fvEl.scrollTo({left:tp*pw,behavior:"instant"});
+  updPg();
+ }finally{laying=false;}
 }
-cPrev.onclick=function(){nbGo(pgI-1,-1);};
-cNext.onclick=function(){nbGo(pgI+1,1);};
-(function(){var x0=0,y0=0,on=false,el=$("nbPages");
- el.addEventListener("touchstart",function(e){if(e.touches.length!==1){on=false;return;}on=true;x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
- el.addEventListener("touchend",function(e){if(!on)return;on=false;var t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.6){if(dx<0)nbGo(pgI+1,1);else nbGo(pgI-1,-1);}},{passive:true});
-})();
-nbGo(0,0);
+function schedLayout(){if(layQ)return;layQ=true;requestAnimationFrame(function(){layQ=false;flowLayout();});}
+fvEl.addEventListener("scroll",updPg,{passive:true});
+cPrev.onclick=function(){goPg(curPg()-1,true);};
+cNext.onclick=function(){goPg(curPg()+1,true);};
+if(window.ResizeObserver)new ResizeObserver(schedLayout).observe(fvEl);else window.addEventListener("resize",schedLayout);
+new MutationObserver(schedLayout).observe(flowEl,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:["hidden"]});
+if(document.fonts&&document.fonts.addEventListener)document.fonts.addEventListener("loadingdone",schedLayout);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(schedLayout);
 // seal
 var sealType="stamp",sealPlaced=null,signHas=false;
 var sc=$("signCv"),sx=sc.getContext("2d");
@@ -854,7 +873,7 @@ function setTab(t){
  var bs=document.querySelectorAll("#tabs button");
  for(var i=0;i<bs.length;i++)bs[i].className=(bs[i].getAttribute("data-tab")===t)?"on":"";
  try{localStorage.setItem("dd_tab",t);}catch(e){}
- if(t==="today"){var ta=document.querySelectorAll("#paneToday textarea");for(var j=0;j<ta.length;j++)grow(ta[j]);}
+ if(t==="today"){var ta=document.querySelectorAll("#paneToday textarea");for(var j=0;j<ta.length;j++)grow(ta[j]);schedLayout();}
  window.scrollTo(0,0);
 }
 (function(){var bs=document.querySelectorAll("#tabs button");for(var i=0;i<bs.length;i++)(function(b){b.onclick=function(){setTab(b.getAttribute("data-tab"));};})(bs[i]);
