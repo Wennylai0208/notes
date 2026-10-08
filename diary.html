@@ -410,15 +410,22 @@ $("legacyBtn").onclick=async function(){
 };
 // auth
 $("loginBtn").onclick=async function(){
- errClear();var prov=new GoogleAuthProvider();
- try{await signInWithPopup(auth,prov);}
+ errClear();var prov=new GoogleAuthProvider();prov.setCustomParameters({prompt:"select_account"});
+ $("err").textContent="登入中…（如果跳出 Google 視窗，選帳號就好）";
+ try{await signInWithPopup(auth,prov);errClear();}
  catch(e){
-  if(e&&e.code==="auth/popup-closed-by-user"){return;}
-  try{await signInWithRedirect(auth,prov);}catch(e2){errShow("登入失敗",e2);}
+  var c=(e&&e.code)||"";
+  if(c==="auth/popup-closed-by-user"||c==="auth/cancelled-popup-request"){$("err").textContent="登入視窗被關掉了，再按一次登入。";return;}
+  if(c==="auth/popup-blocked"||c==="auth/operation-not-supported-in-this-environment"){
+   $("err").textContent="瀏覽器擋了彈出視窗，改用整頁登入…";
+   try{try{sessionStorage.setItem("dd_redir","1");}catch(_){}await signInWithRedirect(auth,prov);}catch(e2){errShow("登入失敗",e2);}
+   return;
+  }
+  errShow("登入失敗",e);
  }
 };
 $("logoutBtn").onclick=async function(){try{await signOut(auth);}catch(e){errShow("登出失敗",e);}};
-getRedirectResult(auth).catch(function(e){errShow("登入失敗(redirect)",e);});
+getRedirectResult(auth).then(function(r){if(!r&&sessionStorage.getItem("dd_redir")){$("err").textContent="整頁登入回來後沒拿到帳號（Safari 擋了跨網站資料）。請到 設定→Safari→關掉「防止跨網站追蹤」再試，或改用 Chrome 開。";}try{sessionStorage.removeItem("dd_redir");}catch(_){}}).catch(function(e){errShow("登入失敗(redirect)",e);});
 async function ensureUser(u){
  var ref=doc(db,"users",u.uid),s=await getDoc(ref);
  if(!s.exists()){
@@ -427,6 +434,7 @@ async function ensureUser(u){
  }
  return s.data();
 }
+(function(){var ua=navigator.userAgent||"";if(/Line\/|Instagram|FBAN|FBAV|Telegram|MicroMessenger/i.test(ua)){$("err").textContent="⚠️ 你現在是在 App 內建的瀏覽器裡，Google 會擋登入。請點右上角「⋯」→ 用 Safari／Chrome 開啟。";}})();
 onAuthStateChanged(auth,async function(u){
  if(!u){uid=null;me=null;$("authBox").hidden=false;$("app").hidden=true;$("bar").hidden=true;resetForm();return;}
  uid=u.uid;
