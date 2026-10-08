@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>每日深度日記</title>
+<style>
+:root{--bg:#f6f2ec;--card:#fffdf9;--ink:#3b3631;--sub:#7d746a;--line:#e6dfd4;--accent:#8aa391;--accent-ink:#2f4a39;--warm:#c9a98b;--field:#faf6ef}
+@media (prefers-color-scheme:dark){:root{--bg:#1d1f1e;--card:#262a28;--ink:#e8e3da;--sub:#a29a8e;--line:#363b38;--accent:#7f9c88;--accent-ink:#0f1b14;--warm:#b79a80;--field:#1f2321}}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.7 -apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+main{max-width:640px;margin:0 auto;padding:28px 18px 60px}
+header{margin-bottom:22px}
+h1{font-size:15px;font-weight:500;color:var(--sub);letter-spacing:.15em;margin:0 0 6px}
+.date{font-size:26px;font-weight:600;margin:0}
+.hint{color:var(--sub);margin:6px 0 0;font-size:17px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;margin:16px 0}
+.card.deep{border-color:var(--warm)}
+.tag{display:inline-block;font-size:13px;color:var(--sub);letter-spacing:.1em;margin-bottom:4px}
+.q{font-size:19px;font-weight:600;margin:0 0 10px;line-height:1.55}
+textarea{width:100%;min-height:84px;resize:none;overflow:hidden;border:1px solid var(--line);background:var(--field);color:var(--ink);border-radius:14px;padding:12px 14px;font:inherit;line-height:1.7}
+textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+button{font:inherit;border:0;border-radius:999px;padding:11px 20px;cursor:pointer;background:var(--accent);color:var(--accent-ink);font-weight:600}
+button.ghost{background:transparent;color:var(--sub);border:1px solid var(--line);font-weight:400;padding:7px 14px;font-size:15px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.save{width:100%;padding:15px;font-size:19px;margin-top:6px}
+#toast{text-align:center;color:var(--accent);min-height:30px;margin:8px 0 0;transition:opacity .4s}
+h2{font-size:18px;margin:34px 0 10px;color:var(--sub);font-weight:500;letter-spacing:.08em}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:600}
+details .item{margin-top:14px}
+details .item b{display:block;color:var(--sub);font-size:15px;font-weight:500}
+details .item div{white-space:pre-wrap;word-break:break-word}
+.empty{color:var(--sub)}
+.small{color:var(--sub);font-size:14px;line-height:1.6}
+.sw{font-size:14px;padding:5px 12px;margin:0 0 8px;background:transparent;color:var(--sub);border:1px solid var(--line);font-weight:400}
+.sw.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.bar{display:flex;justify-content:flex-end;align-items:center;gap:10px;font-size:15px;color:var(--sub);margin-bottom:6px}
+#err{color:#b3472f;font-size:14px;white-space:pre-wrap;word-break:break-all;margin:8px 0}
+.login{text-align:center;padding:40px 0}
+input.code{font:inherit;border:1px solid var(--line);background:var(--field);color:var(--ink);border-radius:999px;padding:9px 14px;width:9em;text-transform:uppercase}
+.mycode{font-size:22px;font-weight:600;letter-spacing:.2em}
+</style>
+</head>
+<body>
+<main>
+<div class="bar" id="bar" hidden><span id="uname"></span><button class="ghost" id="logoutBtn" type="button">登出</button></div>
+<header>
+<h1>每日深度日記</h1>
+<p class="date" id="dateText"></p>
+<p class="hint">慢慢寫，寫一句也算數。空白也沒關係。</p>
+</header>
+
+<div class="login" id="authBox"><p class="hint">登入後，日記會存在雲端。</p><button id="loginBtn" type="button">用 Google 登入</button></div>
+<div id="err" role="alert"></div>
+<div id="app" hidden>
+<div id="legacy" class="card" hidden><p>發現這支手機有舊日記，上傳到雲端？</p><button id="legacyBtn" type="button">上傳到雲端</button></div>
+<section id="fixed"></section>
+
+<div class="card deep">
+<span class="tag">今日深度題・大家今天都是同一題</span>
+<div id="swDaily"></div>
+<p class="q" id="dailyQ"></p>
+<textarea id="dailyA" placeholder="想到什麼就寫什麼"></textarea>
+</div>
+
+<div class="card">
+<span class="tag">隨機一題</span>
+<div id="swRandom"></div>
+<p class="q" id="randQ"></p>
+<textarea id="randA" placeholder="想到什麼就寫什麼"></textarea>
+<div class="row" style="margin-top:10px"><button class="ghost" id="reroll" type="button">換一題</button></div>
+</div>
+
+<button class="save" id="saveBtn" type="button">儲存今天</button>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<h2>過去的日記</h2>
+<div id="history"></div>
+
+<h2>好友</h2>
+<div class="card"><div class="small">我的好友碼</div><div class="row"><span class="mycode" id="myCode">------</span><button class="ghost" id="copyCode" type="button">複製</button></div>
+<div class="row" style="margin-top:12px"><input class="code" id="friendCode" maxlength="6" placeholder="對方好友碼"><button class="ghost" id="addFriend" type="button">加好友</button></div>
+<p class="small">雙方都要互加，對方才看得到你分享的、你也才看得到他的。</p>
+<div id="friends"></div></div>
+<h2>好友分享的</h2>
+<div id="shared"></div>
+<h2>備份</h2>
+<div class="row">
+<button class="ghost" id="exportBtn" type="button">下載備份</button>
+</div>
+
+</div>
+<p class="small" style="margin-top:30px">日記存在雲端，只有你自己看得到；標 👀 的題目只有互加的好友看得到。</p>
+</main>
+<script>window.addEventListener("error",function(e){var x=document.getElementById("err");if(x)x.textContent+="載入錯誤："+(e.message||"")+"\n";});</script>
+<script>
+var FIXED=[
+"今天有一件事或一樣東西，我想說聲謝謝（很小的也可以）",
+"今天有誰的一個小善舉、或一句話，停留在我心裡？",
+"今天我想留下來的一個畫面或感受"
+];
+var DAILY=[
+"有誰做的什麼事，是值得我學習的？",
+"最近有什麼事，是我以前覺得理所當然、現在才發現很珍貴的？",
+"如果把今天的煩惱放到一年後看，它還有多重？",
+"今天哪一刻我其實比想像中勇敢？",
+"我身邊有誰，讓我在他面前可以放鬆做自己？為什麼？",
+"有什麼小東西，每天默默幫了我很多忙？",
+"最近我反覆想到的一件事是什麼？它在告訴我什麼？",
+"我最近一次真心的笑，是因為什麼？",
+"有什麼事我一直想做，卻因為怕做不好而沒開始？",
+"我今天的心情像什麼天氣？為什麼是這種天氣？",
+"有誰曾經在我很需要的時候，剛好出現？",
+"如果可以對三年後的自己說一句話，我想說什麼？",
+"有什麼事是我已經盡力了，可以允許自己放下的？",
+"我的身體今天有沒有想告訴我什麼？",
+"有什麼事，是我現在的我做得到、但以前的我做不到的？",
+"我最珍惜的一個習慣或小儀式是什麼？",
+"哪種場合或哪些人，會讓我覺得被接住？",
+"我最近對什麼事情特別好奇？",
+"如果今天可以重來一小段，我想重來哪一段？為什麼？",
+"我有沒有誇獎過自己？最近一次是為了什麼？",
+"有什麼事，讓我覺得「這樣的我也不錯」？",
+"我心裡有一條不想退讓的線嗎？它是什麼？",
+"今天有哪件事，我做的時候完全忘了時間？",
+"有誰的笑容或聲音，會讓我心情變好？",
+"我現在最想被理解的一件事是什麼？",
+"有哪個地方，讓我一到就覺得安心？",
+"如果我的心情會說話，今天它最想說什麼？",
+"我欣賞的人身上，有哪一點是我也慢慢在長出來的？",
+"有什麼事我以前很在意、現在已經沒那麼在意了？",
+"最近有哪一次，我選擇了對自己溫柔一點？",
+"我希望別人怎麼形容我？現在的我離那裡近嗎？",
+"如果今天有一件事讓我想謝謝自己，會是什麼？",
+"有什麼味道、聲音或光線，會讓我瞬間平靜下來？",
+"我今天什麼時候覺得最有精神？什麼時候最累？",
+"我曾經幫過誰？那之後我有什麼感覺？",
+"有什麼是我現在無法改變，但可以選擇怎麼看待的？",
+"我最近有沒有哪一刻，覺得自己被誤會了？我想怎麼說？",
+"在我的生活裡，哪一件事最讓我覺得「這就是我」？",
+"如果我有一個小時完全自由，不用交代任何事，我會怎麼過？",
+"有哪句別人說過的話，我一直記到現在？",
+"我心裡有沒有一個還沒說出口的謝謝？",
+"我最近學到的一件小事是什麼？",
+"有什麼東西，我捨不得丟，因為它有故事？",
+"當我很煩的時候，我的身體會有什麼反應？",
+"我覺得「好好活著」的一天，大概長什麼樣子？",
+"今天有沒有哪個瞬間，我想按下暫停鍵多待一會兒？",
+"有誰是我想多花一點時間陪伴的人？",
+"一個人待著的時候，我通常在想什麼？",
+"如果我是自己最好的朋友，今天我會對自己說什麼？",
+"最近有什麼事，我其實沒有自己以為的那麼不行？",
+"我做哪些事的時候，最像我自己？",
+"有什麼事，是我很想原諒的（可以是別人，也可以是自己）？",
+"我的生活裡，有哪一個部分最近變得比較好了？",
+"有哪些事情，現在做起來覺得辛苦，但我知道值得？",
+"如果心裡有個房間，現在那裡面是亂的還是整齊的？",
+"有誰讓我學到「原來可以這樣對待別人」？",
+"我最想留給未來的自己一個什麼東西（話、照片、味道都可以）？",
+"今天我跟自己的距離，是近還是遠？",
+"有什麼事我很想跟人分享，卻還沒找到對的人？",
+"我最近一次覺得「活著真好」是什麼時候？",
+"我心中一個很小、但很堅定的願望是什麼？",
+"我最想要的安靜，是哪一種安靜？",
+"有什麼事是我現在不急著想通，可以先放著的？"
+];
+var RANDOM=[
+"今天有什麼事情，其實沒我預想的那麼糟？",
+"我最近有什麼事做得比上個月好一點點？",
+"有一種情緒最近常來找我，它想要什麼？",
+"我最放鬆的時候，身體是什麼姿勢？",
+"有哪個人讓我發現「善良可以很安靜」？",
+"如果可以回到小時候的某一天，我想回到哪一天？",
+"我最近在避開什麼？避開它讓我鬆一口氣，還是更緊？",
+"有什麼是我擁有的，卻很少說謝謝的東西？",
+"我覺得自己最像哪一種動物或植物？為什麼？",
+"今天我的腦袋像什麼？吵鬧的市場、安靜的湖，還是別的？",
+"有什麼事，我想用自己的步調慢慢來？",
+"我身上有哪個地方，其實是我很喜歡的？",
+"當我說「沒事」的時候，有時候真正想說的是什麼？",
+"有誰的存在，讓我覺得這世界沒那麼孤單？",
+"有一件我做得很普通、但我其實很喜歡的事是什麼？",
+"我最近有沒有哪個決定，事後覺得「選對了」？",
+"如果我能把一個煩惱裝進瓶子裡漂走，我會放哪一個？",
+"我認為什麼樣的人是真正的強大？",
+"最近讓我心頭一暖的一個小細節是什麼？",
+"有什麼是我想對還在努力的自己說的悄悄話？",
+"我一天裡最喜歡的時段是什麼時候？為什麼？",
+"有什麼事，是我羨慕別人，但仔細想想我也有自己的版本？",
+"要是我有一天不用在意別人眼光，我會做什麼？",
+"最近哪個瞬間讓我覺得自己有點可愛？",
+"我最近一次哭或差點哭，是因為什麼？那個眼淚想說什麼？",
+"我心裡最柔軟的地方，是被什麼碰到的？",
+"我想成為什麼樣的朋友？",
+"有什麼事情，我其實一直在等自己允許？",
+"有哪件看起來平凡的事，其實是我生活的支柱？",
+"今天我身體最舒服的一個部位是哪裡？",
+"有沒有什麼時候，我對別人太苛刻、對自己更苛刻？",
+"我身邊有一個人，我很想讓他知道我多在乎他，是誰？",
+"我現在最需要的是休息、陪伴、還是一點新鮮感？",
+"一首歌、一部電影、或一本書，最近陪我走過了什麼？",
+"有什麼是我曾經以為不可能，後來卻發生了的？",
+"我今天有沒有好好吃一餐、好好喝一口水？那是什麼感覺？",
+"如果煩惱有重量，我今天揹了幾公斤？有什麼可以先放下？",
+"我小時候喜歡的事，現在還喜歡嗎？",
+"如果我是一天的導演，我會替今天加哪一幕？",
+"我什麼時候覺得自己特別有力量？",
+"有什麼事我做了之後，會覺得「我是個不錯的人」？",
+"哪一種「慢」是我最喜歡的？",
+"如果可以選一種超能力讓生活輕鬆一點，我要什麼？為什麼？",
+"我今天有沒有被什麼小美好偷偷打動？",
+"有什麼是我現在最不想改變的？",
+"我對自己的哪一點，正在慢慢學會接受？",
+"如果我有一封可以寄給十年後自己的信，第一句會寫什麼？",
+"一個好的朋友在我身邊時，我們通常在做什麼？",
+"哪一次犯錯，反而讓我學到很重要的東西？",
+"今天我跟誰說的哪一句話，我覺得說得挺好的？",
+"有哪些聲音，是我一聽就覺得被安撫的？",
+"我現在最想去的一個地方，是想在那裡感受什麼？",
+"哪一件別人覺得小的事，對我來說其實很大？",
+"我能不能用三個詞，形容現在的自己？",
+"這個月，我想多給自己哪一種溫柔？",
+"有什麼是我想從一個人身上偷偷學來的？",
+"最近有沒有一個「剛剛好」的時刻，什麼都不缺？",
+"我對「好好過一天」的想像是什麼？",
+"有沒有某個夢想，其實比我以為的離我更近？",
+"如果心情可以換顏色，我今天是什麼色？明天想變成什麼色？",
+"我覺得好奇和害怕，哪個今天比較大聲？",
+"有什麼事是我因為別人而做的，現在想想我自己想不想做？",
+"世界上有什麼小東西，讓我覺得人類其實挺可愛的？",
+"我最想讓這個世界多一點什麼？",
+"如果今晚能夢到一個地方，我想夢到哪裡？"
+];
+/*END_PURE_DATA*/
+function dayIndex(y,m,d){var a=Date.UTC(y,m-1,d),b=Date.UTC(2026,0,1);return Math.floor((a-b)/86400000);}
+function dailyFor(y,m,d){var n=DAILY.length;var i=((dayIndex(y,m,d)%n)+n)%n;return DAILY[i];}
+/*END_PURE*/
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, getDocs, query, where, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+var app=initializeApp({apiKey:"AIzaSyDql-jBCWx9ZMhzFkKdkzcNf7L-hVqD9rA",authDomain:"diary-84ec1.firebaseapp.com",projectId:"diary-84ec1",storageBucket:"diary-84ec1.firebasestorage.app",messagingSenderId:"816785137783",appId:"1:816785137783:web:58404af0f2d7f11da86672"});
+var auth=getAuth(app),db=getFirestore(app);
+var P="dd_v1_";
+var uid=null,me=null;
+function $(id){return document.getElementById(id);}
+function pad(n){return n<10?"0"+n:""+n;}
+var now=new Date(),Y=now.getFullYear(),M=now.getMonth()+1,D=now.getDate();
+var TODAY=Y+"-"+pad(M)+"-"+pad(D);
+var WD=["日","一","二","三","四","五","六"];
+$("dateText").textContent=Y+" 年 "+M+" 月 "+D+" 日・星期"+WD[now.getDay()];
+var dailyQ=dailyFor(Y,M,D),randQ="";
+function errShow(where,e){var m=where+"："+((e&&(e.code||"")+" "+(e.message||e))||e);$("err").textContent=m;console.error(where,e);}
+function errClear(){$("err").textContent="";}
+function toast(m){var t=$("toast");t.textContent=m;t.style.opacity=1;setTimeout(function(){t.style.opacity=0;},3000);}
+function grow(t){t.style.height="auto";t.style.height=(t.scrollHeight+4)+"px";}
+function bind(t){t.addEventListener("input",function(){grow(t);});grow(t);}
+// share toggles
+var share={f0:false,f1:false,f2:false,daily:false,random:false};
+var swEls={};
+function paintSw(k){var b=swEls[k];var on=share[k];b.textContent=on?"👀 給好友看":"🔒 只有我";b.className="sw"+(on?" on":"");}
+function mkSw(k,host){var b=document.createElement("button");b.type="button";b.onclick=function(){share[k]=!share[k];paintSw(k);};swEls[k]=b;paintSw(k);host.appendChild(b);}
+var fixedBox=$("fixed"),fixedAreas=[];
+FIXED.forEach(function(q,i){
+ var c=document.createElement("div");c.className="card";
+ var s=document.createElement("div");mkSw("f"+i,s);
+ var p=document.createElement("p");p.className="q";p.textContent=(i+1)+". "+q;
+ var t=document.createElement("textarea");t.placeholder="想到什麼就寫什麼";
+ c.appendChild(s);c.appendChild(p);c.appendChild(t);fixedBox.appendChild(c);fixedAreas.push(t);bind(t);
+});
+mkSw("daily",$("swDaily"));mkSw("random",$("swRandom"));
+bind($("dailyA"));bind($("randA"));
+$("dailyQ").textContent=dailyQ;
+function pickRandom(){var q;do{q=RANDOM[Math.floor(Math.random()*RANDOM.length)];}while(q===randQ&&RANDOM.length>1);randQ=q;$("randQ").textContent=q;}
+pickRandom();
+$("reroll").onclick=function(){pickRandom();$("randA").value="";grow($("randA"));};
+function resetForm(){fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("randA").value="";grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=false;paintSw(k);}}
+function collect(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},random:{q:randQ,a:$("randA").value},share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,random:share.random},savedAt:new Date().toISOString()};}
+function sharedItems(e){
+ var it=[],s=e.share||{};
+ (e.fixed||[]).forEach(function(a,i){if(s["f"+i]&&a&&a.trim())it.push({q:FIXED[i]||"",a:a});});
+ if(s.daily&&e.daily&&e.daily.a&&e.daily.a.trim())it.push({q:e.daily.q,a:e.daily.a});
+ if(s.random&&e.random&&e.random.a&&e.random.a.trim())it.push({q:e.random.q,a:e.random.a});
+ return it;
+}
+async function writeEntry(e){
+ await setDoc(doc(db,"users",uid,"entries",e.date),e);
+ var items=sharedItems(e);
+ if(items.length)await setDoc(doc(db,"users",uid,"shared",e.date),{date:e.date,name:(me&&me.name)||"",items:items,savedAt:e.savedAt});
+ else await deleteDoc(doc(db,"users",uid,"shared",e.date));
+}
+$("saveBtn").onclick=async function(){
+ try{errClear();await writeEntry(collect());toast("已經收好了。今天的你，辛苦了。");await renderHistory();}
+ catch(e){errShow("儲存失敗",e);toast("這次沒存成功。");}
+};
+function icon(on){return on?"👀 ":"🔒 ";}
+var myEntries=[];
+async function loadEntries(){
+ var snap=await getDocs(collection(db,"users",uid,"entries"));
+ var out=[];snap.forEach(function(d){var o=d.data();o.date=o.date||d.id;out.push(o);});
+ out.sort(function(a,b){return a.date<b.date?1:-1;});
+ return out;
+}
+async function renderHistory(){
+ var box=$("history");
+ try{
+  myEntries=await loadEntries();
+  box.textContent="";
+  var items=myEntries.slice(0,60);
+  if(!items.length){var e=document.createElement("p");e.className="empty";e.textContent="還沒有日記，今天就是第一頁。";box.appendChild(e);return;}
+  items.forEach(function(o){
+   var d=document.createElement("details"),s=document.createElement("summary");s.textContent=o.date;d.appendChild(s);
+   var sh=o.share||{};
+   function add(label,text,on){if(!text||!String(text).trim())return;var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.textContent=icon(on)+label;var v=document.createElement("div");v.textContent=String(text);w.appendChild(b);w.appendChild(v);d.appendChild(w);}
+   (o.fixed||[]).forEach(function(v,i){add(FIXED[i]||"",v,sh["f"+i]);});
+   if(o.daily)add(o.daily.q,o.daily.a,sh.daily);
+   if(o.random)add(o.random.q,o.random.a,sh.random);
+   box.appendChild(d);
+  });
+ }catch(e){errShow("讀取過去日記失敗",e);}
+}
+async function loadToday(){
+ try{
+  var s=await getDoc(doc(db,"users",uid,"entries",TODAY));
+  if(!s.exists())return;
+  var v=s.data();
+  (v.fixed||[]).forEach(function(x,i){if(fixedAreas[i]){fixedAreas[i].value=x||"";grow(fixedAreas[i]);}});
+  if(v.daily&&v.daily.q===dailyQ){$("dailyA").value=v.daily.a||"";grow($("dailyA"));}
+  if(v.random&&v.random.q){randQ=v.random.q;$("randQ").textContent=randQ;$("randA").value=v.random.a||"";grow($("randA"));}
+  var sh=v.share||{};for(var k in share){share[k]=!!sh[k];paintSw(k);}
+ }catch(e){errShow("讀取今天失敗",e);}
+}
+// friends
+var friendUids=[];
+async function renderFriends(){
+ var box=$("friends");box.textContent="";
+ var names=[];
+ for(var i=0;i<friendUids.length;i++){
+  var f=friendUids[i],nm=f.slice(0,6);
+  try{var s=await getDoc(doc(db,"users",f));if(s.exists())nm=s.data().name||nm;}catch(e){errShow("讀取好友失敗",e);}
+  names.push({uid:f,name:nm});
+  var p=document.createElement("div");p.className="small";p.textContent="・"+nm;box.appendChild(p);
+ }
+ return names;
+}
+async function renderShared(){
+ var box=$("shared");box.textContent="";
+ if(!friendUids.length){var e=document.createElement("p");e.className="empty";e.textContent="還沒有好友。";box.appendChild(e);return;}
+ for(var i=0;i<friendUids.length;i++){
+  var f=friendUids[i],nm=f.slice(0,6);
+  try{var us=await getDoc(doc(db,"users",f));if(us.exists())nm=us.data().name||nm;}catch(e){}
+  var sec=document.createElement("div");var h=document.createElement("div");h.className="small";h.textContent=nm;sec.appendChild(h);
+  try{
+   var snap=await getDocs(collection(db,"users",f,"shared"));
+   var arr=[];snap.forEach(function(d){arr.push(d.data());});
+   arr.sort(function(a,b){return a.date<b.date?1:-1;});arr=arr.slice(0,30);
+   if(!arr.length){var m=document.createElement("p");m.className="empty";m.textContent="還沒有分享的日記。";sec.appendChild(m);}
+   arr.forEach(function(o){
+    var d=document.createElement("details"),s=document.createElement("summary");s.textContent=o.date;d.appendChild(s);
+    (o.items||[]).forEach(function(it){var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.textContent=it.q;var v=document.createElement("div");v.textContent=it.a;w.appendChild(b);w.appendChild(v);d.appendChild(w);});
+    sec.appendChild(d);
+   });
+  }catch(e){var m2=document.createElement("p");m2.className="empty";m2.textContent="對方還沒加你為好友";sec.appendChild(m2);console.warn(e);}
+  box.appendChild(sec);
+ }
+}
+$("copyCode").onclick=async function(){try{await navigator.clipboard.writeText($("myCode").textContent);toast("好友碼已複製");}catch(e){errShow("複製失敗",e);}};
+$("addFriend").onclick=async function(){
+ try{
+  errClear();
+  var code=$("friendCode").value.trim().toUpperCase();
+  if(!code){toast("請先輸入好友碼");return;}
+  var snap=await getDocs(query(collection(db,"users"),where("code","==",code)));
+  var fu=null;snap.forEach(function(d){if(!fu)fu=d.id;});
+  if(!fu){toast("找不到這個好友碼");return;}
+  if(fu===uid){toast("這是你自己的好友碼");return;}
+  await updateDoc(doc(db,"users",uid),{friends:arrayUnion(fu),updatedAt:new Date().toISOString()});
+  if(friendUids.indexOf(fu)<0)friendUids.push(fu);
+  $("friendCode").value="";toast("已加入好友");
+  await renderFriends();await renderShared();
+ }catch(e){errShow("加好友失敗",e);}
+};
+// backup
+$("exportBtn").onclick=async function(){
+ try{
+  var list=await loadEntries();
+  var data={app:"dd_cloud",exportedAt:new Date().toISOString(),entries:list};
+  var blob=new Blob([JSON.stringify(data,null,1)],{type:"application/json"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="diary-backup-"+TODAY+".json";
+  document.body.appendChild(a);a.click();document.body.removeChild(a);toast("備份已下載。");
+ }catch(e){errShow("下載備份失敗",e);}
+};
+// legacy
+function legacyList(){var out=[];try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k&&k.indexOf(P)===0){var o=JSON.parse(localStorage.getItem(k));if(o){o.date=k.slice(P.length);out.push(o);}}}}catch(e){}return out;}
+function checkLegacy(){$("legacy").hidden=legacyList().length===0;}
+$("legacyBtn").onclick=async function(){
+ try{
+  errClear();var n=0,l=legacyList();
+  for(var i=0;i<l.length;i++){
+   var o=l[i];if(!/^\d{4}-\d{2}-\d{2}$/.test(o.date))continue;
+   var e={date:o.date,fixed:o.fixed||[],daily:o.daily||{q:"",a:""},random:o.random||{q:"",a:""},share:{f0:false,f1:false,f2:false,daily:false,random:false},savedAt:o.savedAt||new Date().toISOString()};
+   await writeEntry(e);n++;
+  }
+  toast("已上傳 "+n+" 天。");$("legacy").hidden=true;await renderHistory();
+ }catch(e){errShow("上傳舊日記失敗",e);}
+};
+// auth
+$("loginBtn").onclick=async function(){
+ errClear();var prov=new GoogleAuthProvider();
+ try{await signInWithPopup(auth,prov);}
+ catch(e){
+  if(e&&e.code==="auth/popup-closed-by-user"){return;}
+  try{await signInWithRedirect(auth,prov);}catch(e2){errShow("登入失敗",e2);}
+ }
+};
+$("logoutBtn").onclick=async function(){try{await signOut(auth);}catch(e){errShow("登出失敗",e);}};
+getRedirectResult(auth).catch(function(e){errShow("登入失敗(redirect)",e);});
+async function ensureUser(u){
+ var ref=doc(db,"users",u.uid),s=await getDoc(ref);
+ if(!s.exists()){
+  var nu={name:u.displayName||"",code:u.uid.slice(0,6).toUpperCase(),friends:[],updatedAt:new Date().toISOString()};
+  await setDoc(ref,nu);return nu;
+ }
+ return s.data();
+}
+onAuthStateChanged(auth,async function(u){
+ if(!u){uid=null;me=null;$("authBox").hidden=false;$("app").hidden=true;$("bar").hidden=true;resetForm();return;}
+ uid=u.uid;
+ $("authBox").hidden=true;$("app").hidden=false;$("bar").hidden=false;$("uname").textContent=u.displayName||"";
+ try{
+  me=await ensureUser(u);
+  $("myCode").textContent=me.code||u.uid.slice(0,6).toUpperCase();
+  friendUids=(me.friends||[]).slice();
+ }catch(e){errShow("建立使用者失敗",e);me={name:u.displayName||""};}
+ checkLegacy();
+ await loadToday();
+ await renderHistory();
+ await renderFriends();
+ await renderShared();
+});
+</script>
+</body>
+</html>
