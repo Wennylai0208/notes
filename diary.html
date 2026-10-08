@@ -66,6 +66,12 @@ input.code{font:inherit;border:1px solid var(--line);background:var(--field);col
 <textarea id="dailyA" placeholder="想到什麼就寫什麼"></textarea>
 </div>
 
+<div class="card" id="reflectCard">
+<span class="tag">🪞 今日自我剖析</span>
+<div id="reflectBox"></div>
+<p class="small" style="margin-top:12px">如果好朋友遇到一樣的事，我會怎麼跟他說？</p>
+</div>
+
 <div class="card">
 <span class="tag">🔍 自我剖析・誠實面對自己</span>
 <div id="swSelf"></div>
@@ -314,7 +320,9 @@ function dayIndex(y,m,d){var a=Date.UTC(y,m-1,d),b=Date.UTC(2026,0,1);return Mat
 function dailyFor(y,m,d){var n=DAILY.length;var i=((dayIndex(y,m,d)%n)+n)%n;return DAILY[i];}
 function selfIdxFor(y,m,d){var n=SELF.length;return (((dayIndex(y,m,d)*7+3)%n)+n)%n;}
 function selfFor(y,m,d){return SELF[selfIdxFor(y,m,d)];}
-function sharedItemsPure(e,FX){var it=[],s=e.share||{};(e.fixed||[]).forEach(function(a,i){if(s["f"+i]&&a&&a.trim())it.push({q:FX[i]||"",a:a});});if(s.daily&&e.daily&&e.daily.a&&e.daily.a.trim())it.push({q:e.daily.q,a:e.daily.a});if(s.self&&e.self&&e.self.a&&e.self.a.trim())it.push({q:e.self.q,a:e.self.a});if(s.random&&e.random&&e.random.a&&e.random.a.trim())it.push({q:e.random.q,a:e.random.a});return it;}
+var REFLECT_Q=["今天有什麼後悔、或做得跟心裡想的不一樣的？","那一刻我心裡是什麼感覺？是什麼讓我那樣做？","下次遇到一樣的情況：如果＿＿，我就＿＿。"];
+var REFLECT_HINT=["只寫發生了什麼，先不評價自己。","試著替感覺取個名字（煩躁、怕、委屈…），問「是什麼」，不問「我為什麼這麼爛」。","越具體越好，例如「如果我拿起手機想滑，我就先把它放到書桌另一邊」。"];
+function sharedItemsPure(e,FX){var it=[],s=e.share||{};(e.fixed||[]).forEach(function(a,i){if(s["f"+i]&&a&&a.trim())it.push({q:FX[i]||"",a:a});});if(s.daily&&e.daily&&e.daily.a&&e.daily.a.trim())it.push({q:e.daily.q,a:e.daily.a});if(s.self&&e.self&&e.self.a&&e.self.a.trim())it.push({q:e.self.q,a:e.self.a});if(s.random&&e.random&&e.random.a&&e.random.a.trim())it.push({q:e.random.q,a:e.random.a});var rf=Array.isArray(e.reflect)?e.reflect:[];for(var ri=0;ri<3;ri++){var ra=rf[ri];if(s["r"+ri]!==false&&typeof ra==="string"&&ra.trim())it.push({q:REFLECT_Q[ri],a:ra});}return it;}
 /*END_PURE*/
 </script>
 <script type="module">
@@ -338,7 +346,7 @@ function toast(m){var t=$("toast");t.textContent=m;t.style.opacity=1;setTimeout(
 function grow(t){t.style.height="auto";t.style.height=(t.scrollHeight+4)+"px";}
 function bind(t){t.addEventListener("input",function(){grow(t);});grow(t);}
 // share toggles
-var share={f0:true,f1:true,f2:true,daily:true,self:true,random:true};
+var share={f0:true,f1:true,f2:true,daily:true,self:true,random:true,r0:true,r1:true,r2:true};
 var swEls={};
 function paintSw(k){var b=swEls[k];var on=share[k];b.textContent=on?"👀 給好友看":"🔒 只有我";b.className="sw"+(on?" on":"");}
 function mkSw(k,host){var b=document.createElement("button");b.type="button";b.onclick=function(){share[k]=!share[k];paintSw(k);};swEls[k]=b;paintSw(k);host.appendChild(b);}
@@ -350,6 +358,15 @@ FIXED.forEach(function(q,i){
  var t=document.createElement("textarea");t.placeholder="想到什麼就寫什麼";
  c.appendChild(s);c.appendChild(p);c.appendChild(t);fixedBox.appendChild(c);fixedAreas.push(t);bind(t);
 });
+var reflectAreas=[];
+REFLECT_Q.forEach(function(q,i){
+ var w=document.createElement("div");w.style.marginBottom="14px";
+ var s=document.createElement("div");mkSw("r"+i,s);
+ var p=document.createElement("p");p.className="q";p.textContent=q;
+ var h=document.createElement("div");h.className="small";h.textContent=REFLECT_HINT[i];
+ var t=document.createElement("textarea");t.placeholder="想到什麼就寫什麼";
+ w.appendChild(s);w.appendChild(p);w.appendChild(h);w.appendChild(t);$("reflectBox").appendChild(w);reflectAreas.push(t);bind(t);
+});
 mkSw("daily",$("swDaily"));mkSw("self",$("swSelf"));mkSw("random",$("swRandom"));
 bind($("dailyA"));bind($("selfA"));bind($("randA"));
 $("selfQ").textContent=selfQ;
@@ -358,8 +375,8 @@ $("dailyQ").textContent=dailyQ;
 function pickRandom(){var q;do{q=RANDOM[Math.floor(Math.random()*RANDOM.length)];}while(q===randQ&&RANDOM.length>1);randQ=q;$("randQ").textContent=q;}
 pickRandom();
 $("reroll").onclick=function(){pickRandom();$("randA").value="";grow($("randA"));};
-function resetForm(){fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("selfA").value="";$("randA").value="";grow($("selfA"));grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=true;paintSw(k);}}
-function collect(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},self:{q:selfQ,a:$("selfA").value},random:{q:randQ,a:$("randA").value},share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,self:share.self,random:share.random},savedAt:new Date().toISOString()};}
+function resetForm(){reflectAreas.forEach(function(t){t.value="";grow(t);});fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("selfA").value="";$("randA").value="";grow($("selfA"));grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=true;paintSw(k);}}
+function collect(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},self:{q:selfQ,a:$("selfA").value},random:{q:randQ,a:$("randA").value},reflect:reflectAreas.map(function(t){return t.value;}),share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,self:share.self,random:share.random,r0:share.r0,r1:share.r1,r2:share.r2},savedAt:new Date().toISOString()};}
 function sharedItems(e){return sharedItemsPure(e,FIXED);}
 async function writeEntry(e){
  await setDoc(doc(db,"users",uid,"entries",e.date),e);
@@ -431,6 +448,7 @@ async function renderHistory(){
    if(o.daily)add(o.daily.q,o.daily.a,sh.daily);
    if(o.self)add(o.self.q,o.self.a,sh.self);
    if(o.random)add(o.random.q,o.random.a,sh.random);
+   if(Array.isArray(o.reflect))o.reflect.forEach(function(v,i){if(i<3)add(REFLECT_Q[i],v,sh["r"+i]!==false);});
    if(sharedItems(o).length)mountComments(d,uid,o.date);
    box.appendChild(d);
   });
@@ -445,7 +463,8 @@ async function loadToday(){
   if(v.daily&&v.daily.q===dailyQ){$("dailyA").value=v.daily.a||"";grow($("dailyA"));}
   if(v.self&&v.self.q){selfQ=v.self.q;$("selfQ").textContent=selfQ;$("selfA").value=v.self.a||"";grow($("selfA"));}
   if(v.random&&v.random.q){randQ=v.random.q;$("randQ").textContent=randQ;$("randA").value=v.random.a||"";grow($("randA"));}
-  var sh=v.share||{};for(var k in share){share[k]=(k==="self"&&!("self" in sh))?true:!!sh[k];paintSw(k);}
+  if(Array.isArray(v.reflect))v.reflect.forEach(function(x,i){if(reflectAreas[i]){reflectAreas[i].value=x||"";grow(reflectAreas[i]);}});
+  var sh=v.share||{};for(var k in share){share[k]=((k==="self"||/^r[0-2]$/.test(k))&&!(k in sh))?true:!!sh[k];paintSw(k);}
  }catch(e){errShow("讀取今天失敗",e);}
 }
 // friends
@@ -517,7 +536,7 @@ $("legacyBtn").onclick=async function(){
   errClear();var n=0,l=legacyList();
   for(var i=0;i<l.length;i++){
    var o=l[i];if(!/^\d{4}-\d{2}-\d{2}$/.test(o.date))continue;
-   var e={date:o.date,fixed:o.fixed||[],daily:o.daily||{q:"",a:""},random:o.random||{q:"",a:""},self:o.self||{q:"",a:""},share:{f0:true,f1:true,f2:true,daily:true,self:true,random:true},savedAt:o.savedAt||new Date().toISOString()};
+   var e={date:o.date,fixed:o.fixed||[],daily:o.daily||{q:"",a:""},random:o.random||{q:"",a:""},self:o.self||{q:"",a:""},reflect:Array.isArray(o.reflect)?o.reflect:["","",""],share:{f0:true,f1:true,f2:true,daily:true,self:true,random:true,r0:true,r1:true,r2:true},savedAt:o.savedAt||new Date().toISOString()};
    await writeEntry(e);n++;
   }
   toast("已上傳 "+n+" 天。");$("legacy").hidden=true;await renderHistory();
