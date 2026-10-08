@@ -80,7 +80,10 @@ h2.sec-title:first-child{margin-top:4px;}
 .think ol{margin:0;padding-left:18px;font-size:14px;}
 .think ol li{margin-bottom:6px;}
 .calc{background:var(--calc);border-radius:10px;padding:10px 11px;font-size:14.5px;}
-.calc .line{margin-bottom:6px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13.5px;}
+.calc .line{margin-bottom:10px;line-height:1.6;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13.5px;}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .18em;line-height:1.25;}
+.frac>.n{padding:0 .3em;}
+.frac>.d{padding:0 .3em;border-top:1.4px solid currentColor;}
 .answer{background:var(--good);color:#fff;border-radius:10px;padding:9px 11px;font-size:15px;font-weight:600;}
 .pitfall{background:var(--pitfall);border-radius:10px;padding:9px 11px;font-size:13.5px;}
 .pitfall b{color:var(--warn);}
@@ -529,6 +532,48 @@ nav.tabbar button.active{color:var(--accent);}
 
 <script>
 /* ===== 資料：EXAMPLES / QUIZ ===== */
+function fmtCalc(s){
+  s=String(s);
+  if(/量綱|單位/.test(s)) return esc(s);
+  function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  var ATOM=/[0-9A-Za-zͰ-Ͽ⁰-₟²³¹′″ℓ一-鿿㐀-䶿.√|]/;
+  function match(t,i){var d=0;for(var k=i;k<t.length;k++){if(t[k]==='(')d++;else if(t[k]===')'){d--;if(d===0)return k;}}return -1;}
+  function matchBack(t,j){var d=0;for(var k=j;k>=0;k--){if(t[k]===')')d++;else if(t[k]==='('){d--;if(d===0)return k;}}return -1;}
+  function render(t){
+    var skip=new Array(t.length).fill(false),i,k;
+    for(i=0;i<t.length;i++){
+      if(t[i]==='^'&&(t[i+1]==='{'||t[i+1]==='(')){
+        var o=t[i+1],c=o==='{'?'}':')',d=0;
+        for(k=i+1;k<t.length;k++){if(t[k]===o)d++;else if(t[k]===c){d--;if(d===0)break;}}
+        if(k>=t.length)k=t.length-1;
+        for(var m=i+1;m<=k;m++)skip[m]=true;
+      }
+    }
+    var fr=[],lastEnd=-1;
+    for(i=0;i<t.length;i++){
+      if(t[i]!=='/'||skip[i])continue;
+      if(t[i-1]==='/'||t[i+1]==='/')continue;
+      var ls,ln,re,rn,lp=false,rp=false;
+      if(t[i-1]===')'){ls=matchBack(t,i-1);if(ls<0)continue;ln=t.slice(ls+1,i-1);lp=true;if(ls>0&&(ATOM.test(t[ls-1])||t[ls-1]==='^'))continue;}
+      else{ls=i;while(ls>0&&ATOM.test(t[ls-1]))ls--;ln=t.slice(ls,i);if(ls>0&&(t[ls-1]==='^'||t[ls-1]===')'))continue;}
+      if(t[i+1]==='('){re=match(t,i+1);if(re<0)continue;rn=t.slice(i+2,re);re=re+1;rp=true;if(re<t.length&&(ATOM.test(t[re])||t[re]==='^'||t[re]==='('))continue;}
+      else{re=i+1;while(re<t.length&&ATOM.test(t[re]))re++;rn=t.slice(i+1,re);if(t[re]==='^'||t[re]==='(')continue;}
+      if(!ln||!rn)continue;
+      fr.push([ls,re,ln,rn,lp,rp]);
+    }
+    fr.sort(function(a,b){return a[0]-b[0]||b[1]-a[1];});
+    var sel=[];
+    fr.forEach(function(f){if(f[0]>=lastEnd){sel.push(f);lastEnd=f[1];}});
+    fr=sel;
+    var out='',pos=0;
+    fr.forEach(function(f){
+      out+=esc(t.slice(pos,f[0]))+'<span class="frac"><span class="n'+(f[4]?' p':'')+'">'+render(f[2])+'</span><span class="d'+(f[5]?' p':'')+'">'+render(f[3])+'</span></span>';
+      pos=f[1];
+    });
+    return out+esc(t.slice(pos));
+  }
+  return render(s);
+}
 const EXAMPLES = [
 /*EXAMPLES_INSERT*/
 {id:'fd1',cat:'field',name:'磁場計算．範例一',type:'長直導線磁場＋磁針偏轉角，反推地磁',
@@ -1469,7 +1514,7 @@ function renderExamples(){
         <div class="exsec"><div class="lab">題目</div><div class="given">${fmtGiven(ex.given)}</div></div>
         ${svgHtml}
         <div class="exsec"><div class="lab">思考過程</div><div class="think"><ol>${ex.think.map(t=>'<li>'+t+'</li>').join('')}</ol></div></div>
-        <div class="exsec"><div class="lab">計算過程</div><div class="calc">${ex.calc.map(c=>'<div class="line">'+c+'</div>').join('')}</div></div>
+        <div class="exsec"><div class="lab">計算過程</div><div class="calc">${ex.calc.map(c=>'<div class="line">'+fmtCalc(c)+'</div>').join('')}</div></div>
         <div class="exsec"><div class="lab">答案</div><div class="answer">${ex.ans}</div></div>
         <div class="exsec"><div class="lab">容易錯在哪</div><div class="pitfall"><b>注意：</b>${ex.pitfall}</div></div>
         <div class="exfoot">
