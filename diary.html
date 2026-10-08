@@ -2,12 +2,13 @@
 <html lang="zh-Hant" data-nbt="sketch">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light only">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>每日深度日記</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=LXGW+WenKai+TC&family=Yuji+Boku&family=Cactus+Classical+Serif&display=swap">
 <style>
 :root{--bg:#f6f2ec;--card:#fffdf9;--ink:#3b3631;--sub:#7d746a;--line:#e6dfd4;--accent:#8aa391;--accent-ink:#2f4a39;--warm:#c9a98b;--field:#faf6ef}
-@media (prefers-color-scheme:dark){:root{--bg:#1d1f1e;--card:#262a28;--ink:#e8e3da;--sub:#a29a8e;--line:#363b38;--accent:#7f9c88;--accent-ink:#0f1b14;--warm:#b79a80;--field:#1f2321}}
+html{color-scheme:light;background:#f1e6d0}
 [hidden]{display:none!important}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;overflow:hidden;height:100%}
@@ -158,9 +159,6 @@ details.paper .item.cmt{padding-bottom:12px}
 .pgcorner::after{content:"";position:absolute;inset:-14px}
 .pgcorner.next{right:0;background:linear-gradient(135deg,#cdbf93 0,#efe6c8 50%,transparent 50%);box-shadow:-2px -2px 3px rgba(0,0,0,.15)}
 .pgcorner.prev{left:0;background:linear-gradient(45deg,transparent 50%,#efe6c8 50%,#cdbf93 100%);box-shadow:2px -2px 3px rgba(0,0,0,.15)}
-.settings{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;padding:6px 0;font-size:13px;color:var(--nb-ink2)}
-.settings button{font-size:12px;padding:0 9px;line-height:22px}
-.settings button.on{background:var(--nb-btn);color:var(--nb-btnfg);border-style:solid;border-color:var(--nb-btn)}
 #authBox{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;margin:2px 0;border-radius:6px 14px 14px 6px;background-color:var(--nb-btn);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 2px,transparent 2px 6px),linear-gradient(to right,rgba(0,0,0,.35) 0,transparent 14px);box-shadow:0 3px 8px rgba(0,0,0,.35),inset 0 0 0 5px rgba(255,255,255,.08);padding:30px 24px;color:var(--nb-btnfg);position:relative}
 #authBox::before{content:"";position:absolute;right:34px;top:0;bottom:0;width:14px;background:rgba(0,0,0,.35)}
 .clabel{background:var(--nb-paper);color:var(--nb-ink);font-family:var(--nb-font);text-align:center;padding:26px 40px;border:3px double var(--nb-ink2);border-radius:4px;box-shadow:0 2px 4px rgba(0,0,0,.3);position:relative;z-index:1;transform:rotate(-1.5deg)}
@@ -182,17 +180,15 @@ details.paper .item.cmt{padding-bottom:12px}
 :root[data-nbt=sketch]{--nb-paper:#e6c894;--nb-ink:#1a1a1a;--nb-tsh:none;--nb-rule:rgba(0,0,0,.07);--nb-ink2:rgba(26,26,26,.62);--nb-mcol:rgba(26,26,26,.4);--nb-mw:0px;--nb-mstyle:solid;--nb-btn:#1a1a1a;--nb-btnfg:#fbf9f5;--nb-fiber:radial-gradient(rgba(0,0,0,.04) 1px,transparent 0),radial-gradient(hsla(0,0%,100%,.1) 1px,transparent 0);--nb-fsz:6px 6px,6px 6px,auto;--nb-font:"ChenYuluoyan","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}
 :root[data-nbt=sketch] .pscroll,:root[data-nbt=sketch] #flowView{background-position:0 0,3px 3px,0 0}
 :root[data-nbt=sketch] .paper::after{opacity:.4}
-main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]){position:relative;font-family:inherit;color:var(--ink0);background:var(--paper);border:2px solid #000;border-radius:14px 6px 16px 8px;box-shadow:3px 3px 0 0 #000;transform:rotate(-1.2deg);margin-right:4px;margin-bottom:4px;font-weight:600;text-shadow:none;transition:transform .08s,box-shadow .08s}
-main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]):nth-of-type(even){border-radius:8px 18px 6px 16px;transform:rotate(1deg)}
-main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]):active{transform:translate(2px,2px) rotate(-1deg);box-shadow:1px 1px 0 0 #000}
+main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]):not(.thmopt):not(.lgout){position:relative;font-family:inherit;color:var(--ink0);background:var(--paper);border:2px solid #000;border-radius:14px 6px 16px 8px;box-shadow:3px 3px 0 0 #000;transform:rotate(-1.2deg);margin-right:4px;margin-bottom:4px;font-weight:600;text-shadow:none;transition:transform .08s,box-shadow .08s}
+main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]):not(.thmopt):not(.lgout):nth-of-type(even){border-radius:8px 18px 6px 16px;transform:rotate(1deg)}
+main button:not(.lnq):not(.day):not(.pgcorner):not(.dogear):not([data-tab]):not(.thmopt):not(.lgout):active{transform:translate(2px,2px) rotate(-1deg);box-shadow:1px 1px 0 0 #000}
 main button.save,main #loginBtn,main #legacyBtn{box-shadow:4px 4px 0 0 #000;transform:rotate(-1.5deg)}
 main button.save:active,main #loginBtn:active,main #legacyBtn:active{box-shadow:2px 2px 0 0 #000;transform:translate(2px,2px) rotate(-1.5deg)}
 main button.save::after,main #loginBtn::after,main #legacyBtn::after{content:"";position:absolute;inset:3px;border:1.5px dashed currentColor;border-radius:inherit;pointer-events:none;opacity:.75}
 main button.save{width:calc(100% - 6px);font-size:20px;letter-spacing:.2em}
-main button.sw.on,main button.thmbtn.on,main .sealpick button.on,main .settings button.on{background:var(--ink0)!important;color:var(--paper)!important;border-color:#000}
 main .calgrid button.day{border:2px solid transparent;border-radius:14px 6px 16px 8px;font-family:inherit}
 main .calgrid button.day.today{border-color:#000;background:var(--paper)}
-main .calgrid button.day.sel{background:var(--ink0);color:var(--paper)}
 main .sticky button{border-color:#000!important}
 main .paper input.code,main .nbinp{border:0;border-bottom:2px solid #000;border-radius:0;background:transparent;color:var(--ink0);font-family:inherit;box-shadow:none;outline:0;text-transform:none}
 main .paper input.code{text-transform:uppercase;width:8.5em}
@@ -222,7 +218,28 @@ main #authBox button{font-size:22px;padding:12px 30px;letter-spacing:.15em;font-
 #fixed,#reflectBox{display:contents}
 #flow .hintline{margin-top:0;margin-bottom:0}
 #flow .ln .lnq{width:100%}
-#pgnoBar{position:absolute;left:46px;right:34px;bottom:2px;text-align:center;line-height:30px;pointer-events:none;color:var(--nb-ink2)}
+
+
+/* ===== footer theme picker, no black fills ===== */
+.pscroll{bottom:34px}
+.pgfoot{display:flex;align-items:center;justify-content:space-between;gap:8px;height:34px;padding:0 34px 0 46px;font-size:13px;line-height:34px;color:var(--nb-ink2);font-family:var(--nb-font)}
+.paper>.pgfoot{position:absolute;left:0;right:0;bottom:0;z-index:3}
+#pgnoBar.pgfoot{position:absolute;left:0;right:0;bottom:0;z-index:3;padding-right:34px}
+.thmrow{display:flex;align-items:center;gap:9px;flex-wrap:nowrap;white-space:nowrap}
+main .pgfoot button.thmopt{display:inline-flex;align-items:center;gap:4px;background:none;border:0;border-radius:0;box-shadow:none;padding:6px 0;margin:0;font:inherit;font-size:13px;font-weight:400;line-height:20px;color:var(--nb-ink2);transform:none;cursor:pointer;opacity:.85;text-shadow:none}
+.thmopt .bx{position:relative;display:inline-block;width:13px;height:13px;border:1.2px solid currentColor;border-radius:2px}
+.thmopt .bx svg{display:none;position:absolute;left:-1px;top:-6px;width:17px;height:17px;pointer-events:none;color:var(--nb-ink)}
+.thmopt.on{color:var(--nb-ink);opacity:1}
+.thmopt.on .bx svg{display:block}
+.pgn{white-space:nowrap;letter-spacing:.08em}
+.lgrow{margin-top:14px}
+main button.lgout{background:none;border:0;box-shadow:none;border-radius:0;padding:0;margin:0;font:inherit;font-size:13px;font-weight:400;color:var(--nb-ink2);text-decoration:underline;text-underline-offset:3px;cursor:pointer;transform:none}
+/* selected = paper background, hand marks instead of fill */
+main .paper .sw.on,main .sealpick button.on{background:transparent!important;color:var(--nb-ink)!important;font-weight:700;text-decoration:underline wavy;text-decoration-thickness:1.2px;text-underline-offset:4px}
+main .paper .sw.on::before,main .sealpick button.on::before{content:"";display:inline-block;width:13px;height:13px;margin-right:4px;vertical-align:-1px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 10.5C4.2 11.6 5.6 13.2 7 16C9.2 10.4 12.8 5.6 18 2.6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 10.5C4.2 11.6 5.6 13.2 7 16C9.2 10.4 12.8 5.6 18 2.6'/%3E%3C/svg%3E") center/contain no-repeat}
+main .paper .calgrid button.day.sel{background:transparent;color:var(--nb-ink);font-weight:700;border:2px solid var(--nb-ink);border-radius:46% 54% 50% 50%/55% 45% 55% 45%}
+main .paper .calgrid button.day.sel .dot{background:var(--nb-mcol)}
+main .paper .calgrid button.day.today{border-style:dashed}
 </style>
 </head>
 <body>
@@ -259,9 +276,9 @@ main #authBox button{font-size:22px;padding:12px 30px;letter-spacing:.15em;font-
 <div class="small" id="sealNote"></div>
 <p class="small" style="margin:0 0 34px">標「給好友看」的題目（預設）互加的好友看得到；點成「只有我」就只有自己看得到。</p>
 </div>
-<div class="backcover"><div class="pghd">封底</div><div class="small">這本筆記本寫完了。想換一本，或先收起來都可以。</div><div class="settings" data-s="1"></div></div>
+<div class="backcover"><div class="pghd">封底</div><div class="small">這本筆記本寫完了。想換一本，在每一頁最下面的小方框打勾就好。</div><div class="lgrow"><button type="button" class="lgout">登出</button></div></div>
 </div></div></div>
-<div id="pgnoBar" class="small"></div>
+<div id="pgnoBar" class="pgfoot" data-pf="1"></div>
 </section>
 </div>
 </div>
@@ -275,8 +292,8 @@ main #authBox button{font-size:22px;padding:12px 30px;letter-spacing:.15em;font-
 <div id="history"></div>
 <h2>備份</h2>
 <div class="row"><button class="ghost" id="exportBtn" type="button">下載備份</button></div>
-<div class="settings" data-s="1"></div><div class="sheetpad"></div>
-</div></div></div>
+<div class="sheetpad"></div>
+</div><div class="pgfoot" data-pf="0"></div></div></div>
 </div>
 
 <div class="pane" id="paneFriends" hidden>
@@ -288,8 +305,8 @@ main #authBox button{font-size:22px;padding:12px 30px;letter-spacing:.15em;font-
 <div id="friends"></div></div>
 <h2>好友分享的</h2>
 <div id="shared"></div>
-<div class="settings" data-s="1"></div><div class="sheetpad"></div>
-</div></div></div>
+<div class="sheetpad"></div>
+</div><div class="pgfoot" data-pf="0"></div></div></div>
 </div>
 
 </div>
@@ -577,15 +594,21 @@ function setTheme(t,save){
  if(NBT.indexOf(t)<0)t="sketch";
  document.documentElement.setAttribute("data-nbt",t);
  if(save){try{localStorage.setItem("dd_nbt",t);}catch(e){}}
- var bs=document.querySelectorAll(".thmbtn");for(var i=0;i<bs.length;i++)bs[i].className="thmbtn ghost"+((bs[i].getAttribute("data-t")===t)?" on":"");
+ var bs=document.querySelectorAll(".thmopt");for(var i=0;i<bs.length;i++){var on=bs[i].getAttribute("data-t")===t;bs[i].className="thmopt"+(on?" on":"");bs[i].setAttribute("aria-pressed",on?"true":"false");}
  setTimeout(function(){document.querySelectorAll("#nb textarea").forEach(grow);schedLayout();},0);
 }
-function mkSettings(host){
- var l=document.createElement("span");l.textContent="款式";host.appendChild(l);
- NBT.forEach(function(t){var b=document.createElement("button");b.type="button";b.className="thmbtn ghost";b.setAttribute("data-t",t);b.textContent=NBN[t];b.onclick=function(){setTheme(t,true);};host.appendChild(b);});
- var o=document.createElement("button");o.type="button";o.className="ghost";o.textContent="登出";o.onclick=doLogout;host.appendChild(o);
+var NBS={sketch:"信箋",legal:"橫線",kraft:"牛皮",xuan:"宣紙"};
+var CHK='<svg viewBox="0 0 20 20" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 10.5C4.2 11.6 5.6 13.2 7 16C9.2 10.4 12.8 5.6 18 2.6"/></svg>';
+function mkFoot(host){
+ var r=document.createElement("span");r.className="thmrow";
+ NBT.forEach(function(t){var b=document.createElement("button");b.type="button";b.className="thmopt";b.setAttribute("data-t",t);b.setAttribute("aria-pressed","false");
+  var bx=document.createElement("span");bx.className="bx";bx.innerHTML=CHK;b.appendChild(bx);b.appendChild(document.createTextNode(NBS[t]));
+  b.onclick=function(){setTheme(t,true);};r.appendChild(b);});
+ host.appendChild(r);
+ if(host.getAttribute("data-pf")==="1"){var n=document.createElement("span");n.className="pgn";n.id="pgnTxt";host.appendChild(n);}
 }
-document.querySelectorAll(".settings").forEach(mkSettings);
+document.querySelectorAll(".pgfoot").forEach(mkFoot);
+(function(){var o=document.querySelector(".lgout");if(o)o.onclick=doLogout;})();
 (function(){var t="sketch";try{t=localStorage.getItem("dd_nbt")||"sketch";}catch(e){}setTheme(t,false);})();
 // pages (CSS columns flow)
 (function(){var d=document.createElement("div");d.className="pgdate";d.textContent=DATE_STR;var yr=document.createElement("span");yr.className="yr";yr.textContent=Y;d.appendChild(yr);var f=$("flow");f.insertBefore(d,f.firstChild);})();
@@ -594,7 +617,7 @@ cPrev.type=cNext.type="button";cPrev.className="pgcorner prev";cNext.className="
 $("nbPages").appendChild(cPrev);$("nbPages").appendChild(cNext);
 var fvEl=$("flowView"),flowEl=$("flow"),trackEl=$("track"),PW=0,PN=1,laying=false,layQ=false;
 function curPg(){return PW?Math.max(0,Math.min(PN-1,Math.round(fvEl.scrollLeft/PW))):0;}
-function updPg(){var p=curPg();$("pgnoBar").textContent="— "+(p+1)+" / "+PN+" —";cPrev.hidden=(p===0);cNext.hidden=(p>=PN-1);}
+function updPg(){var p=curPg();$("pgnTxt").textContent=(p+1)+" / "+PN;cPrev.hidden=(p===0);cNext.hidden=(p>=PN-1);}
 function goPg(p,smooth){p=Math.max(0,Math.min(PN-1,p));fvEl.scrollTo({left:p*PW,behavior:smooth?"smooth":"instant"});}
 function flowShow(el){var x=el.offsetLeft;if(PW){var p=Math.floor((x+2)/PW);if(p!==curPg())goPg(p,false);}}
 function flowLayout(){
