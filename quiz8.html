@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="build-id" content="20261007203315">
+<meta name="build-id" content="20261009203437">
 <title>Core Lexicon Unit 4</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
 <style>
@@ -161,7 +161,7 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
    若使用者正在輸入答案（文字輸入框有內容），先不重整，等下一次檢查再試。 */
 (function(){
 try{
-  var BUILD_ID = "20261007203315";
+  var BUILD_ID = "20261009203437";
   var CHECK_INTERVAL_MS = 60000;
   var RELOAD_TARGET_KEY = 'q8_reload_target';
   var SKIP_HIT_KEY = 'q8_skip_hit_once';
@@ -1293,6 +1293,26 @@ function bind(){
     c.list = buildDeck(c.unsureOnly); c.idx=0; c.flipped=false; saveFcSession(); render();
   }; }
 }
+
+/* 鍵盤快捷鍵（2026-10-09 雨葳要求）：
+   打字/選擇題答完後按 Enter = 下一題；字卡 ←/→ 上一張/下一張，空白鍵翻面 */
+document.addEventListener('keydown', function(e){
+  if(e.defaultPrevented || e.isComposing || e.keyCode===229) return;
+  var app = document.getElementById('app'); if(!app) return;
+  var tag = (e.target && e.target.tagName) || '';
+  var inField = tag==='INPUT' || tag==='TEXTAREA' || tag==='SELECT';
+  function hit(act){ var b = app.querySelector('[data-act="'+act+'"]'); if(b){ e.preventDefault(); b.click(); return true; } return false; }
+  if(e.key==='Enter'){
+    if(state.screen==='typing'){ if(hit('typenext')) return; if(!inField && hit('typesubmit')) return; }
+    else if(state.screen==='quiz'){ hit('next'); }
+    return;
+  }
+  if(state.screen==='cards' && !inField){
+    if(e.key==='ArrowLeft') hit('prev');
+    else if(e.key==='ArrowRight') hit('nextcard');
+    else if(e.key===' ' || e.key==='ArrowUp' || e.key==='ArrowDown') hit('flip');
+  }
+});
 
 /* capture phase：一定要在 app.onclick 觸發整個 innerHTML 重繪之前先判斷，
    否則 e.target 在重繪後會變成已脫離文件的舊節點，containment 判斷會失準 */
