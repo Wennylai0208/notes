@@ -836,7 +836,7 @@ function mountComments(d,ownerUid,date,keyed){
   if(!mine){var tg=document.createElement("button");tg.type="button";tg.className="ghost";tg.textContent="貼一張便條";
   var row=mkRow(kv.key);row.hidden=true;tg.onclick=function(){row.hidden=!row.hidden;if(!row.hidden)row.querySelector("input").focus();};
   sl.appendChild(tg);sl.appendChild(row);}
-  sl.appendChild(nt);kv.el.appendChild(sl);slots[kv.key]=nt;
+  sl.appendChild(nt);kv.el.appendChild(sl);slots[kv.key]=nt;if(kv.alias&&!slots[kv.alias])slots[kv.alias]=nt;
  });
  var wrap=document.createElement("div");wrap.className="item cmt";
  var hd=document.createElement("b");hd.className="cq";hd.textContent="朋友的便條";wrap.appendChild(hd);
@@ -880,7 +880,7 @@ function buildEntry(o,open){
  var d=document.createElement("details"),s=document.createElement("summary");d.className="paper";s.textContent=o.date;d.appendChild(s);
  var sh=o.share||{};
  var ks=[];
- function add(label,text,on,key){if(!text||!String(text).trim())return;var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.className="cq";b.textContent=icon(on)+label;var v=document.createElement("div");v.className="ca";v.textContent=String(text);w.appendChild(b);w.appendChild(v);if(o.en&&typeof o.en[key]==="string"&&o.en[key]){var eb=document.createElement("span");eb.className="enb";eb.setAttribute("role","button");eb.tabIndex=0;eb.textContent="英";var ex=document.createElement("div");ex.className="enbox";ex.hidden=true;ex.textContent=o.en[key];var tg=function(){ex.hidden=!ex.hidden;eb.className="enb"+(ex.hidden?"":" on");};eb.onclick=tg;eb.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();tg();}};var er=document.createElement("div");er.style.paddingLeft="8px";er.appendChild(eb);w.appendChild(er);w.appendChild(ex);}d.appendChild(w);ks.push({key:key,el:w});}
+ function add(label,text,on,key){if(!text||!String(text).trim())return;var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.className="cq";b.textContent=icon(on)+label;var v=document.createElement("div");v.className="ca";v.textContent=String(text);w.appendChild(b);w.appendChild(v);if(o.en&&typeof o.en[key]==="string"&&o.en[key]){var eb=document.createElement("span");eb.className="enb";eb.setAttribute("role","button");eb.tabIndex=0;eb.textContent="英";var ex=document.createElement("div");ex.className="enbox";ex.hidden=true;ex.textContent=o.en[key];var tg=function(){ex.hidden=!ex.hidden;eb.className="enb"+(ex.hidden?"":" on");};eb.onclick=tg;eb.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();tg();}};var er=document.createElement("div");er.style.paddingLeft="8px";er.appendChild(eb);w.appendChild(er);w.appendChild(ex);}d.appendChild(w);ks.push({key:key,el:w,alias:"t:"+label});}
  (o.fixed||[]).forEach(function(v,i){add(FIXED[i]||"",v,sh["f"+i],"f"+i);});
  if(o.daily)add(o.daily.q,o.daily.a,sh.daily,"daily");
  if(o.self)add(o.self.q,o.self.a,sh.self,"self");
@@ -1053,7 +1053,7 @@ async function renderShared(){
    if(!arr.length){var m=document.createElement("p");m.className="empty";m.textContent="還沒有分享的日記。";sec.appendChild(m);}
    arr.forEach(function(o){
     var d=document.createElement("details"),s=document.createElement("summary");d.className="paper";s.textContent=o.date;d.appendChild(s);
-    var ks=[];(o.items||[]).forEach(function(it){var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.className="cq";b.textContent=it.q;var v=document.createElement("div");v.className="ca";v.textContent=it.a;w.appendChild(b);w.appendChild(v);d.appendChild(w);ks.push({key:it.k||"",el:w});});
+    var ks=[];(o.items||[]).forEach(function(it){var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.className="cq";b.textContent=it.q;var v=document.createElement("div");v.className="ca";v.textContent=it.a;w.appendChild(b);w.appendChild(v);d.appendChild(w);ks.push({key:it.k||("t:"+(it.q||"")),el:w});});
     mountComments(d,f,o.date,ks);
     sec.appendChild(d);
    });
