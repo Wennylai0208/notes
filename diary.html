@@ -959,7 +959,7 @@ function renderDay(){
  var box=$("history");box.textContent="";
  if(!calSel)return;
  var o=entMap[calSel];
- if(o&&hasContent(o)){box.appendChild(buildEntry(o,true));}
+ if(o&&hasContent(o)){box.appendChild(buildEntry(o,true));if(calSel===TODAY){var gw=document.createElement("button");gw.type="button";gw.className="ghost";gw.style.marginTop="10px";gw.textContent="回去繼續寫今天";gw.onclick=function(){setTab("today");};box.appendChild(gw);}}
  else{var e=document.createElement("p");e.className="empty";e.textContent=calSel+"　這天沒有日記。";box.appendChild(e);}
 }
 function renderCal(){
@@ -973,7 +973,7 @@ function renderCal(){
   b.className="day"+(ds===TODAY?" today":"")+(ds===calSel?" sel":"");b.textContent=k;
   if(entMap[ds]&&hasContent(entMap[ds])){var dot=document.createElement("span");dot.className="dot";b.appendChild(dot);}
   b.onclick=function(){
-   if(ds===TODAY){setTab("today");return;}
+   if(ds===TODAY&&!(entMap[ds]&&hasContent(entMap[ds]))){setTab("today");return;}
    calSel=ds;renderCal();renderDay();
   };
   g.appendChild(b);
