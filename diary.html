@@ -817,7 +817,7 @@ function fmtAt(t){try{var d=new Date(t);return isNaN(d)?String(t||""):(d.getMont
 function hh(t){var h=0;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))|0;return Math.abs(h);}
 var STK=["#fff59d","#ffc9de","#bfe3ff"];
 function mountComments(d,ownerUid,date,keyed){
- var slots={},total=0;
+ var slots={},total=0,mine=(ownerUid===uid);
  function post(key,inp){
   var tx=inp.value.trim();if(!tx)return Promise.resolve();
   var o={by:uid,name:(me&&me.name)||"",text:tx.slice(0,500),at:new Date().toISOString()};if(key)o.qk=key;
@@ -832,15 +832,16 @@ function mountComments(d,ownerUid,date,keyed){
  (keyed||[]).forEach(function(kv){
   if(!kv.key)return;
   var sl=document.createElement("div");sl.className="slot";
-  var tg=document.createElement("button");tg.type="button";tg.className="ghost";tg.textContent="貼一張便條";
-  var row=mkRow(kv.key);row.hidden=true;tg.onclick=function(){row.hidden=!row.hidden;if(!row.hidden)row.querySelector("input").focus();};
   var nt=document.createElement("div");nt.className="notes";
-  sl.appendChild(tg);sl.appendChild(row);sl.appendChild(nt);kv.el.appendChild(sl);slots[kv.key]=nt;
+  if(!mine){var tg=document.createElement("button");tg.type="button";tg.className="ghost";tg.textContent="貼一張便條";
+  var row=mkRow(kv.key);row.hidden=true;tg.onclick=function(){row.hidden=!row.hidden;if(!row.hidden)row.querySelector("input").focus();};
+  sl.appendChild(tg);sl.appendChild(row);}
+  sl.appendChild(nt);kv.el.appendChild(sl);slots[kv.key]=nt;
  });
  var wrap=document.createElement("div");wrap.className="item cmt";
  var hd=document.createElement("b");hd.className="cq";hd.textContent="朋友的便條";wrap.appendChild(hd);
  var list=document.createElement("div");list.className="notes";wrap.appendChild(list);
- var rw=mkRow("");rw.style.marginTop="8px";wrap.appendChild(rw);d.appendChild(wrap);
+ if(!mine){var rw=mkRow("");rw.style.marginTop="8px";wrap.appendChild(rw);}d.appendChild(wrap);
  function sticky(cd,c,host){
   var h=hh(cd.id||String(c.at||"")),p=document.createElement("div");p.className="sticky";
   p.style.background=STK[h%3];p.style.transform="rotate("+(((h>>3)%7)-3)+"deg)";
@@ -856,7 +857,7 @@ function mountComments(d,ownerUid,date,keyed){
    var snap=await getDocs(query(collection(db,"users",ownerUid,"shared",date,"comments"),orderBy("at")));
    list.textContent="";for(var k in slots)slots[k].textContent="";total=0;
    snap.forEach(function(cd){var c=cd.data();total++;sticky(cd,c,(c.qk&&slots[c.qk])||list);});
-   if(!list.children.length){var e=document.createElement("div");e.className="small";e.textContent=total?"其他便條都貼在題目下面了。":"還沒有便條。";list.appendChild(e);}
+   if(!list.children.length){var e=document.createElement("div");e.className="small";e.textContent=total?"其他便條都貼在題目下面了。":(mine?"朋友還沒貼便條給你。":"還沒有便條。");list.appendChild(e);}
   }catch(e){errShow("讀取便條失敗",e);}
  }
  var loaded=false;
