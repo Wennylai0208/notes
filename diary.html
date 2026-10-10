@@ -327,7 +327,7 @@ main .paper .calgrid button.day.today{border-style:dashed}
 <div class="small" id="sealNote"></div>
 <p class="small" style="margin:0 0 34px">標「給好友看」的題目（預設）互加的好友看得到；點成「只有我」就只有自己看得到。</p>
 </div>
-<div class="backcover"><div class="pghd">封底</div><div class="small">這本筆記本寫完了。想換一本，在每一頁最下面的小方框打勾就好。</div><div class="lgrow"><button type="button" class="ghost" id="moodSw" aria-pressed="false">心情雜記：關</button><div class="small">打開後，右邊多一頁「雜記」，自由寫心情。只有你自己看得到，好友看不到。</div></div><div class="lgrow"><button type="button" class="lgout">登出</button></div></div>
+<div class="backcover"><div class="pghd">封底</div><div class="small">這本筆記本寫完了。想換一本，在每一頁最下面的小方框打勾就好。</div><div class="lgrow"><button type="button" class="ghost" id="moodSw" aria-pressed="false">心情雜記：關</button><div class="small">打開後，右邊多一頁「雜記」，自由寫心情。每一篇可以自己選要不要給好友看。</div></div><div class="lgrow"><button type="button" class="lgout">登出</button></div></div>
 </div></div></div>
 <div id="pgnoBar" class="pgfoot" data-pf="1"></div>
 </section>
@@ -363,9 +363,9 @@ main .paper .calgrid button.day.today{border-style:dashed}
 <div class="pane" id="paneMood" hidden>
 <div class="sheetwrap"><div class="paper nbpage"><div class="pscroll">
 <h2>雜記</h2>
-<div class="small">想到什麼就寫什麼，沒有題目。只有你自己看得到。</div>
+<div class="small">想到什麼就寫什麼，沒有題目。每一篇可選「只有我」或「給好友看」。</div>
 <textarea id="moodA" placeholder="現在的心情……"></textarea>
-<div class="row"><button class="ghost" id="moodAdd" type="button">收進雜記</button></div>
+<div class="row"><button type="button" id="moodNewSw"></button><button class="ghost" id="moodAdd" type="button">收進雜記</button></div>
 <div id="moodList"></div>
 <div class="sheetpad"></div>
 </div><div class="pgfoot" data-pf="0"></div></div></div>
@@ -1064,9 +1064,14 @@ async function renderShared(){
   var sec=document.createElement("div");var h=document.createElement("div");h.className="small";h.textContent=nm;sec.appendChild(h);
   try{
    var snap=await getDocs(collection(db,"users",f,"shared"));
-   var arr=[];snap.forEach(function(d){arr.push(d.data());});
+   var arr=[],mdoc=null;snap.forEach(function(d){if(d.id==="_mood"){mdoc=d.data();return;}arr.push(d.data());});
    arr.sort(function(a,b){return a.date<b.date?1:-1;});arr=arr.slice(0,30);
-   if(!arr.length){var m=document.createElement("p");m.className="empty";m.textContent="還沒有分享的日記。";sec.appendChild(m);}
+   if(!arr.length&&!(mdoc&&(mdoc.items||[]).length)){var m=document.createElement("p");m.className="empty";m.textContent="還沒有分享的日記。";sec.appendChild(m);}
+   if(mdoc&&Array.isArray(mdoc.items)&&mdoc.items.length){
+    var md=document.createElement("details");md.className="paper";var ms=document.createElement("summary");ms.textContent="心情雜記";md.appendChild(ms);
+    mdoc.items.slice().sort(function(a,b){return a.at<b.at?1:-1;}).forEach(function(it){var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.className="cq";b.textContent=moodStamp(it.at);var v=document.createElement("div");v.className="ca";v.style.whiteSpace="pre-wrap";v.textContent=it.text;w.appendChild(b);w.appendChild(v);md.appendChild(w);});
+    sec.appendChild(md);
+   }
    arr.forEach(function(o){
     var d=document.createElement("details"),s=document.createElement("summary");d.className="paper";s.textContent=o.date;d.appendChild(s);
     var ks=[];(o.items||[]).forEach(function(it){var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.className="cq";b.textContent=it.q;var v=document.createElement("div");v.className="ca";v.textContent=it.a;w.appendChild(b);w.appendChild(v);d.appendChild(w);ks.push({key:it.k||("t:"+(it.q||"")),el:w});});
@@ -1173,7 +1178,17 @@ async function loadMood(){
  }catch(e){errShow("讀取雜記失敗",e);}
  return {enabled:moodOn,items:moodItems};
 }
-async function saveMood(){await setDoc(moodRef(),{enabled:moodOn,items:moodItems,updatedAt:new Date().toISOString()});}
+async function saveMood(){
+ await setDoc(moodRef(),{enabled:moodOn,items:moodItems,updatedAt:new Date().toISOString()});
+ try{
+  var pub=moodOn?moodItems.filter(function(x){return x.share!==false;}).map(function(x){return {id:x.id,at:x.at,text:x.text};}):[];
+  var sr=doc(db,"users",uid,"shared","_mood");
+  if(pub.length)await setDoc(sr,{date:"_mood",name:(me&&me.name)||"",items:pub,savedAt:new Date().toISOString()});
+  else await deleteDoc(sr);
+ }catch(e){errShow("同步雜記分享失敗",e);}
+}
+var moodNewShare=true;
+function shLabel(b,on){b.textContent=on?"給好友看":"只有我";b.className="sw"+(on?" on":"");}
 function moodPaint(){
  $("moodTabBtn").hidden=!moodOn;
  var b=$("moodSw");b.textContent="心情雜記："+(moodOn?"開":"關");b.setAttribute("aria-pressed",moodOn?"true":"false");
@@ -1212,14 +1227,17 @@ function renderMood(){
    var i=moodItems.indexOf(it);if(i<0)return;moodItems.splice(i,1);
    try{await saveMood();renderMood();}catch(e){moodItems.splice(i,0,it);errShow("刪除雜記失敗",e);}
   };
-  bar.appendChild(be);bar.appendChild(bd);
+  var bw=document.createElement("button");bw.type="button";shLabel(bw,it.share!==false);
+  bw.onclick=async function(){var old=it.share!==false;it.share=!old;shLabel(bw,it.share);try{await saveMood();}catch(e){it.share=old;shLabel(bw,old);errShow("更新分享失敗",e);}};
+  bar.appendChild(bw);bar.appendChild(be);bar.appendChild(bd);
   w.appendChild(t);w.appendChild(x);w.appendChild(bar);box.appendChild(w);
  });
 }
+$("moodNewSw").onclick=function(){moodNewShare=!moodNewShare;shLabel(this,moodNewShare);};shLabel($("moodNewSw"),true);
 $("moodA").addEventListener("input",function(){grow(this);});
 $("moodAdd").onclick=async function(){
  var v=$("moodA").value.trim();if(!v){toast("先寫點什麼");return;}
- var it={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),at:new Date().toISOString(),text:v};
+ var it={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),at:new Date().toISOString(),text:v,share:moodNewShare};
  moodItems.push(it);
  try{await saveMood();$("moodA").value="";grow($("moodA"));toast("收進雜記了");renderMood();}catch(e){moodItems.pop();errShow("儲存雜記失敗",e);}
 };
