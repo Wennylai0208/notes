@@ -39,6 +39,7 @@ h2{font-size:18px;margin:34px 0 10px;color:var(--sub);font-weight:500;letter-spa
 input.code{font:inherit;border:1px solid var(--line);background:var(--field);color:var(--ink);border-radius:999px;padding:9px 14px;width:9em;text-transform:uppercase}
 .mycode{font-size:22px;font-weight:600;letter-spacing:.2em}
 .pane[hidden]{display:none!important}
+.mdi{border-top:1px dashed var(--nb-rule,rgba(0,0,0,.25));padding:6px 0}.mdi .mdt{color:var(--nb-ink2);font-size:14px}.mdi .mdx{white-space:pre-wrap;word-break:break-word}.mdi .mdb{display:flex;gap:8px;margin-top:4px}
 .cal{padding:12px}
 .calhd{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
 .calhd b{font-size:19px}
@@ -299,7 +300,7 @@ main .paper .calgrid button.day.today{border-style:dashed}
 </div></div>
 <div id="err" role="alert"></div>
 <div id="app" hidden>
-<nav id="tabs" hidden aria-label="書籤"><button type="button" id="rbBtn" data-rb="1" aria-label="書籤選單" aria-haspopup="true" aria-expanded="false"></button><div id="rbCard" role="menu"><button type="button" role="menuitem" data-tab="today">今天</button><button type="button" role="menuitem" data-tab="cal">日曆</button><button type="button" role="menuitem" data-tab="friends">朋友</button></div></nav>
+<nav id="tabs" hidden aria-label="書籤"><button type="button" id="rbBtn" data-rb="1" aria-label="書籤選單" aria-haspopup="true" aria-expanded="false"></button><div id="rbCard" role="menu"><button type="button" role="menuitem" data-tab="today">今天</button><button type="button" role="menuitem" data-tab="cal">日曆</button><button type="button" role="menuitem" data-tab="friends">朋友</button><button type="button" role="menuitem" data-tab="mood" id="moodTabBtn" hidden>雜記</button></div></nav>
 <div class="pane" id="paneToday">
 <div id="nb">
 <div id="nbPages" class="sheetwrap">
@@ -326,7 +327,7 @@ main .paper .calgrid button.day.today{border-style:dashed}
 <div class="small" id="sealNote"></div>
 <p class="small" style="margin:0 0 34px">標「給好友看」的題目（預設）互加的好友看得到；點成「只有我」就只有自己看得到。</p>
 </div>
-<div class="backcover"><div class="pghd">封底</div><div class="small">這本筆記本寫完了。想換一本，在每一頁最下面的小方框打勾就好。</div><div class="lgrow"><button type="button" class="lgout">登出</button></div></div>
+<div class="backcover"><div class="pghd">封底</div><div class="small">這本筆記本寫完了。想換一本，在每一頁最下面的小方框打勾就好。</div><div class="lgrow"><button type="button" class="ghost" id="moodSw" aria-pressed="false">心情雜記：關</button><div class="small">打開後，右邊多一頁「雜記」，自由寫心情。只有你自己看得到，好友看不到。</div></div><div class="lgrow"><button type="button" class="lgout">登出</button></div></div>
 </div></div></div>
 <div id="pgnoBar" class="pgfoot" data-pf="1"></div>
 </section>
@@ -355,6 +356,17 @@ main .paper .calgrid button.day.today{border-style:dashed}
 <div id="friends"></div></div>
 <h2>好友分享的</h2>
 <div id="shared"></div>
+<div class="sheetpad"></div>
+</div><div class="pgfoot" data-pf="0"></div></div></div>
+</div>
+
+<div class="pane" id="paneMood" hidden>
+<div class="sheetwrap"><div class="paper nbpage"><div class="pscroll">
+<h2>雜記</h2>
+<div class="small">想到什麼就寫什麼，沒有題目。只有你自己看得到。</div>
+<textarea id="moodA" placeholder="現在的心情……"></textarea>
+<div class="row"><button class="ghost" id="moodAdd" type="button">收進雜記</button></div>
+<div id="moodList"></div>
 <div class="sheetpad"></div>
 </div><div class="pgfoot" data-pf="0"></div></div></div>
 </div>
@@ -593,7 +605,7 @@ function pad(n){return n<10?"0"+n:""+n;}
 var now=new Date(),Y=now.getFullYear(),M=now.getMonth()+1,D=now.getDate();
 var TODAY=Y+"-"+pad(M)+"-"+pad(D);
 // 2026-10-10 網頁開著過夜（手機切回來沒重新整理）時，日期會停在昨天、寫的東西存進昨天 → 回到頁面時若已換日就重新載入
-var DIRTY=false;document.addEventListener("input",function(ev){if(ev.target&&ev.target.tagName==="TEXTAREA")DIRTY=true;},true);
+var DIRTY=false;document.addEventListener("input",function(ev){if(ev.target&&ev.target.tagName==="TEXTAREA"&&ev.target.closest&&ev.target.closest("#nb"))DIRTY=true;},true);
 (function(){var warned=false;function chk(){if(document.visibilityState&&document.visibilityState!=="visible")return;var n=new Date(),k=n.getFullYear()+"-"+pad(n.getMonth()+1)+"-"+pad(n.getDate());if(k===TODAY)return;if(!DIRTY){location.reload();return;}if(!warned){warned=true;try{toast("已經過午夜了：這頁還是 "+M+"/"+D+" 的日記，先蓋章存檔，再重新整理就會換到新的一天");}catch(e){}}}document.addEventListener("visibilitychange",chk);window.addEventListener("pageshow",chk);window.addEventListener("focus",chk);setInterval(chk,60000);})();
 var WD=["日","一","二","三","四","五","六"];
 var DATE_STR=M+"月"+D+"日 星期"+WD[now.getDay()],uName="";
@@ -870,7 +882,7 @@ function icon(on){return on?"給好友看・":"只有我・";}
 var myEntries=[];
 async function loadEntries(){
  var snap=await getDocs(collection(db,"users",uid,"entries"));
- var out=[];snap.forEach(function(d){var o=d.data();o.date=o.date||d.id;out.push(o);});
+ var out=[];snap.forEach(function(d){if(d.id==="_mood")return;var o=d.data();o.date=o.date||d.id;out.push(o);});
  out.sort(function(a,b){return a.date<b.date?1:-1;});
  return out;
 }
@@ -993,15 +1005,16 @@ async function renderHistory(){
  }catch(e){errShow("讀取過去日記失敗",e);}
 }
 // tabs
-var TABS=["today","cal","friends"],PANES={today:"paneToday",cal:"paneCal",friends:"paneFriends"};
+var TABS=["today","cal","friends","mood"],PANES={today:"paneToday",cal:"paneCal",friends:"paneFriends",mood:"paneMood"};
 var curTab="today";
 function setTab(t){
- if(TABS.indexOf(t)<0)t="today";curTab=t;
+ if(TABS.indexOf(t)<0||(t==="mood"&&!moodOn))t="today";curTab=t;
  document.querySelectorAll(".dogear").forEach(function(b){var lb=(t==="today")?"翻到日曆":"回到今天";b.setAttribute("aria-label",lb);b.title=lb;});
  TABS.forEach(function(k){$(PANES[k]).hidden=(k!==t);});
  var bs=document.querySelectorAll("#rbCard button");
  for(var i=0;i<bs.length;i++)bs[i].className=(bs[i].getAttribute("data-tab")===t)?"on":"";
  rbClose();try{localStorage.setItem("dd_tab",t);}catch(e){}
+ if(t==="mood"){grow($("moodA"));renderMood();}
  if(t==="today"){var ta=document.querySelectorAll("#paneToday textarea");for(var j=0;j<ta.length;j++)grow(ta[j]);schedLayout();}
  window.scrollTo(0,0);
 }
@@ -1084,7 +1097,7 @@ $("addFriend").onclick=async function(){
 $("exportBtn").onclick=async function(){
  try{
   var list=await loadEntries();
-  var data={app:"dd_cloud",exportedAt:new Date().toISOString(),entries:list};
+  var data={app:"dd_cloud",exportedAt:new Date().toISOString(),entries:list,moods:(await loadMood()).items};
   var blob=new Blob([JSON.stringify(data,null,1)],{type:"application/json"});
   var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="diary-backup-"+TODAY+".json";
   document.body.appendChild(a);a.click();document.body.removeChild(a);toast("備份已下載。");
@@ -1151,9 +1164,68 @@ cv.addEventListener("pointerdown",function(e){cvP=[e.clientX,e.clientY];});
 cv.addEventListener("pointercancel",function(){cvP=null;});
 cv.addEventListener("pointerup",function(e){if(!cvP)return;var dx=e.clientX-cvP[0],dy=e.clientY-cvP[1];cvP=null;if(e.target.closest&&e.target.closest("button"))return;if((Math.abs(dx)<10&&Math.abs(dy)<10)||(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)))cvOpen();});
 cv.addEventListener("keydown",function(e){if(e.target===cv&&(e.key==="Enter"||e.key===" ")){e.preventDefault();cvOpen();}});
+// ---- mood (private: users/{uid}/entries/_mood, owner only) ----
+var moodOn=false,moodItems=[];
+function moodRef(){return doc(db,"users",uid,"entries","_mood");}
+async function loadMood(){
+ try{var s=await getDoc(moodRef());var v=s.exists()?s.data():{};
+  moodOn=!!v.enabled;moodItems=Array.isArray(v.items)?v.items.filter(function(x){return x&&typeof x.text==="string";}):[];
+ }catch(e){errShow("讀取雜記失敗",e);}
+ return {enabled:moodOn,items:moodItems};
+}
+async function saveMood(){await setDoc(moodRef(),{enabled:moodOn,items:moodItems,updatedAt:new Date().toISOString()});}
+function moodPaint(){
+ $("moodTabBtn").hidden=!moodOn;
+ var b=$("moodSw");b.textContent="心情雜記："+(moodOn?"開":"關");b.setAttribute("aria-pressed",moodOn?"true":"false");
+ if(!moodOn&&curTab==="mood")setTab("today");
+}
+$("moodSw").onclick=async function(){
+ var prev=moodOn;moodOn=!moodOn;moodPaint();
+ try{await saveMood();}catch(e){moodOn=prev;moodPaint();errShow("儲存雜記開關失敗",e);}
+};
+function moodStamp(iso){var d=new Date(iso);if(isNaN(d))return "";return (d.getMonth()+1)+"/"+d.getDate()+" "+pad(d.getHours())+":"+pad(d.getMinutes());}
+function renderMood(){
+ var box=$("moodList");box.innerHTML="";
+ var arr=moodItems.slice().sort(function(a,b){return a.at<b.at?1:-1;});
+ if(!arr.length){var e=document.createElement("div");e.className="small";e.textContent="還沒有雜記。";box.appendChild(e);return;}
+ arr.forEach(function(it){
+  var w=document.createElement("div");w.className="mdi";
+  var t=document.createElement("div");t.className="mdt";t.textContent=moodStamp(it.at);
+  var x=document.createElement("div");x.className="mdx";x.textContent=it.text;
+  var bar=document.createElement("div");bar.className="mdb";
+  var be=document.createElement("button");be.type="button";be.className="ghost";be.textContent="編輯";
+  var bd=document.createElement("button");bd.type="button";bd.className="ghost";bd.textContent="刪除";
+  be.onclick=function(){
+   var ta=document.createElement("textarea");ta.value=it.text;
+   var bs=document.createElement("button");bs.type="button";bs.className="ghost";bs.textContent="儲存";
+   var bc=document.createElement("button");bc.type="button";bc.className="ghost";bc.textContent="取消";
+   w.replaceChild(ta,x);bar.innerHTML="";bar.appendChild(bs);bar.appendChild(bc);grow(ta);ta.addEventListener("input",function(){grow(ta);});ta.focus();
+   bc.onclick=renderMood;
+   bs.onclick=async function(){
+    var v=ta.value.trim();if(!v){toast("內容是空的");return;}
+    var old=it.text;it.text=v;
+    try{await saveMood();toast("已更新");renderMood();}catch(e){it.text=old;errShow("更新雜記失敗",e);}
+   };
+  };
+  bd.onclick=async function(){
+   if(!confirm("確定要刪除這則雜記嗎？刪了就找不回來。"))return;
+   var i=moodItems.indexOf(it);if(i<0)return;moodItems.splice(i,1);
+   try{await saveMood();renderMood();}catch(e){moodItems.splice(i,0,it);errShow("刪除雜記失敗",e);}
+  };
+  bar.appendChild(be);bar.appendChild(bd);
+  w.appendChild(t);w.appendChild(x);w.appendChild(bar);box.appendChild(w);
+ });
+}
+$("moodA").addEventListener("input",function(){grow(this);});
+$("moodAdd").onclick=async function(){
+ var v=$("moodA").value.trim();if(!v){toast("先寫點什麼");return;}
+ var it={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),at:new Date().toISOString(),text:v};
+ moodItems.push(it);
+ try{await saveMood();$("moodA").value="";grow($("moodA"));toast("收進雜記了");renderMood();}catch(e){moodItems.pop();errShow("儲存雜記失敗",e);}
+};
 onAuthStateChanged(auth,async function(u){
  cvSet(u);
- if(!u){uid=null;me=null;$("app").hidden=true;$("tabs").hidden=true;resetForm();return;}
+ if(!u){uid=null;me=null;moodOn=false;moodItems=[];moodPaint();$("moodList").innerHTML="";$("moodA").value="";$("app").hidden=true;$("tabs").hidden=true;resetForm();return;}
  uid=u.uid;
  $("app").hidden=false;$("tabs").hidden=false;initTab();uName=u.displayName||"";
  try{
@@ -1162,6 +1234,7 @@ onAuthStateChanged(auth,async function(u){
   friendUids=(me.friends||[]).slice();
  }catch(e){errShow("建立使用者失敗",e);me={name:u.displayName||""};}
  checkLegacy();
+ await loadMood();moodPaint();try{if(moodOn&&localStorage.getItem("dd_tab")==="mood")setTab("mood");}catch(e){}
  await loadToday();
  await renderHistory();
  await renderFriends();
