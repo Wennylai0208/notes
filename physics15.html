@@ -81,6 +81,10 @@ h2.sec-title:first-child{margin-top:4px;}
 .think ol li{margin-bottom:6px;}
 .calc{background:var(--calc);border-radius:10px;padding:10px 11px;font-size:14.5px;}
 .calc .line{margin-bottom:6px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13.5px;}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 4px;line-height:1.15;font-family:system-ui,-apple-system,"Noto Sans TC","PingFang TC",sans-serif;font-size:16px;}
+.frac>.n{border-bottom:1.6px solid currentColor;padding:0 4px;}
+.frac>.d{padding:0 4px;}
+sup.sp{font-size:.72em;}
 .answer{background:var(--good);color:#fff;border-radius:10px;padding:9px 11px;font-size:15px;font-weight:600;}
 .pitfall{background:var(--pitfall);border-radius:10px;padding:9px 11px;font-size:13.5px;}
 .pitfall b{color:var(--warn);}
@@ -529,6 +533,53 @@ nav.tabbar button.active{color:var(--accent);}
 </nav>
 
 <script>
+function fmtCalc(s,prose){
+  s=String(s);
+  if(s==null) return '';
+  if(/量綱|單位/.test(s)) return esc(s);
+  var CJKONLY=/^[\u3400-\u4dbf\u4e00-\u9fff]+$/;
+  function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  var ATOM=/[0-9A-Za-zͰ-Ͽ⁰-₟²³¹′″ℓ一-鿿㐀-䶿.√|]/;
+  var ATOMP=/[0-9A-Za-zͰ-Ͽ⁰-₟²³¹′″ℓ.√|]/;
+  var A=prose?ATOMP:ATOM;
+  function match(t,i){var d=0;for(var k=i;k<t.length;k++){if(t[k]==='(')d++;else if(t[k]===')'){d--;if(d===0)return k;}}return -1;}
+  function matchBack(t,j){var d=0;for(var k=j;k>=0;k--){if(t[k]===')')d++;else if(t[k]==='('){d--;if(d===0)return k;}}return -1;}
+  function render(t){
+    var skip=new Array(t.length).fill(false),i,k;
+    for(i=0;i<t.length;i++){
+      if(t[i]==='^'&&(t[i+1]==='{'||t[i+1]==='(')){
+        var o=t[i+1],c=o==='{'?'}':')',d=0;
+        for(k=i+1;k<t.length;k++){if(t[k]===o)d++;else if(t[k]===c){d--;if(d===0)break;}}
+        if(k>=t.length)k=t.length-1;
+        for(var m=i+1;m<=k;m++)skip[m]=true;
+      }
+    }
+    var fr=[],lastEnd=-1;
+    for(i=0;i<t.length;i++){
+      if(t[i]!=='/'||skip[i])continue;
+      if(t[i-1]==='/'||t[i+1]==='/')continue;
+      var ls,ln,re,rn,lp=false,rp=false;
+      if(t[i-1]===')'){ls=matchBack(t,i-1);if(ls<0)continue;ln=t.slice(ls+1,i-1);lp=true;if(ls>0&&(A.test(t[ls-1])||t[ls-1]==='^'))continue;}
+      else{ls=i;while(ls>0&&A.test(t[ls-1]))ls--;ln=t.slice(ls,i);if(ls>0&&(t[ls-1]==='^'||t[ls-1]===')'))continue;}
+      if(t[i+1]==='('){re=match(t,i+1);if(re<0)continue;rn=t.slice(i+2,re);re=re+1;rp=true;if(re<t.length&&(A.test(t[re])||t[re]==='^'||t[re]==='('))continue;}
+      else{re=i+1;while(re<t.length&&A.test(t[re]))re++;rn=t.slice(i+1,re);if(t[re]==='^'||t[re]==='(')continue;}
+      if(!ln||!rn)continue;
+      if(prose&&(CJKONLY.test(ln)||CJKONLY.test(rn)))continue;
+      fr.push([ls,re,ln,rn,lp,rp]);
+    }
+    fr.sort(function(a,b){return a[0]-b[0]||b[1]-a[1];});
+    var sel=[];
+    fr.forEach(function(f){if(f[0]>=lastEnd){sel.push(f);lastEnd=f[1];}});
+    fr=sel;
+    var out='',pos=0;
+    fr.forEach(function(f){
+      out+=esc(t.slice(pos,f[0]))+'<span class="frac"><span class="n'+(f[4]?' p':'')+'">'+render(f[2])+'</span><span class="d'+(f[5]?' p':'')+'">'+render(f[3])+'</span></span>';
+      pos=f[1];
+    });
+    return out+esc(t.slice(pos));
+  }
+  return render(s).replace(/\^\{([^{}<>]*)\}/g,'<sup class="sp">$1</sup>');
+}
 /* ===== 資料：EXAMPLES / QUIZ ===== */
 const EXAMPLES = [
 /*EXAMPLES_INSERT*/
@@ -2147,12 +2198,12 @@ function fmtGiven(t){
   const marks = [];
   let m;
   while((m = re.exec(t)) !== null) marks.push(m.index);
-  if(marks.length < 2) return t;            /* 只有一個標記就不動，避免誤切 */
+  if(marks.length < 2) return fmtCalc(t,true);            /* 只有一個標記就不動，避免誤切 */
   const stem = t.slice(0, marks[0]).trim();
-  let out = stem ? '<div class="stem">' + stem + '</div>' : '';
+  let out = stem ? '<div class="stem">' + fmtCalc(stem,true) + '</div>' : '';
   for(let i = 0; i < marks.length; i++){
     const end = (i + 1 < marks.length) ? marks[i+1] : t.length;
-    out += '<div class="opt">' + t.slice(marks[i], end).trim() + '</div>';
+    out += '<div class="opt">' + fmtCalc(t.slice(marks[i], end).trim(),true) + '</div>';
   }
   return out;
 }
@@ -2183,10 +2234,10 @@ function renderExamples(){
       <div class="exbody">
         <div class="exsec"><div class="lab">題目</div><div class="given">${fmtGiven(ex.given)}</div></div>
         ${svgHtml}
-        <div class="exsec"><div class="lab">思考過程</div><div class="think"><ol>${ex.think.map(t=>'<li>'+t+'</li>').join('')}</ol></div></div>
-        <div class="exsec"><div class="lab">計算過程</div><div class="calc">${ex.calc.map(c=>'<div class="line">'+c+'</div>').join('')}</div></div>
-        <div class="exsec"><div class="lab">答案</div><div class="answer">${ex.ans}</div></div>
-        <div class="exsec"><div class="lab">容易錯在哪</div><div class="pitfall"><b>注意：</b>${ex.pitfall}</div></div>
+        <div class="exsec"><div class="lab">思考過程</div><div class="think"><ol>${ex.think.map(t=>'<li>'+fmtCalc(t,true)+'</li>').join('')}</ol></div></div>
+        <div class="exsec"><div class="lab">計算過程</div><div class="calc">${ex.calc.map(c=>'<div class="line">'+fmtCalc(c)+'</div>').join('')}</div></div>
+        <div class="exsec"><div class="lab">答案</div><div class="answer">${fmtCalc(ex.ans,true)}</div></div>
+        <div class="exsec"><div class="lab">容易錯在哪</div><div class="pitfall"><b>注意：</b>${fmtCalc(ex.pitfall,true)}</div></div>
         <div class="exfoot">
           <button class="markbtn seenbtn ${mark==='seen'?'on-seen':''}">看懂了</button>
           <button class="markbtn stuckbtn ${mark==='stuck'?'on-stuck':''}">還是不懂</button>
