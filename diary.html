@@ -366,6 +366,7 @@ main .paper .calgrid button.day.today{border-style:dashed}
 <div class="small">想到什麼就寫什麼，沒有題目。每一篇可選「只有我」或「給好友看」。</div>
 <textarea id="moodA" placeholder="現在的心情……"></textarea>
 <div class="row"><button type="button" id="moodNewSw"></button><button class="ghost" id="moodAdd" type="button">收進雜記</button></div>
+<div class="small" id="moodShareSt"></div>
 <div id="moodList"></div>
 <div class="sheetpad"></div>
 </div><div class="pgfoot" data-pf="0"></div></div></div>
@@ -1079,7 +1080,7 @@ async function renderShared(){
     mountComments(d,f,o.date,ks);
     sec.appendChild(d);
    });
-  }catch(e){var m2=document.createElement("p");m2.className="empty";m2.textContent="對方還沒加你為好友";sec.appendChild(m2);console.warn(e);}
+  }catch(e){var m2=document.createElement("p");m2.className="empty";m2.textContent=(e&&e.code==="permission-denied")?"對方還沒加你為好友（或還沒互加）":("讀取失敗："+(e&&(e.code||e.message)||e));sec.appendChild(m2);console.warn(e);}
   box.appendChild(sec);
  }
 }
@@ -1179,6 +1180,12 @@ async function loadMood(){
  }catch(e){errShow("讀取雜記失敗",e);}
  return {enabled:moodOn,items:moodItems};
 }
+async function moodShareCheck(){
+ var st=$("moodShareSt");if(!st||!uid)return;
+ try{var s=await getDoc(doc(db,"users",uid,"shared","_mood"));var n=s.exists()&&Array.isArray(s.data().items)?s.data().items.length:0;
+  st.textContent=n?("✅ 目前有 "+n+" 則雜記朋友看得到"):"目前沒有朋友看得到的雜記";
+ }catch(e){st.textContent="⚠️ 讀不到分享狀態："+(e&&(e.code||e.message)||e);}
+}
 async function saveMood(){
  await setDoc(moodRef(),{enabled:moodOn,items:moodItems,updatedAt:new Date().toISOString()});
  try{
@@ -1186,7 +1193,8 @@ async function saveMood(){
   var sr=doc(db,"users",uid,"shared","_mood");
   if(pub.length)await setDoc(sr,{date:"_mood",name:(me&&me.name)||"",items:pub,savedAt:new Date().toISOString()});
   else await deleteDoc(sr);
- }catch(e){errShow("同步雜記分享失敗",e);}
+  await moodShareCheck();
+ }catch(e){errShow("同步雜記分享失敗",e);var st=$("moodShareSt");if(st)st.textContent="⚠️ 分享給好友失敗："+(e&&(e.code||e.message)||e);}
 }
 var moodNewShare=true;
 function shLabel(b,on){b.textContent=on?"給好友看":"只有我";b.className="sw"+(on?" on":"");}
@@ -1256,7 +1264,7 @@ onAuthStateChanged(auth,async function(u){
   friendUids=(me.friends||[]).slice();
  }catch(e){errShow("建立使用者失敗",e);me={name:u.displayName||""};}
  checkLegacy();
- await loadMood();moodPaint();try{if(moodOn&&localStorage.getItem("dd_tab")==="mood")setTab("mood");}catch(e){}
+ await loadMood();moodPaint();moodShareCheck();try{if(moodOn&&localStorage.getItem("dd_tab")==="mood")setTab("mood");}catch(e){}
  await loadToday();
  await renderHistory();
  await renderFriends();
