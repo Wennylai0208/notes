@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="build-id" content="20261010140236">
+<meta name="build-id" content="20261010160911">
 <title>Level 4 單字小考</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9D%3C/text%3E%3C/svg%3E">
 <style>
@@ -167,7 +167,7 @@ h1{font-size:1.15em;margin:0;font-weight:750;letter-spacing:.2px}
    若使用者正在輸入答案（文字輸入框有內容），先不重整，等下一次檢查再試。 */
 (function(){
 try{
-  var BUILD_ID = "20261010140236";
+  var BUILD_ID = "20261010160911";
   var CHECK_INTERVAL_MS = 60000;
   var RELOAD_TARGET_KEY = 'q9_reload_target';
   var SKIP_HIT_KEY = 'q9_skip_hit_once';
@@ -258,7 +258,7 @@ ROOT_GROUPS.forEach(function(rg){
 var ROOT_NAMES = ROOT_GROUPS.map(function(r){ return r.root; });
 var PAGES = Array.from(new Set(WORDS.map(function(w){return w.page;}).filter(function(p){return p!=null;}))).sort(function(a,b){return a-b;});
 
-var state = { scope:(lsGet('quiz9_scope_v1','both')==='big'?'big':'both'), screen:'list', cat:'word', page:'all', root:'all', search:'', menuOpen:false, menuSub:null, menuTypingDir:null };
+var state = { scope:'both', screen:'list', cat:'word', page:'all', root:'all', search:'', menuOpen:false, menuSub:null, menuTypingDir:null };
 
 function $(sel,root){ return (root||document).querySelector(sel); }
 function esc(s){ return (s==null?'':String(s)).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
@@ -680,7 +680,7 @@ function renderTopbar(){
       '<button class="mitem" data-act="start-cards">🃏 字卡</button>'+
       '<button class="mitem" data-act="home">📋 回單字清單</button>';
   }
-  return '<div class="topbar"><div class="ttl">Core Lexicon Unit 4</div>'+
+  return '<div class="topbar"><div class="ttl">U1～U15</div>'+
     '<div class="menuwrap"><button class="menubtn" id="menuBtn" aria-label="選單">⋯</button>'+
     '<div class="menudrop" id="menuDrop"'+(state.menuOpen?'':' hidden')+'>'+dropInner+'</div></div></div>';
 }
@@ -801,9 +801,6 @@ function renderList(){
       })
     ).join('');
     secondaryHtml = PAGES.length ? ('<div class="chiprow">'+pageChips+'</div>') : '';
-    secondaryHtml += '<div class="chiprow"><span style="font-size:.8em;color:var(--tx3);align-self:center">出題範圍：</span>'+
-      '<button class="chip'+(state.scope==='big'?' on':'')+'" data-act="setscope" data-scope="big">只有大字</button>'+
-      '<button class="chip'+(state.scope==='both'?' on':'')+'" data-act="setscope" data-scope="both">大字＋小字</button></div>';
   } else if(state.cat==='root'){
     var rootChips = ['<button class="chip'+(state.root==='all'?' on':'')+'" data-act="setroot" data-root="all">全部</button>'].concat(
       ROOT_NAMES.map(function(r){
