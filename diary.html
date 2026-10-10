@@ -1069,7 +1069,8 @@ async function renderShared(){
    if(!arr.length&&!(mdoc&&(mdoc.items||[]).length)){var m=document.createElement("p");m.className="empty";m.textContent="還沒有分享的日記。";sec.appendChild(m);}
    if(mdoc&&Array.isArray(mdoc.items)&&mdoc.items.length){
     var md=document.createElement("details");md.className="paper";var ms=document.createElement("summary");ms.textContent="心情雜記";md.appendChild(ms);
-    mdoc.items.slice().sort(function(a,b){return a.at<b.at?1:-1;}).forEach(function(it){var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.className="cq";b.textContent=moodStamp(it.at);var v=document.createElement("div");v.className="ca";v.style.whiteSpace="pre-wrap";v.textContent=it.text;w.appendChild(b);w.appendChild(v);md.appendChild(w);});
+    var mks=[];mdoc.items.slice().sort(function(a,b){return a.at<b.at?1:-1;}).forEach(function(it){var w=document.createElement("div");w.className="item";var b=document.createElement("b");b.className="cq";b.textContent=moodStamp(it.at);var v=document.createElement("div");v.className="ca";v.style.whiteSpace="pre-wrap";v.textContent=it.text;w.appendChild(b);w.appendChild(v);md.appendChild(w);if(it.id)mks.push({key:"m:"+it.id,el:w});});
+    mountComments(md,f,"_mood",mks);
     sec.appendChild(md);
    }
    arr.forEach(function(o){
@@ -1201,7 +1202,7 @@ $("moodSw").onclick=async function(){
 function moodStamp(iso){var d=new Date(iso);if(isNaN(d))return "";return (d.getMonth()+1)+"/"+d.getDate()+" "+pad(d.getHours())+":"+pad(d.getMinutes());}
 function renderMood(){
  var box=$("moodList");box.innerHTML="";
- var arr=moodItems.slice().sort(function(a,b){return a.at<b.at?1:-1;});
+ var arr=moodItems.slice().sort(function(a,b){return a.at<b.at?1:-1;}),mks=[];
  if(!arr.length){var e=document.createElement("div");e.className="small";e.textContent="還沒有雜記。";box.appendChild(e);return;}
  arr.forEach(function(it){
   var w=document.createElement("div");w.className="mdi";
@@ -1231,7 +1232,10 @@ function renderMood(){
   bw.onclick=async function(){var old=it.share!==false;it.share=!old;shLabel(bw,it.share);try{await saveMood();}catch(e){it.share=old;shLabel(bw,old);errShow("更新分享失敗",e);}};
   bar.appendChild(bw);bar.appendChild(be);bar.appendChild(bd);
   w.appendChild(t);w.appendChild(x);w.appendChild(bar);box.appendChild(w);
+  if(it.id)mks.push({key:"m:"+it.id,el:w});
  });
+ var dd=document.createElement("details");dd.className="paper";var ds=document.createElement("summary");ds.textContent="朋友的便條";dd.appendChild(ds);box.appendChild(dd);
+ mountComments(dd,uid,"_mood",mks);dd.open=true;
 }
 $("moodNewSw").onclick=function(){moodNewShare=!moodNewShare;shLabel(this,moodNewShare);};shLabel($("moodNewSw"),true);
 $("moodA").addEventListener("input",function(){grow(this);});
