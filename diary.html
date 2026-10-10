@@ -592,6 +592,8 @@ function $(id){return document.getElementById(id);}
 function pad(n){return n<10?"0"+n:""+n;}
 var now=new Date(),Y=now.getFullYear(),M=now.getMonth()+1,D=now.getDate();
 var TODAY=Y+"-"+pad(M)+"-"+pad(D);
+// 2026-10-10 網頁開著過夜（手機切回來沒重新整理）時，日期會停在昨天、寫的東西存進昨天 → 回到頁面時若已換日就重新載入
+(function(){function chk(){if(document.visibilityState&&document.visibilityState!=="visible")return;var n=new Date(),k=n.getFullYear()+"-"+pad(n.getMonth()+1)+"-"+pad(n.getDate());if(k!==TODAY)location.reload();}document.addEventListener("visibilitychange",chk);window.addEventListener("pageshow",chk);window.addEventListener("focus",chk);setInterval(chk,60000);})();
 var WD=["日","一","二","三","四","五","六"];
 var DATE_STR=M+"月"+D+"日 星期"+WD[now.getDay()],uName="";
 var closeQ=closeFor(Y,M,D),dailyQ=dailyFor(Y,M,D),randQ="",selfQ=selfFor(Y,M,D);
