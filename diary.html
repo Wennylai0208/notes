@@ -603,11 +603,13 @@ var P="dd_v1_";
 var uid=null,me=null;
 function $(id){return document.getElementById(id);}
 function pad(n){return n<10?"0"+n:""+n;}
-var now=new Date(),Y=now.getFullYear(),M=now.getMonth()+1,D=now.getDate();
+// 2026-10-12 雨葳：凌晨 5 點前寫的算前一天（熬夜寫才不會吃掉隔天那篇）
+var DAY_SHIFT=5*3600*1000;function logicalNow(){return new Date(Date.now()-DAY_SHIFT);}
+var now=logicalNow(),Y=now.getFullYear(),M=now.getMonth()+1,D=now.getDate();
 var TODAY=Y+"-"+pad(M)+"-"+pad(D);
 // 2026-10-10 網頁開著過夜（手機切回來沒重新整理）時，日期會停在昨天、寫的東西存進昨天 → 回到頁面時若已換日就重新載入
 var DIRTY=false;document.addEventListener("input",function(ev){if(ev.target&&ev.target.tagName==="TEXTAREA"&&ev.target.closest&&ev.target.closest("#nb"))DIRTY=true;},true);
-(function(){var warned=false;function chk(){if(document.visibilityState&&document.visibilityState!=="visible")return;var n=new Date(),k=n.getFullYear()+"-"+pad(n.getMonth()+1)+"-"+pad(n.getDate());if(k===TODAY)return;if(!DIRTY){location.reload();return;}if(!warned){warned=true;try{toast("已經過午夜了：這頁還是 "+M+"/"+D+" 的日記，先蓋章存檔，再重新整理就會換到新的一天");}catch(e){}}}document.addEventListener("visibilitychange",chk);window.addEventListener("pageshow",chk);window.addEventListener("focus",chk);setInterval(chk,60000);})();
+(function(){var warned=false;function chk(){if(document.visibilityState&&document.visibilityState!=="visible")return;var n=logicalNow(),k=n.getFullYear()+"-"+pad(n.getMonth()+1)+"-"+pad(n.getDate());if(k===TODAY)return;if(!DIRTY){location.reload();return;}if(!warned){warned=true;try{toast("已經過午夜了：這頁還是 "+M+"/"+D+" 的日記，先蓋章存檔，再重新整理就會換到新的一天");}catch(e){}}}document.addEventListener("visibilitychange",chk);window.addEventListener("pageshow",chk);window.addEventListener("focus",chk);setInterval(chk,60000);})();
 var WD=["日","一","二","三","四","五","六"];
 var DATE_STR=M+"月"+D+"日 星期"+WD[now.getDay()],uName="";
 var closeQ=closeFor(Y,M,D),dailyQ=dailyFor(Y,M,D),randQ="",selfQ=selfFor(Y,M,D);
@@ -1026,11 +1028,31 @@ function rbClose(){var t=$("tabs");t.classList.remove("open");$("rbBtn").setAttr
  var bs=document.querySelectorAll("#rbCard button");for(var i=0;i<bs.length;i++)(function(b){b.onclick=function(){setTab(b.getAttribute("data-tab"));};})(bs[i]);
  document.querySelectorAll(".sheetwrap").forEach(function(w){var b=document.createElement("button");b.type="button";b.className="dogear";b.onclick=function(){setTab(curTab==="today"?"cal":"today");};w.appendChild(b);});})();
 function initTab(){var t="today";try{t=localStorage.getItem("dd_tab")||"today";}catch(e){}setTab(t);}
+// 改成 5 點換日之前，半夜 0~5 點寫的被存成新的一天 → 搬回前一天（前一天已有內容、或已有留言就不動）
+async function moveLateNight(v){
+ try{
+  var t=new Date(v.savedAt||"");if(isNaN(t))return false;
+  var p=TODAY.split("-"),d0=new Date(+p[0],+p[1]-1,+p[2]);
+  if(t<d0||t>=new Date(d0.getTime()+DAY_SHIFT))return false;
+  var pd=new Date(d0.getTime()-12*3600*1000),PREV=pd.getFullYear()+"-"+pad(pd.getMonth()+1)+"-"+pad(pd.getDate());
+  var ps=await getDoc(doc(db,"users",uid,"entries",PREV));
+  if(ps.exists()&&hasContent(ps.data()))return false;
+  var cs=await getDocs(collection(db,"users",uid,"shared",TODAY,"comments"));
+  if(!cs.empty)return false;
+  var e=Object.assign({},v,{date:PREV});
+  await writeEntry(e);
+  await deleteDoc(doc(db,"users",uid,"entries",TODAY));
+  await deleteDoc(doc(db,"users",uid,"shared",TODAY));
+  try{toast("昨晚半夜寫的那篇，已經放回 "+(+PREV.slice(5,7))+"/"+(+PREV.slice(8,10))+" 了");}catch(x){}
+  return true;
+ }catch(e){return false;}
+}
 async function loadToday(){
  try{
   var s=await getDoc(doc(db,"users",uid,"entries",TODAY));
   if(!s.exists())return;
   var v=s.data();
+  if(await moveLateNight(v))return;
   (v.fixed||[]).forEach(function(x,i){if(fixedAreas[i]){fixedAreas[i].value=x||"";grow(fixedAreas[i]);}});
   if(v.daily&&v.daily.q===dailyQ){$("dailyA").value=v.daily.a||"";grow($("dailyA"));}
   if(v.self&&v.self.q){selfQ=v.self.q;$("selfQ").textContent=selfQ;$("selfA").value=v.self.a||"";grow($("selfA"));}
