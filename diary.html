@@ -308,16 +308,16 @@ main .paper .calgrid button.day.today{border-style:dashed}
 <div id="legacy" class="card" hidden><p>發現這支手機有舊日記，上傳到雲端？</p><button id="legacyBtn" type="button">上傳到雲端</button></div>
 <div class="pghd">今天的三件小事</div>
 <div id="fixed"></div>
-<div class="ln" id="lnDaily"><button type="button" class="lnq"><span class="tg">今日深度題</span><span id="dailyQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swDaily"></span></div><textarea id="dailyA" placeholder="想到什麼就寫什麼"></textarea></div></div>
-<div class="ln" id="followCard" hidden><button type="button" class="lnq"><span class="tg">昨天的約定</span><span id="followQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swFollow"></span></div><textarea id="followA" placeholder="做到了什麼、卡在哪，都可以寫"></textarea></div></div>
-<div class="ln" id="threadCard" hidden><button type="button" class="lnq"><span class="tg" id="threadTag">延續題</span><span id="threadQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swThread"></span></div><textarea id="threadA" placeholder="想到什麼就寫什麼，不用寫很多"></textarea></div></div>
+<div class="ln" id="lnDaily"><button type="button" class="lnq"><span class="tg">今日深度題</span><span id="dailyQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swDaily"></span></div><textarea autocomplete="off" id="dailyA" placeholder="想到什麼就寫什麼"></textarea></div></div>
+<div class="ln" id="followCard" hidden><button type="button" class="lnq"><span class="tg">昨天的約定</span><span id="followQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swFollow"></span></div><textarea autocomplete="off" id="followA" placeholder="做到了什麼、卡在哪，都可以寫"></textarea></div></div>
+<div class="ln" id="threadCard" hidden><button type="button" class="lnq"><span class="tg" id="threadTag">延續題</span><span id="threadQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swThread"></span></div><textarea autocomplete="off" id="threadA" placeholder="想到什麼就寫什麼，不用寫很多"></textarea></div></div>
 <div class="pghd">自我剖析</div>
 <div id="reflectBox"></div>
 <p class="small hintline">如果好朋友遇到一樣的事，我會怎麼跟他說？</p>
-<div class="ln" id="lnSelf"><button type="button" class="lnq"><span class="tg">犀利一題</span><span id="selfQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swSelf"></span><button class="ghost" id="rerollSelf" type="button">換一題</button></div><textarea id="selfA" placeholder="想到什麼就寫什麼，寫完再想：明天的最小一步是什麼？"></textarea></div></div>
-<div class="ln" id="lnRand"><button type="button" class="lnq"><span class="tg">隨機一題</span><span id="randQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swRandom"></span><button class="ghost" id="reroll" type="button">換一題</button></div><textarea id="randA" placeholder="想到什麼就寫什麼"></textarea></div></div>
-<div class="ln" id="lnClose"><button type="button" class="lnq"><span class="tg">睡前收尾</span><span id="closeQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swClose"></span></div><textarea id="closeA" placeholder="睡前一兩句就好，寫完就可以安心休息了"></textarea></div></div>
-<div class="ln" id="lnFree"><button type="button" class="lnq"><span class="tg">自由發揮</span><span id="freeQ">沒有題目，想寫什麼都可以</span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swFree"></span></div><textarea id="freeA" placeholder="想寫什麼都可以，沒有題目。"></textarea></div></div>
+<div class="ln" id="lnSelf"><button type="button" class="lnq"><span class="tg">犀利一題</span><span id="selfQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swSelf"></span><button class="ghost" id="rerollSelf" type="button">換一題</button></div><textarea autocomplete="off" id="selfA" placeholder="想到什麼就寫什麼，寫完再想：明天的最小一步是什麼？"></textarea></div></div>
+<div class="ln" id="lnRand"><button type="button" class="lnq"><span class="tg">隨機一題</span><span id="randQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swRandom"></span><button class="ghost" id="reroll" type="button">換一題</button></div><textarea autocomplete="off" id="randA" placeholder="想到什麼就寫什麼"></textarea></div></div>
+<div class="ln" id="lnClose"><button type="button" class="lnq"><span class="tg">睡前收尾</span><span id="closeQ"></span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swClose"></span></div><textarea autocomplete="off" id="closeA" placeholder="睡前一兩句就好，寫完就可以安心休息了"></textarea></div></div>
+<div class="ln" id="lnFree"><button type="button" class="lnq"><span class="tg">自由發揮</span><span id="freeQ">沒有題目，想寫什麼都可以</span></button><div class="pv" hidden></div><div class="lnbody" hidden><div class="tools"><span id="swFree"></span></div><textarea autocomplete="off" id="freeA" placeholder="想寫什麼都可以，沒有題目。"></textarea></div></div>
 <div class="sealblock">
 <div class="pghd">寫完了，蓋個章</div>
 <div class="small">選一種收尾方式，蓋下去就會存檔。</div>
@@ -364,7 +364,7 @@ main .paper .calgrid button.day.today{border-style:dashed}
 <div class="sheetwrap"><div class="paper nbpage"><div class="pscroll">
 <h2>雜記</h2>
 <div class="small">想到什麼就寫什麼，沒有題目。每一篇可選「只有我」或「給好友看」。</div>
-<div id="moodNewHold"><div id="moodNew"><textarea id="moodA" placeholder="現在的心情……"></textarea>
+<div id="moodNewHold"><div id="moodNew"><textarea autocomplete="off" id="moodA" placeholder="現在的心情……"></textarea>
 <div class="row"><button type="button" id="moodNewSw"></button><button class="ghost" id="moodAdd" type="button">收進雜記</button></div>
 <div class="small" id="moodShareSt"></div></div></div>
 <div id="moodList"></div>
@@ -1049,6 +1049,7 @@ async function moveLateNight(v){
 }
 async function loadToday(){
  try{
+  if(!DIRTY)resetForm(); // 瀏覽器會把上次打的字自動填回來（例如隔天回到同一個分頁），先清空，只認雲端存的
   var s=await getDoc(doc(db,"users",uid,"entries",TODAY));
   if(!s.exists())return;
   var v=s.data();
