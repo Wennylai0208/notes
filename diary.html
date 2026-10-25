@@ -629,9 +629,14 @@ function dailyFor(y,m,d){var n=DAILY.length;var i=((dayIndex(y,m,d)%n)+n)%n;retu
 function selfIdxFor(y,m,d){var n=SELF.length;return (((dayIndex(y,m,d)*7+3)%n)+n)%n;}
 function closeFor(y,m,d){var n=CLOSE.length;return CLOSE[(((dayIndex(y,m,d)*11+5)%n)+n)%n];}
 function selfFor(y,m,d){return SELF[selfIdxFor(y,m,d)];}
-var REFLECT_Q=["今天有什麼後悔、或做得跟心裡想的不一樣的？","那一刻我心裡是什麼感覺？是什麼讓我那樣做？","下次遇到一樣的情況：如果＿＿，我就＿＿。"];
-var REFLECT_HINT=["只寫發生了什麼，先不評價自己。","試著替感覺取個名字（煩躁、怕、委屈…），問「是什麼」，不問「我為什麼這麼爛」。","越具體越好，例如「如果我拿起手機想滑，我就先把它放到書桌另一邊」。"];
-function sharedItemsPure(e,FX){var it=[],s=e.share||{};(e.fixed||[]).forEach(function(a,i){if(s["f"+i]&&a&&a.trim())it.push({q:FX[i]||"",a:a,k:"f"+i});});if(s.daily&&e.daily&&e.daily.a&&e.daily.a.trim())it.push({q:e.daily.q,a:e.daily.a,k:"daily"});if(s.self&&e.self&&e.self.a&&e.self.a.trim())it.push({q:e.self.q,a:e.self.a,k:"self"});if(s.random&&e.random&&e.random.a&&e.random.a.trim())it.push({q:e.random.q,a:e.random.a,k:"random"});var rf=Array.isArray(e.reflect)?e.reflect:[];for(var ri=0;ri<3;ri++){var ra=rf[ri];if(s["r"+ri]!==false&&typeof ra==="string"&&ra.trim())it.push({q:REFLECT_Q[ri],a:ra,k:"r"+ri});}if(s.followup!==false&&e.followup&&e.followup.a&&e.followup.a.trim())it.push({q:"約定・"+e.followup.q,a:e.followup.a,k:"followup"});if(s.thread!==false&&e.thread&&e.thread.a&&e.thread.a.trim())it.push({q:"延續・"+e.thread.q,a:e.thread.a,k:"thread"});if(s.close!==false&&e.close&&e.close.a&&e.close.a.trim())it.push({q:"睡前・"+e.close.q,a:e.close.a,k:"close"});if(s.free!==false&&e.free&&e.free.a&&e.free.a.trim())it.push({q:"自由發揮",a:e.free.a,k:"free"});return it;}
+var REFLECT_Q_OLD=["今天有什麼後悔、或做得跟心裡想的不一樣的？","那一刻我心裡是什麼感覺？是什麼讓我那樣做？","下次遇到一樣的情況：如果＿＿，我就＿＿。"];
+var REFLECT_HINT_OLD=["只寫發生了什麼，先不評價自己。","試著替感覺取個名字（煩躁、怕、委屈…），問「是什麼」，不問「我為什麼這麼爛」。","越具體越好，例如「如果我拿起手機想滑，我就先把它放到書桌另一邊」。"];
+var REFLECT_DAILY=["今天腦中繞最久的一個念頭是什麼？它為什麼一直回來？", "同樣的一天，今天跟昨天哪裡有一點點不一樣？", "今天你注意到別人的一個小細節，它讓你想到什麼？", "夜自習發呆的時候，你的腦子跑去哪了？", "最近你對某件事的看法，有沒有悄悄改變？", "在這種重複的日子裡，是什麼在撐著你？", "今天哪一刻，你在演一個不是自己的樣子？", "今天有什麼話想說，最後吞回去了？如果說出口會怎樣？", "今天哪一刻，你覺得最像自己？", "今天你心裡想的跟實際做的，哪裡不一樣？", "今天有沒有一個瞬間，你很想把它留住？", "今天誰的一句話，在你心裡多停了一下？", "你最近在逃避的那件事，背後真正怕的是什麼？", "今天的心情如果是天氣，是什麼天氣？從什麼時候開始變的？", "有什麼東西你以前很在意，現在沒那麼在意了？", "今天你羨慕了誰？那份羨慕在告訴你，你想要什麼？", "今天你對自己說了什麼話？如果是朋友這樣對你說，你會怎麼回？", "今天有什麼小事，讓你突然很有感覺？", "你現在最想被誰理解？想被理解的是哪一部分？", "今天你有沒有為了別人的眼光，做了一個選擇？", "如果把今天拍成電影，你會留哪一個鏡頭？", "今天你最累的不是身體，是哪一種累？", "最近有什麼問題，你一直沒找到答案？", "今天你給了誰什麼？又從誰那裡收到了什麼？", "今天有什麼念頭，你不太敢承認是自己的？", "你現在的生活裡，什麼是你選的，什麼只是習慣？", "今天有沒有一段時間過得特別慢或特別快？那時你在做什麼？", "今天的你，想對三年後的自己說什麼？", "最近你一直在重複哪個模式？它在保護你什麼？", "今天你最真實的一句話是什麼？（可以只寫給自己）"];
+var REFLECT_WEEKLY=["最近的我，正在變成什麼樣的人？", "這一週，哪一天的自己你最喜歡？為什麼？", "這週反覆出現的情緒是什麼？它想跟你說什麼？", "這一週有什麼事，讓你更認識自己一點？", "如果這週有一個主題，它會叫什麼名字？", "這週你最想對誰說謝謝，或說對不起？", "有什麼事你一直說「之後再說」？它真的可以之後嗎？", "這週的你，跟一個月前的你哪裡不一樣？"];
+var REFLECT_PH="不用寫發生什麼，寫你心裡的就好；想到哪寫到哪。";
+function reflectDowOf(y,m,d){return new Date(Date.UTC(y,m-1,d)).getUTCDay();}
+function reflectQsFor(y,m,d){var di=dayIndex(y,m,d),n=REFLECT_DAILY.length,w=REFLECT_WEEKLY.length;var out=[REFLECT_DAILY[(((di*5+2)%n)+n)%n]];var dow=reflectDowOf(y,m,d);if(dow===0||dow===6){var wk=Math.floor((di+3)/7);out.push(REFLECT_WEEKLY[((wk%w)+w)%w]);}return out;}
+function sharedItemsPure(e,FX){var it=[],s=e.share||{};(e.fixed||[]).forEach(function(a,i){if(s["f"+i]&&a&&a.trim())it.push({q:FX[i]||"",a:a,k:"f"+i});});if(s.daily&&e.daily&&e.daily.a&&e.daily.a.trim())it.push({q:e.daily.q,a:e.daily.a,k:"daily"});if(s.self&&e.self&&e.self.a&&e.self.a.trim())it.push({q:e.self.q,a:e.self.a,k:"self"});if(s.random&&e.random&&e.random.a&&e.random.a.trim())it.push({q:e.random.q,a:e.random.a,k:"random"});var rf=Array.isArray(e.reflect)?e.reflect:[];var rq=Array.isArray(e.reflectQ)?e.reflectQ:null;for(var ri=0;ri<3;ri++){var ra=rf[ri];var rql=rq?rq[ri]:REFLECT_Q_OLD[ri];if(s["r"+ri]!==false&&typeof ra==="string"&&ra.trim()&&rql)it.push({q:rql,a:ra,k:"r"+ri});}if(s.followup!==false&&e.followup&&e.followup.a&&e.followup.a.trim())it.push({q:"約定・"+e.followup.q,a:e.followup.a,k:"followup"});if(s.thread!==false&&e.thread&&e.thread.a&&e.thread.a.trim())it.push({q:"延續・"+e.thread.q,a:e.thread.a,k:"thread"});if(s.close!==false&&e.close&&e.close.a&&e.close.a.trim())it.push({q:"睡前・"+e.close.q,a:e.close.a,k:"close"});if(s.free!==false&&e.free&&e.free.a&&e.free.a.trim())it.push({q:"自由發揮",a:e.free.a,k:"free"});return it;}
 /*END_PURE*/
 </script>
 <script type="module">
@@ -678,7 +683,8 @@ function mkLn(qText,swKey,ph){
 var fixedBox=$("fixed"),fixedAreas=[];
 FIXED.forEach(function(q,i){var r=mkLn((i+1)+". "+q,"f"+i,"想到什麼就寫什麼");fixedBox.appendChild(r.ln);fixedAreas.push(r.ta);bind(r.ta);});
 var reflectAreas=[];
-REFLECT_Q.forEach(function(q,i){var r=mkLn(q,"r"+i,REFLECT_HINT[i]);$("reflectBox").appendChild(r.ln);reflectAreas.push(r.ta);bind(r.ta);});
+var reflectQs=reflectQsFor(Y,M,D),reflectQEls=[],reflectLns=[];
+reflectQs.forEach(function(q,i){var r=mkLn("","r"+i,REFLECT_PH);var qb=r.ln.querySelector(".lnq");qb.textContent="";var tg=document.createElement("span");tg.className="tg";tg.textContent=i===0?"自我剖析":"🗓️ 本週回顧";var qs=document.createElement("span");qs.textContent=q;qb.appendChild(tg);qb.appendChild(qs);reflectQEls.push(qs);reflectLns.push(r.ln);if(i===0){var rb=document.createElement("button");rb.type="button";rb.className="ghost";rb.textContent="換一題";rb.onclick=function(){var nq;do{nq=REFLECT_DAILY[Math.floor(Math.random()*REFLECT_DAILY.length)];}while(nq===reflectQs[0]&&REFLECT_DAILY.length>1);reflectQs[0]=nq;reflectQEls[0].textContent=nq;reflectAreas[0].value="";grow(reflectAreas[0]);};r.ln.querySelector(".tools").appendChild(rb);}$("reflectBox").appendChild(r.ln);reflectAreas.push(r.ta);bind(r.ta);});
 mkSw("followup",$("swFollow"));mkSw("thread",$("swThread"));mkSw("close",$("swClose"));bind($("closeA"));bind($("followA"));bind($("threadA"));
 mkSw("free",$("swFree"));$("freeA")._min=34*4;bind($("freeA"));mkSw("daily",$("swDaily"));mkSw("self",$("swSelf"));mkSw("random",$("swRandom"));
 bind($("dailyA"));bind($("selfA"));bind($("randA"));
@@ -853,9 +859,9 @@ function restoreSeal(sl){
  renderSeal(false);
 }
 renderSeal(false);
-function resetForm(){$("closeA").value="";grow($("closeA"));$("freeA").value="";grow($("freeA"));$("followA").value="";$("threadA").value="";linkState.sig="";reflectAreas.forEach(function(t){t.value="";grow(t);});fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("selfA").value="";$("randA").value="";grow($("selfA"));grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=true;paintSw(k);}EN={};enAll();nbRefAll();resetSeal();}
+function resetForm(){$("closeA").value="";grow($("closeA"));$("freeA").value="";grow($("freeA"));$("followA").value="";$("threadA").value="";linkState.sig="";reflectQs=reflectQsFor(Y,M,D);reflectQEls.forEach(function(e,i){e.textContent=reflectQs[i];});reflectAreas.forEach(function(t){t.value="";grow(t);});fixedAreas.forEach(function(t){t.value="";grow(t);});$("dailyA").value="";$("selfA").value="";$("randA").value="";grow($("selfA"));grow($("dailyA"));grow($("randA"));for(var k in share){share[k]=true;paintSw(k);}EN={};enAll();nbRefAll();resetSeal();}
 function collect(){var ex={};if(linkState.fq)ex.followup={q:linkState.fq,a:$("followA").value};if(linkState.tq)ex.thread={tid:linkState.tid,step:linkState.step,q:linkState.tq,a:$("threadA").value};var base=collect0();base.close={q:closeQ,a:$("closeA").value};base.free={a:$("freeA").value};var enp=enPick();if(enp)base.en=enp;for(var k in ex)base[k]=ex[k];return base;}
-function collect0(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},self:{q:selfQ,a:$("selfA").value},random:{q:randQ,a:$("randA").value},reflect:reflectAreas.map(function(t){return t.value;}),share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,self:share.self,random:share.random,r0:share.r0,r1:share.r1,r2:share.r2,followup:share.followup,thread:share.thread,close:share.close,free:share.free},savedAt:new Date().toISOString()};}
+function collect0(){return{date:TODAY,fixed:fixedAreas.map(function(t){return t.value;}),daily:{q:dailyQ,a:$("dailyA").value},self:{q:selfQ,a:$("selfA").value},random:{q:randQ,a:$("randA").value},reflect:reflectAreas.map(function(t){return t.value;}),reflectQ:reflectQs.slice(0,reflectAreas.length),share:{f0:share.f0,f1:share.f1,f2:share.f2,daily:share.daily,self:share.self,random:share.random,r0:share.r0,r1:share.r1,r2:share.r2,followup:share.followup,thread:share.thread,close:share.close,free:share.free},savedAt:new Date().toISOString()};}
 function sharedItems(e){return sharedItemsPure(e,FIXED);}
 async function writeEntry(e){
  await setDoc(doc(db,"users",uid,"entries",e.date),e);
@@ -944,7 +950,7 @@ function buildEntry(o,open){
  if(o.daily)add(o.daily.q,o.daily.a,sh.daily,"daily");
  if(o.self)add(o.self.q,o.self.a,sh.self,"self");
  if(o.random)add(o.random.q,o.random.a,sh.random,"random");
- if(Array.isArray(o.reflect))o.reflect.forEach(function(v,i){if(i<3)add(REFLECT_Q[i],v,sh["r"+i]!==false,"r"+i);});
+ if(Array.isArray(o.reflect))o.reflect.forEach(function(v,i){if(i>=3)return;var lb=Array.isArray(o.reflectQ)?o.reflectQ[i]:REFLECT_Q_OLD[i];if(lb)add(lb,v,sh["r"+i]!==false,"r"+i);});
  if(o.followup)add("約定・"+o.followup.q,o.followup.a,sh.followup!==false,"followup");
  if(o.thread)add("延續・"+o.thread.q,o.thread.a,sh.thread!==false,"thread");
  if(o.close)add("睡前・"+o.close.q,o.close.a,sh.close!==false,"close");
@@ -990,7 +996,7 @@ function renderLinkCards(){
  var td=entMap[TODAY]||null;
  var fq="",fa="";
  if(td&&td.followup&&td.followup.q){fq=td.followup.q;fa=td.followup.a||"";}
- else if(prev&&Array.isArray(prev.reflect)&&typeof prev.reflect[2]==="string"&&prev.reflect[2].trim()){fq="你上次說：「"+quote40(prev.reflect[2])+"」今天有做到嗎？做到了什麼、卡在哪？";}
+ else if(prev&&!Array.isArray(prev.reflectQ)&&Array.isArray(prev.reflect)&&typeof prev.reflect[2]==="string"&&prev.reflect[2].trim()){fq="你上次說：「"+quote40(prev.reflect[2])+"」今天有做到嗎？做到了什麼、卡在哪？";}
  var tq="",ta="",pk;
  if(td&&td.thread&&td.thread.q){pk={tid:td.thread.tid|0,step:td.thread.step|0,q:td.thread.q};ta=td.thread.a||"";}
  else pk=threadPick(myEntries,TODAY);
@@ -1099,7 +1105,7 @@ async function loadToday(){
   if(v.daily&&v.daily.q===dailyQ){$("dailyA").value=v.daily.a||"";grow($("dailyA"));}
   if(v.self&&v.self.q){selfQ=v.self.q;$("selfQ").textContent=selfQ;$("selfA").value=v.self.a||"";grow($("selfA"));}
   if(v.random&&v.random.q){randQ=v.random.q;$("randQ").textContent=randQ;$("randA").value=v.random.a||"";grow($("randA"));}
-  if(Array.isArray(v.reflect))v.reflect.forEach(function(x,i){if(reflectAreas[i]){reflectAreas[i].value=x||"";grow(reflectAreas[i]);}});
+  if(Array.isArray(v.reflectQ)&&Array.isArray(v.reflect))v.reflect.forEach(function(x,i){if(reflectAreas[i]){if(typeof v.reflectQ[i]==="string"&&v.reflectQ[i]){reflectQs[i]=v.reflectQ[i];reflectQEls[i].textContent=reflectQs[i];}reflectAreas[i].value=x||"";grow(reflectAreas[i]);}});
   if(v.close&&v.close.q){closeQ=v.close.q;$("closeQ").textContent=closeQ;$("closeA").value=v.close.a||"";grow($("closeA"));}
   if(v.free&&typeof v.free.a==="string"){$("freeA").value=v.free.a;grow($("freeA"));}
   EN={};if(v.en&&typeof v.en==="object")for(var ek in v.en)if(typeof v.en[ek]==="string")EN[ek]=v.en[ek];enAll();
