@@ -668,7 +668,7 @@ function bind(t){t.addEventListener("input",function(){grow(t);});grow(t);}
 // share toggles
 var share={f0:true,f1:true,f2:true,daily:true,self:true,random:true,r0:true,r1:true,r2:true,followup:true,thread:true,close:true,free:true};
 var swEls={};
-function paintSw(k){var b=swEls[k];var on=share[k];b.textContent=on?"給好友看":"只有我";b.className="sw"+(on?" on":"");}
+function paintSw(k){var b=swEls[k];if(!b)return;var on=share[k];b.textContent=on?"給好友看":"只有我";b.className="sw"+(on?" on":"");}
 function mkSw(k,host){var b=document.createElement("button");b.type="button";b.onclick=function(){share[k]=!share[k];paintSw(k);};swEls[k]=b;paintSw(k);host.appendChild(b);}
 function mkLn(qText,swKey,ph){
  var ln=document.createElement("div");ln.className="ln";
