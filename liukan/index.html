@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="我的留看">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fbeee0">
+<link rel="apple-touch-icon" href="icon.png">
+<title>我的留看</title>
+<style>
+:root{--bg:#fbf3ea;--card:#fffdf9;--ink:#5a4636;--sub:#9b8573;--pink:#f4b6c2;--pinkd:#e98fa3;--milk:#e9d3bb;--mint:#bfe3d0;--lav:#d9cdf0;--line:#efe2d3}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"PingFang TC","Heiti TC",sans-serif;font-size:19px;line-height:1.5}
+body{padding:env(safe-area-inset-top) env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 24px) env(safe-area-inset-left)}
+.wrap{max-width:560px;margin:0 auto;padding:12px 16px}
+header{display:flex;align-items:center;justify-content:space-between;margin:6px 0 12px}
+h1{font-size:28px;margin:0}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+.btn{display:block;width:100%;padding:16px;border-radius:22px;font-size:22px;font-weight:700;background:var(--pink);color:#6b2e3d;box-shadow:0 4px 0 var(--pinkd)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--pinkd)}
+.btn.alt{background:var(--milk);box-shadow:0 4px 0 #d2b898;color:var(--ink)}
+.btn.small{display:inline-block;width:auto;font-size:18px;padding:10px 16px;border-radius:16px;box-shadow:none}
+.btn.danger{background:#f6c9c4;color:#8a2c22;box-shadow:none}
+.iconbtn{background:var(--milk);width:48px;height:48px;border-radius:50%;font-size:24px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.chips.scroll{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.chip{flex:0 0 auto;padding:10px 16px;border-radius:999px;background:#fff;border:2px solid var(--line);font-size:19px;white-space:nowrap}
+.chip.on{background:var(--pink);border-color:var(--pinkd);font-weight:700}
+input[type=text],input[type=search],textarea{width:100%;font:inherit;font-size:19px;padding:14px;border-radius:16px;border:2px solid var(--line);background:#fff;color:var(--ink);margin:6px 0;-webkit-appearance:none}
+.panel{background:var(--card);border-radius:24px;padding:16px;margin:12px 0;border:2px solid var(--line)}
+.tip{background:#fff1d6;border-radius:20px;padding:14px 44px 14px 14px;position:relative;margin:10px 0;font-size:18px}
+.tip .x{position:absolute;right:6px;top:6px;background:none;font-size:24px;width:40px;height:40px}
+.card{background:var(--card);border-radius:22px;padding:14px;margin:12px 0;border:2px solid var(--line);box-shadow:0 3px 8px rgba(150,110,70,.08)}
+.tag{display:inline-block;padding:3px 12px;border-radius:999px;font-size:15px;font-weight:700;margin-right:6px}
+.p-Threads{background:#dcdcdc}.p-FB{background:#c9dcf7}.p-IG{background:#f8cde0}.p-其他{background:var(--lav)}
+.cat{background:var(--mint)}
+.note{font-size:21px;font-weight:700;margin:8px 0 2px;word-break:break-all}
+.meta{color:var(--sub);font-size:15px}
+.row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.row .btn{flex:1}
+.empty{text-align:center;padding:20px 8px}
+.empty ol{text-align:left;font-size:19px;padding-left:26px}
+.hide{display:none!important}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 30px);transform:translateX(-50%);background:#5a4636;color:#fff;padding:12px 20px;border-radius:999px;font-size:18px;z-index:99;max-width:90%;text-align:center}
+.modal{position:fixed;inset:0;background:rgba(90,70,54,.45);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}
+.modal .box{background:var(--card);border-radius:24px;padding:20px;width:100%;max-width:420px}
+.url{color:var(--sub);font-size:14px;word-break:break-all}
+h2{font-size:22px;margin:4px 0 8px}
+.catrow{display:flex;gap:8px;align-items:center;margin:8px 0}
+.catrow span{flex:1;font-size:20px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+(function(){
+var P="liukan_";
+function load(k,d){try{var v=localStorage.getItem(P+k);return v?JSON.parse(v):d}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(P+k,JSON.stringify(v));return true}catch(e){toast("儲存失敗，請確認不是無痕模式");return false}}
+var DEFCATS=[{id:"c1",name:"運動",emoji:"🏃"},{id:"c2",name:"食譜",emoji:"🍳"},{id:"c3",name:"餐廳",emoji:"🍜"},{id:"c4",name:"景點",emoji:"🏞️"}];
+var cats=load("cats",null);if(!cats){cats=DEFCATS;save("cats",cats)}
+var items=load("items",[]);
+var view="home",filter="all",q="",draft=null,tipClosed=load("tipclosed",false);
+var app=document.getElementById("app");
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function toast(m){var t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},2600)}
+function platform(u){var h="";try{h=new URL(u).hostname.toLowerCase()}catch(e){return "其他"}
+ if(/(^|\.)threads\.(net|com)$/.test(h))return "Threads";
+ if(/(^|\.)(facebook\.com|fb\.com|fb\.watch)$/.test(h))return "FB";
+ if(/(^|\.)instagram\.com$/.test(h))return "IG";return "其他"}
+function extractUrl(t){var m=String(t||"").match(/https?:\/\/[^\s]+/i);return m?m[0]:""}
+function catOf(id){for(var i=0;i<cats.length;i++)if(cats[i].id===id)return cats[i];return null}
+function catLabel(id){var c=catOf(id);return c?(c.emoji?c.emoji+" ":"")+c.name:"未分類"}
+function fmt(ts){var d=new Date(ts);return d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate()}
+function norm(u){return u.replace(/#.*$/,"").replace(/\/+$/,"")}
+function saveItems(){return save("items",items)}
+function saveCats(){return save("cats",cats)}
+function confirmBox(msg,okText,cb){
+ var m=document.createElement("div");m.className="modal";
+ m.innerHTML='<div class="box"><p style="font-size:21px;margin-top:0">'+esc(msg)+'</p><div class="row"><button class="btn alt small" style="flex:1" data-n>再想想</button><button class="btn danger small" style="flex:1" data-y>'+esc(okText)+'</button></div></div>';
+ document.body.appendChild(m);
+ m.querySelector("[data-n]").onclick=function(){m.remove()};
+ m.querySelector("[data-y]").onclick=function(){m.remove();cb()}}
+function promptBox(title,val,emojiToo,cb){
+ var m=document.createElement("div");m.className="modal";
+ m.innerHTML='<div class="box"><h2>'+esc(title)+'</h2>'+(emojiToo?'<input type="text" data-e maxlength="4" placeholder="表情符號（選填，例如 🍰）">':'')+'<input type="text" data-n maxlength="12" placeholder="分類名稱" value="'+esc(val||"")+'"><div class="row"><button class="btn alt small" style="flex:1" data-c>取消</button><button class="btn small" style="flex:1" data-o>好</button></div></div>';
+ document.body.appendChild(m);
+ m.querySelector("[data-c]").onclick=function(){m.remove()};
+ m.querySelector("[data-o]").onclick=function(){var n=m.querySelector("[data-n]").value.trim();var e=emojiToo?m.querySelector("[data-e]").value.trim():"";if(!n){toast("請輸入名稱");return}m.remove();cb(n,e)}}
+function newCat(name,emoji){var c={id:"c"+Date.now()+Math.floor(Math.random()*999),name:name,emoji:emoji};cats.push(c);saveCats();return c}
+
+function tipHtml(){
+ if(navigator.standalone===true||tipClosed)return "";
+ return '<div class="tip">💡 點 Safari 下方的 <b>分享</b> → <b>加入主畫面</b>，就會變成桌面 App<button class="x" data-act="closetip" aria-label="關閉">✕</button></div>'}
+
+function render(){
+ if(view==="home")renderHome();else if(view==="add")renderAdd();else renderSettings()}
+
+function renderHome(){
+ var list=items.filter(function(it){
+  if(filter!=="all"){if(filter==="none"){if(catOf(it.cat))return false}else if(it.cat!==filter)return false}
+  if(q){var s=(it.note+" "+it.url+" "+catLabel(it.cat)+" "+it.platform).toLowerCase();if(s.indexOf(q.toLowerCase())<0)return false}
+  return true});
+ var none=items.filter(function(i){return !catOf(i.cat)}).length;
+ var h='<header><h1>💗 我的留看</h1><button class="iconbtn" data-act="settings" aria-label="設定">⚙️</button></header>'+tipHtml()+
+ '<button class="btn" data-act="add">📋 貼上連結</button>'+
+ '<input type="search" id="q" placeholder="🔍 搜尋備註、網址、分類" value="'+esc(q)+'">'+
+ '<div class="chips scroll"><button class="chip'+(filter==="all"?" on":"")+'" data-f="all">全部 '+items.length+'</button>';
+ cats.forEach(function(c){var n=items.filter(function(i){return i.cat===c.id}).length;h+='<button class="chip'+(filter===c.id?" on":"")+'" data-f="'+c.id+'">'+esc((c.emoji?c.emoji+" ":"")+c.name)+' '+n+'</button>'});
+ if(none)h+='<button class="chip'+(filter==="none"?" on":"")+'" data-f="none">未分類 '+none+'</button>';
+ h+='</div>';
+ if(!items.length){
+  h+='<div class="panel empty"><div style="font-size:54px">🔖</div><h2>還沒有收藏喔</h2><ol><li>在 Threads、FB 或 IG 的貼文按「分享」，選「複製連結」</li><li>回到這裡，按上面粉紅色「貼上連結」</li><li>點一個分類，再寫一句備註</li><li>按「存起來」，以後就能在這裡找到囉</li></ol></div>'}
+ else if(!list.length){h+='<div class="panel empty">找不到符合的貼文 🔎</div>'}
+ list.forEach(function(it){
+  h+='<div class="card"><span class="tag p-'+esc(it.platform)+'">'+esc(it.platform)+'</span><span class="tag cat">'+esc(catLabel(it.cat))+'</span>'+
+  '<div class="note">'+esc(it.note||"（沒有備註）")+'</div><div class="meta">儲存於 '+fmt(it.ts)+'</div><div class="url">'+esc(it.url.slice(0,70))+'</div>'+
+  '<div class="row"><a class="btn small" style="text-align:center;text-decoration:none;flex:1.4" href="'+esc(it.url)+'" target="_blank" rel="noopener">開啟原文</a><button class="btn alt small" data-edit="'+it.id+'">編輯</button><button class="btn danger small" data-del="'+it.id+'">刪除</button></div></div>'});
+ app.innerHTML=h;
+ var qi=document.getElementById("q");qi.oninput=function(){q=qi.value;var pos=qi.selectionStart;renderHome();var n=document.getElementById("q");n.focus();try{n.setSelectionRange(pos,pos)}catch(e){}}}
+
+function renderAdd(){
+ var d=draft;
+ var h='<header><h1>新增收藏</h1><button class="iconbtn" data-act="home" aria-label="返回">✕</button></header>';
+ if(!d.url){
+  h+='<button class="btn" data-act="paste">📋 貼上連結</button>'+
+  '<div class="panel '+(d.manual?'':'hide')+'" id="manual"><p style="margin:0">無法自動讀取，請在下面框框<b>長按 → 貼上</b>：</p><input type="text" id="murl" placeholder="長按這裡貼上連結" inputmode="url" autocapitalize="none"><button class="btn alt" data-act="useurl">確定</button></div>'+
+  '<p class="meta">先到貼文按「分享 → 複製連結」，再回來按上面的按鈕。</p>'}
+ else{
+  h+='<div class="panel"><span class="tag p-'+d.platform+'">'+d.platform+'</span><div class="url">'+esc(d.url)+'</div>'+(d.dup?'<p style="color:#b5473a;margin:8px 0 0">⚠️ 這個連結已經存過囉（你仍可以再存一次）</p>':'')+'</div>'+
+  '<h2>選分類</h2><div class="chips">';
+  cats.forEach(function(c){h+='<button class="chip'+(d.cat===c.id?" on":"")+'" data-pick="'+c.id+'">'+esc((c.emoji?c.emoji+" ":"")+c.name)+'</button>'});
+  h+='<button class="chip'+(d.cat===""?" on":"")+'" data-pick="">未分類</button><button class="chip" data-act="newcat">＋新增分類</button></div>'+
+  '<h2>備註（選填）</h2><input type="text" id="note" placeholder="例如 鹽酥雞食譜、台中咖啡廳" value="'+esc(d.note)+'">'+
+  '<button class="btn" data-act="saveit" style="margin-top:14px">💾 存起來</button>'+
+  '<button class="btn alt" data-act="resetdraft" style="margin-top:14px">換一個連結</button>'}
+ app.innerHTML=h}
+
+function renderSettings(){
+ var h='<header><h1>設定</h1><button class="iconbtn" data-act="home" aria-label="返回">✕</button></header>'+
+ '<div class="panel"><h2>🗂️ 管理分類</h2>';
+ cats.forEach(function(c){h+='<div class="catrow"><span>'+esc((c.emoji?c.emoji+" ":"")+c.name)+'</span><button class="btn alt small" data-rn="'+c.id+'">改名</button><button class="btn danger small" data-dc="'+c.id+'">刪除</button></div>'});
+ h+='<button class="btn alt" data-act="newcat2" style="margin-top:10px">＋新增分類</button></div>'+
+ '<div class="panel"><h2>💾 備份</h2><p style="margin-top:0">你的收藏<b>只存在這支手機</b>裡。換手機或不小心清掉資料就會不見，建議偶爾備份一下。</p>'+
+ '<button class="btn" data-act="export">匯出備份</button><div style="height:12px"></div><button class="btn alt" data-act="import">匯入備份</button>'+
+ '<input type="file" id="file" accept=".json,application/json" class="hide"></div>'+
+ '<button class="btn alt" data-act="home">← 回首頁</button>';
+ app.innerHTML=h;
+ document.getElementById("file").onchange=function(e){doImport(e.target.files[0]);e.target.value=""}}
+
+function startDraft(url){
+ var u=extractUrl(url);if(!u){toast("沒看到網址，請再複製一次連結");return false}
+ var dup=items.some(function(i){return norm(i.url)===norm(u)});
+ draft={url:u,platform:platform(u),cat:cats.length?cats[0].id:"",note:"",dup:dup};view="add";render();return true}
+function pasteClip(){
+ if(navigator.clipboard&&navigator.clipboard.readText){
+  navigator.clipboard.readText().then(function(t){if(!startDraft(t)){}}).catch(function(){manual()})}
+ else manual()}
+function manual(){draft.manual=true;render();var m=document.getElementById("murl");if(m)m.focus()}
+function doExport(){
+ var data=JSON.stringify({app:"liukan",version:1,exported:Date.now(),cats:cats,items:items},null,1);
+ var name="我的留看備份-"+fmt(Date.now()).replace(/\//g,"-")+".json";
+ try{var f=new File([data],name,{type:"application/json"});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:"我的留看備份"}).catch(function(){});return}}catch(e){}
+ try{var b=new Blob([data],{type:"application/json"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();a.remove();toast("已下載備份檔")}catch(e){toast("匯出失敗")}}
+function doImport(file){
+ if(!file)return;var r=new FileReader();
+ r.onload=function(){try{
+  var o=JSON.parse(r.result);if(!o||!Array.isArray(o.items))throw 0;
+  (o.cats||[]).forEach(function(c){if(c&&c.id&&c.name&&!catOf(c.id))cats.push({id:String(c.id),name:String(c.name),emoji:c.emoji||""})});
+  var have={};items.forEach(function(i){have[norm(i.url)]=1});var n=0,skip=0;
+  o.items.forEach(function(i){if(!i||!i.url)return;var k=norm(String(i.url));if(have[k]){skip++;return}have[k]=1;
+   items.push({id:String(i.id||("i"+Date.now()+Math.random())),url:String(i.url),platform:i.platform||platform(i.url),cat:i.cat||"",note:String(i.note||""),ts:Number(i.ts)||Date.now()});n++});
+  items.sort(function(a,b){return b.ts-a.ts});saveCats();saveItems();
+  toast("匯入完成：新增 "+n+" 筆，略過重複 "+skip+" 筆");render()}catch(e){toast("這個檔案看不懂，請選之前匯出的備份檔")}};
+ r.onerror=function(){toast("讀取檔案失敗")};r.readAsText(file)}
+
+function editItem(id){
+ var it=items.filter(function(i){return i.id===id})[0];if(!it)return;
+ var m=document.createElement("div");m.className="modal";
+ var o='<div class="chips">';cats.forEach(function(c){o+='<button class="chip'+(it.cat===c.id?" on":"")+'" data-c="'+c.id+'">'+esc((c.emoji?c.emoji+" ":"")+c.name)+'</button>'});
+ o+='<button class="chip'+(!catOf(it.cat)?" on":"")+'" data-c="">未分類</button></div>';
+ m.innerHTML='<div class="box"><h2>編輯</h2>'+o+'<input type="text" data-note placeholder="備註" value="'+esc(it.note)+'"><div class="row"><button class="btn alt small" style="flex:1" data-x>取消</button><button class="btn small" style="flex:1" data-ok>存好了</button></div></div>';
+ document.body.appendChild(m);var sel=it.cat;
+ m.querySelectorAll("[data-c]").forEach(function(b){b.onclick=function(){sel=b.getAttribute("data-c");m.querySelectorAll("[data-c]").forEach(function(x){x.classList.remove("on")});b.classList.add("on")}});
+ m.querySelector("[data-x]").onclick=function(){m.remove()};
+ m.querySelector("[data-ok]").onclick=function(){it.cat=sel;it.note=m.querySelector("[data-note]").value.trim();saveItems();m.remove();render()}}
+
+document.addEventListener("click",function(e){
+ var t=e.target.closest("button");if(!t)return;
+ var a=t.getAttribute("data-act");
+ if(t.hasAttribute("data-f")){filter=t.getAttribute("data-f");render();return}
+ if(t.hasAttribute("data-pick")){draft.note=(document.getElementById("note")||{}).value||draft.note;draft.cat=t.getAttribute("data-pick");render();return}
+ if(t.hasAttribute("data-edit")){editItem(t.getAttribute("data-edit"));return}
+ if(t.hasAttribute("data-del")){var id=t.getAttribute("data-del");confirmBox("確定要刪除這則收藏嗎？","刪除",function(){items=items.filter(function(i){return i.id!==id});saveItems();render()});return}
+ if(t.hasAttribute("data-rn")){var c=catOf(t.getAttribute("data-rn"));promptBox("改分類名稱",c.name,false,function(n){c.name=n;saveCats();render()});return}
+ if(t.hasAttribute("data-dc")){var cid=t.getAttribute("data-dc"),cc=catOf(cid);
+  confirmBox("確定刪除「"+cc.name+"」嗎？這個分類的貼文會移到「未分類」。","刪除",function(){items.forEach(function(i){if(i.cat===cid)i.cat=""});cats=cats.filter(function(x){return x.id!==cid});if(filter===cid)filter="all";saveCats();saveItems();render()});return}
+ if(!a)return;
+ if(a==="closetip"){tipClosed=true;save("tipclosed",true);render()}
+ else if(a==="settings"){view="settings";render()}
+ else if(a==="home"){view="home";draft=null;render()}
+ else if(a==="add"){draft={url:"",manual:false};view="add";render();pasteClip()}
+ else if(a==="paste"){pasteClip()}
+ else if(a==="useurl"){startDraft(document.getElementById("murl").value)}
+ else if(a==="resetdraft"){draft={url:"",manual:false};render()}
+ else if(a==="newcat"){promptBox("新增分類",""  ,true,function(n,em){var c=newCat(n,em);draft.note=(document.getElementById("note")||{}).value||"";draft.cat=c.id;render()})}
+ else if(a==="newcat2"){promptBox("新增分類","",true,function(n,em){newCat(n,em);render()})}
+ else if(a==="saveit"){
+  var note=document.getElementById("note").value.trim();
+  items.unshift({id:"i"+Date.now()+Math.floor(Math.random()*999),url:draft.url,platform:draft.platform,cat:draft.cat,note:note,ts:Date.now()});
+  if(saveItems()){draft=null;view="home";filter="all";q="";render();toast("已存起來 ✅")}}
+ else if(a==="export"){doExport()}
+ else if(a==="import"){document.getElementById("file").click()}
+});
+render();
+})();
+</script>
+</body>
+</html>
