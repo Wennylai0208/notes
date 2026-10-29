@@ -86,6 +86,7 @@ html[data-theme="glass"] .modal .box,html[data-theme="frost"] .modal .box{backgr
 .themes button.on{border-color:var(--chip-on-brd);background:var(--chip-on);color:var(--chip-on-ink);font-weight:600}
 .sw{width:26px;height:26px;border-radius:50%;border:1px solid rgba(0,0,0,.12);display:block}
 .sw.glass{background:linear-gradient(135deg,#d9c8f5,#b9d6f8)}.sw.frost{background:linear-gradient(135deg,#d4e4f7,#4a6fa5)}.sw.mono{background:linear-gradient(135deg,#fff 50%,#36454f 50%)}
+.emlabel{font-size:14px;color:var(--sub);margin:12px 0 6px}.emgrid{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;max-height:190px;overflow-y:auto;margin-bottom:8px}.emgrid .em{font-size:22px;line-height:1;aspect-ratio:1;border:1px solid transparent;border-radius:10px;background:rgba(255,255,255,.6);padding:0;cursor:pointer}.emgrid .em.on{border-color:currentColor;background:rgba(142,124,195,.18)}
 </style>
 </head>
 <body>
@@ -119,10 +120,13 @@ function confirmBox(msg,okText,cb){
  document.body.appendChild(m);
  m.querySelector("[data-n]").onclick=function(){m.remove()};
  m.querySelector("[data-y]").onclick=function(){m.remove();cb()}}
-function promptBox(title,val,emojiToo,cb){
- var m=document.createElement("div");m.className="modal";
- m.innerHTML='<div class="box"><h2>'+esc(title)+'</h2>'+(emojiToo?'<input type="text" data-e maxlength="4" placeholder="表情符號（選填，例如 🍰）">':'')+'<input type="text" data-n maxlength="12" placeholder="分類名稱" value="'+esc(val||"")+'"><div class="row"><button class="btn alt small" style="flex:1" data-c>取消</button><button class="btn small" style="flex:1" data-o>好</button></div></div>';
+var EMOJIS=["📱","💻","🏃","🧘","🏋️","🚴","🍳","🍰","🥗","☕","🍜","🍣","🍔","🏞️","✈️","🏖️","⛰️","🏨","🛍️","👗","💄","💅","🏠","🪴","📚","✏️","🎓","💰","📈","🎬","🎵","🎨","📷","🐶","👶","💊","❤️","⭐","🎁","📝"];
+function promptBox(title,val,emojiToo,cb,emVal){
+ var m=document.createElement("div");m.className="modal";var sel=emVal||"";
+ var grid="";if(emojiToo){grid='<div class="emlabel">選一個圖示</div><div class="emgrid">'+EMOJIS.map(function(e){return '<button type="button" class="em'+(e===sel?" on":"")+'" data-em="'+e+'">'+e+'</button>'}).join("")+'</div><input type="text" data-e maxlength="4" placeholder="或自己輸入表情符號（選填）" value="'+esc(sel)+'">'}
+ m.innerHTML='<div class="box"><h2>'+esc(title)+'</h2><input type="text" data-n maxlength="12" placeholder="分類名稱" value="'+esc(val||"")+'">'+grid+'<div class="row"><button class="btn alt small" style="flex:1" data-c>取消</button><button class="btn small" style="flex:1" data-o>好</button></div></div>';
  document.body.appendChild(m);
+ if(emojiToo){var ei=m.querySelector("[data-e]");m.querySelectorAll("[data-em]").forEach(function(b){b.onclick=function(){var e=b.getAttribute("data-em");var same=ei.value===e;ei.value=same?"":e;m.querySelectorAll("[data-em]").forEach(function(x){x.classList.toggle("on",!same&&x===b)})}});ei.oninput=function(){m.querySelectorAll("[data-em]").forEach(function(x){x.classList.toggle("on",x.getAttribute("data-em")===ei.value)})}}
  m.querySelector("[data-c]").onclick=function(){m.remove()};
  m.querySelector("[data-o]").onclick=function(){var n=m.querySelector("[data-n]").value.trim();var e=emojiToo?m.querySelector("[data-e]").value.trim():"";if(!n){toast("請輸入名稱");return}m.remove();cb(n,e)}}
 function newCat(name,emoji){var c={id:"c"+Date.now()+Math.floor(Math.random()*999),name:name,emoji:emoji};cats.push(c);saveCats();return c}
@@ -183,7 +187,7 @@ function renderSettings(){
  var h='<header><h1>設定</h1><button class="iconbtn" data-act="home" aria-label="返回">✕</button></header>'+
  '<div class="panel"><h2>🎨 主題</h2><div class="themes">'+THEMES.map(function(t){return '<button data-theme-pick="'+t[0]+'" class="'+(curTheme()===t[0]?'on':'')+'"><span class="sw '+t[0]+'"></span>'+t[1]+'</button>'}).join("")+'</div></div>'+
  '<div class="panel"><h2>🗂️ 管理分類</h2>';
- cats.forEach(function(c){h+='<div class="catrow"><span>'+esc((c.emoji?c.emoji+" ":"")+c.name)+'</span><button class="btn alt small" data-rn="'+c.id+'">改名</button><button class="btn danger small" data-dc="'+c.id+'">刪除</button></div>'});
+ cats.forEach(function(c){h+='<div class="catrow"><span>'+esc((c.emoji?c.emoji+" ":"")+c.name)+'</span><button class="btn alt small" data-rn="'+c.id+'">編輯</button><button class="btn danger small" data-dc="'+c.id+'">刪除</button></div>'});
  h+='<button class="btn alt" data-act="newcat2" style="margin-top:10px">＋新增分類</button></div>'+
  '<div class="panel"><h2>💾 備份</h2><p style="margin-top:0">你的收藏<b>只存在這支手機</b>裡。換手機或不小心清掉資料就會不見，建議偶爾備份一下。</p>'+
  '<button class="btn" data-act="export">匯出備份</button><div style="height:12px"></div><button class="btn alt" data-act="import">匯入備份</button>'+
@@ -238,7 +242,7 @@ document.addEventListener("click",function(e){
  if(t.hasAttribute("data-pick")){draft.note=(document.getElementById("note")||{}).value||draft.note;draft.cat=t.getAttribute("data-pick");render();return}
  if(t.hasAttribute("data-edit")){editItem(t.getAttribute("data-edit"));return}
  if(t.hasAttribute("data-del")){var id=t.getAttribute("data-del");confirmBox("確定要刪除這則收藏嗎？","刪除",function(){items=items.filter(function(i){return i.id!==id});saveItems();render()});return}
- if(t.hasAttribute("data-rn")){var c=catOf(t.getAttribute("data-rn"));promptBox("改分類名稱",c.name,false,function(n){c.name=n;saveCats();render()});return}
+ if(t.hasAttribute("data-rn")){var c=catOf(t.getAttribute("data-rn"));promptBox("編輯分類",c.name,true,function(n,em){c.name=n;c.emoji=em;saveCats();render()},c.emoji);return}
  if(t.hasAttribute("data-dc")){var cid=t.getAttribute("data-dc"),cc=catOf(cid);
   confirmBox("確定刪除「"+cc.name+"」嗎？這個分類的貼文會移到「未分類」。","刪除",function(){items.forEach(function(i){if(i.cat===cid)i.cat=""});cats=cats.filter(function(x){return x.id!==cid});if(filter===cid)filter="all";saveCats();saveItems();render()});return}
  if(!a)return;
